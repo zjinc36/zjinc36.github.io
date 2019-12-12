@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zjinc36.github.io/"/>
-  <updated>2019-11-15T14:10:09.145Z</updated>
+  <updated>2019-12-12T13:42:57.927Z</updated>
   <id>https://zjinc36.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker简介</title>
+    <link href="https://zjinc36.github.io/2019/11/24/docker%E7%AE%80%E4%BB%8B/"/>
+    <id>https://zjinc36.github.io/2019/11/24/docker简介/</id>
+    <published>2019-11-23T16:22:24.000Z</published>
+    <updated>2019-12-12T13:42:57.927Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Docker为什么会出现"><a href="#Docker为什么会出现" class="headerlink" title="Docker为什么会出现"></a>Docker为什么会出现</h1><p>环境配置是异常麻烦的,换一台机器,就要重来一次,费事费力.<br>很多人想到,能不能从根本上解决这个问题 -&gt; 即软件可以带环境安装吗?<br>也就是说,安装的时候,把原始环境一模一样地复制过来.<br>开发人员利用docker可以消除协作编码时”在我机器上可正常工作”的问题</p><h1 id="Docker理念"><a href="#Docker理念" class="headerlink" title="Docker理念"></a>Docker理念</h1><p>Docker的主要目标是”Build, Ship and Run Any App, Anywhere”,也就是通过对应用组件的封装,分发,部署,运行等生命周期的管理,使用户的App及其运行环境能过做到<strong><code>一次封装,到处运行</code></strong></p><h1 id="Docker是什么"><a href="#Docker是什么" class="headerlink" title="Docker是什么"></a>Docker是什么</h1><p>Docker是基于Go语言实现的云开源项目.<br>解决了运行环境和配置问题软件容器,方便做持续集成并有助于整体发布的容器虚拟化技术</p><h1 id="一次封装-到处运行"><a href="#一次封装-到处运行" class="headerlink" title="一次封装,到处运行"></a>一次封装,到处运行</h1><h2 id="一次封装-到处运行的方式"><a href="#一次封装-到处运行的方式" class="headerlink" title="一次封装,到处运行的方式"></a>一次封装,到处运行的方式</h2><h3 id="传统的虚拟机方式"><a href="#传统的虚拟机方式" class="headerlink" title="传统的虚拟机方式"></a>传统的虚拟机方式</h3><p>虚拟机(virtual machine)就是带环境安装的一种解决方案</p><p>它可以在一种操作系统里面运行另一种操作系统,比如在windows系统里面运行linux系统.应用程序对此毫无感知,因为虚拟机看上去跟真实系统一模一样,而对于底层系统来说,虚拟机就是一个普通文件,不需要了就删掉,对其他部分毫无影响.这类虚拟机完美运行另一套系统,能够使应用程序,操作系统和硬件三者之间的逻辑不变.</p><p>虚拟机的缺点</p><ol><li>资源占用多</li><li>冗余步骤多</li><li>启动慢</li></ol><h3 id="容器方式"><a href="#容器方式" class="headerlink" title="容器方式"></a>容器方式</h3><p>由于前面虚拟机存在这些缺点,Linux发展出另一种虚拟化技术:Linux容器(Linux Containers, 缩写为LXC)</p><p>Linux容器不是模拟一个完整的操作系统,而是对进程进行隔离.有了容器,就可以将软件运行所需的所有资源打包到一个隔离的容器中.容器与虚拟机不同,不需要捆绑一整套操作系统,只需要软件工作所需的库资源和设置.系统因此而变得高效轻量并保证部署在任一环境中的软件都能始终如一的运行</p><p>比较了docker和传统虚拟化方式的不同之处:</p><ol><li>传统虚拟技术是虚拟出一套硬件后,在其上运行一个完成操作系统,在该系统上在运行所需应用进程;</li><li>而容器内的应用进程直接运行于宿主的内核,容器内没有自己的内核,而且也没有进程硬件虚拟.因此容器要比传统虚拟机更为轻便;</li><li>每个容器之间相互隔离,每个容器有自己的文件系统,容器之间进程不会相互影响,能区分计算资源.</li></ol><h2 id="一次构建-到处运行的好处"><a href="#一次构建-到处运行的好处" class="headerlink" title="一次构建,到处运行的好处"></a>一次构建,到处运行的好处</h2><ul><li>更快速的应用交付和部署</li><li>更便捷的升级和扩容器</li><li>更简单的系统运维</li><li>更高效的计算资源利用</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      docker简介
+    
+    </summary>
+    
+      <category term="docker" scheme="https://zjinc36.github.io/categories/docker/"/>
+    
+    
+      <category term="docker" scheme="https://zjinc36.github.io/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>Jquery可输入也可选择的下拉框</title>
@@ -432,28 +454,6 @@
     <summary type="html">
     
       ubuntu版的飞鸽传书
-    
-    </summary>
-    
-      <category term="Ubuntu" scheme="https://zjinc36.github.io/categories/Ubuntu/"/>
-    
-    
-      <category term="Ubuntu装机日志" scheme="https://zjinc36.github.io/tags/Ubuntu%E8%A3%85%E6%9C%BA%E6%97%A5%E5%BF%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu中安装桌面维基zim</title>
-    <link href="https://zjinc36.github.io/2019/08/19/ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85%E6%A1%8C%E9%9D%A2%E7%BB%B4%E5%9F%BAzim/"/>
-    <id>https://zjinc36.github.io/2019/08/19/ubuntu中安装桌面维基zim/</id>
-    <published>2019-08-18T16:49:05.000Z</published>
-    <updated>2019-08-18T07:54:48.260Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="zim是什么"><a href="#zim是什么" class="headerlink" title="zim是什么"></a>zim是什么</h1><p>Zim是一个图形文本编辑器，用于维护一组wiki页面。</p><h1 id="zim的作用"><a href="#zim的作用" class="headerlink" title="zim的作用"></a>zim的作用</h1><p>每个页面都可以包含指向其他页面的链接，简单的格式和图像。页面存储在文件夹结构中，就像在大纲中一样，并且可以具有附件。创建新页面就像链接到不存在的页面一样简单。所有数据都存储在具有wiki格式的纯文本文件中。各种插件提供附加功能，如任务列表管理器，公式编辑器，托盘图标和版本控制支持。</p><p>Zim可用于：</p><ul><li>保留笔记存档</li><li>保留每日或每周日记</li><li>在会议或讲座期间做笔记</li><li>组织任务列表</li><li>撰写博客条目和电子邮件</li><li>做头脑风暴</li></ul><h1 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h1><p><a href="https://zim-wiki.org/" target="_blank" rel="noopener">https://zim-wiki.org/</a></p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:jaap.karssenberg/zim</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install zim</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      Zim是一个图形文本编辑器，用于维护一组wiki页面
     
     </summary>
     
