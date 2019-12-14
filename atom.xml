@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zjinc36.github.io/"/>
-  <updated>2019-12-12T13:56:13.442Z</updated>
+  <updated>2019-12-12T14:38:21.456Z</updated>
   <id>https://zjinc36.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://zjinc36.github.io/2019/12/13/Hadoop%E6%A0%B8%E5%BF%83%E9%97%AE%E9%A2%98/"/>
     <id>https://zjinc36.github.io/2019/12/13/Hadoop核心问题/</id>
     <published>2019-12-12T22:48:51.000Z</published>
-    <updated>2019-12-12T13:56:13.442Z</updated>
+    <updated>2019-12-12T14:38:21.456Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Hadoop核心问题"><a href="#Hadoop核心问题" class="headerlink" title="Hadoop核心问题"></a>Hadoop核心问题</h1><p>海量数据</p><h1 id="数据量进制"><a href="#数据量进制" class="headerlink" title="数据量进制"></a>数据量进制</h1><ol><li>1bit = 1位</li><li>1byte = 8bit</li><li>1kb = 1024byte</li><li>1mb = 1024kb</li><li>1gb = 1024mb</li><li>1tb = 1024gb</li><li>1pb = 1024tb</li><li>1eb = 1024pb</li><li>1zb = 1024eb</li><li>1yb = 1024zb</li></ol><h1 id="海量数据的存储"><a href="#海量数据的存储" class="headerlink" title="海量数据的存储"></a>海量数据的存储</h1><h2 id="分割存放"><a href="#分割存放" class="headerlink" title="分割存放"></a>分割存放</h2><ol><li>由于海量数据，所以一台电脑肯定放不下，最简单的方式就是分开存放，这就涉及到<code>分布式</code></li><li>分布式 -&gt; dfs:distributed file system</li></ol><h2 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h2><p>mapreduce</p><ol><li>map -&gt; 映射</li><li>reduce -&gt; 化简</li></ol>]]></content>
     
@@ -32,8 +32,6 @@
     </summary>
     
       <category term="BigData" scheme="https://zjinc36.github.io/categories/BigData/"/>
-    
-      <category term="Hadoop" scheme="https://zjinc36.github.io/categories/BigData/Hadoop/"/>
     
     
       <category term="BigData" scheme="https://zjinc36.github.io/tags/BigData/"/>
@@ -135,270 +133,6 @@
   </entry>
   
   <entry>
-    <title>ListeningPractice:ＪＲ千葉、茨城中心に引き続き運転見合わせの路線も</title>
-    <link href="https://zjinc36.github.io/2019/10/27/ListeningPractice-JR%E5%8D%83%E8%91%89%E3%80%81%E8%8C%A8%E5%9F%8E%E4%B8%AD%E5%BF%83%E3%81%AB%E5%BC%95%E3%81%8D%E7%B6%9A%E3%81%8D%E9%81%8B%E8%BB%A2%E8%A6%8B%E5%90%88%E3%82%8F%E3%81%9B%E3%81%AE%E8%B7%AF%E7%B7%9A%E3%82%82/"/>
-    <id>https://zjinc36.github.io/2019/10/27/ListeningPractice-JR千葉、茨城中心に引き続き運転見合わせの路線も/</id>
-    <published>2019-10-27T08:51:29.000Z</published>
-    <updated>2019-10-30T13:12:41.322Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="音频地址"><a href="#音频地址" class="headerlink" title="音频地址"></a>音频地址</h1><p><a href="https://www.xingtingyi.com/index.php/index/sourceInfo?id=1028" target="_blank" rel="noopener">ＪＲ 千葉 茨城中心に引き続き運転見合わせの路線</a></p><h1 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h1><p>昨日の大雨の影響で、今日も千葉県茨城県中心にJRの運行に影響が出る見込みです</p><p>線路に土砂が流入しているところや、沿線に避難指示が出ているところでは、復旧に時間がかかるとして、始発から運転が見合わせの路線があります。</p><p>このうち、運転再開の見通しが立っていないのは、総武本線の佐倉駅と鳴門駅間、成田線の成田駅と行川駅間、都大金線の全線、久留里線の全線です。</p><p>また、ソドボオ線の大原駅と泡釜輪駅間では、午前八時ごろまで、本台駅とカズサイ愛知の前駅間では、　　　まで運転が見合わせます。</p><p>さらに、常磐線の高原駅と富加駅の間でも、午前中の運転が見合わせます。</p><p>特急列車の運転にも影響を出る見込みです。品川駅と福島県の茨木駅の結ぶ特急日立は午前中に運転する予定だった、上下線合わせって九本の列車をすべて運休することになりました。</p><p>また、品川駅と茨城県の桂駅など結ぶ特急常磐や、JR常磐線の普通列車は四月から運転する予定ですから、いずれも本数を減らすということです。</p><h1 id="词汇"><a href="#词汇" class="headerlink" title="词汇"></a>词汇</h1><p>|词汇|读音|意思|备注|<br>|茨城|いばらき|||<br>|土砂|どしゃ|||<br>|復旧|ふっきゅう|||<br>|見込み|見込み|||<br>|総武本線|そうぶほんせん|||</p>]]></content>
-    
-    <summary type="html">
-    
-      ＪＲ 千葉 茨城中心に引き続き運転見合わせの路線
-    
-    </summary>
-    
-      <category term="日语" scheme="https://zjinc36.github.io/categories/%E6%97%A5%E8%AF%AD/"/>
-    
-    
-      <category term="日语听力" scheme="https://zjinc36.github.io/tags/%E6%97%A5%E8%AF%AD%E5%90%AC%E5%8A%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ListeningPractice:台東区が路上生活者の避難所利用を拒否</title>
-    <link href="https://zjinc36.github.io/2019/10/26/ListeningPractice-%E5%8F%B0%E6%9D%B1%E5%8C%BA%E3%81%8C%E8%B7%AF%E4%B8%8A%E7%94%9F%E6%B4%BB%E8%80%85%E3%81%AE%E9%81%BF%E9%9B%A3%E6%89%80%E5%88%A9%E7%94%A8%E3%82%92%E6%8B%92%E5%90%A6/"/>
-    <id>https://zjinc36.github.io/2019/10/26/ListeningPractice-台東区が路上生活者の避難所利用を拒否/</id>
-    <published>2019-10-26T10:39:32.000Z</published>
-    <updated>2019-10-26T02:25:11.630Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="音频地址"><a href="#音频地址" class="headerlink" title="音频地址"></a>音频地址</h1><p><a href="https://www.xingtingyi.com/index.php/index/sourceInfo?id=1024" target="_blank" rel="noopener">台東区が路上生活者の避難所利用を拒否</a></p><h1 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h1><p>東京台東区は台風１９号を備えて開設した避難所で、路上生活者を区民ではないという理由で受け入れ拒否した。</p><p>一方、区外に住む人達を受け入れていたことが分かりました。</p><p>今月１２日、台東区開設した避難所に路上生活者、いわゆるホームレスの男性３人が訪れたものの、</p><p>避難所が区民のためのもので、区内に住居がないと利用できないと受け入れを拒否されました。</p><p>このうちの一人は、その後体調が崩し、一週間ほど入院しました。</p><p>一方避難所では、当日、区外に住む人や、他県から来た旅行者など受け入れていたということです。</p><p>矛盾する対応を取ったことについて、台東区は路上生活者に硬直的な判断をしてしまい、申し訳なく思う。</p><p>路上生活者を含めた避難計画を改めた策定していきたいとしています</p><h1 id="词汇"><a href="#词汇" class="headerlink" title="词汇"></a>词汇</h1><table><thead><tr><th>词汇</th><th>读音</th><th>意思</th><th>备注</th></tr></thead><tbody><tr><td>開設</td><td>かいせつ</td><td></td><td></td></tr><tr><td>訪れた</td><td>訪れた</td><td></td><td></td></tr><tr><td>避難所</td><td>ひなんじょ</td><td></td><td></td></tr><tr><td>いわゆる</td><td></td><td>所谓。世人常说的。所说的。（世にいわれている。いうところの。）</td><td></td></tr><tr><td>ホームレス</td><td></td><td>homeless</td><td></td></tr><tr><td>硬直</td><td>こうちょく</td><td>僵硬,死板</td><td></td></tr><tr><td>崩し</td><td>くずし</td><td></td><td></td></tr><tr><td>崩れる</td><td>くずれる</td><td>崩溃。坍塌。倒塌；零乱，变形，走样；变天，天气变坏；换成零钱，找零；行市下跌。行市跌落</td><td></td></tr><tr><td>矛盾する</td><td>むじゅんする</td><td></td><td></td></tr><tr><td>策定</td><td>さくてい</td><td>筹划制定，策划规定</td><td></td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      台東区が路上生活者の避難所利用を拒否
-    
-    </summary>
-    
-      <category term="日语" scheme="https://zjinc36.github.io/categories/%E6%97%A5%E8%AF%AD/"/>
-    
-    
-      <category term="日语听力" scheme="https://zjinc36.github.io/tags/%E6%97%A5%E8%AF%AD%E5%90%AC%E5%8A%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ListeningPractice:千曲川氾濫、南北に１キロ余、支流の氾濫も被害拡大、専門家調査</title>
-    <link href="https://zjinc36.github.io/2019/10/26/ListeningPractice-%E5%8D%83%E6%9B%B2%E5%B7%9D%E6%B0%BE%E6%BF%AB%E3%80%81%E5%8D%97%E5%8C%97%E3%81%AB%EF%BC%91%E3%82%AD%E3%83%AD%E4%BD%99%E3%80%81%E6%94%AF%E6%B5%81%E3%81%AE%E6%B0%BE%E6%BF%AB%E3%82%82%E8%A2%AB%E5%AE%B3%E6%8B%A1%E5%A4%A7%E3%80%81%E5%B0%82%E9%96%80%E5%AE%B6%E8%AA%BF%E6%9F%BB/"/>
-    <id>https://zjinc36.github.io/2019/10/26/ListeningPractice-千曲川氾濫、南北に１キロ余、支流の氾濫も被害拡大、専門家調査/</id>
-    <published>2019-10-25T20:16:11.000Z</published>
-    <updated>2019-10-25T12:04:54.036Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="音频地址"><a href="#音频地址" class="headerlink" title="音频地址"></a>音频地址</h1><p><a href="https://www.xingtingyi.com/index.php/index/sourceInfo?id=1018" target="_blank" rel="noopener">千曲川氾濫 南北に１キロ余 支流の氾濫も被害拡大 専門家調査</a></p><h1 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h1><p>その台風１９号で決壊した長野県の千曲川堤防が決壊した場所を中心に１キロあまりに渡って氾濫が発生していたことが新に分かりました。</p><p>長野県では、千曲川の氾濫などで、一万棟近くの住宅が浸水被害を受けました。なぜこれほどまでに被害が拡大したのか？</p><p>その原因を探るため、河川氾濫のメカニズムに詳しい東京理科大学の二瓶泰雄（にへいやすお）教授が決壊した付近の堤防を現地で調査しました</p><p>その結果、決壊した場所以外にも付近の堤防の住宅側で水でえぐり取られた跡や、草が流されている跡が見つかりました。</p><p>これは、水が堤防越える、「越水」による氾濫が発生していたことを示すもので、痕跡は決壊する場所中心に南北およそ１.１キロに渡って確認されたということです。</p><h1 id="词汇"><a href="#词汇" class="headerlink" title="词汇"></a>词汇</h1><table><thead><tr><th>词汇</th><th>读音</th><th>意思</th><th>备注</th></tr></thead><tbody><tr><td>千曲川</td><td>ちくまがわ</td><td></td><td></td></tr><tr><td>決壊</td><td>けっかい</td><td>溃决，决口</td><td></td></tr><tr><td>棟</td><td>むね</td><td></td><td>发音相同:胸</td></tr><tr><td>探る</td><td>さぐる</td><td></td><td></td></tr><tr><td>メカニズム</td><td>メカニズム</td><td>mechanism机械装置，装置</td><td></td></tr><tr><td>越水</td><td>えっすい</td><td>堤防などの頂上から流出する水。越流水。溢水いつすい</td><td>输入法不一定有这个词</td></tr><tr><td>跡</td><td>あと</td><td></td><td>读音相同:あと</td></tr><tr><td>痕跡</td><td>こんせき</td><td></td><td></td></tr><tr><td>南北</td><td>なんぼく</td><td></td><td></td></tr></tbody></table><h1 id="辨析"><a href="#辨析" class="headerlink" title="辨析"></a>辨析</h1><h2 id="「探る」と「探す」"><a href="#「探る」と「探す」" class="headerlink" title="「探る」と「探す」"></a>「探る」と「探す」</h2><ul><li>「探す」は在処が分からないものを、主に目で探すときに使います。</li><li>「探る」は在処がおよそ分かっているものを手先の触感で探すときや、見えている物事の背景・つながりなどを調べるときに使います。</li></ul><p>例</p><ul><li>本棚から目的の本を探す。</li><li>この事件の真相を探る。</li><li>引き出しの中を探って消しゴムを探した。</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      千曲川氾濫 南北に１キロ余 支流の氾濫も被害拡大 専門家調査
-    
-    </summary>
-    
-      <category term="日语" scheme="https://zjinc36.github.io/categories/%E6%97%A5%E8%AF%AD/"/>
-    
-    
-      <category term="日语听力" scheme="https://zjinc36.github.io/tags/%E6%97%A5%E8%AF%AD%E5%90%AC%E5%8A%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ListeningPractice:ｉＰＳ細胞で心臓病の治療治験申請へ、阪大の研究グループ</title>
-    <link href="https://zjinc36.github.io/2019/10/25/ListeningPractice-iPS%E7%B4%B0%E8%83%9E%E3%81%A7%E5%BF%83%E8%87%93%E7%97%85%E3%81%AE%E6%B2%BB%E7%99%82%E6%B2%BB%E9%A8%93%E7%94%B3%E8%AB%8B%E3%81%B8%E3%80%81%E9%98%AA%E5%A4%A7%E3%81%AE%E7%A0%94%E7%A9%B6%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97/"/>
-    <id>https://zjinc36.github.io/2019/10/25/ListeningPractice-iPS細胞で心臓病の治療治験申請へ、阪大の研究グループ/</id>
-    <published>2019-10-24T21:11:28.000Z</published>
-    <updated>2019-10-24T12:56:10.654Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="音频地址"><a href="#音频地址" class="headerlink" title="音频地址"></a>音频地址</h1><p><a href="https://www.xingtingyi.com/index.php/index/sourceInfo?id=1014" target="_blank" rel="noopener">ｉＰＳ細胞で心臓病の治療治験申請へ 阪大の研究グループ</a></p><h1 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h1><p>体が様々の組織になる、ｉｐｓ細胞を使った、世界で初めての心臓病治療の手術を目指します</p><p>ｉｐS細胞から作成した心臓の筋肉の細胞シート状にして重い心臓病の患者の心臓に直接貼り付ける手術について、大阪大学の研究グループ治験として実施したいと、近く審査機関に申請することが分かりました。</p><p>保険が適用される、一般的な治療法としての確率が早まることが期待され、今年度内を目処に一例目の手術の実施を目指しています。</p><p>大阪大学の沢芳樹教授の研究グループでは体がさまざまな組織になるｉｐｓ細胞から作った心臓の筋肉細胞をシート状にして重い心臓病の患者の心臓に直接貼り付けることで機能の回復を目指す、治療法を研究しています。</p><p>グループは心筋シート使った手術をより速く実用化を目指せる、治験として実施したいと、大阪大学の審査委員会申請し、今日までに承認されたということです。</p><p>これを受けてグループは今月中に治験の実施を国の審査機関に申請することにしています。</p><h1 id="词汇"><a href="#词汇" class="headerlink" title="词汇"></a>词汇</h1><table><thead><tr><th>词汇</th><th>读音</th><th>意思</th><th>备注</th></tr></thead><tbody><tr><td>貼り付ける</td><td>はりつける</td><td>贴上，粘上</td><td></td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      ｉＰＳ細胞で心臓病の治療治験申請へ 阪大の研究グループ
-    
-    </summary>
-    
-      <category term="日语" scheme="https://zjinc36.github.io/categories/%E6%97%A5%E8%AF%AD/"/>
-    
-    
-      <category term="日语听力" scheme="https://zjinc36.github.io/tags/%E6%97%A5%E8%AF%AD%E5%90%AC%E5%8A%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ListeningPractice:きょう「即位礼正殿の儀」天皇陛下が即位を内外に宣言</title>
-    <link href="https://zjinc36.github.io/2019/10/24/ListeningPractice-%E3%81%8D%E3%82%87%E3%81%86%E3%80%8C%E5%8D%B3%E4%BD%8D%E7%A4%BC%E6%AD%A3%E6%AE%BF%E3%81%AE%E5%84%80%E3%80%8D%E5%A4%A9%E7%9A%87%E9%99%9B%E4%B8%8B%E3%81%8C%E5%8D%B3%E4%BD%8D%E3%82%92%E5%86%85%E5%A4%96%E3%81%AB%E5%AE%A3%E8%A8%80/"/>
-    <id>https://zjinc36.github.io/2019/10/24/ListeningPractice-きょう「即位礼正殿の儀」天皇陛下が即位を内外に宣言/</id>
-    <published>2019-10-23T19:55:05.000Z</published>
-    <updated>2019-10-23T12:39:27.253Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="音频地址"><a href="#音频地址" class="headerlink" title="音频地址"></a>音频地址</h1><p><a href="https://www.xingtingyi.com/index.php/index/sourceInfo?id=1012" target="_blank" rel="noopener">きょう「即位礼正殿の儀」天皇陛下が即位を内外に宣言</a></p><h1 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h1><p>今年五月の皇位継承に伴って、新に即位した天皇陛下が即位を内外に宣言される。「即位礼正殿の儀」が今日午後一時から皇居宮殿の「松の間」で行われます。</p><p>「即位礼正殿の儀」は憲法で定める国事行為として行われる即位の礼の中心となる儀式です。</p><p>儀式には秋篠宮（あきしののみや）ご夫妻を初め、十一人の皇族方も参列されるほか、各界の代表や、外国の元首など、およそ２０００人が参列する予定です。</p><p>天皇陛下は「松の間」の正面中央に置かれた、高さ６メートル５０センチ近くある、高御座の台座に登り、参列した人たちを前に即位を宣言するお言葉を述べられます。</p><p>続いて、総理大臣がお祝い言葉を述べ、参列者が万歳を三唱します。</p><p>天皇陛下の即位に関連する儀式は、今年１２月まで続きます。</p><p>来月十日には、台風１９号による甚大な被害が受けて、延期となった祝賀パレード、祝賀御列の儀が行われます。</p><p>これが即位の礼の最後の儀式となります。</p><p>続いて、来月１４日から１５日に掛けて、天皇陛下の即位に伴う、一世に一度の伝統儀式、大嘗祭の中心的な儀式である、大嘗宮の儀が皇室の行事として行われます。</p><h1 id="词汇"><a href="#词汇" class="headerlink" title="词汇"></a>词汇</h1><table><thead><tr><th>词汇</th><th>读音</th><th>意思</th><th>备注</th></tr></thead><tbody><tr><td>継承</td><td>けいしょう</td><td></td><td></td></tr><tr><td>置かれた</td><td>おかれた</td><td></td><td></td></tr><tr><td>高御座</td><td>たかみくら</td><td></td><td></td></tr><tr><td>三唱</td><td>さんしょう</td><td></td><td>三唱　＝　さんしょう　like　参照</td></tr><tr><td>大嘗祭</td><td>だいじょうさい</td><td></td><td></td></tr><tr><td>行事</td><td>ぎょうじ</td><td>仪式；活动</td><td></td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      きょう「即位礼正殿の儀」天皇陛下が即位を内外に宣言
-    
-    </summary>
-    
-      <category term="日语" scheme="https://zjinc36.github.io/categories/%E6%97%A5%E8%AF%AD/"/>
-    
-    
-      <category term="日语听力" scheme="https://zjinc36.github.io/tags/%E6%97%A5%E8%AF%AD%E5%90%AC%E5%8A%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ListeningPractice:あす「即位礼正殿の儀」、皇居で儀式の最終確認作業へ</title>
-    <link href="https://zjinc36.github.io/2019/10/22/ListeningPractice-%E3%81%82%E3%81%99%E3%80%8C%E5%8D%B3%E4%BD%8D%E7%A4%BC%E6%AD%A3%E6%AE%BF%E3%81%AE%E5%84%80%E3%80%8D%E3%80%81%E7%9A%87%E5%B1%85%E3%81%A7%E5%84%80%E5%BC%8F%E3%81%AE%E6%9C%80%E7%B5%82%E7%A2%BA%E8%AA%8D%E4%BD%9C%E6%A5%AD%E3%81%B8/"/>
-    <id>https://zjinc36.github.io/2019/10/22/ListeningPractice-あす「即位礼正殿の儀」、皇居で儀式の最終確認作業へ/</id>
-    <published>2019-10-22T10:17:29.000Z</published>
-    <updated>2019-10-22T02:55:39.344Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="音频地址"><a href="#音频地址" class="headerlink" title="音频地址"></a>音频地址</h1><p><a href="https://www.xingtingyi.com/index.php/index/sourceInfo?id=1003" target="_blank" rel="noopener">あす「即位礼正殿の儀」、皇居で儀式の最終確認作業へ</a></p><h1 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h1><p>天皇陛下が即位を内外に宣言される。「即位礼正殿の儀」は明日午後行われます。</p><p>即位の礼の一連の儀式は今年五月一日に「剣璽等承継の儀（けんじとうちょうけんのぎ）」と「即位後朝見の儀（そくいご　ちょうけんのぎ）」が行われ、明日は二つの儀式が国事行為として行われます。</p><p>このうち、午後一時からの「即位礼正殿の儀」は一連の儀式を中心となるもので、天皇陛下が皇居宮殿の「松の間」、「高御座」の台座を登り、外国の元首や各界の代表などを前に即位を宣言するお言葉を述べられています。</p><p>また、夜には、外国元首などが出席して祝宴に当たる「饗宴の儀」の一回目を行われ、天皇皇后両陛下がすべての日程を終えられるは夜遅くになる見通しです。</p><p>あすは祝賀パレードに当たる、「祝賀御列の儀」も行われる予定でしたが、台風１９号で甚大な被害が発生したことを受けで、来月十日に延期されました。</p><p>宮内庁はこれまで儀式が行われる「松の間」で、「高御座」の設営を行うなでして準備を進め、先週末には全体の動きを確認するリハーサルも行われました。</p><p>儀式の前日の今日は宮殿などで多くの参列者を受け入れるための最終的の点検や確認が行われることになっています。</p><h1 id="词汇"><a href="#词汇" class="headerlink" title="词汇"></a>词汇</h1><table><thead><tr><th>词汇</th><th>读音</th><th>意思</th><th>备注</th></tr></thead><tbody><tr><td>パレード</td><td>パレード</td><td>parade阅兵式。（閲兵式。）</td><td></td></tr><tr><td>祝賀</td><td>しゅくが</td><td></td><td></td></tr><tr><td>述べる</td><td>のべる</td><td>叙述；陈述；说明；申诉；阐明</td><td>同義語：宣べる、陳べる 同じ発音：延べる　伸べる</td></tr><tr><td>甚大</td><td>じんだい</td><td>甚大，很大，非常大</td><td></td></tr><tr><td>宮内庁</td><td>くないちょう</td><td>宫内厅</td><td>总理府的外局之一，负责有关皇室关系的国家事务以及天皇的国事活动</td></tr><tr><td>高御座</td><td>たかみくら</td><td>日本の天皇の玉座</td><td></td></tr><tr><td>設営</td><td>せつえい</td><td>准备；修建；建立</td><td></td></tr><tr><td>リハーサル</td><td>りはーさる</td><td>rehearsal彩排，排练</td><td></td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      あす「即位礼正殿の儀」 皇居で儀式の最終確認作業へ
-    
-    </summary>
-    
-      <category term="日语" scheme="https://zjinc36.github.io/categories/%E6%97%A5%E8%AF%AD/"/>
-    
-    
-      <category term="日语听力" scheme="https://zjinc36.github.io/tags/%E6%97%A5%E8%AF%AD%E5%90%AC%E5%8A%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ListeningPractice:台風２１号が発生、今後の情報に注意</title>
-    <link href="https://zjinc36.github.io/2019/10/22/ListeningPractice-%E5%8F%B0%E9%A2%A8%EF%BC%92%EF%BC%91%E5%8F%B7%E3%81%8C%E7%99%BA%E7%94%9F%E3%80%81%E4%BB%8A%E5%BE%8C%E3%81%AE%E6%83%85%E5%A0%B1%E3%81%AB%E6%B3%A8%E6%84%8F/"/>
-    <id>https://zjinc36.github.io/2019/10/22/ListeningPractice-台風２１号が発生、今後の情報に注意/</id>
-    <published>2019-10-21T19:58:04.000Z</published>
-    <updated>2019-10-21T11:19:53.226Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="音频地址"><a href="#音频地址" class="headerlink" title="音频地址"></a>音频地址</h1><p><a href="https://www.xingtingyi.com/index.php/index/sourceInfo?id=1002" target="_blank" rel="noopener">台風２１号が発生 今後の情報に注意</a></p><h1 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h1><p>昨日午後九時、日本の遥か南で台風２１号が発生しました。</p><p>気象庁の観測によりますと、昨日午後九時、日本の遥か南でトラック諸島の海上で、台風２１号が発生しました。    </p><p>中心の気圧は１０００ヘクトパスカル、中心付近の最大風速は１８メートル、最大瞬間風速は２５メートルで、<br>中心から半径１５０キロ以内では、風速１５メートル以上の強い風が吹いています。</p><p>台風は１時間に２５キロの速さで西へ進んでいて、気象庁で今後の台風の情報を注意するよう呼びかけています。</p><h1 id="词汇"><a href="#词汇" class="headerlink" title="词汇"></a>词汇</h1><table><thead><tr><th>单词</th><th>读音</th><th>意思</th><th>备注</th></tr></thead><tbody><tr><td>遥か</td><td>はるか</td><td>形容動詞；副詞；遥远，远远</td><td></td></tr><tr><td>トラック諸島</td><td>トラックしょとう</td><td>特鲁克群岛</td><td></td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      台風２１号が発生 今後の情報に注意
-    
-    </summary>
-    
-      <category term="日语" scheme="https://zjinc36.github.io/categories/%E6%97%A5%E8%AF%AD/"/>
-    
-    
-      <category term="日语听力" scheme="https://zjinc36.github.io/tags/%E6%97%A5%E8%AF%AD%E5%90%AC%E5%8A%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ListeningPractice:台風１９号、７9人死亡</title>
-    <link href="https://zjinc36.github.io/2019/10/20/ListeningPractice-%E5%8F%B0%E9%A2%A8%EF%BC%91%EF%BC%99%E5%8F%B7%E3%80%81%EF%BC%979%E4%BA%BA%E6%AD%BB%E4%BA%A1/"/>
-    <id>https://zjinc36.github.io/2019/10/20/ListeningPractice-台風１９号、７9人死亡/</id>
-    <published>2019-10-20T11:27:17.000Z</published>
-    <updated>2019-10-20T04:04:59.403Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="听力材料"><a href="#听力材料" class="headerlink" title="听力材料"></a>听力材料</h1><p><a href="https://www.xingtingyi.com/index.php/index/sourceInfo?id=993" target="_blank" rel="noopener">台風１９号 ７9人死亡</a></p><h1 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h1><p>台風１９号の豪雨災害はから今日で１週間です。</p><p>ＮＨＫが各地の放送局を通じてまとめたところ、台風１９号でこれまでに全国で７９人が亡くなり、１１人が行方不明になっています。</p><p>福島県南相馬市では、避難者の対応などに当たった後、帰宅しようとした、新職員の大内良平さん（２５歳）が死亡しました。</p><p>昨夜の通夜を前に、父の敏正さん（５６歳）が取材に応じました。<br>敏正さんは「良平いつも自分の晩酌付き合ってくれる優しい息子でした、<br>優しい過ぎたら故に、なかなか自宅に帰るとは言い出せず、夜遅くまで勤務していたかもしれない、<br>まだ亡くなった時間がありません」と話していました。</p><p>職場からの帰り道に被害にあったことについては、<br>「あれだけの雨が降って、暗い時間帯に自宅に帰るの許した、対応自体が間違っていると思う。<br>東日本大震災の直後だったら、死も危機意識が高く持っていたかもしれないが、今回の対応しっかり見直して欲しい」と話していました。</p><p>南相馬市は職員の命守れず、ほんどに申し訳ないと感じでいます。</p><p>今後は災害地の職員の夜間の単独行動をなるべく避けるなど、二度と繰り返さないよう対策取りたいとしています。</p><h1 id="词汇"><a href="#词汇" class="headerlink" title="词汇"></a>词汇</h1><table><thead><tr><th>词汇</th><th>读音</th><th>意思</th><th>备注</th></tr></thead><tbody><tr><td>通夜</td><td>つや</td><td>灵前守夜；坐夜，彻夜祈祷</td><td></td></tr><tr><td>晩酌</td><td>ばんしゃく</td><td>晚酌，晚饭时喝酒</td><td></td></tr><tr><td>故に</td><td>ゆえに</td><td>因此；从此时起；从此时。（前に述べた事を理由として、あとに結果が導かれることを表す。）</td><td></td></tr><tr><td>直後</td><td>ちょくご</td><td>（名・副）刚……之后，……之后不久，紧跟着，紧接着。（（時間的に）ことの起こったすぐ後。）</td><td></td></tr><tr><td>確り</td><td>しっかり</td><td>副詞；用力地，好好地。（动作、行为）扎实，稳健</td><td></td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      台風１９号 ７9人死亡
-    
-    </summary>
-    
-      <category term="日语" scheme="https://zjinc36.github.io/categories/%E6%97%A5%E8%AF%AD/"/>
-    
-    
-      <category term="日语听力" scheme="https://zjinc36.github.io/tags/%E6%97%A5%E8%AF%AD%E5%90%AC%E5%8A%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ListeningPractice:アメリカ対ＥＵ関税発動へ世界経済に減速懸念</title>
-    <link href="https://zjinc36.github.io/2019/10/19/ListeningPractice-%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%E5%AF%BEEU%E9%96%A2%E7%A8%8E%E7%99%BA%E5%8B%95%E3%81%B8%E4%B8%96%E7%95%8C%E7%B5%8C%E6%B8%88%E3%81%AB%E6%B8%9B%E9%80%9F%E6%87%B8%E5%BF%B5/"/>
-    <id>https://zjinc36.github.io/2019/10/19/ListeningPractice-アメリカ対EU関税発動へ世界経済に減速懸念/</id>
-    <published>2019-10-19T11:13:55.000Z</published>
-    <updated>2019-10-19T13:46:22.269Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="音频地址"><a href="#音频地址" class="headerlink" title="音频地址"></a>音频地址</h1><p><a href="https://www.xingtingyi.com/index.php/index/sourceInfo?id=988" target="_blank" rel="noopener">アメリカ 対ＥＵ関税発動へ 世界経済に減速懸念</a></p><h1 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h1><p>世界経済の先行きに、新たな課題です、新たな難題です。</p><p>米中の貿易摩擦に越えて、アメリカとＥＵ＝ヨーロッパ連合も対立を深め、世界経済の減速への懸念が高まっています。</p><p>アメリカとＥＵは航空機メーカーへの補助金をめぐって対立が続いていて、<br>ＷＴＯ＝世界貿易機関は１４か、両国とも不当だとした上で、まず、アメリカによるＥＵへの対抗措置を正式に承認しました、<br>これ置けて日本時間に午後１１時すぎに、<br>ＥＵから輸入される年間で最大７５億ドル、日本円で８０００億円分に高い関税を上乗せする措置を発動します。</p><p>対象は１６０品目で、フランス産のウエインや、イギリス産のウィスキー、各国のチーズなど農産品に２５％、<br>航空機に１０％関税を上乗せするとしています。</p><p>これに対して、ＥＵも対抗措置に踏み切る方針を示していて、対立の激化は避けられない情勢です。</p><p>ＩＭＦ＝国際通貨基金は今年の世界の経済乗率の見通しを３％に下方修正し、この十年で最も低くなるとしています。</p><p>アメリカが中国との貿易摩擦に加えて、ＥＵとも対立することになれば、さらに世界経済の減速への懸念が高まりそうです。</p><p>アメリカとＥＵの貿易摩擦という世界経済の新たなリスク、<br>しかもＥＵはイギリスのＥＵを離脱という先行きの不安定要素を抱えています。</p><p>さらに最大の懸念材料といえば、美中の貿易摩擦です。</p><p>先週閣僚レベルの交渉で、一部の分野で合意しましたが、互い高い関税を掛け合ったままで、対立の日は消えていません。</p><p>こうした中、この経済摩擦の当事者たちも集まる、Ｇ２０も財務省中央銀行総裁会議は、日本時間の午前８時すぎから、<br>二日間の日程でワシントン始まります。</p><p>日本が議長国を務め、初日の会議では、米中の貿易摩擦の影響で減速する。世界経済の現状について議論します。</p><p>会議先立って、日銀の黒田総裁は記者団に米中の貿易摩擦などの影響で、<br>世界の貿易が減少し、経済成長が下振れしていることに懸念を締めしました。</p><p>世界経済の安定のために設立されたＧ２０は議論を通じて、対立を深まる実態に歯止めをかけられるかが焦点となります。</p><p>また、アメリカのフェイスブックが発行を計画をしている暗号資産「リブラ」に対する規制についても意見を交わす見通しです</p><h1 id="词汇"><a href="#词汇" class="headerlink" title="词汇"></a>词汇</h1><table><thead><tr><th>单词</th><th>读音</th><th>意思</th><th>备注</th></tr></thead><tbody><tr><td>上乗せ</td><td>うえのせ</td><td>追加，另加（前に示した金額・数量・条件などの上に、さらに付け加えること）</td><td>有连读:うえ＝わ,相当于:うえのせする＝わのせする</td></tr><tr><td>ウィスキー</td><td>ウィスキー</td><td>威士忌(英) whisky</td><td>なし</td></tr><tr><td>リスク</td><td>リスク</td><td>risk风险，危险</td><td>なし</td></tr><tr><td>掛かり</td><td>かかり</td><td>（各种）费用，花费</td><td>なし</td></tr><tr><td>先行き</td><td>さきゆき</td><td>将来的行情，行情的前景。（相場の前途または動向。）</td><td>なし</td></tr><tr><td>ヨーロッパ</td><td>ヨーロッパ</td><td>欧洲</td><td>なし</td></tr><tr><td>メーカー</td><td>メーカー</td><td>maker制造厂，厂商；制造者</td><td>なし</td></tr><tr><td>措置</td><td>そち</td><td>措施，处理，处理办法</td><td>なし</td></tr><tr><td>踏み切る</td><td>ふみきる</td><td>下（定）决心。（決心する。）</td><td>事業を始めることに踏み切る</td></tr><tr><td>加える</td><td>くわえる</td><td>加，加上，增加，添加</td><td>读音有点像:くあえる</td></tr><tr><td>要素</td><td>ようそ</td><td>要素,因素，因数，因子</td><td>なし</td></tr><tr><td>抱える</td><td>かかえる</td><td>承担，担负；身边有；雇佣；背负；（双手）抱；夹</td><td>住民の反対という問題を抱える；3人の子どもを抱えている；たくさんの仕事を抱えてどこへも出られない；秘書を抱えている</td></tr><tr><td>懸念材料</td><td>けねんざいりょう</td><td>关注点；気がかりで心が落ち着かない心境にさせている原因となる物事。懸念する要素。</td><td>なし</td></tr><tr><td>掛け合い</td><td>かけあい</td><td>交涉，谈判；互相泼（水）</td><td>借金の掛け合いに行く；水の掛け合い</td></tr><tr><td>当事者</td><td>とうじしゃ</td><td>当事者；当事人</td><td>なし</td></tr><tr><td>ワシントン</td><td>ワシントン</td><td>華盛頓</td><td>なし</td></tr><tr><td>先立ち</td><td>さきだち</td><td>在….之前。领头，首先。（…に先立ち。先に立って人を導くこと）</td><td>先立って</td></tr><tr><td>下振れ</td><td>したぶれ</td><td>（价格或活动）开始下降；衰退，低迷时期</td><td>景気見通しが下振れする</td></tr><tr><td>歯止め</td><td>はどめ</td><td>煞住、制止；〈機〉车闸，制动器</td><td>なし</td></tr><tr><td>歯止めをかけられる</td><td>なし</td><td>阻止</td><td>なし</td></tr><tr><td>交わす</td><td>かわす</td><td>交，交换；交结，交叉；交错，互相……</td><td></td></tr><tr><td>フェイスブック</td><td>フェイスブック</td><td>facebook</td><td>なし</td></tr></tbody></table><h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><h2 id="としたら"><a href="#としたら" class="headerlink" title="としたら"></a>としたら</h2><p><strong>接续</strong><br>    -    名词、形容动词＋だ＋としたら<br>    -    形容词、动词＋としたら<br><strong>意思</strong></p><ul><li>如果…就…。（～なら。）<ul><li>留学するとしたら、日本に行きたいと思っていました</li><li>もし、もう一度生まれ変われるとしたら、男と女とどちらがいいですか</li></ul></li><li>既然是那样的话…；从…方面来考虑的话。（～なら・～から考えれば。）<ul><li>足の悪い人が地下鉄を利用するとしたら、どんな設備が必要だろうか</li><li>約束の時間が三時だとしたらあと十分しかない</li></ul></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      アメリカ 対ＥＵ関税発動へ 世界経済に減速懸念
-    
-    </summary>
-    
-      <category term="日语" scheme="https://zjinc36.github.io/categories/%E6%97%A5%E8%AF%AD/"/>
-    
-    
-      <category term="日语听力" scheme="https://zjinc36.github.io/tags/%E6%97%A5%E8%AF%AD%E5%90%AC%E5%8A%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ListeningPractice:インフル新薬「ゾフルーザ」１２歳未満への投与は慎重に</title>
-    <link href="https://zjinc36.github.io/2019/10/19/ListeningPractice-%E3%82%A4%E3%83%B3%E3%83%95%E3%83%AB%E6%96%B0%E8%96%AC%E3%80%8C%E3%82%BE%E3%83%95%E3%83%AB%E3%83%BC%E3%82%B6%E3%80%8D%EF%BC%91%EF%BC%92%E6%AD%B3%E6%9C%AA%E6%BA%80%E3%81%B8%E3%81%AE%E6%8A%95%E4%B8%8E%E3%81%AF%E6%85%8E%E9%87%8D%E3%81%AB/"/>
-    <id>https://zjinc36.github.io/2019/10/19/ListeningPractice-インフル新薬「ゾフルーザ」１２歳未満への投与は慎重に/</id>
-    <published>2019-10-18T20:31:13.000Z</published>
-    <updated>2019-10-18T13:10:28.879Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="听力地址"><a href="#听力地址" class="headerlink" title="听力地址"></a>听力地址</h1><p><a href="https://www.xingtingyi.com/index.php/index/sourceInfo?id=983" target="_blank" rel="noopener">インフル新薬「ゾフルーザ」１２歳未満への投与は慎重に</a></p><h1 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h1><p>インフルエンザの季節が入りますが、昨シーズン最も多く使われたインフルエンザの新しい治療薬「ゾフルーザ」<br>この薬について、日本感染症学会は１２歳未満の子供については投与慎重にするなどとした提言を新にまとめました</p><p>インフルエンザを新しい治療薬「ゾフルーザ」は、耐性ウイルスが出やすいことが課題となっており、<br>日本感染症学会は使用のあり方について議論して来ました。</p><p>学会が新たにまとめたに提言によりますと、ゾフルーザについて、１２歳未満の子供は、<br>耐性ウイルスが大人より多く検出される傾向にあるため、「慎重に投与を検討する」としたほか、</p><p>１２歳以上については、「データが乏しく、現時点では推奨するかどうかは決められない」としています。</p><p>塩野義製薬が開発したゾフルーザは一回の服用で効果が得られるとして、去年販売が始まると、<br>最も多く使われるようになり、半年間だけで、およそ６００万人分が出荷されました。</p><p>ゾフルーザについて、学会は広く使われて「タミフル」と異なる効果があり、タミフルが効果ない場合や、重症化が懸念される患者に使えるため<br>慎重に使用することで耐性ウイルスを広げないことが重要だとしています</p><p>新たの提言は学会のウェブサイトに近く掲載されるということです。</p><p>学会の関係者は「ゾフルーザが緊急時にも使えるよう使い方を考えるきっかけにして欲しい」としています。</p><h1 id="单词"><a href="#单词" class="headerlink" title="单词"></a>单词</h1><table><thead><tr><th>单词</th><th>读音</th><th>意思</th><th>联想</th></tr></thead><tbody><tr><td>インフルエンザ</td><td>インフルエンザ</td><td>流感</td><td>なし</td></tr><tr><td>昨シーズン</td><td>さくシーズン</td><td>上个季节</td><td>文中是上个流感季节</td></tr><tr><td>感染症</td><td>かんせんしょう</td><td>なし</td><td>幹線</td></tr><tr><td>慎重</td><td>しんちょう</td><td>なし</td><td>自分の名前の読み方</td></tr><tr><td>耐性</td><td>たいせい</td><td>なし</td><td>なし</td></tr><tr><td>ウイルス</td><td>なし</td><td>病毒</td><td>なし</td></tr><tr><td>あり方</td><td>ありかた</td><td>应有的状态，理想的状态</td><td>なし</td></tr><tr><td>乏しい</td><td>とぼしい</td><td>缺乏,不足</td><td>なし</td></tr><tr><td>異なる</td><td>ことなる</td><td>不同,不一样</td><td>こと</td></tr><tr><td>懸念</td><td>けねん</td><td>惦记，惦念，忧虑；担忧，担心</td><td>なし</td></tr><tr><td>きっかけ</td><td>きっかけ</td><td>起首，契机，时机，诱因，导致</td><td>なし</td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      インフル新薬「ゾフルーザ」１２歳未満への投与は慎重に
-    
-    </summary>
-    
-      <category term="日语" scheme="https://zjinc36.github.io/categories/%E6%97%A5%E8%AF%AD/"/>
-    
-    
-      <category term="日语听力" scheme="https://zjinc36.github.io/tags/%E6%97%A5%E8%AF%AD%E5%90%AC%E5%8A%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ListeningPractice:８Ｋ制作、ＮＨＫドラマ、テレビ番組の国際見本市で海外初上映</title>
-    <link href="https://zjinc36.github.io/2019/10/17/ListeningPractice-%EF%BC%98K%E5%88%B6%E4%BD%9C%E3%80%81NHK%E3%83%89%E3%83%A9%E3%83%9E%E3%80%81%E3%83%86%E3%83%AC%E3%83%93%E7%95%AA%E7%B5%84%E3%81%AE%E5%9B%BD%E9%9A%9B%E8%A6%8B%E6%9C%AC%E5%B8%82%E3%81%A7%E6%B5%B7%E5%A4%96%E5%88%9D%E4%B8%8A%E6%98%A0/"/>
-    <id>https://zjinc36.github.io/2019/10/17/ListeningPractice-８K制作、NHKドラマ、テレビ番組の国際見本市で海外初上映/</id>
-    <published>2019-10-16T21:13:44.000Z</published>
-    <updated>2019-10-16T13:05:54.997Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="听力源"><a href="#听力源" class="headerlink" title="听力源"></a>听力源</h1><p><a href="https://www.xingtingyi.com/index.php/index/sourceInfo?id=977" target="_blank" rel="noopener">８Ｋ制作 ＮＨＫドラマ テレビ番組の国際見本市で海外初上映</a></p><h1 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h1><p>世界最大規模のテレビ番組の国際見本市はフランスで始まり、ノーベル文学賞作家のカズオ・イミグロさんの小説、「浮世の画家」を題材に、ＮＨＫが８Ｋスーパーハイビジョンで製作したドラマが海外で初めて上映されました。</p><p>会場には、主演した渡辺渡辺源さんも駆け付け、８ｋドラマの魅力を語りました。</p><p>「こういう二次元の世界で、一番伝えないのは嗅覚、２Ｋで見てる時よりも非常にものが焦げる匂いは感じられた気がします」</p><h1 id="生词"><a href="#生词" class="headerlink" title="生词"></a>生词</h1><table><thead><tr><th>生词</th><th>读音</th><th>意思</th><th>联想</th></tr></thead><tbody><tr><td>見本市</td><td>みほんいち</td><td>商品展览会，商品交易会</td><td>なし</td></tr><tr><td>浮世</td><td>うきよ</td><td>尘世，俗世，浮生；现世，社会，人生、当代流行的，好色的。（世俗。）</td><td>不器用</td></tr><tr><td>スーパーハイビジョン</td><td>スーパーハイビジョン</td><td>超高清</td><td>Super Hi-Vision</td></tr><tr><td>渡辺</td><td>わたなべ</td><td>なし</td><td>なし</td></tr><tr><td>駆けつける</td><td>かけつける</td><td>跑去；跑来；跑到；急忙赶到（目的地）（駆けて到着する:急いでその場所に着く）</td><td>なし</td></tr><tr><td>焦げる</td><td>こげる</td><td>焦，煳。因火烧烤而变黑</td><td>なし</td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      ８Ｋ制作 ＮＨＫドラマ テレビ番組の国際見本市で海外初上映
-    
-    </summary>
-    
-      <category term="日语" scheme="https://zjinc36.github.io/categories/%E6%97%A5%E8%AF%AD/"/>
-    
-    
-      <category term="日语听力" scheme="https://zjinc36.github.io/tags/%E6%97%A5%E8%AF%AD%E5%90%AC%E5%8A%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ListeningPractice:台風１９号,交通情報まとめ（鉄道）</title>
-    <link href="https://zjinc36.github.io/2019/10/16/ListeningPractice-%E5%8F%B0%E9%A2%A8%EF%BC%91%EF%BC%99%E5%8F%B7-%E4%BA%A4%E9%80%9A%E6%83%85%E5%A0%B1%E3%81%BE%E3%81%A8%E3%82%81%EF%BC%88%E9%89%84%E9%81%93%EF%BC%89/"/>
-    <id>https://zjinc36.github.io/2019/10/16/ListeningPractice-台風１９号-交通情報まとめ（鉄道）/</id>
-    <published>2019-10-15T21:05:37.000Z</published>
-    <updated>2019-10-16T13:06:32.630Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="听力源"><a href="#听力源" class="headerlink" title="听力源"></a>听力源</h1><p><a href="https://www.xingtingyi.com/index.php/index/sourceInfo?id=972" target="_blank" rel="noopener">台風１９号、交通情報まとめ（鉄道）</a></p><h1 id="台風１９号、交通情報まとめ（鉄道）"><a href="#台風１９号、交通情報まとめ（鉄道）" class="headerlink" title="台風１９号、交通情報まとめ（鉄道）"></a>台風１９号、交通情報まとめ（鉄道）</h1><p>交通の情報ã§す、今日は首都圏のJR私鉄各社とも一部路線の除き、ほとんどの路線で始発から平常とおりのダイヤで運行される見通しです。</p><p>新幹線は昨日東北新幹線と秋田新幹線、それに上越（じょうえつ）新幹線は運転を再開していて、今朝も始発から、平常とおり運行される予定です。</p><p>北陸新幹線は、昨夜から列車の運行本数を減らし、東京駅と長尾駅の間で臨時な折り返し運転を行い、今朝も午前6時過ぎからの運転を予定していますが、長野駅と富山駅（とやま）の間では終日運転を見合わせるとしています。富山駅と金（かね）沢（さわ）駅（かなざわえき）の間は運行される予定です。山形新幹線は昼頃からの運転再開を見込んでいるということです。</p><p>鉄道各社の運行状況は、ホームページで最新の情報を確認することができます。</p><h1 id="生词"><a href="#生词" class="headerlink" title="生词"></a>生词</h1><table><thead><tr><th>单词</th><th>读音</th><th>意思</th></tr></thead><tbody><tr><td>除き</td><td>のぞき</td><td>他动词 消除 除外 除掉</td></tr><tr><td>ダイヤ</td><td>ダイヤ</td><td>「ダイヤモンド」的略语，钻石，金刚石、「ダイヤグラム」的略语。行车时间表，时刻表，图表</td></tr><tr><td>見通し</td><td>みとおし</td><td>確信をもった将来の推測を表します,強い根拠をもった推測</td></tr><tr><td>見込む</td><td>みこみ</td><td>確信をもった将来の推測を表します,根拠は弱いものの、確信のある推測です。また、「見込み」は良い結果が予想できるときにも使います</td></tr><tr><td>金沢駅</td><td>かなざわえき</td><td>ここは「金-&gt;かね」、「沢-&gt;さわ」と読んでいますけど、「金沢-&gt;かなざわ」と読んでお注意でください</td></tr><tr><td>富山駅</td><td>とやまえき</td><td>駅の名</td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      台風１９号、交通情報まとめ（鉄道）
-    
-    </summary>
-    
-      <category term="日语" scheme="https://zjinc36.github.io/categories/%E6%97%A5%E8%AF%AD/"/>
-    
-    
-      <category term="日语听力" scheme="https://zjinc36.github.io/tags/%E6%97%A5%E8%AF%AD%E5%90%AC%E5%8A%9B/"/>
-    
-  </entry>
-  
-  <entry>
     <title>大数据学习大纲</title>
     <link href="https://zjinc36.github.io/2019/10/13/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0%E5%A4%A7%E7%BA%B2/"/>
     <id>https://zjinc36.github.io/2019/10/13/大数据学习大纲/</id>
@@ -465,6 +199,272 @@
       <category term="Spring" scheme="https://zjinc36.github.io/tags/Spring/"/>
     
       <category term="SpringBoot" scheme="https://zjinc36.github.io/tags/SpringBoot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu中安装iptux</title>
+    <link href="https://zjinc36.github.io/2019/08/19/ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85iptux/"/>
+    <id>https://zjinc36.github.io/2019/08/19/ubuntu中安装iptux/</id>
+    <published>2019-08-18T17:26:35.000Z</published>
+    <updated>2019-08-18T08:28:15.378Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>ubuntu版的飞鸽传书</p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>ubuntu软件中直接搜索安装</p>]]></content>
+    
+    <summary type="html">
+    
+      ubuntu版的飞鸽传书
+    
+    </summary>
+    
+      <category term="Ubuntu" scheme="https://zjinc36.github.io/categories/Ubuntu/"/>
+    
+    
+      <category term="Ubuntu装机日志" scheme="https://zjinc36.github.io/tags/Ubuntu%E8%A3%85%E6%9C%BA%E6%97%A5%E5%BF%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu中安装桌面维基zim</title>
+    <link href="https://zjinc36.github.io/2019/08/19/ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85%E6%A1%8C%E9%9D%A2%E7%BB%B4%E5%9F%BAzim/"/>
+    <id>https://zjinc36.github.io/2019/08/19/ubuntu中安装桌面维基zim/</id>
+    <published>2019-08-18T16:49:05.000Z</published>
+    <updated>2019-08-18T07:54:48.260Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="zim是什么"><a href="#zim是什么" class="headerlink" title="zim是什么"></a>zim是什么</h1><p>Zim是一个图形文本编辑器，用于维护一组wiki页面。</p><h1 id="zim的作用"><a href="#zim的作用" class="headerlink" title="zim的作用"></a>zim的作用</h1><p>每个页面都可以包含指向其他页面的链接，简单的格式和图像。页面存储在文件夹结构中，就像在大纲中一样，并且可以具有附件。创建新页面就像链接到不存在的页面一样简单。所有数据都存储在具有wiki格式的纯文本文件中。各种插件提供附加功能，如任务列表管理器，公式编辑器，托盘图标和版本控制支持。</p><p>Zim可用于：</p><ul><li>保留笔记存档</li><li>保留每日或每周日记</li><li>在会议或讲座期间做笔记</li><li>组织任务列表</li><li>撰写博客条目和电子邮件</li><li>做头脑风暴</li></ul><h1 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h1><p><a href="https://zim-wiki.org/" target="_blank" rel="noopener">https://zim-wiki.org/</a></p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:jaap.karssenberg/zim</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install zim</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      Zim是一个图形文本编辑器，用于维护一组wiki页面
+    
+    </summary>
+    
+      <category term="Ubuntu" scheme="https://zjinc36.github.io/categories/Ubuntu/"/>
+    
+    
+      <category term="Ubuntu装机日志" scheme="https://zjinc36.github.io/tags/Ubuntu%E8%A3%85%E6%9C%BA%E6%97%A5%E5%BF%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ubuntu中安装Openshot Video Editor</title>
+    <link href="https://zjinc36.github.io/2019/08/19/ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85openshot-video-editor/"/>
+    <id>https://zjinc36.github.io/2019/08/19/ubuntu中安装openshot-video-editor/</id>
+    <published>2019-08-18T16:01:15.000Z</published>
+    <updated>2019-08-18T07:55:52.335Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>能够支持视频剪辑、实时预览、支持设置仅显示视频或音频、图片覆盖等</p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>Ubuntu软件中直接搜索安装就行</p>]]></content>
+    
+    <summary type="html">
+    
+      能够支持视频剪辑、实时预览、支持设置仅显示视频或音频、图片覆盖
+    
+    </summary>
+    
+      <category term="Ubuntu" scheme="https://zjinc36.github.io/categories/Ubuntu/"/>
+    
+    
+      <category term="Ubuntu装机日志" scheme="https://zjinc36.github.io/tags/Ubuntu%E8%A3%85%E6%9C%BA%E6%97%A5%E5%BF%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Css的transition过渡</title>
+    <link href="https://zjinc36.github.io/2019/08/16/css%E7%9A%84transition%E8%BF%87%E6%B8%A1/"/>
+    <id>https://zjinc36.github.io/2019/08/16/css的transition过渡/</id>
+    <published>2019-08-15T20:05:07.000Z</published>
+    <updated>2019-08-16T17:59:13.129Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="transition过渡"><a href="#transition过渡" class="headerlink" title="transition过渡"></a>transition过渡</h1><ul><li>transition-property:规定设置过渡效果的css属性的名称</li><li>transition-duration:规定完成过度效果需要多少秒或毫秒</li><li>transition-delay:定义过渡效果何时开始(既可以延迟(数值为正数),也可以为提前(数值为负))</li><li>transition-timing-function:规定速度效果的速度曲线<ul><li>linear:匀速</li><li>ease(默认值):逐渐慢下来</li><li>ease-in:加速</li><li>ease-out:减速</li><li>ease-in-out:先加速后减速</li><li>cubic-bezier:选择贝赛尔曲线(参考网站:<a href="https://cubic-bezier.com" target="_blank" rel="noopener">https://cubic-bezier.com</a>)</li></ul></li></ul><p>速度如图曲线所示<br><img src="/images/css/20190815007.png" alt></p><h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">    div &#123;</span><br><span class="line">        width: 100px;</span><br><span class="line">        height: 100px;</span><br><span class="line">        background: red;</span><br><span class="line">        transition-property: all;</span><br><span class="line">        transition-duration: 1s;</span><br><span class="line">        transition-delay: 1ms;</span><br><span class="line">        transition-timing-function: ease-out;</span><br><span class="line">    &#125;</span><br><span class="line">    div:hover &#123;</span><br><span class="line">        width: 200px;</span><br><span class="line">        height: 200px;</span><br><span class="line">        background: blue;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      css的transition过渡
+    
+    </summary>
+    
+      <category term="css" scheme="https://zjinc36.github.io/categories/css/"/>
+    
+    
+      <category term="css" scheme="https://zjinc36.github.io/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Css3浏览器内核与浏览器前缀</title>
+    <link href="https://zjinc36.github.io/2019/08/16/css3%E5%A4%84%E7%90%86%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E4%B8%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E5%89%8D%E7%BC%80/"/>
+    <id>https://zjinc36.github.io/2019/08/16/css3处理浏览器内核与浏览器前缀/</id>
+    <published>2019-08-15T18:04:00.000Z</published>
+    <updated>2019-08-15T11:04:37.783Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="浏览器前缀"><a href="#浏览器前缀" class="headerlink" title="浏览器前缀"></a>浏览器前缀</h1><h2 id="什么是浏览器前缀"><a href="#什么是浏览器前缀" class="headerlink" title="什么是浏览器前缀"></a>什么是浏览器前缀</h2><p>浏览器厂商以前就一直在实施CSS3,但是它还未称为真正的标准.<br>为此,当有一些CSS3样式语法还在波动的时候,他们提出了针对浏览器的前缀</p><p>简单来说,就是css3去兼容不同的浏览器,针对就的浏览器做兼容,新浏览器基本不需要添加前缀</p><h2 id="有哪些前缀"><a href="#有哪些前缀" class="headerlink" title="有哪些前缀"></a>有哪些前缀</h2><table><thead><tr><th>浏览器</th><th>内核</th><th>前缀</th></tr></thead><tbody><tr><td>IE</td><td>Trident</td><td>-ms-</td></tr><tr><td>Firefox</td><td>Gecko</td><td>-moz-</td></tr><tr><td>Opera</td><td>Presto</td><td>-o-</td></tr><tr><td>Chrome</td><td>Webkit</td><td>-webkit-</td></tr><tr><td>Safari</td><td>Webkit</td><td>-webkit-</td></tr><tr><td>Opera, Chrome</td><td>Blink</td><td></td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      css3浏览器内核与浏览器前缀
+    
+    </summary>
+    
+      <category term="css" scheme="https://zjinc36.github.io/categories/css/"/>
+    
+    
+      <category term="css" scheme="https://zjinc36.github.io/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>css的BFC规范</title>
+    <link href="https://zjinc36.github.io/2019/08/16/css%E7%9A%84BFC%E8%A7%84%E8%8C%83/"/>
+    <id>https://zjinc36.github.io/2019/08/16/css的BFC规范/</id>
+    <published>2019-08-15T17:32:50.000Z</published>
+    <updated>2019-08-15T09:03:48.528Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="BFC规范"><a href="#BFC规范" class="headerlink" title="BFC规范"></a>BFC规范</h1><p>Formatting context(格式化上下文)是W3C CSS2.1规范中的一个概念<br>它是页面中的一块渲染区域,并且有一套渲染规则,它决定了其子元素将如何定位,以及和其他元素的关系和相互作用</p><p>BFC即Block Formatting Contexts(块级格式化上下文),它属于上述中的其中一种规范<br>具有BFC特性的元素可以看作是隔离了的独立容器,容器里面的元素不会在布局上影响到外面的元素,并且BFC具有普通容器所们没有的一些特性</p><h1 id="BFC规范的作用"><a href="#BFC规范的作用" class="headerlink" title="BFC规范的作用"></a>BFC规范的作用</h1><p>触发BFC规范的元素,可以形成一个独立的容器,不受外界的影响,从而解决一些布局问题</p><h1 id="触发BFC的条件"><a href="#触发BFC的条件" class="headerlink" title="触发BFC的条件"></a>触发BFC的条件</h1><ul><li>浮动元素:float除none以外的值</li><li>绝对定位元素:position(absolute, fixed)</li><li>display为inlink-block,table-cells,flex</li><li>overflow除了visible以外的值(hidden, auto, scroll)</li></ul><h1 id="BFC特性及应用"><a href="#BFC特性及应用" class="headerlink" title="BFC特性及应用"></a>BFC特性及应用</h1><ul><li><a href="/2019/08/04/css盒子模型/">解决margin叠加问题</a></li><li><a href="/2019/08/04/css盒子模型/">解决margin传递问题</a></li><li>解决浮动问题</li><li>解决覆盖问题</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      css的BFC规范
+    
+    </summary>
+    
+      <category term="css" scheme="https://zjinc36.github.io/categories/css/"/>
+    
+    
+      <category term="css" scheme="https://zjinc36.github.io/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Html的label和span的区别</title>
+    <link href="https://zjinc36.github.io/2019/08/16/html%E7%9A%84label%E5%92%8Cspan%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>https://zjinc36.github.io/2019/08/16/html的label和span的区别/</id>
+    <published>2019-08-15T16:29:00.000Z</published>
+    <updated>2019-08-15T07:37:35.216Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="label与span标签不同点"><a href="#label与span标签不同点" class="headerlink" title="label与span标签不同点"></a>label与span标签不同点</h1><p>从最终效果来看,label与span标签显示方式及作用都一样的<br>但由于label中有for属性的存在,也有着决定性的不同</p><h1 id="for属性将label和表单进行配对"><a href="#for属性将label和表单进行配对" class="headerlink" title="for属性将label和表单进行配对"></a>for属性将label和表单进行配对</h1><p>label标签通常是写在表单（form）内的，他与一个普通的span最大的不同，就是可以和表单元素配对，比如文本框，单选框，复选框。而配对的方法，就是通过label的for属性。</p><p>比如</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">"a"</span> /&gt;</span><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"b"</span>&gt;</span>点击字,文本框获取焦点<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">"b"</span> /&gt;</span><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"a"</span>&gt;</span>点击字,文本框获取焦点<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br></pre></td></tr></table></figure><p>测试以上代码,可以看到,当点击字的时候,会根据label的for属性的值,找到对应的id元素<br>也就是说,只是点击文字,对应的input也能获得焦点</p><p>将lable改成span,然后加上了for,但没有作用,这就是span与label的区别了。</p><h1 id="功能与for相当的另一种写法"><a href="#功能与for相当的另一种写法" class="headerlink" title="功能与for相当的另一种写法"></a>功能与for相当的另一种写法</h1><p>如果你不想给label加for，但又想把input元素后面的文字和input本身关联起来，那你也可以这样：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"aksd"</span> <span class="attr">id</span>=<span class="string">"aksd"</span> /&gt;</span> 几个字<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure><p>就是用label把input包起来。这样的效果与input后紧跟加for的label效果相同：点击文字即可选中复选框。</p><p>同样，把代码中的label换成span就不行了。</p><p>注意：label包input的方法，在IE6下无效！</p><p>推荐input与label分离的模式，因为这样更灵活，你可以把input与label各自放在八竿子打不着的地方，但依然彼此关联——多么忠贞而催人泪下的爱情啊！</p>]]></content>
+    
+    <summary type="html">
+    
+      html的label和span的区别
+    
+    </summary>
+    
+      <category term="html" scheme="https://zjinc36.github.io/categories/html/"/>
+    
+    
+      <category term="html" scheme="https://zjinc36.github.io/tags/html/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Html表单扩展</title>
+    <link href="https://zjinc36.github.io/2019/08/16/html%E8%A1%A8%E5%8D%95%E6%89%A9%E5%B1%95/"/>
+    <id>https://zjinc36.github.io/2019/08/16/html表单扩展/</id>
+    <published>2019-08-15T16:11:37.000Z</published>
+    <updated>2019-08-15T08:32:11.100Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="美化表单控件"><a href="#美化表单控件" class="headerlink" title="美化表单控件"></a>美化表单控件</h1><p>两种方式</p><ol><li>利用label标签+checked伪类</li><li>利用定位position+透明度opacity</li></ol><h2 id="利用label标签-checked伪类"><a href="#利用label标签-checked伪类" class="headerlink" title="利用label标签+checked伪类"></a>利用label标签+checked伪类</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">    label input &#123;</span><br><span class="line">        display: none;</span><br><span class="line">    &#125;</span><br><span class="line">    label input:checked + div &#123;</span><br><span class="line">        background: black;</span><br><span class="line">    &#125;</span><br><span class="line">    label div &#123;</span><br><span class="line">        width: 28px;</span><br><span class="line">        height: 28px;</span><br><span class="line">        background: red;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"div"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span> </span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure><h2 id="利用定位position-透明度opacity"><a href="#利用定位position-透明度opacity" class="headerlink" title="利用定位position+透明度opacity"></a>利用定位position+透明度opacity</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .upload &#123;</span><br><span class="line">        width: 86px;</span><br><span class="line">        height: 34px;</span><br><span class="line">        position: relative;</span><br><span class="line">    &#125;</span><br><span class="line">    .upload div &#123;</span><br><span class="line">        width: 100%;</span><br><span class="line">        height: 100%;</span><br><span class="line">        background: red;</span><br><span class="line">    &#125;</span><br><span class="line">    .upload input &#123;</span><br><span class="line">        width: 100%;</span><br><span class="line">        height: 100%;</span><br><span class="line">        position: absolute;</span><br><span class="line">        left: 0;</span><br><span class="line">        top:0;</span><br><span class="line">        opacity: 0;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;upload&quot;&gt;</span><br><span class="line">        &lt;input type=&quot;file&quot;&gt;</span><br><span class="line">        &lt;div&gt;上传文件&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt; </span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure><h1 id="新的input控件"><a href="#新的input控件" class="headerlink" title="新的input控件"></a>新的input控件</h1><ul><li>email:电子邮件地址输入框</li><li>url:网址输入框</li><li>number:数值输入框</li><li>range:滑动条</li><li>date/month/week:日期控件</li><li>search:搜索框</li><li>color:颜色控件</li><li>tel:电话号码输入框(在移动端会默认调用数字键盘)</li><li>time:时间控件</li></ul><h1 id="新的表单属性"><a href="#新的表单属性" class="headerlink" title="新的表单属性"></a>新的表单属性</h1><ul><li>autocomplete:自动完成(是否提示),默认为on,可以设置值为off进行关闭</li><li>autofocus:获取焦点</li><li>required:不能为空</li><li>pattern:正则验证</li></ul><h1 id="数据传输"><a href="#数据传输" class="headerlink" title="数据传输"></a>数据传输</h1><ul><li>method:数据传输方式</li><li>enctype:数据传输类型</li><li>name/value:数据的键值对</li></ul><h1 id="扩展标签"><a href="#扩展标签" class="headerlink" title="扩展标签"></a>扩展标签</h1><p>fieldset:表单内元素分组<br>legend:为fieldset元素定义标题<br>optgroup:定义选项组</p><h2 id="扩展标签示例代码"><a href="#扩展标签示例代码" class="headerlink" title="扩展标签示例代码"></a>扩展标签示例代码</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">fieldset</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">legend</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">legend</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            用户名:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            密码:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">fieldset</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">optgroup</span> <span class="attr">label</span>=<span class="string">"水果"</span>&gt;</span><span class="tag">&lt;/<span class="name">optgroup</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>苹果<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>香蕉<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">optgroup</span> <span class="attr">label</span>=<span class="string">"蔬菜"</span>&gt;</span><span class="tag">&lt;/<span class="name">optgroup</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>黄瓜<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>茄子<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure><h2 id="扩展标签效果"><a href="#扩展标签效果" class="headerlink" title="扩展标签效果"></a>扩展标签效果</h2><p><img src="/images/html/20190815005.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      html表单扩展之美化控件,新的input控件
+    
+    </summary>
+    
+      <category term="html" scheme="https://zjinc36.github.io/categories/html/"/>
+    
+    
+      <category term="html" scheme="https://zjinc36.github.io/tags/html/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Html表格扩展</title>
+    <link href="https://zjinc36.github.io/2019/08/15/html%E8%A1%A8%E6%A0%BC%E6%89%A9%E5%B1%95/"/>
+    <id>https://zjinc36.github.io/2019/08/15/html表格扩展/</id>
+    <published>2019-08-14T17:53:11.000Z</published>
+    <updated>2019-08-15T07:10:49.918Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="表格扩展"><a href="#表格扩展" class="headerlink" title="表格扩展"></a>表格扩展</h1><ul><li>添加单线:border-collapse:collapse</li><li>隐藏空单元:empty-cells:hide</li><li>斜线分类:border/rotate</li><li>列分组:colgroup/col</li></ul><h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">        table &#123;</span><br><span class="line">            /* 隐藏空单元 */</span><br><span class="line">            empty-cells: hide;</span><br><span class="line">            /* 添加单线 */</span><br><span class="line">            border-collapse: collapse;</span><br><span class="line">        &#125;</span><br><span class="line">        /* 斜线分类 */</span><br><span class="line">        table .line &#123;</span><br><span class="line">            border-top: 50px solid red;</span><br><span class="line">            border-left: 170px solid blue;</span><br><span class="line">            position: relative;</span><br><span class="line">        &#125;</span><br><span class="line">        table .line em &#123;</span><br><span class="line">            position: absolute;</span><br><span class="line">            left:-120px;</span><br><span class="line">            top: -25px;</span><br><span class="line">        &#125;</span><br><span class="line">        table .line span &#123;</span><br><span class="line">            position: absolute;</span><br><span class="line">            top: -40px;</span><br><span class="line">            left: -50px;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">"1"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">caption</span>&gt;</span>天气预报<span class="tag">&lt;/<span class="name">caption</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 直接针对列操作 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">colgroup</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">col</span> <span class="attr">span</span>=<span class="string">"2"</span> <span class="attr">style</span>=<span class="string">"background: yellow"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">col</span> <span class="attr">span</span>=<span class="string">"2"</span> <span class="attr">style</span>=<span class="string">"background: pink"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">colgroup</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">th</span> <span class="attr">colspan</span>=<span class="string">"2"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"line"</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">em</span>&gt;</span>日期<span class="tag">&lt;/<span class="name">em</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">span</span>&gt;</span>详情<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">th</span>&gt;</span>天气情况<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">th</span>&gt;</span>出行情况<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span> <span class="attr">rowspan</span>=<span class="string">"2"</span>&gt;</span>2019年1月1日<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span>白天<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span>晴天<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span>天气晴朗,适合出行<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span>夜晚<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span>出门记得带伞<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure><h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p><img src="/images/css/20190815004.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      html表格扩展
+    
+    </summary>
+    
+      <category term="html" scheme="https://zjinc36.github.io/categories/html/"/>
+    
+    
+      <category term="html" scheme="https://zjinc36.github.io/tags/html/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Html5的新语义化标签</title>
+    <link href="https://zjinc36.github.io/2019/08/15/html5%E7%9A%84%E6%96%B0%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%87%E7%AD%BE/"/>
+    <id>https://zjinc36.github.io/2019/08/15/html5的新语义化标签/</id>
+    <published>2019-08-14T17:16:05.000Z</published>
+    <updated>2019-08-14T08:53:03.238Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="html5新语义化标签"><a href="#html5新语义化标签" class="headerlink" title="html5新语义化标签"></a>html5新语义化标签</h1><p>主要介绍和js结合不那么紧密的标签</p><ul><li>header:页面</li><li>footer:页脚</li><li>main:主体</li><li>hgroup:标题组合</li><li>nav:导航</li></ul><p>注意:header,footer,main在一个网页中只能出现一次</p><ul><li>article:独立的内容</li><li>aside:辅助信息的内容</li><li>section:区域</li><li>figure:描述图像或视频</li><li>figcaption:描述图像或视频的标题部分</li></ul><ul><li>datalist:选项列表</li><li>details/summary:文档细节/文档标题</li><li>progress/meter:定义进度条/定义度量范围</li><li>time:定义日期或时间</li><li>mark:带有记号的文本</li></ul><h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 新标签的基本结构(没有那么严格) --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">hgroup</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">h1</span>&gt;</span>主标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">h2</span>&gt;</span>副标题<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">hgroup</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">nav</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span>论坛<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span>关于<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">main</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 可以用css来做,也可以用如下语义化标签 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">article</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- section作用和div很像 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">figure</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/img1.png"</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">figcaption</span>&gt;</span></span><br><span class="line">                                这是图片描述</span><br><span class="line">                                <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">                                图片描述</span><br><span class="line">                            <span class="tag">&lt;/<span class="name">figcaption</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">figure</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">                    文档细节与文档标题</span></span><br><span class="line"><span class="comment">                    默认是闭合状态,可以使用open变为打开</span></span><br><span class="line"><span class="comment">                --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">details</span> <span class="attr">open</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">summary</span>&gt;</span>HTML<span class="tag">&lt;/<span class="name">summary</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">p</span>&gt;</span>超文本语言<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">details</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">                    进度条</span></span><br><span class="line"><span class="comment">                --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">progress</span> <span class="attr">min</span>=<span class="string">"0"</span> <span class="attr">max</span>=<span class="string">"10"</span> <span class="attr">value</span>=<span class="string">"8"</span>&gt;</span><span class="tag">&lt;/<span class="name">progress</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">                    度量</span></span><br><span class="line"><span class="comment">                    可以设置临界值,使用low和high属性</span></span><br><span class="line"><span class="comment">                    当value小于low或大于high,颜色会发生变化</span></span><br><span class="line"><span class="comment">                --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">meter</span> <span class="attr">min</span>=<span class="string">"0"</span> <span class="attr">max</span>=<span class="string">"100"</span> <span class="attr">value</span>=<span class="string">"35"</span> <span class="attr">low</span>=<span class="string">"10"</span> <span class="attr">high</span>=<span class="string">"60"</span>&gt;</span><span class="tag">&lt;/<span class="name">meter</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">                    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">                        日期</span></span><br><span class="line"><span class="comment">                        更具备语义化</span></span><br><span class="line"><span class="comment">                    --&gt;</span></span><br><span class="line">                    今天是<span class="tag">&lt;<span class="name">time</span> <span class="attr">title</span>=<span class="string">"2-14"</span>&gt;</span>情人节<span class="tag">&lt;/<span class="name">time</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">                    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">                        标记,标记颜色可以变</span></span><br><span class="line"><span class="comment">                        更具备语义化</span></span><br><span class="line"><span class="comment">                    --&gt;</span></span><br><span class="line">                    今天是<span class="tag">&lt;<span class="name">mark</span>&gt;</span>情人节<span class="tag">&lt;/<span class="name">mark</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">list</span>=<span class="string">"elems"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">datalist</span> <span class="attr">id</span>=<span class="string">"elems"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"a"</span>&gt;</span><span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"ab"</span>&gt;</span><span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"abc"</span>&gt;</span><span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"d"</span>&gt;</span><span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"de"</span>&gt;</span><span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"f"</span>&gt;</span><span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"fg"</span>&gt;</span><span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">datalist</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">aside</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;/<span class="name">aside</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">main</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">footer</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure><h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p><img src="/images/html/20190814002.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      html5的新语义化标签
+    
+    </summary>
+    
+      <category term="html" scheme="https://zjinc36.github.io/categories/html/"/>
+    
+    
+      <category term="html" scheme="https://zjinc36.github.io/tags/html/"/>
+    
+      <category term="html5" scheme="https://zjinc36.github.io/tags/html5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Html的meta标签扩展</title>
+    <link href="https://zjinc36.github.io/2019/08/15/html%E7%9A%84meta%E6%A0%87%E7%AD%BE%E6%89%A9%E5%B1%95/"/>
+    <id>https://zjinc36.github.io/2019/08/15/html的meta标签扩展/</id>
+    <published>2019-08-14T16:57:21.000Z</published>
+    <updated>2019-08-14T08:10:43.180Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="meta的常见作用"><a href="#meta的常见作用" class="headerlink" title="meta的常见作用"></a>meta的常见作用</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 自定义一个属性 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"description"</span> <span class="attr">content</span>=<span class="string">"信息信息信息"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"keyword"</span> <span class="attr">content</span>=<span class="string">"关键字"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--双内核进行的一个扩展--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"renderer"</span>  <span class="attr">content</span>=<span class="string">"webkit"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 针对ie浏览器,让ie浏览器渲染更高的版本 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">    3秒刷新一次页面</span></span><br><span class="line"><span class="comment">    url指定需要跳转的页面,如果没有指定,就只是刷新</span></span><br><span class="line"><span class="comment"> --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"refresh"</span> <span class="attr">content</span>=<span class="string">"3, url='https://www.baidu.com'"</span> &gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">    缓存</span></span><br><span class="line"><span class="comment">    在规定的时间内,网页会访问缓存</span></span><br><span class="line"><span class="comment">    缓存过期才会去服务器取新的</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"expires"</span> <span class="attr">content</span>=<span class="string">"Wed,20 Jun 2019 22:33:00 GMT"</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      html的meta标签扩展
+    
+    </summary>
+    
+      <category term="html" scheme="https://zjinc36.github.io/categories/html/"/>
+    
+    
+      <category term="html" scheme="https://zjinc36.github.io/tags/html/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Html的link标签扩展</title>
+    <link href="https://zjinc36.github.io/2019/08/15/html%E7%9A%84link%E6%A0%87%E7%AD%BE%E6%89%A9%E5%B1%95/"/>
+    <id>https://zjinc36.github.io/2019/08/15/html的link标签扩展/</id>
+    <published>2019-08-14T16:52:32.000Z</published>
+    <updated>2019-08-14T07:57:05.567Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="link标签的作用"><a href="#link标签的作用" class="headerlink" title="link标签的作用"></a>link标签的作用</h1><p>主要用于引入外部文件,具体又分为如下三种</p><ol><li><p>引入css文件</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"theme.css"</span>&gt;</span></span><br></pre></td></tr></table></figure></li><li><p>网站小图标</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">ref</span>=<span class="string">"icon"</span> <span class="attr">type</span>=<span class="string">"/image/x-icon"</span> <span class="attr">href</span>=<span class="string">"./favicon.ico"</span>&gt;</span></span><br></pre></td></tr></table></figure></li><li><p>dns解析<br>将dns解析提到这一步来做,有利于网站的优化</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">ref</span>=<span class="string">"dns-prefetch"</span> <span class="attr">href</span>=<span class="string">"//static.360buyimg.com"</span>&gt;</span></span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      html的link标签扩展
+    
+    </summary>
+    
+      <category term="html" scheme="https://zjinc36.github.io/categories/html/"/>
+    
+    
+      <category term="html" scheme="https://zjinc36.github.io/tags/html/"/>
     
   </entry>
   
