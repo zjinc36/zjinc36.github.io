@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>Tag: Java | zjc&#39;s Blogs</title>
+  <title>Tag: Java | 想了20分钟的博客名</title>
   
   
 
   
-  <link rel="alternate" href="/atom.xml" title="zjc's Blogs">
+  <link rel="alternate" href="/atom.xml" title="想了20分钟的博客名">
   
 
   <meta name="HandheldFriendly" content="True">
@@ -49,7 +49,7 @@
     <cover class='cover  half'>
       
         
-  <h1 class='title'>zjc's blog</h1>
+  <h1 class='title'>这是想了20分钟的博客名</h1>
 
 
   <div class="m_search">
@@ -118,7 +118,7 @@
 		<div class="nav-main container container--flex">
       <a class="logo flat-box" href='/' >
         
-          zjc's Blogs
+          想了20分钟的博客名
         
       </a>
 			<div class='menu navgation'>
@@ -289,6 +289,8 @@
         
           
         
+          
+        
       
     
     
@@ -388,6 +390,266 @@
       <div class="full-width auto-padding tags">
         
           <a href="/tags/Java/" rel="nofollow"><i class="fas fa-hashtag fa-fw"></i>Java</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/2018/01/20/Junit单元测试/">
+      Junit单元测试
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    <a href="https://zjinc36.github.io" rel="nofollow">
+      
+        <i class="fas fa-user" aria-hidden="true"></i>
+      
+      <p>zjc</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2018-01-19</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Java/' rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>Java</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <h1 id="测试的分类"><a href="#测试的分类" class="headerlink" title="测试的分类"></a>测试的分类</h1><ul>
+<li>黑盒测试</li>
+<li>白盒测试</li>
+<li>压力测试</li>
+<li>覆盖率测试</li>
+<li>性能测试</li>
+</ul>
+<h1 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h1><h2 id="什么是单元测试"><a href="#什么是单元测试" class="headerlink" title="什么是单元测试"></a>什么是单元测试</h2><ol>
+<li>单元测试就是针对最小的功能单元编写测试代码</li>
+<li>而java程序的最小测试单元就是”方法”</li>
+<li>单元测试就是针对单个java方法的测试</li>
+</ol>
+<h2 id="什么是测试驱动开发-TDD"><a href="#什么是测试驱动开发-TDD" class="headerlink" title="什么是测试驱动开发(TDD)"></a>什么是测试驱动开发(TDD)</h2><p>基本流程如下<br><img src="/images/2020/01/20200119001.png" alt></p>
+<h2 id="使用main方法测试的缺点"><a href="#使用main方法测试的缺点" class="headerlink" title="使用main方法测试的缺点"></a>使用main方法测试的缺点</h2><ul>
+<li>只能有一个main()方法,不能把测试代码分离</li>
+<li>没有打印出测试结果和期望结果<br>=&gt;  需要一种测试框架,帮我们编写测试</li>
+</ul>
+<h2 id="单元测试的好处"><a href="#单元测试的好处" class="headerlink" title="单元测试的好处"></a>单元测试的好处</h2><ul>
+<li>确保单个方法运行正常</li>
+<li>如果修改了方法代码,只需确保其对应的单元测试通过</li>
+<li>测试代码本身就可以作为示例代码</li>
+<li>可以自动化运行所有测试并获得报告,报告不仅可以报告成功的测试和失败的测试,还能报告单元测试的覆盖率(即:有多少代码被测试了)</li>
+</ul>
+<h1 id="Junit"><a href="#Junit" class="headerlink" title="Junit"></a>Junit</h1><h2 id="Junit是一个开源的Java语言的单元测试框架"><a href="#Junit是一个开源的Java语言的单元测试框架" class="headerlink" title="Junit是一个开源的Java语言的单元测试框架"></a>Junit是一个开源的Java语言的单元测试框架</h2><ul>
+<li>专门针对Java语言设计,使用最广泛</li>
+<li>Junit是事实上的标准单元测试框架</li>
+</ul>
+<h2 id="Junit特点"><a href="#Junit特点" class="headerlink" title="Junit特点"></a>Junit特点</h2><ul>
+<li>使用断言(Assertion)测试期望结果</li>
+<li>可以方便地组织和运行测试</li>
+<li>可以方便地查看测试结果</li>
+<li>常用IDE都继承了Junit</li>
+<li>可以方便地集成到Maven</li>
+</ul>
+<h2 id="Juint的设计"><a href="#Juint的设计" class="headerlink" title="Juint的设计"></a>Juint的设计</h2><ul>
+<li>TestCase:一个TestCase表示一个测试</li>
+<li>TestSuite:一个TestSuite包含一组TestCase,表示一组测试</li>
+<li>TestFixture:一个TestFixture表示一个测试环境</li>
+<li>TestResult:用于收集测试结果</li>
+<li>TestRunner:用于运行测试</li>
+<li>TestListener:用于监听测试结果,收集测试数据</li>
+<li>Assert:用于断言测试结果是否正确</li>
+</ul>
+<h2 id="Juint版本说明"><a href="#Juint版本说明" class="headerlink" title="Juint版本说明"></a>Juint版本说明</h2><table>
+<thead>
+<tr>
+<th>版本</th>
+<th>Junit3.x</th>
+<th>Junit4</th>
+<th>Junit5</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>JDK</td>
+<td>JDK &lt; 1.5</td>
+<td>JDK &gt;= 1.5</td>
+<td>JDK &gt;= 1.8</td>
+</tr>
+<tr>
+<td>class</td>
+<td>class MyTest extends TestCase{}</td>
+<td>class MyTest{}</td>
+<td>class MyTest{}</td>
+</tr>
+<tr>
+<td>method</td>
+<td>public testAbc(){}</td>
+<td>@Test public abc(){}</td>
+<td>@Test public abc() {}</td>
+</tr>
+</tbody></table>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="使用eclipse如何创建测试类"><a href="#使用eclipse如何创建测试类" class="headerlink" title="使用eclipse如何创建测试类"></a>使用eclipse如何创建测试类</h2><p>使用eclipse创建测试类<br>在需要创建Junit的类上 -&gt; 右键 -&gt; new -&gt; Other -&gt; 找到Junit Test Case<br><img src="/images/2020/01/20200119006.png" alt><br><img src="/images/2020/01/20200119009.png" alt><br><img src="/images/2020/01/20200119010.png" alt><br><img src="/images/2020/01/20200119011.png" alt></p>
+<p>在刚才选择的source folder下创建了测试类<br><img src="/images/2020/01/20200119012.png" alt></p>
+<h2 id="入门案例"><a href="#入门案例" class="headerlink" title="入门案例"></a>入门案例</h2><p>代码结构如上</p>
+<p>被测试代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zjc.junit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Calculator</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">calculate</span><span class="params">(String expression)</span> </span>&#123;</span><br><span class="line">		String[] ss = expression.split(<span class="string">"\\+"</span>);</span><br><span class="line">		System.out.println(expression + <span class="string">" =&gt; "</span> + Arrays.toString(ss));</span><br><span class="line">		<span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(String s : ss) &#123;</span><br><span class="line">			sum = sum + Integer.parseInt(s);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> sum;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zjc.junit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CalculatorTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testCalculate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		assertEquals(<span class="number">3</span>, <span class="keyword">new</span> Calculator().calculate(<span class="string">"1+2"</span>));</span><br><span class="line">		assertEquals(<span class="number">6</span>, <span class="keyword">new</span> Calculator().calculate(<span class="string">"1+2+3"</span>));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 测试用户输入不规范时,是否能通过测试</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testCalculateWithSpace</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		assertEquals(<span class="number">3</span>, <span class="keyword">new</span> Calculator().calculate(<span class="string">" 1 + 2"</span>));  <span class="comment">// 这里输入不规范,被测试代码会报错</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对测试结果进行处理<br><img src="/images/2020/01/20200119015.png" alt></p>
+<h3 id="使用Asser断言"><a href="#使用Asser断言" class="headerlink" title="使用Asser断言"></a>使用Asser断言</h3><p><code>import static org.junit.Assert.*</code></p>
+<ul>
+<li>断言相等:assertEquals(100, x)</li>
+<li>断言数组相等:assertArrayEquals({1, 2, 3}, x)</li>
+<li>浮点数断言相等:assertEquals(3.1416, x, 0.0001)  // 其中0.0001是误差值</li>
+<li>断言为null:assertNull(x)</li>
+<li>断言为true/false:assertTrue(x &gt; 0)  assertFalse(x &lt; 0)</li>
+<li>其他:assertNotEquals/assertNotNull</li>
+</ul>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><ul>
+<li>一个TestCase包含一组相关的测试方法</li>
+<li>使用Assert断言测试结果(注意浮点数assertEquals要指定delta)</li>
+<li>每个测试方法必须完全独立,也就是说不能预测测试方法的运行顺序</li>
+<li>测试代码必须非常简单</li>
+<li>不能为测试代码再编写测试</li>
+<li>测试需要覆盖各种输入条件,特别是边界条件</li>
+</ul>
+<h2 id="Before和After"><a href="#Before和After" class="headerlink" title="Before和After"></a>Before和After</h2><h3 id="使用-Before和-After"><a href="#使用-Before和-After" class="headerlink" title="使用@Before和@After"></a>使用@Before和@After</h3><ul>
+<li>在@Before方法中初始化测试资源(<strong>Before方法初始化的对象要全部放在实例字段中</strong>,底下有示例代码)</li>
+<li>在@After方法中释放测试资源</li>
+</ul>
+<p><strong>使用@Before和@After可以保证</strong></p>
+<ul>
+<li>单个@Test方法执行前会创建新的XxxTest实例,实例变量的状态<code>不会</code>传递给下一个@Test方法</li>
+<li>单个@Test方法执行前后会执行@Before和@After方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zjc.junit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Before;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CalculatorTest</span> </span>&#123;</span><br><span class="line">	StringBuilder builder;  <span class="comment">// Before方法初始化的对象要全部放在实例字段中</span></span><br><span class="line">	Calculator calculator;  <span class="comment">// Before方法初始化的对象要全部放在实例字段中</span></span><br><span class="line">	<span class="meta">@Before</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		builder = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">		calculator = <span class="keyword">new</span> Calculator();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testCalculate</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="comment">//		assertEquals(3, new Calculator().calculate("1+2"));</span></span><br><span class="line"><span class="comment">//		assertEquals(6, new Calculator().calculate("1+2+3"));</span></span><br><span class="line">		assertEquals(<span class="number">6</span>, calculator.calculate(<span class="string">"1+2+3"</span>));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 测试用户输入不规范时,是否能通过测试</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testCalculateWithSpace</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="comment">//		assertEquals(3, new Calculator().calculate(" 1 + 2"));	// 这里输入不规范,被测试代码会报错</span></span><br><span class="line">		assertEquals(<span class="number">3</span>, calculator.calculate(<span class="string">" 1 + 2"</span>));	<span class="comment">// 这里输入不规范,被测试代码会报错</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-BeforeClass和-AfterClass"><a href="#使用-BeforeClass和-AfterClass" class="headerlink" title="使用@BeforeClass和@AfterClass"></a>使用@BeforeClass和@AfterClass</h3><ul>
+<li>@BeforeClass静态方法初始化的对象只能存放在静态字段中</li>
+<li>静态字段的状态<code>会</code>影响到所有的@Test</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zjc.junit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Before;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CalculatorTest</span> </span>&#123;</span><br><span class="line">	<span class="keyword">static</span> StringBuilder builder;</span><br><span class="line">	<span class="meta">@BeforeClass</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		builder = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">	&#125;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h3><h4 id="Junit执行逻辑"><a href="#Junit执行逻辑" class="headerlink" title="Junit执行逻辑"></a>Junit执行逻辑</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">invokeBeforeClass(CalculatorTest.class);    <span class="comment">//@Before</span></span><br><span class="line"><span class="keyword">for</span> (Method testMethod : findTestMethods(CalculatorTest.class)) &#123;</span><br><span class="line">    CalculatorTest test = <span class="keyword">new</span> CalculatorTest(); <span class="comment">// 创建Test实例</span></span><br><span class="line">    test.setUp();   <span class="comment">//@Before</span></span><br><span class="line">    testMethod.invoke(test);    <span class="comment">//@Test</span></span><br><span class="line">    test.setDown(); <span class="comment">//@After</span></span><br><span class="line">&#125;</span><br><span class="line">invokeAfterClass(CalculatorTest.class); <span class="comment">//@AfterClass</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Junit-Fixture"><a href="#Junit-Fixture" class="headerlink" title="Junit Fixture"></a>Junit Fixture</h4><p>初始化测试资源称为Fixture</p>
+<ul>
+<li>@Before:初始化测试对象,例如:input = new FileInputStream();</li>
+<li>@After:销毁@Before创建的测试对象,例如:input.close();</li>
+<li>@BeforeClass:初始化非常耗时的资源,例如数据库</li>
+<li>@AfterClass:清理@BeforeClass创建的资源,例如:删除数据库</li>
+</ul>
+<h4 id="Junit执行测试的生命周期"><a href="#Junit执行测试的生命周期" class="headerlink" title="Junit执行测试的生命周期"></a>Junit执行测试的生命周期</h4><ul>
+<li>@Before用于初始化测试对象,测试对象以实例变量存放</li>
+<li>@After用于清理@Before对象创建的对象</li>
+<li>@BeforeClass用于初始化耗时资源,以静态变量存放</li>
+<li>@AfterClass用于清理@BeforeClass创建的资源</li>
+</ul>
+<h2 id="异常测试"><a href="#异常测试" class="headerlink" title="异常测试"></a>异常测试</h2><p>对可能抛出的异常进行测试</p>
+<ul>
+<li>异常本身是方法签名的一部分<br><code>public static int parseInt(String s) throws NumberFormatException</code></li>
+<li>测试错误的输入是否导致特定的异常<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Integer.parseInt(null)</span><br><span class="line">Integer.parseInt(&quot;&quot;)</span><br><span class="line">Integer.parseInt(&quot;xyz&quot;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="如何测试异常"><a href="#如何测试异常" class="headerlink" title="如何测试异常"></a>如何测试异常</h3><ol>
+<li>很常规,但是写出来会被鄙视的代码<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testNumberFormatException</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Integer.parseInt(<span class="keyword">null</span>);</span><br><span class="line">        fail(<span class="string">"Should throw exception"</span>);     <span class="comment">// 没有捕获到异常,就用Junit提供的fail()函数表示测试失败</span></span><br><span class="line">    &#125; <span class="keyword">catch</span> (NumberFormatException e) &#123;</span><br><span class="line">        <span class="comment">// do somethint...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>这样需要写很多try…catch…代码</p>
+<ol start="2">
+<li>使用expected测试异常<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span>(expected = NumberFormatException.class)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testNumberFormatException</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Integer.parseInt(<span class="keyword">null</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>如果抛出了指定类型的异常,测试通过;如果没有抛出异常,或者抛出的异常类型不对,测试失败.</p>
+<p>测试不通过例子<br><img src="/images/2020/01/20200119016.png" alt></p>
+<p>对代码进行修改<br><img src="/images/2020/01/20200119018.png" alt></p>
+<h3 id="小结-2"><a href="#小结-2" class="headerlink" title="小结"></a>小结</h3><ul>
+<li>测试异常可以使用@Test(expected = Exception.class)</li>
+<li>对可能发生的每种类型的异常进行测试</li>
+</ul>
+<h2 id="超时测试"><a href="#超时测试" class="headerlink" title="超时测试"></a>超时测试</h2><p>Junit可以为单个测试设置超时</p>
+<ul>
+<li>超时设置为1秒:@Test(timeout=1000) 单位是毫秒</li>
+<li>当代码运行时间超过我们设定的时间,报错</li>
+<li>超时测试不能取代性能测试和压力测试</li>
+</ul>
+
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/tags/Java/" rel="nofollow"><i class="fas fa-hashtag fa-fw"></i>Java</a>
+        
+          <a href="/tags/Junit/" rel="nofollow"><i class="fas fa-hashtag fa-fw"></i>Junit</a>
         
       </div>
     
@@ -572,7 +834,7 @@
         
           <li><a class="flat-box" title="/categories/BigData/" href="/categories/BigData/"><div class='name'>BigData</div><div class='badge'>(2)</div></a></li>
         
-          <li><a class="flat-box" title="/categories/Java/" href="/categories/Java/"><div class='name'>Java</div><div class='badge'>(68)</div></a></li>
+          <li><a class="flat-box" title="/categories/Java/" href="/categories/Java/"><div class='name'>Java</div><div class='badge'>(71)</div></a></li>
         
           <li><a class="flat-box" title="/categories/Javascript/" href="/categories/Javascript/"><div class='name'>Javascript</div><div class='badge'>(1)</div></a></li>
         
@@ -585,8 +847,6 @@
           <li><a class="flat-box" title="/categories/html/" href="/categories/html/"><div class='name'>html</div><div class='badge'>(13)</div></a></li>
         
           <li><a class="flat-box" title="/categories/vim/" href="/categories/vim/"><div class='name'>vim</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/日语/" href="/categories/日语/"><div class='name'>日语</div><div class='badge'>(0)</div></a></li>
         
           <li><a class="flat-box" title="/categories/计算机操作系统/" href="/categories/计算机操作系统/"><div class='name'>计算机操作系统</div><div class='badge'>(2)</div></a></li>
         
@@ -621,7 +881,7 @@
 </header>
 
     <div class='content material'>
-      <a href="/tags/BigData/" style="font-size: 14.91px; color: #939393">BigData</a> <a href="/tags/Eclipse/" style="font-size: 18.55px; color: #7a7a7a">Eclipse</a> <a href="/tags/Hadoop/" style="font-size: 14px; color: #999">Hadoop</a> <a href="/tags/Hibernate/" style="font-size: 19.45px; color: #747474">Hibernate</a> <a href="/tags/Http/" style="font-size: 14px; color: #999">Http</a> <a href="/tags/JSP-EL-JSTL/" style="font-size: 14px; color: #999">JSP/EL/JSTL</a> <a href="/tags/Jackson/" style="font-size: 14px; color: #999">Jackson</a> <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/Java细节/" style="font-size: 18.55px; color: #7a7a7a">Java细节</a> <a href="/tags/Jquery/" style="font-size: 14px; color: #999">Jquery</a> <a href="/tags/Linux命令/" style="font-size: 14.91px; color: #939393">Linux命令</a> <a href="/tags/Lombok/" style="font-size: 14px; color: #999">Lombok</a> <a href="/tags/MyBatis/" style="font-size: 16.73px; color: #868686">MyBatis</a> <a href="/tags/OGNL/" style="font-size: 14.91px; color: #939393">OGNL</a> <a href="/tags/SSH/" style="font-size: 14px; color: #999">SSH</a> <a href="/tags/Servlet/" style="font-size: 17.64px; color: #808080">Servlet</a> <a href="/tags/Spring/" style="font-size: 24px; color: #555">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 14.91px; color: #939393">SpringBoot</a> <a href="/tags/SpringMVC/" style="font-size: 21.27px; color: #686868">SpringMVC</a> <a href="/tags/SpringSecurity/" style="font-size: 14px; color: #999">SpringSecurity</a> <a href="/tags/Struts2/" style="font-size: 21.27px; color: #686868">Struts2</a> <a href="/tags/Thymeleaf/" style="font-size: 14px; color: #999">Thymeleaf</a> <a href="/tags/Tomcat/" style="font-size: 15.82px; color: #8d8d8d">Tomcat</a> <a href="/tags/Ubuntu装机日志/" style="font-size: 21.27px; color: #686868">Ubuntu装机日志</a> <a href="/tags/css/" style="font-size: 23.09px; color: #5b5b5b">css</a> <a href="/tags/docker/" style="font-size: 14px; color: #999">docker</a> <a href="/tags/html/" style="font-size: 22.18px; color: #616161">html</a> <a href="/tags/html5/" style="font-size: 14px; color: #999">html5</a> <a href="/tags/maven/" style="font-size: 20.36px; color: #6e6e6e">maven</a> <a href="/tags/vim插件/" style="font-size: 14px; color: #999">vim插件</a> <a href="/tags/vim细节/" style="font-size: 14px; color: #999">vim细节</a>
+      <a href="/tags/BigData/" style="font-size: 14.91px; color: #939393">BigData</a> <a href="/tags/Eclipse/" style="font-size: 19.45px; color: #747474">Eclipse</a> <a href="/tags/Hadoop/" style="font-size: 14px; color: #999">Hadoop</a> <a href="/tags/Hibernate/" style="font-size: 19.45px; color: #747474">Hibernate</a> <a href="/tags/Http/" style="font-size: 14px; color: #999">Http</a> <a href="/tags/JSP-EL-JSTL/" style="font-size: 14px; color: #999">JSP/EL/JSTL</a> <a href="/tags/Jackson/" style="font-size: 14px; color: #999">Jackson</a> <a href="/tags/Java/" style="font-size: 14.91px; color: #939393">Java</a> <a href="/tags/Java细节/" style="font-size: 18.55px; color: #7a7a7a">Java细节</a> <a href="/tags/Jquery/" style="font-size: 14px; color: #999">Jquery</a> <a href="/tags/Junit/" style="font-size: 14px; color: #999">Junit</a> <a href="/tags/Linux命令/" style="font-size: 14.91px; color: #939393">Linux命令</a> <a href="/tags/Lombok/" style="font-size: 14px; color: #999">Lombok</a> <a href="/tags/MyBatis/" style="font-size: 16.73px; color: #868686">MyBatis</a> <a href="/tags/OGNL/" style="font-size: 14.91px; color: #939393">OGNL</a> <a href="/tags/SSH/" style="font-size: 14px; color: #999">SSH</a> <a href="/tags/Servlet/" style="font-size: 17.64px; color: #808080">Servlet</a> <a href="/tags/Spring/" style="font-size: 24px; color: #555">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 14.91px; color: #939393">SpringBoot</a> <a href="/tags/SpringMVC/" style="font-size: 21.27px; color: #686868">SpringMVC</a> <a href="/tags/SpringSecurity/" style="font-size: 14px; color: #999">SpringSecurity</a> <a href="/tags/Struts2/" style="font-size: 21.27px; color: #686868">Struts2</a> <a href="/tags/Thymeleaf/" style="font-size: 14px; color: #999">Thymeleaf</a> <a href="/tags/Tomcat/" style="font-size: 15.82px; color: #8d8d8d">Tomcat</a> <a href="/tags/Ubuntu装机日志/" style="font-size: 21.27px; color: #686868">Ubuntu装机日志</a> <a href="/tags/css/" style="font-size: 23.09px; color: #5b5b5b">css</a> <a href="/tags/docker/" style="font-size: 14px; color: #999">docker</a> <a href="/tags/html/" style="font-size: 22.18px; color: #616161">html</a> <a href="/tags/html5/" style="font-size: 14px; color: #999">html5</a> <a href="/tags/maven/" style="font-size: 20.36px; color: #6e6e6e">maven</a> <a href="/tags/vim插件/" style="font-size: 14px; color: #999">vim插件</a> <a href="/tags/vim细节/" style="font-size: 14px; color: #999">vim细节</a>
     </div>
   </section>
 
