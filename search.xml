@@ -56,6 +56,33 @@
     
     
     <entry>
+      <title>Hadoop安装</title>
+      <link href="/2019/12/12/Hadoop%E5%AE%89%E8%A3%85/"/>
+      <url>/2019/12/12/Hadoop%E5%AE%89%E8%A3%85/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Hadoop安装"><a href="#Hadoop安装" class="headerlink" title="Hadoop安装"></a>Hadoop安装</h1><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>这是一个apache项目,自然在官网进行下载,下载方式很多,用命令wget也好,用curl也罢,这里主要说明要在哪里能找到Hadoop程序</p><ol><li><a href="http://apache.org/index.html" target="_blank" rel="noopener">http://apache.org/index.html</a><br><img src="/images/2020/02/20200208001.png" alt></li><li>找到Hadoop<br><img src="/images/2020/02/20200208002.png" alt></li><li>下载想要的版本的二进制文件<br><img src="/images/2020/02/20200208003.png" alt></li><li>点击下载<br><img src="/images/2020/02/20200208004.png" alt></li></ol><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装很简单,解压就好,解压完后,目录下有如下文件<br><img src="/images/2020/02/20200208005.png" alt></p><h2 id="配置变量"><a href="#配置变量" class="headerlink" title="配置变量"></a>配置变量</h2><p><code>/etc/environment</code></p><ol><li><code>HADOOP_INSTALL</code>变量</li><li>PATH环境变量<h2 id="测试安装"><a href="#测试安装" class="headerlink" title="测试安装"></a>测试安装</h2>hadoop version</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> BigData </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> BigData </tag>
+            
+            <tag> Hadoop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Docker简介</title>
       <link href="/2019/11/24/docker%E7%AE%80%E4%BB%8B/"/>
       <url>/2019/11/24/docker%E7%AE%80%E4%BB%8B/</url>
@@ -2008,6 +2035,31 @@
         <tags>
             
             <tag> Linux命令 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ubuntu环境变量的位置与配置</title>
+      <link href="/2018/02/09/Ubuntu%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%8D%E7%BD%AE%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
+      <url>/2018/02/09/Ubuntu%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%8D%E7%BD%AE%E4%B8%8E%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Ubuntu环境变量在哪里"><a href="#Ubuntu环境变量在哪里" class="headerlink" title="Ubuntu环境变量在哪里"></a>Ubuntu环境变量在哪里</h1><p>Ubuntu Linux系统环境变量配置文件分为两种</p><ol><li>系统级文件</li><li>用户级文件</li></ol><h2 id="系统级文件"><a href="#系统级文件" class="headerlink" title="系统级文件"></a>系统级文件</h2><ul><li><p>/etc/profile:<br>在登录时,操作系统定制用户环境时使用的第一个文件，此文件为系统的每个用户设置环境信息,当用户第一次登录时,该文件被执行。并从/etc/profile.d目录的配置文件中搜集shell的设置。这个文件一般就是调用/etc/bash.bashrc文件。</p></li><li><p>/etc/bash.bashrc：<br>系统级的bashrc文件，为每一个运行bash shell的用户执行此文件.当bash shell被打开时,该文件被读取.</p></li><li><p>/etc/environment:<br>在登录时操作系统使用的第二个文件,系统在读取你自己的profile前,设置环境文件的环境变量。</p></li></ul><h2 id="用户级文件"><a href="#用户级文件" class="headerlink" title="用户级文件"></a>用户级文件</h2><ul><li><p>~/.profile:<br>在登录时用到的第三个文件 是.profile文件,每个用户都可使用该文件输入专用于自己使用的shell信息,当用户登录时,该文件仅仅执行一次!默认情况下,他设置一些环境变量,执行用户的.bashrc文件。</p></li><li><p>~/.bashrc:<br>该文件包含专用于你的bash shell的bash信息,当登录时以及每次打开新的shell时,该该文件被读取。<br>不推荐放到这儿，因为每开一个shell，这个文件会读取一次，效率 上讲不好。</p></li><li><p>~/.bash_profile：<br>每个用户都可使用该文件输入专用于自己 使用的shell信息,当用户登录时,该文件仅仅执行一次!默认情况下,他设置一些环境变量,执行用户的.bashrc文件。.bash_profile是交互式,login 方式进入 bash 运行的.bashrc是交互式 non-login 方式进入 bash 运行的通常二者设置大致相同，所以通常前者会调用后者。</p></li><li><p>~./bash_login:<br>不推荐使用这个，这些不会影响图形界面。而且.bash_profile优先级比bash_login高。当它们存在时，登录shell启动时会读取它们。</p></li><li><p>~/.bash_logout:<br>当每次退出系统(退出bash shell)时,执行该文件.</p></li><li><p>~/.pam_environment：用户级的环境变量设置文件。</p></li></ul><p>另外,/etc/profile中设定的变量(全局)的可以作用于任何用户,而~/.bashrc等中设定的变量(局部)只能继承 /etc/profile中的变量,他们是”父子”关系。 </p><h1 id="查看环境变量"><a href="#查看环境变量" class="headerlink" title="查看环境变量"></a>查看环境变量</h1><p>查看环境变量有三个命令：</p><ul><li><p>env：<br>env命令是environment的缩写，用于列出所有的环境变量；</p></li><li><p>export：<br>单独使用export命令也可以像env列出所有的环境变量，不过export命令还有其他额外的功能；</p></li><li><p>echo $PATH：<br>echo $PATH用于列出变量PATH的值，里面包含了已添加的目录。</p></li></ul><h1 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h1><p>设置环境变量通常有两种方式。</p><h2 id="把你的路径加入PATH"><a href="#把你的路径加入PATH" class="headerlink" title="把你的路径加入PATH"></a>把你的路径加入PATH</h2><p>可以直接添加到环境变量PATH中。$PATH表示变量PATH的值，包含已有的目录。</p><p>这种方法需要注意路径的顺序，如果遇到有同名的命令，那么PATH里面哪个目录先被查询，则那个目录下的命令就会被先执行，如下所示：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 加到PATH末尾</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/path/to/your/dir</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加到PATH开头</span></span><br><span class="line"><span class="built_in">export</span> PATH=/path/to/your/dir:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure><h2 id="命名一个新的环境变量"><a href="#命名一个新的环境变量" class="headerlink" title="命名一个新的环境变量"></a>命名一个新的环境变量</h2><p>也可以直接命名一个新的环境变量，用于其它程序引用：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> VAR_NAME=value</span><br></pre></td></tr></table></figure><h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h1><p>环境变量的作用域通常有三个。</p><h2 id="用于当前终端"><a href="#用于当前终端" class="headerlink" title="用于当前终端"></a>用于当前终端</h2><p>打开一个终端，输入添加环境变量的语句：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export CLASS_PATH=./JAVA_HOME/lib:$JAVA_HOME/jre/lib</span><br></pre></td></tr></table></figure><p><code>终端所添加的环境变量是临时的，只适用于当前终端</code>，关闭当前终端或在另一个终端中，添加的环境变量无效。</p><h2 id="用于当前用户"><a href="#用于当前用户" class="headerlink" title="用于当前用户"></a>用于当前用户</h2><p>如果只需要添加的环境变量对当前用户有效，可以写入用户主目录下的.bashrc文件：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="comment">#   添加语句：</span></span><br><span class="line"><span class="built_in">export</span> CLASS_PATH=./JAVA_HOME/lib:<span class="variable">$JAVA_HOME</span>/jre/lib</span><br><span class="line"></span><br><span class="line"><span class="comment">#   注销或者重启可以使修改生效，如果要使添加的环境变量马上生效：</span></span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure><h2 id="用于所有用户"><a href="#用于所有用户" class="headerlink" title="用于所有用户"></a>用于所有用户</h2><p>要使环境变量对所有用户有效，可以修改profile文件：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="comment">#   添加语句：</span></span><br><span class="line"><span class="built_in">export</span> CLASS_PATH=./JAVA_HOME/lib:<span class="variable">$JAVA_HOME</span>/jre/lib</span><br><span class="line"></span><br><span class="line"><span class="comment">#   注销或者重启可以使修改生效，如果要使添加的环境变量马上生效：</span></span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Ubuntu </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux配置 </tag>
             
         </tags>
       
