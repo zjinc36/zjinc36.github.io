@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Git的diff命令和patch命令的使用 | 想了20分钟的博客名</title>
+  
+  
+  <meta name="description" content="Git的diff命令和patch命令的使用">
+  
+
+  
+  <link rel="alternate" href="/atom.xml" title="想了20分钟的博客名">
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/css/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  
+  <div class="cover-wrapper">
+    <cover class='cover post half'>
+      
+        
+  <h1 class='title'>这是想了20分钟的博客名</h1>
+
+
+  <div class="m_search">
+    <form name="searchform" class="form u-search-form">
+      <input type="text" class="input u-search-input" placeholder="搜索" />
+      <i class="icon fas fa-search fa-fw"></i>
+    </form>
+  </div>
+
+<div class='menu navgation'>
+  <ul class='h-list'>
+    
+      
+        <li>
+          <a class="nav home" href="/"
+            
+            
+            id="home">
+            <i class='fas fa-rss fa-fw'></i>&nbsp;博文
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/projects/"
+            
+            
+            id="projects">
+            <i class='fas fa-code-branch fa-fw'></i>&nbsp;项目
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/friends/"
+            
+              rel="nofollow"
+            
+            
+            id="friends">
+            <i class='fas fa-link fa-fw'></i>&nbsp;友链
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/about/"
+            
+              rel="nofollow"
+            
+            
+            id="about">
+            <i class='fas fa-info-circle fa-fw'></i>&nbsp;关于
+          </a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+      
+    </cover>
+    <header class="l_header material">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar" class="material"></div>
+  </div>
+
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          想了20分钟的博客名
+        
+      </a>
+			<div class='menu navgation'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a class="nav flat-box" href="/"
+                  
+                  
+                  id="home">
+									<i class='fas fa-grin fa-fw'></i>&nbsp;首页
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/categories/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="categories">
+									<i class='fas fa-folder-open fa-fw'></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/tags/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="tags">
+									<i class='fas fa-hashtag fa-fw'></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/archives/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="archives">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="搜索" />
+						<i class="icon fas fa-search fa-fw"></i>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+        
+          <li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu navgation">
+      <ul>
+        
+          
+            <li>
+							<a class="nav flat-box" href="/"
+                
+                
+                id="home">
+								<i class='fas fa-clock fa-fw'></i>&nbsp;近期文章
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/archives/"
+                
+                  rel="nofollow"
+                
+                
+                id="archives">
+								<i class='fas fa-archive fa-fw'></i>&nbsp;文章归档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/projects/"
+                
+                
+                id="projects">
+								<i class='fas fa-code-branch fa-fw'></i>&nbsp;开源项目
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/friends/"
+                
+                  rel="nofollow"
+                
+                
+                id="friends">
+								<i class='fas fa-link fa-fw'></i>&nbsp;我的友链
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="https://xaoxuu.com/wiki/material-x/"
+                
+                  rel="nofollow"
+                
+                
+                id="https:xaoxuu.comwikimaterial-x">
+								<i class='fas fa-book fa-fw'></i>&nbsp;主题文档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/about/"
+                
+                  rel="nofollow"
+                
+                
+                id="about">
+								<i class='fas fa-info-circle fa-fw'></i>&nbsp;关于小站
+							</a>
+            </li>
+          
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+  </div>
+
+
+  <div class="l_body">
+    <div class='body-wrapper'>
+      <div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/2017/02/15/Git的diff命令和patch命令的使用/">
+        Git的diff命令和patch命令的使用
+      </a>
+    </h1>
+  
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    <a href="https://zjinc36.github.io" rel="nofollow">
+      
+        <i class="fas fa-user" aria-hidden="true"></i>
+      
+      <p>zjc</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2017-02-14</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Git/' rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>Git</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item browse busuanzi">
+      <a class='notlink'>
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <p>
+          <span id="busuanzi_value_page_pv">
+            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+          </span>
+        </p>
+      </a>
+    </div>
+  
+
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          <h1 id="diff命令的使用方法"><a href="#diff命令的使用方法" class="headerlink" title="diff命令的使用方法"></a>diff命令的使用方法</h1><h2 id="diff命令的作用"><a href="#diff命令的作用" class="headerlink" title="diff命令的作用"></a>diff命令的作用</h2><ol>
+<li>diff命令是linux上非常重要的工具，用于比较文件的内容，特别是比较两个版本不同的文件以找到改动的地方。</li>
+<li>diff在命令行中打印每一个行的改动。</li>
+<li>最新版本的diff还支持二进制文件。</li>
+<li><strong>diff程序的输出被称为补丁 (patch)，因为Linux系统中还有一个patch程序，可以根据diff的输出将a.c的文件内容更新为b.c。</strong></li>
+<li>diff是svn、cvs、git等版本控制工具不可或缺的一部分。</li>
+</ol>
+<h2 id="diff命令的使用"><a href="#diff命令的使用" class="headerlink" title="diff命令的使用"></a>diff命令的使用</h2><p>一般使用方法<br>diff命令的格式一般为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diff [参数][文件或者目录1][文件或者目录2]</span><br></pre></td></tr></table></figure>
+
+<h2 id="经常使用举例"><a href="#经常使用举例" class="headerlink" title="经常使用举例"></a>经常使用举例</h2><h3 id="不使用参数直接比较"><a href="#不使用参数直接比较" class="headerlink" title="不使用参数直接比较"></a>不使用参数直接比较</h3><ol>
+<li><p>例如，有文件test1和test2</p>
+</li>
+<li><p>进行比较</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diff test1 test2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输出(注意代码中的注释)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">2,3c2                       # &quot;c&quot;表示冲突(change),即第一个文件的第2到第3行和第二个文件的第2行开始有冲突</span><br><span class="line">&lt; asfdasfdasdfasdf          # &quot;&lt;&quot;表示删除的行,即删去了两行</span><br><span class="line">&lt; creverververver</span><br><span class="line">---</span><br><span class="line">&gt; qwefqwefqwef              # &quot;&gt;&quot;表示添加的行,即添加了这行</span><br><span class="line">5,9c4                       # 第一个文件第五行到第九行和第二个文件第四行有冲突</span><br><span class="line">&lt; aaaaaaaaaaaa              # 删去了了五行</span><br><span class="line">&lt; aaaa</span><br><span class="line">&lt; a</span><br><span class="line">&lt; a</span><br><span class="line">&lt; a</span><br><span class="line">---</span><br><span class="line">&gt; qsdqwefqwefqwef           # 添加了一行</span><br><span class="line">11d5                        # 第一个文件第11行与第二个文件第五行相比有删除</span><br><span class="line">&lt; bbbbbbbbb                 # 删除了这一行</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>提示说明<br>注释中已经写到,<code>c</code>表示冲突,以下是diff的normal显示格式的提示总结</p>
+</li>
+</ol>
+<ul>
+<li><code>a</code> - add - 添加</li>
+<li><code>c</code> - change - 改变</li>
+<li><code>d</code> - delete - 删除</li>
+<li><code>&lt;</code> - 表示删除的行</li>
+<li><code>&gt;</code> - 表示添加的行</li>
+</ul>
+<h3 id="增加参数比较两文件"><a href="#增加参数比较两文件" class="headerlink" title="增加参数比较两文件"></a>增加参数比较两文件</h3><p>参数如下</p>
+<ul>
+<li>-a或–text 　diff预设只会逐行比较文本文件。</li>
+<li>-b或–ignore-space-change 　不检查空格字符的不同。</li>
+<li>-B或–ignore-blank-lines 　不检查空白行。</li>
+<li>-c 　显示全部内文，并标出不同之处。</li>
+</ul>
+<p>使用过程</p>
+<ol>
+<li><p>使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diff -c test1 test2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将会得到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">*** test1 2016-04-21 14:46:55.000000000 +0800</span><br><span class="line">--- test2 2016-04-21 14:44:55.000000000 +0800</span><br><span class="line">***************</span><br><span class="line">*** 1,11 ****</span><br><span class="line">  utils</span><br><span class="line">! asfdasfdasdfasdf</span><br><span class="line">! creverververver</span><br><span class="line">  util</span><br><span class="line">! aaaaaaaaaaaa</span><br><span class="line">! aaaa</span><br><span class="line">! a</span><br><span class="line">! a</span><br><span class="line">! a</span><br><span class="line">  qwerqwerqwe</span><br><span class="line">- bbbbbbbbb</span><br><span class="line">--- 1,5 ----</span><br><span class="line">  utils</span><br><span class="line">! qwefqwefqwef</span><br><span class="line">  util</span><br><span class="line">! qsdqwefqwefqwef</span><br><span class="line">  qwerqwerqwe</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>说明</p>
+</li>
+</ol>
+<ul>
+<li>“＋” 比较的文件的后者比前着多一行</li>
+<li>“－” 比较的文件的后者比前着少一行</li>
+<li>“！” 比较的文件两者有差别的行</li>
+</ul>
+<h3 id="以并列的方式显示文件的异同之处。"><a href="#以并列的方式显示文件的异同之处。" class="headerlink" title="以并列的方式显示文件的异同之处。"></a>以并列的方式显示文件的异同之处。</h3><ol>
+<li><p>使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diff test1 test2 -y</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">utils                                       utils</span><br><span class="line">asfdasfdasdfasdf                          | qwefqwefqwef</span><br><span class="line">creverververver                           &lt;</span><br><span class="line">util                                        util</span><br><span class="line">aaaaaaaaaaaa                              | qsdqwefqwefqwef</span><br><span class="line">aaaa                                      &lt;</span><br><span class="line">a                                         &lt;</span><br><span class="line">a                                         &lt;</span><br><span class="line">a                                         &lt;</span><br><span class="line">qwerqwerqwe                                 qwerqwerqwe</span><br><span class="line">bbbbbbbbb                                 &lt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>说明</p>
+</li>
+</ol>
+<ul>
+<li><code>|</code>:表示前后2个文件内容有不同</li>
+<li><code>&lt;</code>:表示后面文件比前面文件少了1行内容</li>
+<li><code>&gt;</code>:表示后面文件比前面文件多了1行内容</li>
+</ul>
+<h3 id="以合并的方式显示两个文件的不同-可以用于使用patch命令进行打补丁包"><a href="#以合并的方式显示两个文件的不同-可以用于使用patch命令进行打补丁包" class="headerlink" title="以合并的方式显示两个文件的不同(可以用于使用patch命令进行打补丁包)"></a>以合并的方式显示两个文件的不同(可以用于使用patch命令进行打补丁包)</h3><ol>
+<li><p><strong>这种输出方式输出的内容可以用于使用patch命令进行打补丁包</strong></p>
+</li>
+<li><p>例如，有文件test1和test2</p>
+</li>
+<li><p>进行比较</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diff -ruN test1 test2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">--- test1   2016-04-21 14:46:55.000000000 +0800 # 第一个文件的信息</span><br><span class="line">+++ test2   2016-04-21 14:44:55.000000000 +0800 # 第二个文件的信息</span><br><span class="line">@@ -1,11 +1,5 @@                                # 第一个文件1到11行和第二个文件1到5行</span><br><span class="line"> utils</span><br><span class="line">-asfdasfdasdfasdf                               # 前面带减号的是删除的行</span><br><span class="line">-creverververver</span><br><span class="line">+qwefqwefqwef                                   # 带加号的是增加的行</span><br><span class="line"> util</span><br><span class="line">-aaaaaaaaaaaa</span><br><span class="line">-aaaa</span><br><span class="line">-a</span><br><span class="line">-a</span><br><span class="line">-a</span><br><span class="line">+qsdqwefqwefqwef</span><br><span class="line"> qwerqwerqwe</span><br><span class="line">-bbbbbbbbb</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>提示说明</p>
+</li>
+</ol>
+<ul>
+<li>“＋” 比较的文件的后者比前着多一行</li>
+<li>“－” 比较的文件的后者比前着少一行</li>
+<li>“！” 比较的文件两者有差别的行</li>
+</ul>
+<h3 id="比较两个文件夹的不同"><a href="#比较两个文件夹的不同" class="headerlink" title="比较两个文件夹的不同"></a>比较两个文件夹的不同</h3><ol>
+<li><p>例如有两个文件夹testa和test，将test1和test2放进去</p>
+</li>
+<li><p>进行比较</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diff testa testb</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>得到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">diff testa/test1 testb/test1    # 对比两个文件夹下面文件名相同的文件</span><br><span class="line">2,3c2                           # 以下是正常的文件对比格式</span><br><span class="line">&lt; asfdasfdasdfasdf</span><br><span class="line">&lt; creverververver</span><br><span class="line">---</span><br><span class="line">&gt; qwefqwefqwef</span><br><span class="line">5,9c4</span><br><span class="line">&lt; aaaaaaaaaaaa</span><br><span class="line">&lt; aaaa</span><br><span class="line">&lt; a</span><br><span class="line">&lt; a</span><br><span class="line">&lt; a</span><br><span class="line">---</span><br><span class="line">&gt; qsdqwefqwefqwef</span><br><span class="line">11d5</span><br><span class="line">&lt; bbbbbbbbb</span><br><span class="line">Only in testa: test2            # testa里面有而testb里面没有的test2</span><br><span class="line">Only in testb: test3            # testa里面没有而testb有的test3</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="diff的参数说明"><a href="#diff的参数说明" class="headerlink" title="diff的参数说明"></a>diff的参数说明</h2><ul>
+<li>-C或–context 　与执行”-c-“指令相同。</li>
+<li>-d或–minimal 　使用不同的演算法，以较小的单位来做比较。</li>
+<li>-D或ifdef 　此参数的输出格式可用于前置处理器巨集。</li>
+<li>-e或–ed 　此参数的输出格式可用于ed的script文件。</li>
+<li>-f或-forward-ed 　输出的格式类似ed的script文件，但按照原来文件的顺序来显示不同处。</li>
+<li>-H或–speed-large-files 　比较大文件时，可加快速度。</li>
+<li>-l或–ignore-matching-lines 　若两个文件在某几行有所不同，而这几行同时都包含了选项中指定的字符或字符串，则不显示这两个文件的差异。</li>
+<li>-i或–ignore-case 　不检查大小写的不同。</li>
+<li>-l或–paginate 　将结果交由pr程序来分页。</li>
+<li>-n或–rcs 　将比较结果以RCS的格式来显示。</li>
+<li>-N或–new-file 　在比较目录时，若文件A仅出现在某个目录中，预设会显示：Only in目录：文件A若使用-N参数，则diff会将文件A与一个空白的文件比较。</li>
+<li>-p 　若比较的文件为C语言的程序码文件时，显示差异所在的函数名称。</li>
+<li>-P或–unidirectional-new-file 　与-N类似，但只有当第二个目录包含了一个第一个目录所没有的文件时，才会将这个文件与空白的文件做比较。</li>
+<li>-q或–brief 　仅显示有无差异，不显示详细的信息。</li>
+<li>-r或–recursive 　比较子目录中的文件。</li>
+<li>-s或–report-identical-files 　若没有发现任何差异，仍然显示信息。</li>
+<li>-S或–starting-file 　在比较目录时，从指定的文件开始比较。</li>
+<li>-t或–expand-tabs 　在输出时，将tab字符展开。</li>
+<li>-T或–initial-tab 　在每行前面加上tab字符以便对齐。</li>
+<li>-u,-U或–unified= 　以合并的方式来显示文件内容的不同。即统一格式的输出。在合并中也使用的是这种模式。</li>
+<li>v或–version 　显示版本信息。</li>
+<li>-w或–ignore-all-space 　忽略全部的空格字符。</li>
+<li>-W或–width 　在使用-y参数时，指定栏宽。</li>
+<li>-x或–exclude 　不比较选项中所指定的文件或目录。</li>
+<li>-X或–exclude-from 　您可以将文件或目录类型存成文本文件，然后在=中指定此文本文件。</li>
+<li>-y或–side-by-side 　以并列的方式显示文件的异同之处。</li>
+<li>–help 　显示帮助。</li>
+<li>–left-column 　在使用-y参数时，若两个文件某一行内容相同，则仅在左侧的栏位显示该行内容。</li>
+<li>–suppress-common-lines 　在使用-y参数时，仅显示不同之处。</li>
+</ul>
+<h1 id="patch命令的使用方法"><a href="#patch命令的使用方法" class="headerlink" title="patch命令的使用方法"></a>patch命令的使用方法</h1><h2 id="patch命令的作用"><a href="#patch命令的作用" class="headerlink" title="patch命令的作用"></a>patch命令的作用</h2><p>打补丁</p>
+<h2 id="patch命令的格式"><a href="#patch命令的格式" class="headerlink" title="patch命令的格式"></a>patch命令的格式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">patch [option] [origfile] [patchfile]</span><br></pre></td></tr></table></figure>
+
+<h2 id="patch命令的使用"><a href="#patch命令的使用" class="headerlink" title="patch命令的使用"></a>patch命令的使用</h2><p>我们可以先用diff命令生成patch文件。然后使用patch命令将第二个文件内容修改成第一个文件的内容。例如上述的test1和test2</p>
+<ol>
+<li><p>生成patch文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diff -ruN test1 test2 &gt; patch.log   # 生成patch文件</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>利用patch文件和patch命令打补丁</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">patch test2 patch.log               # 利用patch文件和patch命令打补丁</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>之后test2的内容就会和test1内容一致了。</p>
+<h2 id="patch说明"><a href="#patch说明" class="headerlink" title="patch说明"></a>patch说明</h2><ul>
+<li>patch 命令（默认）使用从标准输入读入的源文件 <code>&lt;</code> PATCHFILE ，但是使用 -i PATCHFILE 设置。</li>
+<li>源文件包含由 diff 命令产生的差别列表（或者 diff 列表）。差异列表是比较两个文件和构建关于如何纠正差别的指示信息的结果。</li>
+<li>差异列表有三种格式：正常、上下文或者是 ed 编辑器风格。patch 命令确定差异列表格式，除非被 -c、-e 或 -n 标志否决。</li>
+<li>默认，ORIGFILE 被PATCHFILE 替换。若ORIGFILE（原始文件）不存在时，PATCHFILE（补丁文件）根据差别列表，创建 ORIGFILE 文件。</li>
+<li>指定 -b 标志时，ORIGFILE（原始文件）会备份在自身的文件中，只是在文件名后附加了后缀 .orig。使用 -o 标志也可以指定输出的目的地。</li>
+</ul>
+<h2 id="patch命令的参数"><a href="#patch命令的参数" class="headerlink" title="patch命令的参数"></a>patch命令的参数</h2><ol>
+<li><p>输入选项</p>
+<table>
+<thead>
+<tr>
+<th>输入选项</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-p</td>
+<td>NUM    –strip=NUM</td>
+<td>去除相对路径层次的数目</td>
+</tr>
+<tr>
+<td>-F</td>
+<td>LINES    –fuzz LINES</td>
+<td>设置监别列数</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>–ignore-whitespace</td>
+<td>忽略修补数据与输入数据的跳格，空格字符</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>–context</td>
+<td>把修补数据解译成关联性的差异</td>
+</tr>
+<tr>
+<td>-e</td>
+<td>–ed</td>
+<td>把修补数据解译成ed指令可用的叙述文件</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>–normal</td>
+<td>把修补数据解译成一般性的差异</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>–unified</td>
+<td>把修补数据解译成一致化的差异</td>
+</tr>
+<tr>
+<td>-N</td>
+<td>–forward</td>
+<td>忽略修补的数据较原始文件的版本更旧，或该版本的修补数据已使用过</td>
+</tr>
+<tr>
+<td>-R</td>
+<td>–reverse</td>
+<td>假设修补数据是由新旧文件交换位置而产生</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>PATCHFILE    –input=PATCHFILE</td>
+<td>读取指定的修补文件</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>输出选项</p>
+<table>
+<thead>
+<tr>
+<th>输出选项</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-o FILE</td>
+<td>–output=FILE</td>
+<td>设置输出文件的名称，修补过的文件会以该名称存放</td>
+</tr>
+<tr>
+<td>-r FILE</td>
+<td>–reject-file=FILE</td>
+<td>Output rejects to FILE</td>
+</tr>
+<tr>
+<td>-D NAME</td>
+<td>–ifdef=NAME</td>
+<td>用指定的符号把改变的地方标示出来</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>–merge</td>
+<td>Merge using conflict markers instead of creating reject files</td>
+</tr>
+<tr>
+<td>-E</td>
+<td>–remove-empty-files</td>
+<td>若修补过后输出的文件其内容是一片空白，则移除该文件</td>
+</tr>
+<tr>
+<td>-Z</td>
+<td>–set-utc</td>
+<td>把修补过的文件更改，存取时间设为UTC</td>
+</tr>
+<tr>
+<td>-T</td>
+<td>–set-time</td>
+<td>此参数的效果和指定”-Z”参数类似，但以本地时间为主</td>
+</tr>
+<tr>
+<td></td>
+<td>–quoting-style=WORD</td>
+<td>使用WORD引述类型显示项目名称,可设定值有literal,shell,shell-always,c,escape</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>备份和版本控制选项</p>
+<table>
+<thead>
+<tr>
+<th>备份和版本控制选项</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-b</td>
+<td>–backup</td>
+<td>备份每一个原始文件</td>
+</tr>
+<tr>
+<td></td>
+<td>–backup-if-mismatch</td>
+<td>在修补数据不完全吻合，且没有刻意指定要备份文件时，才备份文件</td>
+</tr>
+<tr>
+<td></td>
+<td>–no-backup-if-mismatch</td>
+<td>在修补数据不完全吻合，且没有刻意指定要备份文件时，不要备份文件</td>
+</tr>
+<tr>
+<td>-V STYLE</td>
+<td>–version-control=STYLE</td>
+<td>用”-b”参数备份目标文件后，备份文件的字尾会被加上一个备份字符串，这个字符串不仅可用”-z”参数变更，当使用”-V”参数指定不同备份方式时，也会产生不同字尾的备份字符串</td>
+</tr>
+<tr>
+<td>-B PREFIX</td>
+<td>–prefix=PREFIX</td>
+<td>设置文件备份时，附加在文件名称前面的字首字符串，该字符串可以是路径名称</td>
+</tr>
+<tr>
+<td>-Y PREFIX</td>
+<td>–basename-prefix=PREFIX</td>
+<td>设置文件备份时，附加在文件基本名称开头的字首字符串</td>
+</tr>
+<tr>
+<td>-z SUFFIX</td>
+<td>–suffix=SUFFIX</td>
+<td>此参数的效果和指定”-B”参数类似，差别在于修补作业使用的路径与文件名若为src/linux/fs/super.c，加上”backup/“字符串后，文件super.c会备份于/src/linux/fs/backup目录里</td>
+</tr>
+<tr>
+<td>-g NUM</td>
+<td>–get=NUM</td>
+<td>设置以RSC或SCCS控制修补作业</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>其他选项</p>
+<table>
+<thead>
+<tr>
+<th>其他选项</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-t</td>
+<td>–batch</td>
+<td>自动略过错误，不询问任何问题</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>–force</td>
+<td>此参数的效果和指定”-t”参数类似，但会假设修补数据的版本为新版本</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>–quiet或–silent</td>
+<td>不显示指令执行过程，除非发生错误</td>
+</tr>
+<tr>
+<td></td>
+<td>–verbose</td>
+<td>显示详细的过程信息</td>
+</tr>
+<tr>
+<td></td>
+<td>–dry-run</td>
+<td>实际上不改变任何文件；演示讲会发生什么</td>
+</tr>
+<tr>
+<td></td>
+<td>–posix</td>
+<td>符合POSIX标准</td>
+</tr>
+<tr>
+<td>-d DIR</td>
+<td>–directory=DIR</td>
+<td>先改变工作目录到指定的目录</td>
+</tr>
+<tr>
+<td></td>
+<td>–reject-format=FORMAT</td>
+<td>Create ‘context’ or ‘unified’ rejects</td>
+</tr>
+<tr>
+<td></td>
+<td>–binary</td>
+<td>以二进制方式读写数据</td>
+</tr>
+<tr>
+<td></td>
+<td>–read-only=BEHAVIOR</td>
+<td>如何处理只读输入文件：“忽视”，他们是只读的，“警告”（默认），或“失败”</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <hr>
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-14T20:25:41+09:00">
+  <a class='notlink'>
+    <i class="fas fa-clock" aria-hidden="true"></i>
+    <p>最后更新于 2020年2月14日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Git/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>Git</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://zjinc36.github.io/2017/02/15/Git的diff命令和patch命令的使用/&title=Git的diff命令和patch命令的使用 | 想了20分钟的博客名&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://zjinc36.github.io/2017/02/15/Git的diff命令和patch命令的使用/&title=Git的diff命令和patch命令的使用 | 想了20分钟的博客名&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://zjinc36.github.io/2017/02/15/Git的diff命令和patch命令的使用/&title=Git的diff命令和patch命令的使用 | 想了20分钟的博客名&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
+                            <h4>
+                                <a href="/2017/02/15/vim的全局替换/" rel="prev" title="Vim的全局替换">
+                                  
+                                      Vim的全局替换
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/vim/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>vim</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2017/01/24/Eclipse的properties文件类型显示Unicoide编码不显示汉字问题/" rel="prev" title="Eclipse的properties文件类型显示Unicoide编码不显示汉字问题">
+                                    
+                                        Eclipse的properties文件类型显示Unicoide编码不显示汉字问题
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Eclipse/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Eclipse</a> <a class="tag" href="/tags/Eclipse插件/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Eclipse插件</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+      
+      
+        <section id="comments">
+          <div id="lv-container" data-id="city" data-uid="MTAyMC80NDg2NC8yMTM4NQ==">
+            <noscript><div><i class='fas fa-exclamation-triangle'>&nbsp;无法加载Livere评论系统，请确保您的网络能够正常访问。</div></noscript>
+          </div>
+        </section>
+      
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'Git的diff命令和patch命令的使用',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+    
+    
+      
+        
+          
+          
+            <section class='widget author'>
+  <div class='content material'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='/images/thems/avatar.jpg'/>
+      </div>
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">欲穷千里目,更上一层楼</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/zjinc36"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+          
+        
+      
+        
+          
+          
+            
+  <section class='widget toc-wrapper'>
+    
+<header class='material'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;本文目录</div>
+  
+    <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+  
+</header>
+
+    <div class='content material'>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#diff命令的使用方法"><span class="toc-text">diff命令的使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#diff命令的作用"><span class="toc-text">diff命令的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#diff命令的使用"><span class="toc-text">diff命令的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#经常使用举例"><span class="toc-text">经常使用举例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#不使用参数直接比较"><span class="toc-text">不使用参数直接比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#增加参数比较两文件"><span class="toc-text">增加参数比较两文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以并列的方式显示文件的异同之处。"><span class="toc-text">以并列的方式显示文件的异同之处。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以合并的方式显示两个文件的不同-可以用于使用patch命令进行打补丁包"><span class="toc-text">以合并的方式显示两个文件的不同(可以用于使用patch命令进行打补丁包)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#比较两个文件夹的不同"><span class="toc-text">比较两个文件夹的不同</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#diff的参数说明"><span class="toc-text">diff的参数说明</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#patch命令的使用方法"><span class="toc-text">patch命令的使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#patch命令的作用"><span class="toc-text">patch命令的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#patch命令的格式"><span class="toc-text">patch命令的格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#patch命令的使用"><span class="toc-text">patch命令的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#patch说明"><span class="toc-text">patch说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#patch命令的参数"><span class="toc-text">patch命令的参数</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+          
+        
+      
+        
+          
+          
+            <section class='widget grid'>
+  
+<header class='material'>
+  <div><i class="fas fa-map-signs fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;站内导航</div>
+  
+</header>
+
+  <div class='content material'>
+    <ul class="grid navgation">
+      
+        <li><a class="flat-box" title="/" href="/"
+          
+          
+          id="home">
+          
+            <i class="fas fa-clock fa-fw" aria-hidden="true"></i>
+          
+          近期文章
+        </a></li>
+      
+        <li><a class="flat-box" title="/archives/" href="/archives/"
+          
+            rel="nofollow"
+          
+          
+          id="archives">
+          
+            <i class="fas fa-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/projects/" href="/projects/"
+          
+          
+          id="projects">
+          
+            <i class="fas fa-code-branch fa-fw" aria-hidden="true"></i>
+          
+          开源项目
+        </a></li>
+      
+        <li><a class="flat-box" title="/friends/" href="/friends/"
+          
+            rel="nofollow"
+          
+          
+          id="friends">
+          
+            <i class="fas fa-link fa-fw" aria-hidden="true"></i>
+          
+          我的友链
+        </a></li>
+      
+        <li><a class="flat-box" title="/about/" href="/about/"
+          
+            rel="nofollow"
+          
+          
+          id="about">
+          
+            <i class="fas fa-info-circle fa-fw" aria-hidden="true"></i>
+          
+          关于小站
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+          
+        
+      
+        
+          
+          
+            
+  <section class='widget category'>
+    
+<header class='material'>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;文章分类</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/categories/"
+    title="categories/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content material'>
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/BigData/" href="/categories/BigData/"><div class='name'>BigData</div><div class='badge'>(3)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Git/" href="/categories/Git/"><div class='name'>Git</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Java/" href="/categories/Java/"><div class='name'>Java</div><div class='badge'>(74)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Javascript/" href="/categories/Javascript/"><div class='name'>Javascript</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Ubuntu/" href="/categories/Ubuntu/"><div class='name'>Ubuntu</div><div class='badge'>(12)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/docker/" href="/categories/docker/"><div class='name'>docker</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/vim/" href="/categories/vim/"><div class='name'>vim</div><div class='badge'>(3)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/正则表达式/" href="/categories/正则表达式/"><div class='name'>正则表达式</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/计算机操作系统/" href="/categories/计算机操作系统/"><div class='name'>计算机操作系统</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/设计模式/" href="/categories/设计模式/"><div class='name'>设计模式</div><div class='badge'>(1)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+          
+        
+      
+        
+          
+          
+            
+  <section class='widget tagcloud'>
+    
+<header class='material'>
+  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/tags/"
+    title="tags/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content material'>
+      <a href="/tags/BigData/" style="font-size: 16.22px; color: #8a8a8a">BigData</a> <a href="/tags/Eclipse/" style="font-size: 21.78px; color: #646464">Eclipse</a> <a href="/tags/Eclipse插件/" style="font-size: 14px; color: #999">Eclipse插件</a> <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/Hadoop/" style="font-size: 15.11px; color: #919191">Hadoop</a> <a href="/tags/Hibernate/" style="font-size: 20.67px; color: #6c6c6c">Hibernate</a> <a href="/tags/Http/" style="font-size: 14px; color: #999">Http</a> <a href="/tags/JSP-EL-JSTL/" style="font-size: 14px; color: #999">JSP/EL/JSTL</a> <a href="/tags/Jackson/" style="font-size: 14px; color: #999">Jackson</a> <a href="/tags/Java/" style="font-size: 16.22px; color: #8a8a8a">Java</a> <a href="/tags/Java细节/" style="font-size: 19.56px; color: #737373">Java细节</a> <a href="/tags/Jquery/" style="font-size: 14px; color: #999">Jquery</a> <a href="/tags/Junit/" style="font-size: 15.11px; color: #919191">Junit</a> <a href="/tags/Linux命令/" style="font-size: 15.11px; color: #919191">Linux命令</a> <a href="/tags/Linux配置/" style="font-size: 14px; color: #999">Linux配置</a> <a href="/tags/Lombok/" style="font-size: 14px; color: #999">Lombok</a> <a href="/tags/MyBatis/" style="font-size: 17.33px; color: #828282">MyBatis</a> <a href="/tags/OGNL/" style="font-size: 15.11px; color: #919191">OGNL</a> <a href="/tags/SSH/" style="font-size: 14px; color: #999">SSH</a> <a href="/tags/Servlet/" style="font-size: 18.44px; color: #7b7b7b">Servlet</a> <a href="/tags/Spring/" style="font-size: 24px; color: #555">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 16.22px; color: #8a8a8a">SpringBoot</a> <a href="/tags/SpringMVC/" style="font-size: 22.89px; color: #5d5d5d">SpringMVC</a> <a href="/tags/SpringSecurity/" style="font-size: 14px; color: #999">SpringSecurity</a> <a href="/tags/Struts2/" style="font-size: 22.89px; color: #5d5d5d">Struts2</a> <a href="/tags/Thymeleaf/" style="font-size: 14px; color: #999">Thymeleaf</a> <a href="/tags/Tomcat/" style="font-size: 16.22px; color: #8a8a8a">Tomcat</a> <a href="/tags/Ubuntu装机日志/" style="font-size: 22.89px; color: #5d5d5d">Ubuntu装机日志</a> <a href="/tags/docker/" style="font-size: 14px; color: #999">docker</a> <a href="/tags/maven/" style="font-size: 21.78px; color: #646464">maven</a> <a href="/tags/vim/" style="font-size: 14px; color: #999">vim</a> <a href="/tags/vim插件/" style="font-size: 14px; color: #999">vim插件</a> <a href="/tags/vim细节/" style="font-size: 14px; color: #999">vim细节</a> <a href="/tags/正则表达式/" style="font-size: 14px; color: #999">正则表达式</a>
+    </div>
+  </section>
+
+
+          
+        
+      
+        
+          
+          
+            
+
+
+
+          
+        
+      
+    
+
+  
+</aside>
+
+<footer id="footer" class="clearfix">
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="/atom.xml"
+            class="social fas fa-rss flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://github.com/zjinc36"
+            class="social fab fa-github flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+  <div>
+    本站使用
+    <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
+    作为主题
+    
+      ，
+      总访问量为
+      <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+      次
+    
+    。
+    <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+	<script>
+		var now = new Date();
+		function createtime() {
+			var grt= new Date("08/10/2014 17:38:00");//在此处修改你的建站时间
+			now.setTime(now.getTime()+250);
+			days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+			hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+			if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+			mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+			seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+			snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+			document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+			document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+		}
+	setInterval("createtime()",250);
+	</script>
+  </div>
+</footer>
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+<script src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+
+  <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const $reveal = $('.reveal');
+      if ($reveal.length === 0) return;
+      const sr = ScrollReveal({ distance: 0 });
+      sr.reveal('.reveal');
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+  
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["/images/thems/banner.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        } else {
+          $.backstretch(
+          ["/images/thems/banner.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(d, s) {
+      var j, e = d.getElementsByTagName(s)[0];
+      if (typeof LivereTower === 'function') { return; }
+      j = d.createElement(s);
+      j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+      j.async = true;
+      e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  </script>
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/js/app.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/js/search.js"></script>
+
+
+
+
+<!-- 复制 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  let COPY_SUCCESS = "复制成功";
+  let COPY_FAILURE = "复制失败";
+  /*页面载入完成后，创建复制按钮*/
+  !function (e, t, a) {
+    /* code */
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '  <i class="fa fa-copy"></i><span>复制</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        //您可以加入成功提示
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        success_prompt(COPY_SUCCESS);
+        e.clearSelection();
+      });
+      clipboard.on('error', function(e) {
+        //您可以加入失败提示
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        fail_prompt(COPY_FAILURE);
+      });
+    }
+    initCopyCode();
+
+  }(window, document);
+
+  /**
+   * 弹出式提示框，默认1.5秒自动消失
+   * @param message 提示信息
+   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
+   * @param time 消失时间
+   */
+  var prompt = function (message, style, time)
+  {
+      style = (style === undefined) ? 'alert-success' : style;
+      time = (time === undefined) ? 1500 : time*1000;
+      $('<div>')
+          .appendTo('body')
+          .addClass('alert ' + style)
+          .html(message)
+          .show()
+          .delay(time)
+          .fadeOut();
+  };
+
+  // 成功提示
+  var success_prompt = function(message, time)
+  {
+      prompt(message, 'alert-success', time);
+  };
+
+  // 失败提示
+  var fail_prompt = function(message, time)
+  {
+      prompt(message, 'alert-danger', time);
+  };
+
+  // 提醒
+  var warning_prompt = function(message, time)
+  {
+      prompt(message, 'alert-warning', time);
+  };
+
+  // 信息提示
+  var info_prompt = function(message, time)
+  {
+      prompt(message, 'alert-info', time);
+  };
+
+</script>
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
