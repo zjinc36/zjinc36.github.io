@@ -1016,16 +1016,18 @@
       
       <categories>
           
-          <category> 设计模式 </category>
-          
-          <category> Spring </category>
+          <category> Java </category>
           
       </categories>
       
       
         <tags>
             
+            <tag> Spring </tag>
+            
             <tag> Java </tag>
+            
+            <tag> 设计模式 </tag>
             
         </tags>
       
