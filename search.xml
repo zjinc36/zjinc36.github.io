@@ -769,9 +769,9 @@
             
             <tag> Spring </tag>
             
-            <tag> Hibernate </tag>
-            
             <tag> Struts2 </tag>
+            
+            <tag> Hibernate </tag>
             
             <tag> SSH </tag>
             
@@ -1017,6 +1017,8 @@
       <categories>
           
           <category> 设计模式 </category>
+          
+          <category> Spring </category>
           
       </categories>
       
@@ -2122,9 +2124,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> Junit </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -2149,9 +2151,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> Junit </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
