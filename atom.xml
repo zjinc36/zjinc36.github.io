@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zjinc36.github.io/"/>
-  <updated>2020-01-24T03:11:50.572Z</updated>
+  <updated>2020-02-25T03:37:53.258Z</updated>
   <id>https://zjinc36.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git底层逻辑</title>
+    <link href="https://zjinc36.github.io/2020/02/23/Git%E5%BA%95%E5%B1%82%E9%80%BB%E8%BE%91/"/>
+    <id>https://zjinc36.github.io/2020/02/23/Git底层逻辑/</id>
+    <published>2020-02-22T19:15:51.000Z</published>
+    <updated>2020-02-25T03:37:53.258Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="两种存储文件的方式"><a href="#两种存储文件的方式" class="headerlink" title="两种存储文件的方式"></a>两种存储文件的方式</h1><h2 id="直接拷贝存储一份新的-快照"><a href="#直接拷贝存储一份新的-快照" class="headerlink" title="直接拷贝存储一份新的(快照)"></a>直接拷贝存储一份新的(快照)</h2><p>直接拷贝的方式,类似如下的命令方式</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#1</span><br><span class="line">cp test.txt ~/backup/test-v1.txt</span><br><span class="line"></span><br><span class="line">#2</span><br><span class="line">cp test.txt ~/backup/test-v2.txt</span><br><span class="line"></span><br><span class="line">#3</span><br><span class="line">cp test.txt ~/backup/test-v3.txt</span><br></pre></td></tr></table></figure><p>这是Git的存储方式</p><h2 id="更小的存储空间"><a href="#更小的存储空间" class="headerlink" title="更小的存储空间"></a>更小的存储空间</h2><p>增量存储的方式,类似如下的命令方式操作</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#1</span><br><span class="line">cp test.txt .../test-initial.txt</span><br><span class="line"></span><br><span class="line">#2</span><br><span class="line">diff text.txt .../test-initial.txt &gt; .../test-delta-v2.txt</span><br><span class="line"></span><br><span class="line">#3</span><br><span class="line">diff text.txt .../test-delta-v2.txt &gt; .../test-delta-v3.txt</span><br></pre></td></tr></table></figure><p>这是SVN的存储方式</p><h1 id="如何给存储中的每一个文件命名"><a href="#如何给存储中的每一个文件命名" class="headerlink" title="如何给存储中的每一个文件命名"></a>如何给存储中的每一个文件命名</h1><ol><li>使用时间戳命名的方式</li><li>使用版本号方式</li><li>使用hash值的方式</li></ol><h2 id="使用时间戳命名的方式有什么好处"><a href="#使用时间戳命名的方式有什么好处" class="headerlink" title="使用时间戳命名的方式有什么好处"></a>使用时间戳命名的方式有什么好处</h2><ul><li>易于推理的修改</li><li>容易产生名字</li><li>旧版本难以引用</li><li>分布式系统中可能会发生冲突</li></ul><p>类似如下的命令操作</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># cp test.txt test.txt-$(date +%s%N)</span><br><span class="line"></span><br><span class="line">$ cp test.txt test.txt-1500621805384048282</span><br><span class="line">$ cp test.txt test.txt-1500622605384048291</span><br><span class="line">$ cp test.txt-1500622605384048291 test.txt</span><br><span class="line">$ cp test.txt text.txt-1500622905384049812</span><br></pre></td></tr></table></figure><h2 id="使用版本号的方式"><a href="#使用版本号的方式" class="headerlink" title="使用版本号的方式"></a>使用版本号的方式</h2><ul><li>旧版本易于引用</li><li>需要维护一个全局计数器以生成新名称</li><li>难以避免分布式系统中的冲突</li></ul><p>类似如下的命令操作</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cp test.txt test.txt-v1</span><br><span class="line">$ cp test.txt test.txt-v2</span><br><span class="line">$ cp test.txt-v2 test.txt</span><br><span class="line">$ cp test.txt text.txt-v4</span><br></pre></td></tr></table></figure><p>这也是SVN的文件命名方式</p><h2 id="使用hash值的方式"><a href="#使用hash值的方式" class="headerlink" title="使用hash值的方式"></a>使用hash值的方式</h2><ul><li>分布式系统的Hash</li><li>在分布式系统中一致</li><li>易于生成名称（SHA-1）</li><li>很难参考旧版本</li><li>文件名被丢弃(原始文件名找不到)</li></ul><p>类似如下的命令操作</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cat test.txt | git hash-object --stdin</span><br><span class="line">d670460b4b4aece5915caf5c68d12f560a9fe3e4</span><br><span class="line"></span><br><span class="line">$ cp test.txt ~/.git/object/d6/70460b4b4aece5915caf5c68d12f560a9fe3e4</span><br></pre></td></tr></table></figure><p>这是Git的文件的命名方式</p><h1 id="具体看看Git中如何进行构造和标识"><a href="#具体看看Git中如何进行构造和标识" class="headerlink" title="具体看看Git中如何进行构造和标识"></a>具体看看Git中如何进行构造和标识</h1><h2 id="标识文件"><a href="#标识文件" class="headerlink" title="标识文件"></a>标识文件</h2><h3 id="引入名词Blob"><a href="#引入名词Blob" class="headerlink" title="引入名词Blob"></a>引入名词Blob</h3><ul><li><p>Blob的定义<br>文件名为<strong>内容的SHA-1值</strong>的文件,具体来说,如下图,<br><img src="/images/2020/02/20200225001.png" alt></p></li><li><p>更具体一点来说<code>文件名 == SHA-1(类型 + 内容长度 + \0 + 内容 )</code><br><img src="/images/2020/02/20200225004.png" alt><br>其中<code>type</code>用以表示该Blob文件的类型,之所以要区分类型,是因为Blob文件根据内容的不同,又可以分为<code>Tree Object</code>,<code>Commit Object</code>等,用以不同的作用</p></li></ul><h3 id="用Blob标识文件"><a href="#用Blob标识文件" class="headerlink" title="用Blob标识文件"></a>用Blob标识文件</h3><p>每个Git管理的文件,在.git录下,都有一个文件与之对应,而这个与之对应的文件称为Blob,同时这个与之对应的文件的文件名为内容的SHA-1值</p><p>现在我们已经知道Git如何标识被跟踪的每个文件,接下去说明如何构造目录结构</p><h2 id="构造目录结构"><a href="#构造目录结构" class="headerlink" title="构造目录结构"></a>构造目录结构</h2><h3 id="引入名词Tree"><a href="#引入名词Tree" class="headerlink" title="引入名词Tree"></a>引入名词<code>Tree</code></h3><p>树对象:首先是一个Blob文件,比上述Blob多出来的是该文件里有内容,其中内容的每一行是一个”孩子”的信息</p><h3 id="用树对象标识文件"><a href="#用树对象标识文件" class="headerlink" title="用树对象标识文件"></a>用树对象标识文件</h3><p><img src="/images/2020/02/20200225002.png" alt></p><p>Git中可以使用如下命令进行查看,上述图片即如下查看结果</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git ls-tree HEAD</span><br><span class="line">100644 blob 125c07f222601136b7b6291002e3a9f59ee99bfe    .gitignore</span><br><span class="line">100644 blob 8fc149a7e3053c2b7adeb94e5bdd68bad7d48331    README.md</span><br><span class="line">100644 blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391    batch.release</span><br><span class="line">040000 tree 6714dd5129fa87f9bf55d9f7944a8764cf6424b1    hue-hr-recruiting-batch</span><br><span class="line">040000 tree 8150ff62850cf4d154876c2c498954d029fa5bf6    hue-hr-recruiting-biz</span><br><span class="line">...</span><br></pre></td></tr></table></figure><p>可以看到,tree对象是一个文件,并且文件的文件名是SHA-1值,接下去我们在看看tree对象</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git ls-tree 6714dd5129fa87f9bf55d9f7944a8764cf6424b1</span><br><span class="line">100644 blob f4f5a0b2397e2afa2e285507d2af6014015c6b35    pom.xml</span><br><span class="line">040000 tree bebf8118906f2a08c3c2f1ab54f5e9b657f03451    src</span><br></pre></td></tr></table></figure><p>可以看到,tree对象表示目录,而tree对象的内容的每一行表示被标识目录里的每一个文件所对应的Blob文件的SHA-1值</p><h2 id="其他元信息"><a href="#其他元信息" class="headerlink" title="其他元信息"></a>其他元信息</h2><p>我们已经知道如何标识文件,也已经知道如何构造目录信息,也就是说我们已经有办法构造一个快照了,那么当我们commit一个快照的时候</p><ul><li>这个快照和前一个快照如何建立联系?</li><li>commit的时候写的日志信息又该怎么表示?</li><li>什么时候提交的?<br>等等这些信息又该如何处理</li></ul><h3 id="引入名词commit"><a href="#引入名词commit" class="headerlink" title="引入名词commit"></a>引入名词<code>commit</code></h3><p>Commit Object：Blob包含提交的元信息,也就是说,一个commit对象也是一个Blob文件,而这个Blob文件的内容包含的是提交的元信息</p><h3 id="说明一下commit文件"><a href="#说明一下commit文件" class="headerlink" title="说明一下commit文件"></a>说明一下commit文件</h3><p>git中可以如下进行查看某一commit的元信息</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git cat-file commit HEAD</span><br><span class="line">tree 414408a42cf018b7205f6ea8e1ccafd31ef3cd7a   -&gt; 当前目录的树对象</span><br><span class="line">parent 064a052c9ccf06f6a347b7a06f3e8d2496e11a65     -&gt; 当前commit的前一个commit的SHA-1值</span><br><span class="line">author zhang_ji &lt;zhang_ji@worksap.co.jp&gt; 1500537698 +0800   -&gt; 作者与时间戳</span><br><span class="line">committer zhang_ji &lt;zhang_ji@worksap.co.jp&gt; 1500537698 +0800    -&gt; 提交者与时间戳(一般来说作者与提交者是同一个人,但万事总有例外,即作者是一个账户,提交的时候切换账户的)</span><br><span class="line"></span><br><span class="line">update POM version. refs #300039 from 17.06.hr-SNAPSHOT to 17.07.recruiting-SNAPSHOT    -&gt; 日志信息</span><br></pre></td></tr></table></figure><p>其中parent就可以画出类似如下的版本图<br><img src="/images/2020/02/20200225003.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      Git底层逻辑
+    
+    </summary>
+    
+      <category term="Git" scheme="https://zjinc36.github.io/categories/Git/"/>
+    
+    
+      <category term="Git" scheme="https://zjinc36.github.io/tags/Git/"/>
+    
+  </entry>
   
   <entry>
     <title>正则表达式之前瞻断言与后瞻断言</title>
@@ -449,28 +471,6 @@
       <category term="Eclipse" scheme="https://zjinc36.github.io/tags/Eclipse/"/>
     
       <category term="maven" scheme="https://zjinc36.github.io/tags/maven/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vim中删除句尾的空白字符</title>
-    <link href="https://zjinc36.github.io/2019/07/31/vim%E4%B8%AD%E5%88%A0%E9%99%A4%E5%8F%A5%E5%B0%BE%E7%9A%84%E7%A9%BA%E7%99%BD%E5%AD%97%E7%AC%A6/"/>
-    <id>https://zjinc36.github.io/2019/07/31/vim中删除句尾的空白字符/</id>
-    <published>2019-07-30T23:13:22.000Z</published>
-    <updated>2019-07-30T14:15:20.562Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="命令：-s-s-g"><a href="#命令：-s-s-g" class="headerlink" title="命令：%s/\s\+$//g"></a>命令：<code>%s/\s\+$//g</code></h2><p>可以删除行尾多余的空格和tab符号。</p><h2 id="命令：-s-g"><a href="#命令：-s-g" class="headerlink" title="命令：%s/ *$//g"></a>命令：<code>%s/ *$//g</code></h2><p>/和*中间有空格，只能删除行尾空格，对于tab不能删除</p>]]></content>
-    
-    <summary type="html">
-    
-      vim中删除句尾的空该字符
-    
-    </summary>
-    
-      <category term="vim" scheme="https://zjinc36.github.io/categories/vim/"/>
-    
-    
-      <category term="vim细节" scheme="https://zjinc36.github.io/tags/vim%E7%BB%86%E8%8A%82/"/>
     
   </entry>
   
