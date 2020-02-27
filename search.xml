@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Ubuntu中点击外部应用的链接后跳转到Chrome却无法打开应用的问题</title>
+      <link href="/2020/02/28/Ubuntu%E4%B8%AD%E7%82%B9%E5%87%BB%E5%A4%96%E9%83%A8%E5%BA%94%E7%94%A8%E7%9A%84%E9%93%BE%E6%8E%A5%E5%90%8E%E8%B7%B3%E8%BD%AC%E5%88%B0Chrome%E5%8D%B4%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E5%BA%94%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+      <url>/2020/02/28/Ubuntu%E4%B8%AD%E7%82%B9%E5%87%BB%E5%A4%96%E9%83%A8%E5%BA%94%E7%94%A8%E7%9A%84%E9%93%BE%E6%8E%A5%E5%90%8E%E8%B7%B3%E8%BD%AC%E5%88%B0Chrome%E5%8D%B4%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E5%BA%94%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://askubuntu.com/questions/689449/external-links-are-opened-as-blank-tabs-in-new-browser-window-in-chrome" target="_blank" rel="noopener">External links are opened as blank tabs in new browser window in Chrome</a></p><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>As unfulvio said, the issue is with <code>google-chrome.desktop</code>, and it is missing the <code>%U</code> argument .</p><p>Open file: $HOME/.local/share/applications/google-chrome.desktop</p><p>Find the line:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exec=/opt/google/chrome/chrome</span><br></pre></td></tr></table></figure><p>Add a space and <code>%U</code>:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exec=/opt/google/chrome/chrome %U</span><br></pre></td></tr></table></figure><p>Then save the file.</p><h2 id="翻译过来就是"><a href="#翻译过来就是" class="headerlink" title="翻译过来就是"></a>翻译过来就是</h2><ol><li><p>打开文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim $HOME/.local/share/applications/google-chrome.desktop</span><br></pre></td></tr></table></figure></li><li><p>找到如下行</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exec=/opt/google/chrome/chrome</span><br></pre></td></tr></table></figure></li><li><p>在该行后面添加一个空格和<code>%U</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exec=/opt/google/chrome/chrome %U</span><br></pre></td></tr></table></figure></li></ol><p><img src="/images/2020/02/20200227001.png" alt></p><ol start="4"><li>保存文件即可</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Ubuntu </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Ubuntu装机日志 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Git底层逻辑</title>
       <link href="/2020/02/23/Git%E5%BA%95%E5%B1%82%E9%80%BB%E8%BE%91/"/>
       <url>/2020/02/23/Git%E5%BA%95%E5%B1%82%E9%80%BB%E8%BE%91/</url>
@@ -1025,9 +1050,9 @@
             
             <tag> Spring </tag>
             
-            <tag> 设计模式 </tag>
-            
             <tag> Java </tag>
+            
+            <tag> 设计模式 </tag>
             
         </tags>
       
