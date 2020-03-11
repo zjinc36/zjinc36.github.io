@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zjinc36.github.io/"/>
-  <updated>2020-03-09T14:44:25.418Z</updated>
+  <updated>2020-03-11T09:47:20.382Z</updated>
   <id>https://zjinc36.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>中西方文化差异的渊源</title>
+    <link href="https://zjinc36.github.io/2020/03/12/%E4%B8%AD%E8%A5%BF%E6%96%B9%E6%96%87%E5%8C%96%E5%B7%AE%E5%BC%82%E7%9A%84%E6%B8%8A%E6%BA%90/"/>
+    <id>https://zjinc36.github.io/2020/03/12/中西方文化差异的渊源/</id>
+    <published>2020-03-11T18:32:44.000Z</published>
+    <updated>2020-03-11T09:47:20.382Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="视频地址"><a href="#视频地址" class="headerlink" title="视频地址"></a>视频地址</h1><p><a href="https://www.bilibili.com/video/av77285058?p=1" target="_blank" rel="noopener">【王德峰】中西方文化差异的渊源</a></p><h1 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h1><ul><li><p>柏拉图理念论</p><ul><li>世界可以被改造</li><li>历史进步论</li></ul></li><li><p>如来说:世界 绝非世界 名世界</p></li><li><p>缘起性空</p><ul><li>复性工夫</li></ul></li><li><p>大学之道,在明明德,在亲民,在止于致善</p></li><li><p>本心会起念,起妄念就会有烦恼</p></li><li><p>应无所住而生其心</p><ul><li>住 就是相</li><li>相是存在</li><li>善相,净相也不应住</li></ul></li><li><p>无烦恼就无所谓智慧,没有烦恼要智慧干嘛</p></li><li><p>天道在人民生活中,众生的烦恼就是天道之体现</p></li><li><p>不要害怕烦恼,烦恼即修行</p></li><li><p>西方</p><ul><li>第一等级 理性</li><li>第二等级 意志</li><li>第三等级 情感</li></ul></li><li><p>中国</p><ul><li>《诗》三百，一言以蔽之，曰‘思无邪’</li></ul></li><li><p>反者道之动</p><ul><li>你要得到什么事物,必须从这个事物的反面开始</li></ul></li><li><p>你要比较长久的保持一个事物,必须让这个事物保持它的对立面</p><ul><li>困难是我们的恩人,敌人是我们的老师</li><li>一路顺风顺水则马上要灭亡</li></ul></li><li><p>五伦</p><ul><li>君仁臣义</li><li>父慈子孝</li><li>夫妻有别(夫妻共命运,但夫妻有区别,各司其职)</li><li>长幼有序</li><li>朋友有信</li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      中西方文化差异的渊源
+    
+    </summary>
+    
+      <category term="未分类" scheme="https://zjinc36.github.io/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>深入理解浮点数与浮点数的精度问题</title>
@@ -440,28 +460,6 @@
     <summary type="html">
     
       Zim是一个图形文本编辑器，用于维护一组wiki页面
-    
-    </summary>
-    
-      <category term="Ubuntu" scheme="https://zjinc36.github.io/categories/Ubuntu/"/>
-    
-    
-      <category term="Ubuntu装机日志" scheme="https://zjinc36.github.io/tags/Ubuntu%E8%A3%85%E6%9C%BA%E6%97%A5%E5%BF%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ubuntu中安装Openshot Video Editor</title>
-    <link href="https://zjinc36.github.io/2019/08/19/ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85openshot-video-editor/"/>
-    <id>https://zjinc36.github.io/2019/08/19/ubuntu中安装openshot-video-editor/</id>
-    <published>2019-08-18T16:01:15.000Z</published>
-    <updated>2019-08-18T07:55:52.335Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>能够支持视频剪辑、实时预览、支持设置仅显示视频或音频、图片覆盖等</p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>Ubuntu软件中直接搜索安装就行</p>]]></content>
-    
-    <summary type="html">
-    
-      能够支持视频剪辑、实时预览、支持设置仅显示视频或音频、图片覆盖
     
     </summary>
     

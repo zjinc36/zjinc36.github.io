@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>中西方文化差异的渊源</title>
+      <link href="/2020/03/12/%E4%B8%AD%E8%A5%BF%E6%96%B9%E6%96%87%E5%8C%96%E5%B7%AE%E5%BC%82%E7%9A%84%E6%B8%8A%E6%BA%90/"/>
+      <url>/2020/03/12/%E4%B8%AD%E8%A5%BF%E6%96%B9%E6%96%87%E5%8C%96%E5%B7%AE%E5%BC%82%E7%9A%84%E6%B8%8A%E6%BA%90/</url>
+      
+        <content type="html"><![CDATA[<h1 id="视频地址"><a href="#视频地址" class="headerlink" title="视频地址"></a>视频地址</h1><p><a href="https://www.bilibili.com/video/av77285058?p=1" target="_blank" rel="noopener">【王德峰】中西方文化差异的渊源</a></p><h1 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h1><ul><li><p>柏拉图理念论</p><ul><li>世界可以被改造</li><li>历史进步论</li></ul></li><li><p>如来说:世界 绝非世界 名世界</p></li><li><p>缘起性空</p><ul><li>复性工夫</li></ul></li><li><p>大学之道,在明明德,在亲民,在止于致善</p></li><li><p>本心会起念,起妄念就会有烦恼</p></li><li><p>应无所住而生其心</p><ul><li>住 就是相</li><li>相是存在</li><li>善相,净相也不应住</li></ul></li><li><p>无烦恼就无所谓智慧,没有烦恼要智慧干嘛</p></li><li><p>天道在人民生活中,众生的烦恼就是天道之体现</p></li><li><p>不要害怕烦恼,烦恼即修行</p></li><li><p>西方</p><ul><li>第一等级 理性</li><li>第二等级 意志</li><li>第三等级 情感</li></ul></li><li><p>中国</p><ul><li>《诗》三百，一言以蔽之，曰‘思无邪’</li></ul></li><li><p>反者道之动</p><ul><li>你要得到什么事物,必须从这个事物的反面开始</li></ul></li><li><p>你要比较长久的保持一个事物,必须让这个事物保持它的对立面</p><ul><li>困难是我们的恩人,敌人是我们的老师</li><li>一路顺风顺水则马上要灭亡</li></ul></li><li><p>五伦</p><ul><li>君仁臣义</li><li>父慈子孝</li><li>夫妻有别(夫妻共命运,但夫妻有区别,各司其职)</li><li>长幼有序</li><li>朋友有信</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 未分类 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>深入理解浮点数与浮点数的精度问题</title>
       <link href="/2020/03/10/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E6%B5%AE%E7%82%B9%E6%95%B0%E4%B8%8E%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/"/>
       <url>/2020/03/10/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E6%B5%AE%E7%82%B9%E6%95%B0%E4%B8%8E%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/</url>
@@ -2203,7 +2222,7 @@
       <link href="/2018/03/11/JVM%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/"/>
       <url>/2018/03/11/JVM%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/</url>
       
-        <content type="html"><![CDATA[<h1 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h1><ul><li>JVM启动流程</li><li>JVM基本结构</li><li>内存模型</li><li>编译和解释运行的概念</li></ul>]]></content>
+        <content type="html"><![CDATA[<h1 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h1><ul><li>JVM启动流程</li><li>JVM基本结构</li><li>内存模型</li><li>编译和解释运行的概念</li></ul><h1 id="JVM启动流程"><a href="#JVM启动流程" class="headerlink" title="JVM启动流程"></a>JVM启动流程</h1><p><img src="/images/2020/03/20200310006.png" alt></p><h1 id="JVM基本结构"><a href="#JVM基本结构" class="headerlink" title="JVM基本结构"></a>JVM基本结构</h1><p><img src="/images/2020/03/20200310005.png" alt></p><h2 id="PC寄存器"><a href="#PC寄存器" class="headerlink" title="PC寄存器"></a>PC寄存器</h2><ul><li>每个线程拥有一个PC寄存器</li><li>在线程创建时创建</li><li>指向下一条指令的地址</li><li>执行本地方法时,PC的值为undefined</li></ul><h2 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h2><ul><li><p>保存装载的类型信息</p><ul><li>类型的常量池</li><li>字段,方法信息</li><li>方法字节码</li><li>(也不是绝对的,JDK6时,String等常量信息置于方法区,但JDK7时,已经移动到了堆,但一般意义上说,我们认为方法区就是保存类的元信息)</li></ul></li><li><p>通常和永久区域(Perm)关联在一起</p></li></ul><h2 id="Java堆"><a href="#Java堆" class="headerlink" title="Java堆"></a>Java堆</h2><ul><li>和程序开发密切相关</li><li>应用系统对象都保存在Java堆中</li><li>所有线程共享Java堆</li><li>对分代GC来说,堆也是分代</li><li>GC的主要工作区间</li><li>复制算法<br><img src="/images/2020/03/20200310007.png" alt></li></ul>]]></content>
       
       
       <categories>
