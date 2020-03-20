@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zjinc36.github.io/"/>
-  <updated>2020-03-11T09:47:20.382Z</updated>
+  <updated>2020-03-20T04:37:37.417Z</updated>
   <id>https://zjinc36.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>企业家思想进化与全球格局</title>
+    <link href="https://zjinc36.github.io/2020/03/20/%E6%BC%94%E8%AE%B2%E4%B9%8B%E4%BC%81%E4%B8%9A%E5%AE%B6%E6%80%9D%E6%83%B3%E8%BF%9B%E5%8C%96%E4%B8%8E%E5%85%A8%E7%90%83%E6%A0%BC%E5%B1%80/"/>
+    <id>https://zjinc36.github.io/2020/03/20/演讲之企业家思想进化与全球格局/</id>
+    <published>2020-03-20T10:54:59.000Z</published>
+    <updated>2020-03-20T04:37:37.417Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="视频地址"><a href="#视频地址" class="headerlink" title="视频地址"></a>视频地址</h1><p><a href="https://www.bilibili.com/video/av97442520?t=248" target="_blank" rel="noopener">https://www.bilibili.com/video/av97442520?t=248</a></p><h1 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h1><p>基本判断:百年未有之大变局</p><p>四个角度</p><h2 id="新的国际格局正在形成"><a href="#新的国际格局正在形成" class="headerlink" title="新的国际格局正在形成"></a>新的国际格局正在形成</h2><p>国际格局从西方主导转向东西方平衡,国际格局指的是国家间的力量对比</p><h2 id="新的现代化模式得到承认"><a href="#新的现代化模式得到承认" class="headerlink" title="新的现代化模式得到承认"></a>新的现代化模式得到承认</h2><ul><li>荷兰模式</li><li>英国模式(英美模式)</li><li>德国模式</li><li>瑞典模式</li><li>中国模式(新)</li></ul><h2 id="新的工业革命正在到来"><a href="#新的工业革命正在到来" class="headerlink" title="新的工业革命正在到来"></a>新的工业革命正在到来</h2><ul><li>第四次工业革命中美竞争,且中国的赢面大</li></ul><h2 id="新的全球问题正在出现"><a href="#新的全球问题正在出现" class="headerlink" title="新的全球问题正在出现"></a>新的全球问题正在出现</h2><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>四大新都与中国有关,中国是主要变量.第四次工业革命是中国最伟大的机遇</p>]]></content>
+    
+    <summary type="html">
+    
+      企业家思想进化与全球格局
+    
+    </summary>
+    
+      <category term="演讲" scheme="https://zjinc36.github.io/categories/%E6%BC%94%E8%AE%B2/"/>
+    
+    
+      <category term="演讲" scheme="https://zjinc36.github.io/tags/%E6%BC%94%E8%AE%B2/"/>
+    
+  </entry>
   
   <entry>
     <title>中西方文化差异的渊源</title>
@@ -438,28 +460,6 @@
     <summary type="html">
     
       ubuntu版的飞鸽传书
-    
-    </summary>
-    
-      <category term="Ubuntu" scheme="https://zjinc36.github.io/categories/Ubuntu/"/>
-    
-    
-      <category term="Ubuntu装机日志" scheme="https://zjinc36.github.io/tags/Ubuntu%E8%A3%85%E6%9C%BA%E6%97%A5%E5%BF%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu中安装桌面维基zim</title>
-    <link href="https://zjinc36.github.io/2019/08/19/ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85%E6%A1%8C%E9%9D%A2%E7%BB%B4%E5%9F%BAzim/"/>
-    <id>https://zjinc36.github.io/2019/08/19/ubuntu中安装桌面维基zim/</id>
-    <published>2019-08-18T16:49:05.000Z</published>
-    <updated>2019-08-18T07:54:48.260Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="zim是什么"><a href="#zim是什么" class="headerlink" title="zim是什么"></a>zim是什么</h1><p>Zim是一个图形文本编辑器，用于维护一组wiki页面。</p><h1 id="zim的作用"><a href="#zim的作用" class="headerlink" title="zim的作用"></a>zim的作用</h1><p>每个页面都可以包含指向其他页面的链接，简单的格式和图像。页面存储在文件夹结构中，就像在大纲中一样，并且可以具有附件。创建新页面就像链接到不存在的页面一样简单。所有数据都存储在具有wiki格式的纯文本文件中。各种插件提供附加功能，如任务列表管理器，公式编辑器，托盘图标和版本控制支持。</p><p>Zim可用于：</p><ul><li>保留笔记存档</li><li>保留每日或每周日记</li><li>在会议或讲座期间做笔记</li><li>组织任务列表</li><li>撰写博客条目和电子邮件</li><li>做头脑风暴</li></ul><h1 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h1><p><a href="https://zim-wiki.org/" target="_blank" rel="noopener">https://zim-wiki.org/</a></p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:jaap.karssenberg/zim</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install zim</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      Zim是一个图形文本编辑器，用于维护一组wiki页面
     
     </summary>
     
