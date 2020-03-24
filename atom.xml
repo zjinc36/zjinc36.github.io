@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zjinc36.github.io/"/>
-  <updated>2020-03-20T04:37:37.417Z</updated>
+  <updated>2020-03-24T07:54:42.167Z</updated>
   <id>https://zjinc36.github.io/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ubuntu中KeePass使用快捷键自动输入用户名密码无效</title>
+    <link href="https://zjinc36.github.io/2020/03/24/Ubuntu%E4%B8%ADKeePass%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E8%BE%93%E5%85%A5/"/>
+    <id>https://zjinc36.github.io/2020/03/24/Ubuntu中KeePass无法自动输入/</id>
+    <published>2020-03-24T15:22:19.000Z</published>
+    <updated>2020-03-24T07:54:42.167Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ol><li>按自动键入快捷键<code>ctrl + v</code></li><li>出现<code>the xdotool utility/package is required for auto-type install this package and try again</code>错误<br>即,keepass无法自动键入用户名和密码</li></ol><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><h3 id="首先安装xdotool软件包"><a href="#首先安装xdotool软件包" class="headerlink" title="首先安装xdotool软件包"></a>首先安装xdotool软件包</h3><p>在Debian / Ubuntu / etc上只需运行：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get安装xdotool</span><br></pre></td></tr></table></figure><h3 id="接下来找出系统中安装了keepass2可执行文件的位置"><a href="#接下来找出系统中安装了keepass2可执行文件的位置" class="headerlink" title="接下来找出系统中安装了keepass2可执行文件的位置"></a>接下来找出系统中安装了keepass2可执行文件的位置</h3><p>最简单的方法是运行：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">which keepass2</span><br></pre></td></tr></table></figure><p>在我的系统上，这将返回<code>/usr/bin/keepass2</code>。该文件实际上不是程序本身，而是引导程序的脚本。因此，找出真正的可执行文件在哪里运行：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /usr/bin/keepass2</span><br></pre></td></tr></table></figure><p>在我的系统上，这返回</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">exec /usr/bin/cli/usr /lib/keepass2/KeePass.exe &quot;$@&quot;</span><br></pre></td></tr></table></figure><p>因此，程序本身实际上位于<code>/usr/lib/keepass2/KeePass.exe</code></p><h3 id="创建自定义键盘快捷键"><a href="#创建自定义键盘快捷键" class="headerlink" title="创建自定义键盘快捷键"></a>创建自定义键盘快捷键</h3><p>根据您所运行的发行版，此过程将有所不同，但通常在“键盘”设置下。对于命令，输入以下内容：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mono /usr/lib/keepass2/KeePass.exe --auto-type</span><br></pre></td></tr></table></figure><p>现在，只要键入快捷键(通常是<code>ctrl + v</code>)，KeePass会自动键入配置的用户名和密码</p>]]></content>
+    
+    <summary type="html">
+    
+      出现错误:the xdotool utility/package is required for auto-type install this package and try again
+    
+    </summary>
+    
+      <category term="Ubuntu" scheme="https://zjinc36.github.io/categories/Ubuntu/"/>
+    
+    
+      <category term="Ubuntu装机日志" scheme="https://zjinc36.github.io/tags/Ubuntu%E8%A3%85%E6%9C%BA%E6%97%A5%E5%BF%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu修改时区</title>
+    <link href="https://zjinc36.github.io/2020/03/21/Ubuntu%E4%BF%AE%E6%94%B9%E6%97%B6%E5%8C%BA/"/>
+    <id>https://zjinc36.github.io/2020/03/21/Ubuntu修改时区/</id>
+    <published>2020-03-21T11:09:46.000Z</published>
+    <updated>2020-03-21T02:13:50.149Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="查看当前系统时间"><a href="#查看当前系统时间" class="headerlink" title="查看当前系统时间"></a>查看当前系统时间</h1><p><img src="/images/2020/03/20200321001.png" alt></p><h1 id="修改时区"><a href="#修改时区" class="headerlink" title="修改时区"></a>修改时区</h1><p>原来在东京,是东九区,现在要使用东八区的时间,可以如下更改<br><img src="/images/2020/03/20200321002.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      Ubuntu修改时区
+    
+    </summary>
+    
+      <category term="Ubuntu" scheme="https://zjinc36.github.io/categories/Ubuntu/"/>
+    
+    
+      <category term="Ubuntu配置" scheme="https://zjinc36.github.io/tags/Ubuntu%E9%85%8D%E7%BD%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>企业家思想进化与全球格局</title>
@@ -421,52 +465,6 @@
       <category term="Spring" scheme="https://zjinc36.github.io/tags/Spring/"/>
     
       <category term="SpringBoot" scheme="https://zjinc36.github.io/tags/SpringBoot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringBoot的环境搭建</title>
-    <link href="https://zjinc36.github.io/2019/09/04/SpringBoot%E7%9A%84%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-    <id>https://zjinc36.github.io/2019/09/04/SpringBoot的环境搭建/</id>
-    <published>2019-09-03T22:39:41.000Z</published>
-    <updated>2019-10-05T11:22:29.613Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="创建maven项目"><a href="#创建maven项目" class="headerlink" title="创建maven项目"></a>创建maven项目</h1><p><img src="/images/springboot/20190903004.png" alt><br><img src="/images/springboot/20190903005.png" alt><br><img src="/images/springboot/20190903006.png" alt></p><p>项目创建完成后的结构图<br><img src="/images/springboot/20190903007.png" alt></p><h1 id="修改pom-xml文件"><a href="#修改pom-xml文件" class="headerlink" title="修改pom.xml文件"></a>修改pom.xml文件</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span></span></span><br><span class="line"><span class="tag"><span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag"><span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>spring<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>boot<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- springboot 项目要继承起步依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>1.5.1.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">relativePath</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- web功能的起步依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure><h1 id="创建示例代码"><a href="#创建示例代码" class="headerlink" title="创建示例代码"></a>创建示例代码</h1><p><img src="/images/springboot/20190903008.png" alt></p><p>图片中的代码如下</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zjinc36;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MySpringBootApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">SpringApplication.run(MySpringBootApplication.class);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>需要注意两个东西(暂时不用了解为什么)</p><ol><li>@SpringBootApplication</li><li>SpringApplication.run();</li></ol><h1 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h1><p><code>run as</code> -&gt; <code>spring boot app</code>可以看到如下结果</p><p><img src="/images/springboot/20190903009.png" alt></p><p>在浏览器访问可以看到已经访问成功(页面出现错误是现在什么页面都没有)<br><img src="/images/springboot/20190903010.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      SpringBoot的环境搭建
-    
-    </summary>
-    
-      <category term="Java" scheme="https://zjinc36.github.io/categories/Java/"/>
-    
-    
-      <category term="Spring" scheme="https://zjinc36.github.io/tags/Spring/"/>
-    
-      <category term="SpringBoot" scheme="https://zjinc36.github.io/tags/SpringBoot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu中安装iptux</title>
-    <link href="https://zjinc36.github.io/2019/08/19/ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85iptux/"/>
-    <id>https://zjinc36.github.io/2019/08/19/ubuntu中安装iptux/</id>
-    <published>2019-08-18T17:26:35.000Z</published>
-    <updated>2019-08-18T08:28:15.378Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>ubuntu版的飞鸽传书</p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>ubuntu软件中直接搜索安装</p>]]></content>
-    
-    <summary type="html">
-    
-      ubuntu版的飞鸽传书
-    
-    </summary>
-    
-      <category term="Ubuntu" scheme="https://zjinc36.github.io/categories/Ubuntu/"/>
-    
-    
-      <category term="Ubuntu装机日志" scheme="https://zjinc36.github.io/tags/Ubuntu%E8%A3%85%E6%9C%BA%E6%97%A5%E5%BF%97/"/>
     
   </entry>
   
