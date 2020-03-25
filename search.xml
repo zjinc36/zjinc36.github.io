@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>Ubuntu中安装防火墙管理的图形界面Gufw</title>
+      <link href="/2020/03/26/Ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85%E9%98%B2%E7%81%AB%E5%A2%99%E7%AE%A1%E7%90%86%E7%9A%84%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2Gufw/"/>
+      <url>/2020/03/26/Ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85%E9%98%B2%E7%81%AB%E5%A2%99%E7%AE%A1%E7%90%86%E7%9A%84%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2Gufw/</url>
+      
+        <content type="html"><![CDATA[<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><blockquote><p>  Gufw 为您提供了一种简单直观的方式来管理 Linux 防火墙。 它支持常见的任务，例如允许和拦截预先配置的、常用的 p2p 端口或单独的端口，以及许多别的规则。</p></blockquote><h1 id="软件界面"><a href="#软件界面" class="headerlink" title="软件界面"></a>软件界面</h1><p><img src="/images/2020/03/20200325013.png" alt></p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>Ubuntu软件里有<br><img src="/images/2020/03/20200325012.png" alt></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Ubuntu </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Ubuntu装机日志 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ubuntu中安装全局搜索软件Synapse</title>
+      <link href="/2020/03/26/Ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85%E5%85%A8%E5%B1%80%E6%90%9C%E7%B4%A2%E8%BD%AF%E4%BB%B6Synapse/"/>
+      <url>/2020/03/26/Ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85%E5%85%A8%E5%B1%80%E6%90%9C%E7%B4%A2%E8%BD%AF%E4%BB%B6Synapse/</url>
+      
+        <content type="html"><![CDATA[<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><blockquote><ul><li>Synapse is a graphical launcher enabling you to start applications and also to quickly find and access relevant documents and files (by making use of the Zeitgeist engine).</li><li>Synapse是一个图形启动器，使您可以启动应用程序，也可以快速查找和访问相关文档和文件（通过使用Zeitgeist引擎）。</li></ul></blockquote><h1 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h1><p><img src="/images/2020/03/20200325008.png" alt></p><p>搜索你想要的</p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>Ubuntu软件里有<br><img src="/images/2020/03/20200325010.png" alt></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Ubuntu </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Ubuntu装机日志 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Ubuntu中KeePass使用快捷键自动输入用户名密码无效</title>
       <link href="/2020/03/24/Ubuntu%E4%B8%ADKeePass%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E8%BE%93%E5%85%A5/"/>
       <url>/2020/03/24/Ubuntu%E4%B8%ADKeePass%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E8%BE%93%E5%85%A5/</url>
@@ -2494,9 +2544,9 @@
       
         <tags>
             
-            <tag> Junit </tag>
-            
             <tag> Java </tag>
+            
+            <tag> Junit </tag>
             
         </tags>
       
@@ -2521,9 +2571,9 @@
       
         <tags>
             
-            <tag> Junit </tag>
-            
             <tag> Java </tag>
+            
+            <tag> Junit </tag>
             
         </tags>
       
