@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zjinc36.github.io/2020/04/20/Java%E4%B8%AD%E5%AE%9E%E7%8E%B0%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</loc>
+    
+    <lastmod>2020-04-20T08:12:28.476Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zjinc36.github.io/2020/04/16/Java%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</loc>
     
     <lastmod>2020-04-16T03:43:31.372Z</lastmod>
@@ -135,14 +142,14 @@
   </url>
   
   <url>
-    <loc>https://zjinc36.github.io/friends/index.html</loc>
+    <loc>https://zjinc36.github.io/projects/index.html</loc>
     
     <lastmod>2020-03-27T09:06:04.585Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://zjinc36.github.io/projects/index.html</loc>
+    <loc>https://zjinc36.github.io/friends/index.html</loc>
     
     <lastmod>2020-03-27T09:06:04.585Z</lastmod>
     
