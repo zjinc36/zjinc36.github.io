@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zjinc36.github.io/"/>
-  <updated>2020-04-20T10:39:39.486Z</updated>
+  <updated>2020-04-21T03:30:48.658Z</updated>
   <id>https://zjinc36.github.io/</id>
   
   <author>
@@ -17,13 +17,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Ubuntu中安装番茄工作法软件gnome-Shell-Pomodoro</title>
+    <link href="https://zjinc36.github.io/2020/04/21/Ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85%E7%95%AA%E8%8C%84%E5%B7%A5%E4%BD%9C%E6%B3%95%E8%BD%AF%E4%BB%B6gnome-shell-pomodoro/"/>
+    <id>https://zjinc36.github.io/2020/04/21/Ubuntu中安装番茄工作法软件gnome-shell-pomodoro/</id>
+    <published>2020-04-21T11:17:05.000Z</published>
+    <updated>2020-04-21T03:30:48.658Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><blockquote><p>  This GNOME app helps to manage time according to Pomodoro Technique. It intends to improve productivity and quality of work by reminding you to take short breaks.</p></blockquote><blockquote><p>  Pomodoro Technique is based on two principles:<br>  focusing on work for limited time, about half an hour,<br>  clearing your mind during breaks.<br>  This workflow can improve focus, physical health and mental agility depending on how you spend your breaks and how strictly you follow the routine.</p></blockquote><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="最好去官网看"><a href="#最好去官网看" class="headerlink" title="最好去官网看"></a>最好去官网看</h2><ul><li>官网地址:<a href="https://gnomepomodoro.org/" target="_blank" rel="noopener">https://gnomepomodoro.org/</a></li><li><img src="/images/2020/04/20200421006.png" alt></li></ul><h2 id="Ubuntu18-04安装"><a href="#Ubuntu18-04安装" class="headerlink" title="Ubuntu18.04安装"></a>Ubuntu18.04安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gnome-shell-pomodoro</span><br></pre></td></tr></table></figure><h1 id="安装后软件运行效果图"><a href="#安装后软件运行效果图" class="headerlink" title="安装后软件运行效果图"></a>安装后软件运行效果图</h1><p><img src="/images/2020/04/20200421005.png" alt></p><p><img src="/images/2020/04/20200421008.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      Ubuntu中安装番茄工作法软件gnome-shell-pomodoro
+    
+    </summary>
+    
+      <category term="Ubuntu" scheme="https://zjinc36.github.io/categories/Ubuntu/"/>
+    
+    
+      <category term="Ubuntu装机日志" scheme="https://zjinc36.github.io/tags/Ubuntu%E8%A3%85%E6%9C%BA%E6%97%A5%E5%BF%97/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java中实现希尔排序</title>
     <link href="https://zjinc36.github.io/2020/04/21/Java%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/"/>
     <id>https://zjinc36.github.io/2020/04/21/Java中实现希尔排序/</id>
     <published>2020-04-20T18:19:39.000Z</published>
-    <updated>2020-04-20T10:39:39.486Z</updated>
+    <updated>2020-04-21T03:15:31.200Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="希尔排序法介绍"><a href="#希尔排序法介绍" class="headerlink" title="希尔排序法介绍"></a>希尔排序法介绍</h1><ul><li>希尔排序是希尔(Donald Shell)与1959年提出的一种排序算法</li><li>希尔也是一种插入排序,是简单插入排序经过改进之后的一个更高效的版本,也称为缩小增量排序</li></ul><h1 id="希尔排序法的基本思想"><a href="#希尔排序法的基本思想" class="headerlink" title="希尔排序法的基本思想"></a>希尔排序法的基本思想</h1><ul><li>希尔排序是把记录按下标的一定增量分组,对每组使用直接插入排序算法排序</li><li>随着增量逐渐减少,每组包含的关键字越来越多,当增量减至1时,整个文件恰被分成一组,算法便终止</li></ul><h1 id="希尔排序示意图"><a href="#希尔排序示意图" class="headerlink" title="希尔排序示意图"></a>希尔排序示意图</h1><p><img src="/images/2020/04/20200420001.png" alt></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="希尔排序法介绍"><a href="#希尔排序法介绍" class="headerlink" title="希尔排序法介绍"></a>希尔排序法介绍</h1><ul><li>希尔排序是希尔(Donald Shell)与1959年提出的一种排序算法</li><li>希尔也是一种插入排序,是简单插入排序经过改进之后的一个更高效的版本,也称为缩小增量排序</li></ul><h1 id="希尔排序法的基本思想"><a href="#希尔排序法的基本思想" class="headerlink" title="希尔排序法的基本思想"></a>希尔排序法的基本思想</h1><ul><li>希尔排序是把记录按下标的一定增量分组,对每组使用直接插入排序算法排序</li><li>随着增量逐渐减少,每组包含的关键字越来越多,当增量减至1时,整个文件恰被分成一组,算法便终止</li></ul><h1 id="希尔排序示意图"><a href="#希尔排序示意图" class="headerlink" title="希尔排序示意图"></a>希尔排序示意图</h1><p><img src="/images/2020/04/20200420001.png" alt></p><h1 id="希尔排序代码实现"><a href="#希尔排序代码实现" class="headerlink" title="希尔排序代码实现"></a>希尔排序代码实现</h1><h2 id="对有序序列在插入时采用交换法"><a href="#对有序序列在插入时采用交换法" class="headerlink" title="对有序序列在插入时采用交换法"></a>对有序序列在插入时采用交换法</h2><h2 id="对有序序列在插入时采用移动法"><a href="#对有序序列在插入时采用移动法" class="headerlink" title="对有序序列在插入时采用移动法"></a>对有序序列在插入时采用移动法</h2>]]></content>
     
     <summary type="html">
     
@@ -447,28 +469,6 @@
     
       <category term="数据结构与算法" scheme="https://zjinc36.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>企业家思想进化与全球格局</title>
-    <link href="https://zjinc36.github.io/2020/03/20/notes_%E4%BC%81%E4%B8%9A%E5%AE%B6%E6%80%9D%E6%83%B3%E8%BF%9B%E5%8C%96%E4%B8%8E%E5%85%A8%E7%90%83%E6%A0%BC%E5%B1%80/"/>
-    <id>https://zjinc36.github.io/2020/03/20/notes_企业家思想进化与全球格局/</id>
-    <published>2020-03-20T10:54:59.000Z</published>
-    <updated>2020-03-27T09:06:04.401Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="视频地址"><a href="#视频地址" class="headerlink" title="视频地址"></a>视频地址</h1><p><a href="https://www.bilibili.com/video/av97442520?t=248" target="_blank" rel="noopener">https://www.bilibili.com/video/av97442520?t=248</a></p><h1 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h1><p>基本判断:百年未有之大变局</p><p>四个角度</p><h2 id="新的国际格局正在形成"><a href="#新的国际格局正在形成" class="headerlink" title="新的国际格局正在形成"></a>新的国际格局正在形成</h2><p>国际格局从西方主导转向东西方平衡,国际格局指的是国家间的力量对比</p><h2 id="新的现代化模式得到承认"><a href="#新的现代化模式得到承认" class="headerlink" title="新的现代化模式得到承认"></a>新的现代化模式得到承认</h2><ul><li>荷兰模式</li><li>英国模式(英美模式)</li><li>德国模式</li><li>瑞典模式</li><li>中国模式(新)</li></ul><h2 id="新的工业革命正在到来"><a href="#新的工业革命正在到来" class="headerlink" title="新的工业革命正在到来"></a>新的工业革命正在到来</h2><ul><li>第四次工业革命中美竞争,且中国的赢面大</li></ul><h2 id="新的全球问题正在出现"><a href="#新的全球问题正在出现" class="headerlink" title="新的全球问题正在出现"></a>新的全球问题正在出现</h2><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>四大新都与中国有关,中国是主要变量.第四次工业革命是中国最伟大的机遇</p>]]></content>
-    
-    <summary type="html">
-    
-      企业家思想进化与全球格局
-    
-    </summary>
-    
-      <category term="视频笔记" scheme="https://zjinc36.github.io/categories/%E8%A7%86%E9%A2%91%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="视频笔记" scheme="https://zjinc36.github.io/tags/%E8%A7%86%E9%A2%91%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   

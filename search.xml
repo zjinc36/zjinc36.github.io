@@ -4,11 +4,36 @@
   
     
     <entry>
+      <title>Ubuntu中安装番茄工作法软件gnome-Shell-Pomodoro</title>
+      <link href="/2020/04/21/Ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85%E7%95%AA%E8%8C%84%E5%B7%A5%E4%BD%9C%E6%B3%95%E8%BD%AF%E4%BB%B6gnome-shell-pomodoro/"/>
+      <url>/2020/04/21/Ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85%E7%95%AA%E8%8C%84%E5%B7%A5%E4%BD%9C%E6%B3%95%E8%BD%AF%E4%BB%B6gnome-shell-pomodoro/</url>
+      
+        <content type="html"><![CDATA[<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><blockquote><p>  This GNOME app helps to manage time according to Pomodoro Technique. It intends to improve productivity and quality of work by reminding you to take short breaks.</p></blockquote><blockquote><p>  Pomodoro Technique is based on two principles:<br>  focusing on work for limited time, about half an hour,<br>  clearing your mind during breaks.<br>  This workflow can improve focus, physical health and mental agility depending on how you spend your breaks and how strictly you follow the routine.</p></blockquote><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="最好去官网看"><a href="#最好去官网看" class="headerlink" title="最好去官网看"></a>最好去官网看</h2><ul><li>官网地址:<a href="https://gnomepomodoro.org/" target="_blank" rel="noopener">https://gnomepomodoro.org/</a></li><li><img src="/images/2020/04/20200421006.png" alt></li></ul><h2 id="Ubuntu18-04安装"><a href="#Ubuntu18-04安装" class="headerlink" title="Ubuntu18.04安装"></a>Ubuntu18.04安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gnome-shell-pomodoro</span><br></pre></td></tr></table></figure><h1 id="安装后软件运行效果图"><a href="#安装后软件运行效果图" class="headerlink" title="安装后软件运行效果图"></a>安装后软件运行效果图</h1><p><img src="/images/2020/04/20200421005.png" alt></p><p><img src="/images/2020/04/20200421008.png" alt></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Ubuntu </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Ubuntu装机日志 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java中实现希尔排序</title>
       <link href="/2020/04/21/Java%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/"/>
       <url>/2020/04/21/Java%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/</url>
       
-        <content type="html"><![CDATA[<h1 id="希尔排序法介绍"><a href="#希尔排序法介绍" class="headerlink" title="希尔排序法介绍"></a>希尔排序法介绍</h1><ul><li>希尔排序是希尔(Donald Shell)与1959年提出的一种排序算法</li><li>希尔也是一种插入排序,是简单插入排序经过改进之后的一个更高效的版本,也称为缩小增量排序</li></ul><h1 id="希尔排序法的基本思想"><a href="#希尔排序法的基本思想" class="headerlink" title="希尔排序法的基本思想"></a>希尔排序法的基本思想</h1><ul><li>希尔排序是把记录按下标的一定增量分组,对每组使用直接插入排序算法排序</li><li>随着增量逐渐减少,每组包含的关键字越来越多,当增量减至1时,整个文件恰被分成一组,算法便终止</li></ul><h1 id="希尔排序示意图"><a href="#希尔排序示意图" class="headerlink" title="希尔排序示意图"></a>希尔排序示意图</h1><p><img src="/images/2020/04/20200420001.png" alt></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="希尔排序法介绍"><a href="#希尔排序法介绍" class="headerlink" title="希尔排序法介绍"></a>希尔排序法介绍</h1><ul><li>希尔排序是希尔(Donald Shell)与1959年提出的一种排序算法</li><li>希尔也是一种插入排序,是简单插入排序经过改进之后的一个更高效的版本,也称为缩小增量排序</li></ul><h1 id="希尔排序法的基本思想"><a href="#希尔排序法的基本思想" class="headerlink" title="希尔排序法的基本思想"></a>希尔排序法的基本思想</h1><ul><li>希尔排序是把记录按下标的一定增量分组,对每组使用直接插入排序算法排序</li><li>随着增量逐渐减少,每组包含的关键字越来越多,当增量减至1时,整个文件恰被分成一组,算法便终止</li></ul><h1 id="希尔排序示意图"><a href="#希尔排序示意图" class="headerlink" title="希尔排序示意图"></a>希尔排序示意图</h1><p><img src="/images/2020/04/20200420001.png" alt></p><h1 id="希尔排序代码实现"><a href="#希尔排序代码实现" class="headerlink" title="希尔排序代码实现"></a>希尔排序代码实现</h1><h2 id="对有序序列在插入时采用交换法"><a href="#对有序序列在插入时采用交换法" class="headerlink" title="对有序序列在插入时采用交换法"></a>对有序序列在插入时采用交换法</h2><h2 id="对有序序列在插入时采用移动法"><a href="#对有序序列在插入时采用移动法" class="headerlink" title="对有序序列在插入时采用移动法"></a>对有序序列在插入时采用移动法</h2>]]></content>
       
       
       <categories>
@@ -1425,9 +1450,9 @@
             
             <tag> Spring </tag>
             
-            <tag> Hibernate </tag>
-            
             <tag> Struts2 </tag>
+            
+            <tag> Hibernate </tag>
             
             <tag> SSH </tag>
             
