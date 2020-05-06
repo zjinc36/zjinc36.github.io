@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zjinc36.github.io/"/>
-  <updated>2020-05-03T08:32:32.241Z</updated>
+  <updated>2020-05-04T01:36:02.551Z</updated>
   <id>https://zjinc36.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://zjinc36.github.io/2020/05/03/Java%E4%B8%AD%E5%AE%9E%E7%8E%B0%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     <id>https://zjinc36.github.io/2020/05/03/Java中实现顺序存储二叉树/</id>
     <published>2020-05-02T16:03:40.000Z</published>
-    <updated>2020-05-03T08:32:32.241Z</updated>
+    <updated>2020-05-04T01:36:02.551Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="基本说明"><a href="#基本说明" class="headerlink" title="基本说明"></a>基本说明</h1><p>从数据存储上看,数据存储方式和树的存储方式可以相互转换,即<strong>数组可以转换成树,树也可以转换成数组</strong><br><img src alt></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="基本说明"><a href="#基本说明" class="headerlink" title="基本说明"></a>基本说明</h1><p>从数据存储上看,数据存储方式和树的存储方式可以相互转换,即<strong>数组可以转换成树,树也可以转换成数组</strong><br><img src="/images/2020/05/20200502001.png" alt></p><h1 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h1><ol><li>二叉树的结点,要以数组的方式来存放 arr:[1, 2, 3, 4, 5, 6]</li><li>在遍历数组arr时,仍然可以以前序遍历,中序遍历,后序遍历的方式完成结点的遍历</li></ol><h1 id="顺序存储二叉树的特点"><a href="#顺序存储二叉树的特点" class="headerlink" title="顺序存储二叉树的特点"></a>顺序存储二叉树的特点</h1><ol><li>顺序二叉树通常只考虑完全二叉树</li><li>第n个元素的左子结点<code>2*n + 1</code></li><li>第n个元素的右子结点<code>2*n + 2</code></li><li>第n个元素的父结点为<code>(n - 1) / 2</code></li><li><code>n</code>表示二叉树的第n个元素(按0开始编号)</li></ol><h1 id><a href="#" class="headerlink" title=" "></a> </h1>]]></content>
     
     <summary type="html">
     
