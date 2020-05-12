@@ -3042,6 +3042,31 @@
     
     
     <entry>
+      <title>Ubuntu18.04安装ibus拼音输入</title>
+      <link href="/2018/05/12/Ubuntu18-04%E5%AE%89%E8%A3%85ibus%E6%8B%BC%E9%9F%B3%E8%BE%93%E5%85%A5/"/>
+      <url>/2018/05/12/Ubuntu18-04%E5%AE%89%E8%A3%85ibus%E6%8B%BC%E9%9F%B3%E8%BE%93%E5%85%A5/</url>
+      
+        <content type="html"><![CDATA[<h1 id="安装ibus"><a href="#安装ibus" class="headerlink" title="安装ibus"></a>安装ibus</h1><ol start="0"><li><p>打开install/remove languages里面，勾选上chinese<br><img src="/images/2020/05/20200512005.png" alt><br><img src="/images/2020/05/20200512006.png" alt></p></li><li><p>安装iBus框架</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install ibus ibus-clutter ibus-gtk ibus-gtk3 ibus-qt4</span><br></pre></td></tr></table></figure></li><li><p>启动iBus框架</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ im-config -s ibus</span><br></pre></td></tr></table></figure></li><li><p>安装ibus拼音输入引擎</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install ibus-pinyin</span><br></pre></td></tr></table></figure></li><li><p>启用ibus-pinyin</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ibus-setup</span><br></pre></td></tr></table></figure></li></ol><p><img src="/images/2020/05/20200512001.png" alt><br><img src="/images/2020/05/20200512002.png" alt><br><img src="/images/2020/05/20200512003.png" alt></p><ol start="5"><li>在系统设置的区域与语言中添加iBus的智能拼音输入法如下图<br><img src="/images/2020/05/20200512004.png" alt></li></ol><h1 id="输入法不生效怎么办"><a href="#输入法不生效怎么办" class="headerlink" title="输入法不生效怎么办"></a>输入法不生效怎么办</h1><p><a href="https://bugs.launchpad.net/ubuntu/+source/ibus-libpinyin/+bug/1847021" target="_blank" rel="noopener">Cannot input Chinese if only “Chinese (Intelligent Pinyin)” is set </a></p><blockquote><p>  Try to clear the cache:<br>  rm ~/.cache/ibus/pinyin/* ~/.cache/ibus/libpinyin/*  and then relogin.</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> Ubuntu </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Ubuntu装机日志 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Zsh添加环境变量</title>
       <link href="/2018/05/11/Zsh%E6%B7%BB%E5%8A%A0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"/>
       <url>/2018/05/11/Zsh%E6%B7%BB%E5%8A%A0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</url>
@@ -3706,6 +3731,31 @@
             <tag> Spring </tag>
             
             <tag> SpringMVC </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ubuntu安装fcitx拼音和日语输入法</title>
+      <link href="/2017/05/12/ubuntu%E5%AE%89%E8%A3%85fcitx%E6%8B%BC%E9%9F%B3%E5%92%8C%E6%97%A5%E8%AF%AD%E8%BE%93%E5%85%A5%E6%B3%95/"/>
+      <url>/2017/05/12/ubuntu%E5%AE%89%E8%A3%85fcitx%E6%8B%BC%E9%9F%B3%E5%92%8C%E6%97%A5%E8%AF%AD%E8%BE%93%E5%85%A5%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<h1 id="安装fcitx框架"><a href="#安装fcitx框架" class="headerlink" title="安装fcitx框架"></a>安装fcitx框架</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install fctix</span><br></pre></td></tr></table></figure><ul><li>其实不用提前安装框架,底下安装输入法时,没有fctix框架的情况下,会自动安装fctix框架的</li><li>使用这个框架还有一个好处就是为了配合使用vim的<code>humiaozuzu/fcitx-status</code>插件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; humiaozuzu/fcitx-status插件说明 &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot; vim输入中文在插入状态下输入中文,切换会正常模式的时候,自动检测,变成英文模式</span><br><span class="line">&quot; 被动技能</span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">Bundle &apos;humiaozuzu/fcitx-status&apos;</span><br></pre></td></tr></table></figure></li></ul><h1 id="安装google拼音"><a href="#安装google拼音" class="headerlink" title="安装google拼音"></a>安装google拼音</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ol><li>sudo apt-get install fcitx-googlepinyin</li><li>在<code>settings-&gt;Language Support</code>里将keyboard input method system设置为fcitx</li><li>注销系统，再登录</li><li>在<code>settings-&gt;Text Entry</code>里，添加输入源，搜索fcitx添加即可</li></ol><h2 id="解决第二个或第三个候选字是省略号的问题"><a href="#解决第二个或第三个候选字是省略号的问题" class="headerlink" title="解决第二个或第三个候选字是省略号的问题"></a>解决第二个或第三个候选字是省略号的问题</h2><ol><li>原因:之所以为省略号,其实是因为这个位置是云适配候选词,但最大的问题在于这个候选词汇的源是google,而google是个什么情况心里清楚</li><li>解决:将google源切换成baidu源或者关闭云服务<ul><li>在菜单中找到Fcitx配置(或者运行命令fcitx-configtool),打开Fcitx的配置页面,在”附件选项”中选中”云拼音”,点击”配置”,打开云拼音配置页面,将源改成”baidu”</li><li>关闭云服务(和前面切换源同界面有关闭云服务配置,个人输入体验是关闭云服务比较好)</li></ul></li></ol><h1 id="安装日语输入法anthy"><a href="#安装日语输入法anthy" class="headerlink" title="安装日语输入法anthy"></a>安装日语输入法anthy</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install fcitx-anthy</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Ubuntu </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Ubuntu装机日志 </tag>
             
         </tags>
       
