@@ -58,7 +58,7 @@
       <link href="/2020/05/03/Java%E4%B8%AD%E5%AE%9E%E7%8E%B0%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
       <url>/2020/05/03/Java%E4%B8%AD%E5%AE%9E%E7%8E%B0%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
       
-        <content type="html"><![CDATA[<h1 id="基本说明"><a href="#基本说明" class="headerlink" title="基本说明"></a>基本说明</h1><p>从数据存储上看,数据存储方式和树的存储方式可以相互转换,即<strong>数组可以转换成树,树也可以转换成数组</strong><br><img src="/images/2020/05/20200502001.png" alt></p><h1 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h1><ol><li>二叉树的结点,要以数组的方式来存放 arr:[1, 2, 3, 4, 5, 6]</li><li>在遍历数组arr时,仍然可以以前序遍历,中序遍历,后序遍历的方式完成结点的遍历</li></ol><h1 id="顺序存储二叉树的特点"><a href="#顺序存储二叉树的特点" class="headerlink" title="顺序存储二叉树的特点"></a>顺序存储二叉树的特点</h1><ol><li>顺序二叉树通常只考虑完全二叉树</li><li>第n个元素的左子结点<code>2*n + 1</code></li><li>第n个元素的右子结点<code>2*n + 2</code></li><li>第n个元素的父结点为<code>(n - 1) / 2</code></li><li><code>n</code>表示二叉树的第n个元素(按0开始编号)</li></ol><h1 id><a href="#" class="headerlink" title=" "></a> </h1>]]></content>
+        <content type="html"><![CDATA[<h1 id="基本说明"><a href="#基本说明" class="headerlink" title="基本说明"></a>基本说明</h1><p>从数据存储上看,数据存储方式和树的存储方式可以相互转换,即<strong>数组可以转换成树,树也可以转换成数组</strong><br><img src="/images/2020/05/20200502001.png" alt></p><h1 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h1><ol><li>二叉树的结点,要以数组的方式来存放 arr:[1, 2, 3, 4, 5, 6]</li><li>在遍历数组arr时,仍然可以以前序遍历,中序遍历,后序遍历的方式完成结点的遍历</li></ol><h1 id="顺序存储二叉树的特点"><a href="#顺序存储二叉树的特点" class="headerlink" title="顺序存储二叉树的特点"></a>顺序存储二叉树的特点</h1><ol><li>顺序二叉树通常只考虑完全二叉树</li><li>第n个元素的左子结点<code>2*n + 1</code></li><li>第n个元素的右子结点<code>2*n + 2</code></li><li>第n个元素的父结点为<code>(n - 1) / 2</code></li><li><code>n</code>表示二叉树的第n个元素(按0开始编号)</li></ol>]]></content>
       
       
       <categories>
@@ -72,7 +72,7 @@
       
         <tags>
             
-            <tag> 数据结构与算反(Java实现) </tag>
+            <tag> 数据结构与算法(Java实现) </tag>
             
         </tags>
       
@@ -3731,6 +3731,31 @@
             <tag> Spring </tag>
             
             <tag> SpringMVC </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ubuntu的Shell中使用Ack进行搜索</title>
+      <link href="/2017/05/17/Ubuntu%E7%9A%84Shell%E4%B8%AD%E4%BD%BF%E7%94%A8ack%E8%BF%9B%E8%A1%8C%E6%90%9C%E7%B4%A2/"/>
+      <url>/2017/05/17/Ubuntu%E7%9A%84Shell%E4%B8%AD%E4%BD%BF%E7%94%A8ack%E8%BF%9B%E8%A1%8C%E6%90%9C%E7%B4%A2/</url>
+      
+        <content type="html"><![CDATA[<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://beyondgrep.com/ack-2.12-single-file</span><br><span class="line">$ sudo mv ack-2.12-single-file /usr/bin/ack</span><br><span class="line">$ sudo chmod 0755 /usr/bin/ack</span><br></pre></td></tr></table></figure><h1 id="ack的使用案例"><a href="#ack的使用案例" class="headerlink" title="ack的使用案例"></a>ack的使用案例</h1><ol><li><p>在当前目录递归搜索单词”eat”,不匹配类似于”feature”或”eating”的字符串:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ack -w eat</span><br></pre></td></tr></table></figure></li><li><p>搜索有特殊字符的字符串’$path=.’,所有的元字符（比如’$’,’.’)需要在字面上被匹配:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ack -Q &apos;$path=.&apos; /etc</span><br></pre></td></tr></table></figure></li><li><p>除了dowloads目录，在所有目录搜索”about”单词:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ack about --ignore-dir=downloads</span><br></pre></td></tr></table></figure></li><li><p>只搜索包含’protected’单词的PHP文件，然后通过文件名把搜索结果整合在一起，打印每个文件对应的搜索结果:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ack --php --group protected</span><br></pre></td></tr></table></figure></li><li><p>获取包含’CFLAG’关键字的Makefile的文件名。文件名为<code>*.mk,makefile,Makefile,GNUmakefile</code>的都在考虑范围内:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ack --make -l CFLAG</span><br></pre></td></tr></table></figure></li><li><p>显示整个日志文件时高亮匹配到的字符串:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tail -f /var/log/syslog | ack --passthru 192.168.1.10</span><br></pre></td></tr></table></figure></li><li><p>要换取ack支持的文件过滤类型，运行：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ack --help-type</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Ubuntu </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux命令 </tag>
             
         </tags>
       
