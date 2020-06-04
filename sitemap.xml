@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zjinc36.github.io/2020/06/04/Ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85%E5%92%8C%E5%88%A0%E9%99%A4%E5%AD%97%E4%BD%93/</loc>
+    
+    <lastmod>2020-06-04T05:35:50.538Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zjinc36.github.io/2020/06/04/Ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85Ganglia/</loc>
     
     <lastmod>2020-06-04T03:06:53.244Z</lastmod>
@@ -352,14 +359,14 @@
   </url>
   
   <url>
-    <loc>https://zjinc36.github.io/friends/index.html</loc>
+    <loc>https://zjinc36.github.io/projects/index.html</loc>
     
     <lastmod>2020-03-27T09:06:04.585Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://zjinc36.github.io/projects/index.html</loc>
+    <loc>https://zjinc36.github.io/friends/index.html</loc>
     
     <lastmod>2020-03-27T09:06:04.585Z</lastmod>
     
