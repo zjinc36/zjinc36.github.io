@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zjinc36.github.io/"/>
-  <updated>2020-06-14T01:56:14.537Z</updated>
+  <updated>2020-06-15T02:49:24.254Z</updated>
   <id>https://zjinc36.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ubuntu中安装词典GoldenDict</title>
+    <link href="https://zjinc36.github.io/2020/06/14/Ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85%E8%AF%8D%E5%85%B8GoldenDict/"/>
+    <id>https://zjinc36.github.io/2020/06/14/Ubuntu中安装词典GoldenDict/</id>
+    <published>2020-06-14T12:15:30.000Z</published>
+    <updated>2020-06-15T02:49:24.254Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install goldendict</span><br></pre></td></tr></table></figure><h1 id="添加词库"><a href="#添加词库" class="headerlink" title="添加词库"></a>添加词库</h1><ol><li><p>离线词库下载<br>测试过<a href="http://download.huzheng.org/zh_CN/" target="_blank" rel="noopener">http://download.huzheng.org/zh_CN/</a><br>测试过<a href="https://freemdict.com/2018/06/04/%e8%8b%b1%e6%b1%89-%e6%9c%97%e6%96%875-%c2%b7%e5%8f%8c%e8%a7%a3%c2%b7%e4%be%8b%e5%8f%a5%e5%8f%91%e9%9f%b3/" target="_blank" rel="noopener">英汉:朗文5++ ·双解·例句发音</a><br>没测试过<a href="http://download.huzheng.org/" target="_blank" rel="noopener">http://download.huzheng.org/</a></p></li><li><p>添加<br><img src="/images/2020/06/20200614003.png" alt></p></li></ol><ol start="3"><li><p>添加在线搜索<br>这里添加有道<code>http://dict.youdao.com/search?q=%GDWORD%&amp;ue=utf8</code><br><img src="/images/2020/06/20200614005.png" alt></p></li><li><p>取消百科的搜索<br><img src="/images/2020/06/20200614006.png" alt></p></li><li><p>调整词典顺序<br><img src="/images/2020/06/20200614004.png" alt></p></li></ol><h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><ul><li><p>快捷键<br><img src="/images/2020/06/20200614007.png" alt></p></li><li><p>屏幕取词<br>将需要查询的内容选取,按<code>ctrl + c + c</code>快捷键</p></li></ul><h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><p><a href="https://www.jianshu.com/p/b6b2c1d78d7c" target="_blank" rel="noopener">安装使用 GoldenDict 查词神器 (Windows/Mac/Linux)</a></p>]]></content>
+    
+    <summary type="html">
+    
+      Ubuntu中安装词典GoldenDict
+    
+    </summary>
+    
+      <category term="Ubuntu" scheme="https://zjinc36.github.io/categories/Ubuntu/"/>
+    
+    
+      <category term="Ubuntu装机日志" scheme="https://zjinc36.github.io/tags/Ubuntu%E8%A3%85%E6%9C%BA%E6%97%A5%E5%BF%97/"/>
+    
+  </entry>
   
   <entry>
     <title>Ubuntu中一键OCR识别图片截图文字转文本</title>
@@ -437,28 +459,6 @@
     
     
       <category term="数据结构与算法(Java实现)" scheme="https://zjinc36.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-Java%E5%AE%9E%E7%8E%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu中安装番茄工作法软件gnome-Shell-Pomodoro</title>
-    <link href="https://zjinc36.github.io/2020/04/21/Ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85%E7%95%AA%E8%8C%84%E5%B7%A5%E4%BD%9C%E6%B3%95%E8%BD%AF%E4%BB%B6gnome-shell-pomodoro/"/>
-    <id>https://zjinc36.github.io/2020/04/21/Ubuntu中安装番茄工作法软件gnome-shell-pomodoro/</id>
-    <published>2020-04-21T11:17:05.000Z</published>
-    <updated>2020-04-21T03:38:03.218Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><blockquote><p>  This GNOME app helps to manage time according to Pomodoro Technique. It intends to improve productivity and quality of work by reminding you to take short breaks.<br>  Pomodoro Technique is based on two principles:</p><ul><li>focusing on work for limited time, about half an hour,</li><li>clearing your mind during breaks.<br>This workflow can improve focus, physical health and mental agility depending on how you spend your breaks and how strictly you follow the routine.</li></ul></blockquote><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="最好去官网看"><a href="#最好去官网看" class="headerlink" title="最好去官网看"></a>最好去官网看</h2><ul><li>官网地址:<a href="https://gnomepomodoro.org/" target="_blank" rel="noopener">https://gnomepomodoro.org/</a></li><li><img src="/images/2020/04/20200421006.png" alt></li></ul><h2 id="Ubuntu18-04安装"><a href="#Ubuntu18-04安装" class="headerlink" title="Ubuntu18.04安装"></a>Ubuntu18.04安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gnome-shell-pomodoro</span><br></pre></td></tr></table></figure><h1 id="安装后软件运行效果图"><a href="#安装后软件运行效果图" class="headerlink" title="安装后软件运行效果图"></a>安装后软件运行效果图</h1><p><img src="/images/2020/04/20200421005.png" alt></p><p><img src="/images/2020/04/20200421008.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      Ubuntu中安装番茄工作法软件gnome-shell-pomodoro
-    
-    </summary>
-    
-      <category term="Ubuntu" scheme="https://zjinc36.github.io/categories/Ubuntu/"/>
-    
-    
-      <category term="Ubuntu装机日志" scheme="https://zjinc36.github.io/tags/Ubuntu%E8%A3%85%E6%9C%BA%E6%97%A5%E5%BF%97/"/>
     
   </entry>
   
