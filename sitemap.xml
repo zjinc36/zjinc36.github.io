@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://zjinc36.github.io/2020/07/26/ubuntu18-04%E6%97%A0%E6%B3%95%E8%AE%BE%E7%BD%AEibus-sunpinyin/</loc>
+    <loc>https://zjinc36.github.io/2020/07/26/Ubuntu18.04%E4%B8%ADibus-sunpinyin%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E8%AE%BE%E7%BD%AE/</loc>
     
-    <lastmod>2020-07-26T03:53:04.721Z</lastmod>
+    <lastmod>2020-07-26T04:55:52.399Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zjinc36.github.io/2020/07/26/ubuntu%E4%B8%ADRime%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/</loc>
+    
+    <lastmod>2020-07-26T04:36:51.607Z</lastmod>
     
   </url>
   
@@ -513,6 +520,13 @@
   </url>
   
   <url>
+    <loc>https://zjinc36.github.io/about/index.html</loc>
+    
+    <lastmod>2020-03-27T09:06:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zjinc36.github.io/categories/index.html</loc>
     
     <lastmod>2020-03-27T09:06:04.000Z</lastmod>
@@ -521,13 +535,6 @@
   
   <url>
     <loc>https://zjinc36.github.io/friends/index.html</loc>
-    
-    <lastmod>2020-03-27T09:06:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zjinc36.github.io/about/index.html</loc>
     
     <lastmod>2020-03-27T09:06:04.000Z</lastmod>
     
