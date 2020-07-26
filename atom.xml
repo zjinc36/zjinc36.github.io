@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zjinc36.github.io/"/>
-  <updated>2020-07-18T07:15:21.816Z</updated>
+  <updated>2020-07-24T11:00:28.130Z</updated>
   <id>https://zjinc36.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ubuntu设置开机自动加/挂载硬盘</title>
+    <link href="https://zjinc36.github.io/2020/07/25/Ubuntu%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8A%A0-%E6%8C%82%E8%BD%BD%E7%A1%AC%E7%9B%98/"/>
+    <id>https://zjinc36.github.io/2020/07/25/Ubuntu设置开机自动加-挂载硬盘/</id>
+    <published>2020-07-24T18:28:39.000Z</published>
+    <updated>2020-07-24T11:00:28.130Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="找到要挂载的磁盘的名称"><a href="#找到要挂载的磁盘的名称" class="headerlink" title="找到要挂载的磁盘的名称"></a>找到要挂载的磁盘的名称</h1><p><img src="/images/2020/07/20200724001.png" alt></p><h1 id="查看磁盘的分区UUID"><a href="#查看磁盘的分区UUID" class="headerlink" title="查看磁盘的分区UUID"></a>查看磁盘的分区UUID</h1><ol><li>新打开一个终端：sudo blkid </li><li>找到分区的UUID与tpye<br><img src="/images/2020/07/20200724003.png" alt></li></ol><h1 id="在-etc-fstab中添加"><a href="#在-etc-fstab中添加" class="headerlink" title="在/etc/fstab中添加"></a>在/etc/fstab中添加</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /etc/fstab: static file system information.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Use 'blkid' to print the universally unique identifier for a</span></span><br><span class="line"><span class="comment"># device; this may be used with UUID= as a more robust way to name devices</span></span><br><span class="line"><span class="comment"># that works even if disks are added and removed. See fstab(5).</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># &lt;file system&gt; &lt;mount point&gt;   &lt;type&gt;  &lt;options&gt;       &lt;dump&gt;  &lt;pass&gt;</span></span><br><span class="line"><span class="comment"># # &lt;file system&gt; 磁盘设备名或该设备的Label</span></span><br><span class="line"><span class="comment"># # &lt;mount point&gt; 挂载点（目录）</span></span><br><span class="line"><span class="comment"># # &lt;type&gt; 磁盘分区的文件系统</span></span><br><span class="line"><span class="comment"># # &lt;options&gt; 文件系统参数</span></span><br><span class="line"><span class="comment"># # &lt;dump&gt; 能否被dump命令作用</span></span><br><span class="line"><span class="comment"># # &lt;pass&gt; 是否以fsck检测扇区</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># / was on /dev/nvme0n1p5 during installation</span></span><br><span class="line">UUID=81ae4ddb-7784-45bf-b770-47cb89c85aca /               ext4    errors=remount-ro 0       1</span><br><span class="line"><span class="comment"># /boot/efi was on /dev/nvme0n1p1 during installation</span></span><br><span class="line">UUID=3024-823F  /boot/efi       vfat    <span class="built_in">umask</span>=0077      0       1</span><br><span class="line"><span class="comment"># swap was on /dev/nvme0n1p6 during installation</span></span><br><span class="line">UUID=7b9777a0-d735-4c9e-b6ba-109ffce567c2 none            swap    sw              0       0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 复制前面的</span></span><br><span class="line"><span class="comment"># UUID=81ae4ddb-7784-45bf-b770-47cb89c85aca /               ext4    errors=remount-ro 0       1</span></span><br><span class="line"><span class="comment"># 将UUID改为前面得到的UUID</span></span><br><span class="line"><span class="comment"># 把/改为/media/zjc/otherDocuments</span></span><br><span class="line"><span class="comment"># 把errors=remount-ro改为defaults</span></span><br><span class="line"><span class="comment"># 后面的1改0</span></span><br><span class="line">UUID=EC9CB4199CB3DBF0 /media/zjc/otherDocuments               ntfs    defaults 0       1</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      Ubuntu设置开机自动加/挂载硬盘
+    
+    </summary>
+    
+      <category term="Ubuntu" scheme="https://zjinc36.github.io/categories/Ubuntu/"/>
+    
+    
+      <category term="Ubuntu装机日志" scheme="https://zjinc36.github.io/tags/Ubuntu%E8%A3%85%E6%9C%BA%E6%97%A5%E5%BF%97/"/>
+    
+  </entry>
   
   <entry>
     <title>Ubuntu18.04如何固定图标到任务栏</title>
@@ -427,28 +449,6 @@
     
     
       <category term="Linux配置" scheme="https://zjinc36.github.io/tags/Linux%E9%85%8D%E7%BD%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Getent命令:用来查看系统的数据库中的相关记录</title>
-    <link href="https://zjinc36.github.io/2020/05/11/getent%E5%91%BD%E4%BB%A4-%E7%94%A8%E6%9D%A5%E6%9F%A5%E7%9C%8B%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E7%9A%84%E7%9B%B8%E5%85%B3%E8%AE%B0%E5%BD%95/"/>
-    <id>https://zjinc36.github.io/2020/05/11/getent命令-用来查看系统的数据库中的相关记录/</id>
-    <published>2020-05-10T18:43:50.000Z</published>
-    <updated>2020-05-10T10:53:46.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>getent命令帮助用户administrative databases中查找相关信息。administrative databases包括：</p><ul><li>passwd – can be used to confirm usernames, userids, home directories and full names of your users</li><li>group – all the information about Unix groups known to your system</li><li>services – all the Unix services configured on your system</li><li>networks – networking information – what networks your system belongs to</li><li>protocols – everything your system knows about network protocols</li></ul><h1 id="一般语法"><a href="#一般语法" class="headerlink" title="一般语法"></a>一般语法</h1><ul><li>getent database [key …]</li><li>getent [选项…] 数据库 [键 …]</li><li>getent会在上面数据库中产找key对应的value</li></ul><table><thead><tr><th>选项</th><th>说明</th></tr></thead><tbody><tr><td>-s, –service=CONFIG</td><td>要使用的服务配置</td></tr><tr><td>-?, –help</td><td>给出该系统求助列表</td></tr><tr><td>–usage</td><td>给出简要的用法信息</td></tr><tr><td>-V, –version</td><td>打印程序版本号</td></tr></tbody></table><h1 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h1><h2 id="查找hostname对应的IP"><a href="#查找hostname对应的IP" class="headerlink" title="查找hostname对应的IP"></a>查找hostname对应的IP</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ubuntu$ getent hosts ubuntu</span><br><span class="line">127.0.1.1       ubuntu</span><br><span class="line">192.168.0.2     ubuntu</span><br></pre></td></tr></table></figure><h2 id="执行反向DNS查询（即根据域名查找对应IP）"><a href="#执行反向DNS查询（即根据域名查找对应IP）" class="headerlink" title="执行反向DNS查询（即根据域名查找对应IP）"></a>执行反向DNS查询（即根据域名查找对应IP）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ubuntu$ getent hosts myhost.mydomain.com</span><br><span class="line">15.77.3.40       myhost.mydomain.com myhost</span><br></pre></td></tr></table></figure><h2 id="根据用户名查找UID"><a href="#根据用户名查找UID" class="headerlink" title="根据用户名查找UID"></a>根据用户名查找UID</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ubuntu$ getent passwd greys</span><br><span class="line">greys:x:1000:1000:Gleb Reys,,,:/home/greys:/bin/bas</span><br></pre></td></tr></table></figure><h2 id="根据UID查找用户名"><a href="#根据UID查找用户名" class="headerlink" title="根据UID查找用户名"></a>根据UID查找用户名</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ubuntu$ getent passwd 1000</span><br><span class="line">greys:x:1000:1000:Gleb Reys,,,:/home/greys:/bin/bash</span><br></pre></td></tr></table></figure><h2 id="获取当前登陆用户的信息"><a href="#获取当前登陆用户的信息" class="headerlink" title="获取当前登陆用户的信息"></a>获取当前登陆用户的信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ubuntu$ getent passwd `whoami`</span><br><span class="line">root:x:0:0:root:/root:/bin/bash</span><br></pre></td></tr></table></figure><h2 id="查找那个服务在使用特定端口"><a href="#查找那个服务在使用特定端口" class="headerlink" title="查找那个服务在使用特定端口"></a>查找那个服务在使用特定端口</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ getent services 22</span><br><span class="line">ssh                   22/tcp</span><br><span class="line">$ getent services 21</span><br><span class="line">ftp                   21/tcp</span><br><span class="line">$ getent services 25</span><br><span class="line">smtp                  25/tcp mail</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      getent:用来察看系统的数据库中的相关记录
-    
-    </summary>
-    
-      <category term="Ubuntu" scheme="https://zjinc36.github.io/categories/Ubuntu/"/>
-    
-    
-      <category term="Linux命令" scheme="https://zjinc36.github.io/tags/Linux%E5%91%BD%E4%BB%A4/"/>
     
   </entry>
   
