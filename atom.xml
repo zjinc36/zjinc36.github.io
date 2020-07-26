@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zjinc36.github.io/"/>
-  <updated>2020-07-24T11:00:28.130Z</updated>
+  <updated>2020-07-26T03:53:04.721Z</updated>
   <id>https://zjinc36.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ubuntu18.04无法设置ibus-Sunpinyin</title>
+    <link href="https://zjinc36.github.io/2020/07/26/ubuntu18-04%E6%97%A0%E6%B3%95%E8%AE%BE%E7%BD%AEibus-sunpinyin/"/>
+    <id>https://zjinc36.github.io/2020/07/26/ubuntu18-04无法设置ibus-sunpinyin/</id>
+    <published>2020-07-26T11:43:09.000Z</published>
+    <updated>2020-07-26T03:53:04.721Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ol><li>ubuntu18.04安装了ibus-pinyin, 选用了sunpinyin，但是无法调出sunpinyin的设置窗口。</li><li>当通过命令/usr/lib/ibus/ibus-setup-sunpinyin时，出现如下错误：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"/usr/share//ibus-sunpinyin/setup/main.py"</span>, line <span class="number">42</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="keyword">import</span> ibus</span><br><span class="line">ImportError: No module named ibus</span><br></pre></td></tr></table></figure></li></ol><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>需要安装python-ibus，到 <a href="https://launchpad.net/ubuntu/trusty/amd64/python-ibus/1.5.5-1ubuntu3.2" target="_blank" rel="noopener">https://launchpad.net/ubuntu/trusty/amd64/python-ibus/1.5.5-1ubuntu3.2</a> 下载<code>python-ibus_1.5.5-1ubuntu3.2_all.deb</code>安装包，通过命令安装即可</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo gdebi python-ibus_1.5.5-1ubuntu3.2_all.deb</span><br><span class="line"></span><br><span class="line"><span class="comment">#   如果没有gdebi命令,用如下命令安装</span></span><br><span class="line">sudo apt-get install gdebi</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      ubuntu18.04无法设置ibus-sunpinyin
+    
+    </summary>
+    
+      <category term="Ubuntu" scheme="https://zjinc36.github.io/categories/Ubuntu/"/>
+    
+    
+      <category term="Ubuntu配置" scheme="https://zjinc36.github.io/tags/Ubuntu%E9%85%8D%E7%BD%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>Ubuntu设置开机自动加/挂载硬盘</title>
@@ -427,28 +449,6 @@
     
     
       <category term="Tampermonkey" scheme="https://zjinc36.github.io/tags/Tampermonkey/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell中no Login和login的区别</title>
-    <link href="https://zjinc36.github.io/2020/05/11/shell%E4%B8%ADnologin%E5%92%8Clogin%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
-    <id>https://zjinc36.github.io/2020/05/11/shell中nologin和login的区别/</id>
-    <published>2020-05-10T19:00:36.000Z</published>
-    <updated>2020-05-10T11:16:33.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="什么是nologin-shell和login-shell？"><a href="#什么是nologin-shell和login-shell？" class="headerlink" title="什么是nologin shell和login shell？"></a>什么是nologin shell和login shell？</h1><p>按照bash文档的说法，login shell是第0个参数以<code>-</code>开头或者有一个参数为<code>-login</code>的shell。</p><blockquote><p>  A login shell is one whose first character of argument zero is a -, or one started with the –login option.</p></blockquote><ul><li>根据该定义，我们可以使用<code>bash --login</code>启动一个login shell或者通过<code>echo $0</code>的输出结果是否以<code>-</code>开头来判断一个shell是否为login shell。</li><li>经过测试<ul><li>通过图形界面启动的终端为no login shell</li><li>通过ssh远程连接得到的shell为login shell。</li></ul></li></ul><h1 id="为什么要关注是login-shell还是no-login-shell？"><a href="#为什么要关注是login-shell还是no-login-shell？" class="headerlink" title="为什么要关注是login shell还是no login shell？"></a>为什么要关注是login shell还是no login shell？</h1><p>区分login shell和no login shell的主要原因是它们启动和退出时自动执行的脚本不同。</p><h2 id="login-shell"><a href="#login-shell" class="headerlink" title="login shell"></a>login shell</h2><p>对于login shell其启动时自动执行的脚本文件顺序如下</p><ol><li>首先执行<code>/etc/profile</code></li><li>再执行<code>~/.bash_profile</code>, <code>~/.bash_login</code>, <code>~/.profile</code>中第一个存在的脚本（按顺序搜索，只会执行其中一个）</li></ol><p>如果shell启动时添加了<code>--noprofile</code>选项则不会执行上述文件。在login shell退出时，会执行<code>~/.bash_logout</code></p><h2 id="no-login-shell"><a href="#no-login-shell" class="headerlink" title="no login shell"></a>no login shell</h2><p>对于no login shell，启动时会执行<code>/etc/bash.bashrc</code>和<code>~/.bashrc</code>，如果shell启动时添加了<code>--norc</code>选项则不会执行上述文件，如果添加了<code>--rcfile &lt;filename&gt;</code>选项则会执行指定的filename文件，也不会执行上述文件。no login shell退出时不会自动执行脚本文件。</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul><li>no login shell和login shell在启动和退出时会执行不同的脚本文件从而影响shell中的环境变量，本文根据bash的文档描述了两种shell启动时自动执行的脚本文件的区别。</li><li>login shell和no login shell启动时执行的脚本文件是完全不同的，因此，运行环境初始化脚本需要合理配置才能让login shell和no login shell都能执行，同时也可以为login shell和no login shell配置不同的运行环境初始化脚本。</li></ul><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul><li><a href="https://linux.die.net/man/1/bash" target="_blank" rel="noopener">Linux man page(bash)</a></li><li><a href="https://blog.csdn.net/j5856004/article/details/100638931" target="_blank" rel="noopener">no login shell和login shell</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      shell中no login和login的区别
-    
-    </summary>
-    
-      <category term="Ubuntu" scheme="https://zjinc36.github.io/categories/Ubuntu/"/>
-    
-    
-      <category term="Linux配置" scheme="https://zjinc36.github.io/tags/Linux%E9%85%8D%E7%BD%AE/"/>
     
   </entry>
   

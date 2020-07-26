@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>ubuntu18.04无法设置ibus-Sunpinyin</title>
+      <link href="/2020/07/26/ubuntu18-04%E6%97%A0%E6%B3%95%E8%AE%BE%E7%BD%AEibus-sunpinyin/"/>
+      <url>/2020/07/26/ubuntu18-04%E6%97%A0%E6%B3%95%E8%AE%BE%E7%BD%AEibus-sunpinyin/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ol><li>ubuntu18.04安装了ibus-pinyin, 选用了sunpinyin，但是无法调出sunpinyin的设置窗口。</li><li>当通过命令/usr/lib/ibus/ibus-setup-sunpinyin时，出现如下错误：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"/usr/share//ibus-sunpinyin/setup/main.py"</span>, line <span class="number">42</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="keyword">import</span> ibus</span><br><span class="line">ImportError: No module named ibus</span><br></pre></td></tr></table></figure></li></ol><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>需要安装python-ibus，到 <a href="https://launchpad.net/ubuntu/trusty/amd64/python-ibus/1.5.5-1ubuntu3.2" target="_blank" rel="noopener">https://launchpad.net/ubuntu/trusty/amd64/python-ibus/1.5.5-1ubuntu3.2</a> 下载<code>python-ibus_1.5.5-1ubuntu3.2_all.deb</code>安装包，通过命令安装即可</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo gdebi python-ibus_1.5.5-1ubuntu3.2_all.deb</span><br><span class="line"></span><br><span class="line"><span class="comment">#   如果没有gdebi命令,用如下命令安装</span></span><br><span class="line">sudo apt-get install gdebi</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Ubuntu </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Ubuntu配置 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Ubuntu设置开机自动加/挂载硬盘</title>
       <link href="/2020/07/25/Ubuntu%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8A%A0-%E6%8C%82%E8%BD%BD%E7%A1%AC%E7%9B%98/"/>
       <url>/2020/07/25/Ubuntu%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8A%A0-%E6%8C%82%E8%BD%BD%E7%A1%AC%E7%9B%98/</url>
@@ -2277,9 +2302,9 @@
             
             <tag> Spring </tag>
             
-            <tag> Hibernate </tag>
-            
             <tag> Struts2 </tag>
+            
+            <tag> Hibernate </tag>
             
             <tag> SSH </tag>
             
