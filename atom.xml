@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zjinc36.github.io/"/>
-  <updated>2020-07-27T15:27:52.065Z</updated>
+  <updated>2020-07-30T14:52:31.623Z</updated>
   <id>https://zjinc36.github.io/</id>
   
   <author>
@@ -15,6 +15,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>赫夫曼编码</title>
+    <link href="https://zjinc36.github.io/2020/07/31/%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/"/>
+    <id>https://zjinc36.github.io/2020/07/31/赫夫曼编码/</id>
+    <published>2020-07-30T22:52:31.000Z</published>
+    <updated>2020-07-30T14:52:31.623Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>循环冗余校验（CRC）算法</title>
@@ -425,28 +439,6 @@
     
     
       <category term="Ubuntu装机日志" scheme="https://zjinc36.github.io/tags/Ubuntu%E8%A3%85%E6%9C%BA%E6%97%A5%E5%BF%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu开启smb协议与手机互联</title>
-    <link href="https://zjinc36.github.io/2020/05/29/Ubuntu%E5%BC%80%E5%90%AFsmb%E5%8D%8F%E8%AE%AE%E4%B8%8E%E6%89%8B%E6%9C%BA%E4%BA%92%E8%81%94/"/>
-    <id>https://zjinc36.github.io/2020/05/29/Ubuntu开启smb协议与手机互联/</id>
-    <published>2020-05-29T15:44:23.000Z</published>
-    <updated>2020-05-29T08:26:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="samba的安装"><a href="#samba的安装" class="headerlink" title="samba的安装"></a>samba的安装</h1><h2 id="方式一-命令行安装"><a href="#方式一-命令行安装" class="headerlink" title="方式一:命令行安装"></a>方式一:命令行安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get insall samba</span><br><span class="line">sudo apt-get install smbfs</span><br></pre></td></tr></table></figure><h2 id="方式二-图形界面gnome中安装"><a href="#方式二-图形界面gnome中安装" class="headerlink" title="方式二:图形界面gnome中安装"></a>方式二:图形界面gnome中安装</h2><ol><li>在需要共享的目录中右键(这个也可以在属性中找到)<br><img src="/images/2020/05/20200529022.png" alt></li><li>选择共享此目录后创建共享<br><img src="/images/2020/05/20200529023.png" alt></li><li>如果没有安装smba会自动提示你需要安装</li></ol><h1 id="创建共享目录"><a href="#创建共享目录" class="headerlink" title="创建共享目录"></a>创建共享目录</h1><h2 id="方式一-命令行创建"><a href="#方式一-命令行创建" class="headerlink" title="方式一:命令行创建"></a>方式一:命令行创建</h2><ol><li><p>创建需要共享的目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#   注意：XXX为用户名</span><br><span class="line">mkdir /home/XXX/share</span><br><span class="line">sudo chmod 777 /home/XXX/share</span><br></pre></td></tr></table></figure></li><li><p>将上述创建的文件夹添加到配置文件中</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak</span><br><span class="line">sudo vim /etc/samba/smb.conf</span><br><span class="line"></span><br><span class="line">#   在smb.conf最后添加</span><br><span class="line">[share]</span><br><span class="line">　　path = /home/XXX/share</span><br><span class="line">　　available = yes</span><br><span class="line">　　browsealbe = yes</span><br><span class="line">　　public = yes</span><br><span class="line">　　writable = yes</span><br></pre></td></tr></table></figure></li></ol><h2 id="方式二-图形界面gnome中创建"><a href="#方式二-图形界面gnome中创建" class="headerlink" title="方式二:图形界面gnome中创建"></a>方式二:图形界面gnome中创建</h2><ol><li>在需要共享的目录中右键(这个也可以在属性中找到)<br><img src="/images/2020/05/20200529022.png" alt></li><li>选择共享此目录后创建共享<br><img src="/images/2020/05/20200529023.png" alt></li><li>这样就共享了这个目录</li></ol><h1 id="配置其他设备连接时的用户名密码"><a href="#配置其他设备连接时的用户名密码" class="headerlink" title="配置其他设备连接时的用户名密码"></a>配置其他设备连接时的用户名密码</h1><h2 id="配置用户名和密码"><a href="#配置用户名和密码" class="headerlink" title="配置用户名和密码"></a>配置用户名和密码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo touch /etc/samba/smbpasswd</span><br><span class="line">sudo smbpasswd -a username</span><br><span class="line">然后会要求你输入samba帐户的密码</span><br></pre></td></tr></table></figure><p>注意</p><ol><li>如果没有配置目录，当你登录时会提示<code>session setup failed: NT_STATUS_LOGON_FAILURE</code></li><li>前面添加的用户必须是系统中存在的用户,不能凭空乱写,否则也会报错</li></ol><h2 id="重启samba服务器"><a href="#重启samba服务器" class="headerlink" title="重启samba服务器"></a>重启samba服务器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#   ubuntu比较乱,有可能是老版本的</span><br><span class="line">sudo /etc/init.d/samba restart</span><br><span class="line"></span><br><span class="line">#   而ubuntu18.04是底下这个命令</span><br><span class="line">sudo service smbd restart</span><br><span class="line"></span><br><span class="line">#   也有可能使用systemctl,这个看自己的机子</span><br></pre></td></tr></table></figure><h2 id="测试一下"><a href="#测试一下" class="headerlink" title="测试一下"></a>测试一下</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">smbclient -L //localhost/share</span><br></pre></td></tr></table></figure><h1 id="配置防火墙-非必要步骤"><a href="#配置防火墙-非必要步骤" class="headerlink" title="配置防火墙(非必要步骤)"></a>配置防火墙(非必要步骤)</h1><p>我是ubuntu18.04,又我习惯让局域网内可以连接的,所以使用如下命令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#   查看现有规则</span><br><span class="line">sudo ufw status numbered</span><br><span class="line"></span><br><span class="line">#   配置错了可以用如下命令删除</span><br><span class="line">sudo ufw delete 序号</span><br><span class="line"></span><br><span class="line">#   我本地添加的规则,让局域网内能够连接</span><br><span class="line">sudo ufw allow from 192.168.0.0/16 to any app Samba</span><br><span class="line"></span><br><span class="line">#   也可以直接关闭防火墙</span><br><span class="line">ufw enable/disable  #   打开/关闭ufw</span><br></pre></td></tr></table></figure><h1 id="手机连接"><a href="#手机连接" class="headerlink" title="手机连接"></a>手机连接</h1><h2 id="首先查看电脑的ip"><a href="#首先查看电脑的ip" class="headerlink" title="首先查看电脑的ip"></a>首先查看电脑的ip</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure><p><img src="/images/2020/05/20200529029.png" alt></p><h2 id="手机连接-1"><a href="#手机连接-1" class="headerlink" title="手机连接"></a>手机连接</h2><ol><li><p>这里我们使用<code>iphone</code>自带的<code>文件</code>进行连接,如果iphone的文件没有如下功能则是ios版本太低,可以另外下app,比如<code>FileExplorer</code>等,只要能使用smb协议的都行<br><img src="/images/2020/05/20200529028.png" alt></p></li><li><p>连接服务器<br><img src="/images/2020/05/20200529024.png" alt></p></li><li><p>键入smb服务器地址,ip和我们前面查的保持一致<br><img src="/images/2020/05/20200529025.png" alt></p></li><li><p>键入用户名和密码(如果是客人的不需要用户名密码,但目录的权限相对的需要更改)<br><img src="/images/2020/05/20200529026.png" alt></p></li><li><p>可以看到,我们连接上了<br><img src="/images/2020/05/20200529027.png" alt></p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      Ubuntu开启smb协议与手机互联
-    
-    </summary>
-    
-      <category term="Ubuntu" scheme="https://zjinc36.github.io/categories/Ubuntu/"/>
-    
-    
-      <category term="Ubuntu配置" scheme="https://zjinc36.github.io/tags/Ubuntu%E9%85%8D%E7%BD%AE/"/>
     
   </entry>
   

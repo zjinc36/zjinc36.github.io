@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zjinc36.github.io/2020/07/31/%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/</loc>
+    
+    <lastmod>2020-07-30T14:52:31.623Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zjinc36.github.io/2020/05/03/%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91(%E6%9C%80%E4%BC%98%E4%BA%8C%E5%8F%89%E6%A0%91)%E4%B8%8E%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E7%9A%84JAVA%E5%AE%9E%E7%8E%B0/</loc>
+    
+    <lastmod>2020-07-30T14:51:39.205Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zjinc36.github.io/2020/05/03/Java%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%BA%BF%E7%B4%A2%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%8E%E7%BA%BF%E7%B4%A2%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/</loc>
     
     <lastmod>2020-07-30T04:47:10.266Z</lastmod>
@@ -541,7 +555,7 @@
   </url>
   
   <url>
-    <loc>https://zjinc36.github.io/categories/index.html</loc>
+    <loc>https://zjinc36.github.io/about/index.html</loc>
     
     <lastmod>2020-03-27T09:06:04.000Z</lastmod>
     
@@ -555,7 +569,7 @@
   </url>
   
   <url>
-    <loc>https://zjinc36.github.io/about/index.html</loc>
+    <loc>https://zjinc36.github.io/categories/index.html</loc>
     
     <lastmod>2020-03-27T09:06:04.000Z</lastmod>
     
