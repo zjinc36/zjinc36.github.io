@@ -1,0 +1,117 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><title>Git之三路合并(3-Way Merge) | 想了20分钟的博客名</title></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Git之三路合并(3-Way Merge)</h1><a id="logo" href="/.">想了20分钟的博客名</a><p class="description">世界是唯物辩证的</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">Git之三路合并(3-Way Merge)</h1><div class="post-meta"><a href="/2020/03/01/Git之三路合并/#comments" class="comment-count"></a><p><span class="date">Mar 01, 2020</span><span><a href="/categories/Git/" class="category">Git</a></span></p></div><div class="post-content"><h1 id="三路合并-3-way-merge"><a href="#三路合并-3-way-merge" class="headerlink" title="三路合并(3-way merge)"></a>三路合并(<code>3-way merge</code>)</h1><p>其实我也不知道正统是不是这样翻译,看英文单词,这个不重要,重要的是三路合并的想法,接下去对三路合并进行简要说明</p>
+<h2 id="首先先弄清楚Diff的时候发生了什么"><a href="#首先先弄清楚Diff的时候发生了什么" class="headerlink" title="首先先弄清楚Diff的时候发生了什么"></a>首先先弄清楚<code>Diff</code>的时候发生了什么</h2><ol>
+<li><p>要比较的字符串如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#   字符串一</span><br><span class="line">a b c d f g h j q z</span><br><span class="line"></span><br><span class="line">#   字符串二</span><br><span class="line">a b c d e f g i j k r x y z</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查找最长的公共子序列(<a href="https://zh.wikipedia.org/wiki/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97" target="_blank" rel="noopener">维基百科:LCS(最长公共子序列)</a>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#   使用肉眼观察,明显最长公共子序列是如下字符串(计算机中如何找出来不再此次讨论范围)</span><br><span class="line">a b c d e f g i j k r x y z</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将字符串一对齐到最长的公共子序列(LCS)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a b c d   f g h j q       z</span><br><span class="line">a b c d e f g i j k r x y z</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以得到字符串一与最长公共子序列的不同</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">e  h i  q  k r x y</span><br><span class="line">+  - +  -  + + + +</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="其次说说二路合并-2-way-merge"><a href="#其次说说二路合并-2-way-merge" class="headerlink" title="其次说说二路合并(2-way merge)"></a>其次说说二路合并(2-way merge)</h2><ul>
+<li><p>现在有如下两个文件,其中”你”和”我”的文件中,第37行有冲突<br><img src="/images/2020/03/20200301004.png" alt></p>
+</li>
+<li><p>为了将”你”和”我”的文件进行合并,需要回答如下问题</p>
+<ul>
+<li>上述两个文件中,如何知道到底是谁修改了第37行？</li>
+<li>“你”还是”我”?</li>
+<li>亦或是”你”和”我”都进行修改了?</li>
+</ul>
+</li>
+<li><p>如何解决上述问题?</p>
+<ul>
+<li>“你”和”我”都必须记住所有更改</li>
+<li>所有差异都应手动解决。</li>
+</ul>
+</li>
+</ul>
+<h2 id="最后说明什么是三路合并-3-way-merge"><a href="#最后说明什么是三路合并-3-way-merge" class="headerlink" title="最后说明什么是三路合并(3-way merge)"></a>最后说明什么是三路合并(3-way merge)</h2><h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><p>在二路合并中的说明中,我们知道,有两件事需要解决,但事实上,记住所有的更改和所有差异都手动解决是非常繁琐的,如果文件非常多,甚至是不可能的,为了解决这两个”不可能”,设计了如下的三路合并</p>
+<ul>
+<li><p>现有如下三个文件<code>Base</code>,<code>Yours</code>,<code>Mine</code><br><img src="/images/2020/03/20200301005.png" alt></p>
+</li>
+<li><p>对三个文件互相比较(一般情况下,是一行一行进行比较),按<strong>如下规则</strong>进行合并</p>
+<ul>
+<li>在3个文件中都相同:<ul>
+<li>不变  -&gt;  说明<code>Yours</code>和<code>Mine</code>都没有进行修改</li>
+</ul>
+</li>
+<li>在2个文件中相同,第3个文件不相同:<ul>
+<li>输出与Base不同的内容  -&gt;  和Base不同,说明这个文件进行了修改,在上图中,应是<code>Yours</code>进行了修改</li>
+<li>丢弃与Base相同的那个  -&gt;  和Base相同,说明这个文件没有进行修改,在上图中,应是<code>Mine</code>,也就是这个文件比较旧</li>
+</ul>
+</li>
+<li>在3个文件中都不同<ul>
+<li>冲突  -&gt; 说明需要合并的两个文件都比Base文件”新”,而两个文件又正好改到同一行,此时,计算机肯定是没有办法判断的,就要手动进行解决</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>依照上述规则,我们试着合并下述文件<br><img src="/images/2020/03/20200301006.png" alt><br>一般情况下,我们是一行一行进行比较</p>
+</li>
+</ul>
+<ol>
+<li><p>比较37行,将<code>Yours</code>,<code>Mine</code>与<code>Base</code>进行比较,发现是<code>在2个文件中相同,第3个文件不相同</code>,所以合并之后的文件中的第37行应是<code>print(“hello”)</code></p>
+</li>
+<li><p>比较50行,由于在三个文件文件中都不同,说明<code>Yours</code>和<code>Mine</code>都进行了修改,这时候计算机无法判断,就有冲突(conflict),这时候需要手动解决</p>
+</li>
+<li><p>比较75行,由于<code>Yours</code>和<code>Base</code>相同而<code>Mine</code>和<code>Base</code>不同,<code>在2个文件中相同,第3个文件不相同</code>,所以第75行应是<code>print(“end”)</code></p>
+</li>
+<li><p>这样我们就能得到如下的合并之后的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">37: print(“bye”)</span><br><span class="line"></span><br><span class="line">&lt;&lt;&lt;&lt;Yours</span><br><span class="line">50: for i in 0..10</span><br><span class="line">====</span><br><span class="line">50: for i in 0..20</span><br><span class="line">&gt;&gt;&gt;&gt;Mine</span><br><span class="line"></span><br><span class="line">75: print(“end”)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后再将冲突解决,合并就完成了</p>
+</li>
+</ol>
+<h3 id="再次强调一下规则"><a href="#再次强调一下规则" class="headerlink" title="再次强调一下规则"></a>再次强调一下规则</h3><ul>
+<li>对三个文件进行比较(一般情况下,是一行一行进行比较),按<strong>如下规则</strong>进行合并<ul>
+<li>在3个文件中都相同:<ul>
+<li>不变  -&gt;  说明<code>Yours</code>和<code>Mine</code>都没有进行修改</li>
+</ul>
+</li>
+<li>在2个文件中相同,第3个文件不相同:<ul>
+<li>输出与Base不同的内容  -&gt;  和Base不同,说明这个文件进行了修改,在上图中,应是<code>Yours</code>进行了修改</li>
+<li>丢弃与Base相同的那个  -&gt;  和Base相同,说明这个文件没有进行修改,在上图中,应是<code>Mine</code>,也就是这个文件比较旧</li>
+</ul>
+</li>
+<li>在3个文件中都不同<ul>
+<li>冲突  -&gt; 说明需要合并的两个文件都比Base文件”新”,而两个文件又正好改到同一行,此时,计算机肯定是没有办法判断的,就要手动进行解决</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="在深入一点-我们该如何对三个文件进行比较"><a href="#在深入一点-我们该如何对三个文件进行比较" class="headerlink" title="在深入一点,我们该如何对三个文件进行比较"></a>在深入一点,我们该如何对三个文件进行比较</h2><p>前面说明的过程中,对文件进行比较的时候都是使用肉眼进行比较,那么具体算法上又是如何进行比较的呢?这里为了说明,就简单一点,三个文件中的每行都只有一个数字</p>
+<ol start="0">
+<li><p>参考这里:<a href="https://www.cis.upenn.edu/~bcpierce/papers/diff3-short.pdf" target="_blank" rel="noopener">diff3-short</a></p>
+</li>
+<li><p>按照行,我们可以为每个文件创建一个多维向量如下,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X: [1, 4, 5, 2, 4, 6]</span><br><span class="line">B: [1, 2, 3, 4, 5, 6]</span><br><span class="line">Y: [1, 2, 4, 5, 3, 6]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>计算差异</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">X: [1, 4, 5, 2, 3,       6]</span><br><span class="line">B: [1,       2, 3, 4, 5, 6]</span><br><span class="line"></span><br><span class="line">B: [1, 2, 3, 4, 5,    6]</span><br><span class="line">Y: [1, 2,    4, 5, 3, 6]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>以B为标准,可以得到如下矩阵<br><img src="/images/2020/03/20200301007.png" alt></p>
+</li>
+<li><p>输出差异</p>
+</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>上述过程就是所谓的<code>三路合并</code></p>
+<ul>
+<li>三路合并中比二路合并中多出了一个Base文件,这个文件的作用就是为了解决上述的<code>&quot;你&quot;和&quot;我&quot;都必须记住所有更改</code>的问题</li>
+<li>而对于<code>所有差异都应手动解决</code>问题,我们可以通过与Base文件进行比较,最后将手动解决的行压缩到冲突这种情况,其他都能自动解决</li>
+</ul>
+</div><div class="tags"><a href="/tags/Git/">Git</a></div><div class="post-share"></div><div class="post-nav"><a href="/2020/03/02/Git合并分支/" class="pre">Git合并分支</a><a href="/2020/02/29/Excel冻结窗格以锁定行和列/" class="next">Excel冻结窗格以锁定行和列</a></div><div id="comments"><div id="lv-container" data-id="city" data-uid="MTAyMC80NDg2NC8yMTM4NQ=="></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#三路合并-3-way-merge"><span class="toc-text">三路合并(3-way merge)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#首先先弄清楚Diff的时候发生了什么"><span class="toc-text">首先先弄清楚Diff的时候发生了什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其次说说二路合并-2-way-merge"><span class="toc-text">其次说说二路合并(2-way merge)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后说明什么是三路合并-3-way-merge"><span class="toc-text">最后说明什么是三路合并(3-way merge)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#过程"><span class="toc-text">过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#再次强调一下规则"><span class="toc-text">再次强调一下规则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在深入一点-我们该如何对三个文件进行比较"><span class="toc-text">在深入一点,我们该如何对三个文件进行比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/08/02/Ubuntu20-04中安装flameshot截屏工具/">Ubuntu20.04中安装flameshot截屏工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/31/Ubuntu刷新DNS/">Ubuntu刷新DNS</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/28/循环冗余校验（CRC）算法/">循环冗余校验（CRC）算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/26/ubuntu中Rime输入法的安装和配置/">ubuntu中Rime输入法的安装和配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/26/Ubuntu18.04中ibus-sunpinyin的安装与设置/">ubuntu18.04中ibus-Sunpinyin的安装与设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/25/Ubuntu设置开机自动加-挂载硬盘/">Ubuntu设置开机自动加/挂载硬盘</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/18/Ubuntu18-04如何固定图标到任务栏/">Ubuntu18.04如何固定图标到任务栏</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/11/Ubuntu中批量下载bilibili网站的视频/">Ubuntu中批量下载bilibili网站的视频</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/08/Ubuntu中安装分区管理工具gparted/">Ubuntu中安装分区管理工具gparted</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/08/Ubuntu中基于Docker安装QQ和WeChat/">Ubuntu中基于Docker安装QQ和WeChat</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BigData/">BigData</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Eclipse/">Eclipse</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Excel/">Excel</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">83</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tampermonkey/">Tampermonkey</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ubuntu/">Ubuntu</a><span class="category-list-count">47</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vim/">vim</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构与算法/">数据结构与算法</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/正则表达式/">正则表达式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/视频笔记/">视频笔记</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机操作系统/">计算机操作系统</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机组成原理/">计算机组成原理</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">4</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/Http/" style="font-size: 15px;">Http</a> <a href="/tags/Eclipse/" style="font-size: 15px;">Eclipse</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/vim/" style="font-size: 15px;">vim</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Linux命令/" style="font-size: 15px;">Linux命令</a> <a href="/tags/Spring/" style="font-size: 15px;">Spring</a> <a href="/tags/SpringMVC/" style="font-size: 15px;">SpringMVC</a> <a href="/tags/Ubuntu装机日志/" style="font-size: 15px;">Ubuntu装机日志</a> <a href="/tags/Lombok/" style="font-size: 15px;">Lombok</a> <a href="/tags/Linux配置/" style="font-size: 15px;">Linux配置</a> <a href="/tags/Java细节/" style="font-size: 15px;">Java细节</a> <a href="/tags/Thymeleaf/" style="font-size: 15px;">Thymeleaf</a> <a href="/tags/Junit/" style="font-size: 15px;">Junit</a> <a href="/tags/设计模式/" style="font-size: 15px;">设计模式</a> <a href="/tags/JVM/" style="font-size: 15px;">JVM</a> <a href="/tags/Jackson/" style="font-size: 15px;">Jackson</a> <a href="/tags/BigData/" style="font-size: 15px;">BigData</a> <a href="/tags/Tomcat/" style="font-size: 15px;">Tomcat</a> <a href="/tags/Servlet/" style="font-size: 15px;">Servlet</a> <a href="/tags/Eclipse插件/" style="font-size: 15px;">Eclipse插件</a> <a href="/tags/Hibernate/" style="font-size: 15px;">Hibernate</a> <a href="/tags/JSP-EL-JSTL/" style="font-size: 15px;">JSP/EL/JSTL</a> <a href="/tags/Struts2/" style="font-size: 15px;">Struts2</a> <a href="/tags/OGNL/" style="font-size: 15px;">OGNL</a> <a href="/tags/maven/" style="font-size: 15px;">maven</a> <a href="/tags/MyBatis/" style="font-size: 15px;">MyBatis</a> <a href="/tags/SpringBoot/" style="font-size: 15px;">SpringBoot</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/Jquery/" style="font-size: 15px;">Jquery</a> <a href="/tags/SpringSecurity/" style="font-size: 15px;">SpringSecurity</a> <a href="/tags/SSH/" style="font-size: 15px;">SSH</a> <a href="/tags/Hadoop/" style="font-size: 15px;">Hadoop</a> <a href="/tags/正则表达式/" style="font-size: 15px;">正则表达式</a> <a href="/tags/Excel/" style="font-size: 15px;">Excel</a> <a href="/tags/视频笔记/" style="font-size: 15px;">视频笔记</a> <a href="/tags/计算机组成原理/" style="font-size: 15px;">计算机组成原理</a> <a href="/tags/Ubuntu配置/" style="font-size: 15px;">Ubuntu配置</a> <a href="/tags/数据结构与算法-Java实现/" style="font-size: 15px;">数据结构与算法(Java实现)</a> <a href="/tags/Tampermonkey/" style="font-size: 15px;">Tampermonkey</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">82</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">79</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">28</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="https://lotabout.me/" title="三点水" target="_blank">三点水</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p><span> Copyright &copy;<a href="/." rel="nofollow">zjc.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><div id="fullscreen-img" class="hide"><span class="close"></span></div><script type="text/javascript" src="/js/imgview.js?v=2.0.5" async></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.5" async></script><script>(function(d, s) {
+  var j, e = d.getElementsByTagName('body')[0];
+  if (typeof LivereTower === 'function') { return; }
+  j = d.createElement(s);
+  j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+  j.async = true;
+  e.appendChild(j);
+})(document, 'script');
+</script></body></html>

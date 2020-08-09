@@ -1,0 +1,245 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><title>Scala中的特殊符号 | 想了20分钟的博客名</title></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Scala中的特殊符号</h1><a id="logo" href="/.">想了20分钟的博客名</a><p class="description">世界是唯物辩证的</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">Scala中的特殊符号</h1><div class="post-meta"><a href="/2020/07/05/Scala中的特殊符号/#comments" class="comment-count"></a><p><span class="date">Jul 05, 2020</span><span><a href="/categories/BigData/" class="category">BigData</a></span></p></div><div class="post-content"><h1 id="泛型限定"><a href="#泛型限定" class="headerlink" title="泛型限定"></a>泛型限定</h1><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>作用</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[T &lt;: UpperBound]</td>
+<td>上界</td>
+<td>无</td>
+</tr>
+<tr>
+<td>[T &gt;: LowerBound]</td>
+<td>下界</td>
+<td>无</td>
+</tr>
+<tr>
+<td>[T &lt;% ViewBound]</td>
+<td>视界</td>
+<td>比上界多了隐式转换</td>
+</tr>
+<tr>
+<td>[T : ContextBound]</td>
+<td>上下文界</td>
+<td>是隐式参数的语法糖</td>
+</tr>
+<tr>
+<td>[+T]</td>
+<td>协变</td>
+<td>C[+T]：如果A是B的子类，那么C[A]是C[B]的子类，称为协变</td>
+</tr>
+<tr>
+<td>[-T]</td>
+<td>逆变</td>
+<td>C[-T]：如果A是B的子类，那么C[B]是C[A]的子类，称为逆变</td>
+</tr>
+<tr>
+<td>=:=</td>
+<td>A 必须和 B相等</td>
+<td>Scala 2.10 中被移除了</td>
+</tr>
+<tr>
+<td>&lt;:&lt;</td>
+<td>A 必须是 B的子类</td>
+<td>Scala 2.10 中被移除了</td>
+</tr>
+<tr>
+<td>&lt;%&lt;</td>
+<td>A 必须可以被看做是 B</td>
+<td>Scala 2.10 中被移除了</td>
+</tr>
+</tbody></table>
+<p>如果你在尝试使用 &lt;:&lt; 或者 &lt;%&lt; 的时候出错了，那请注意这些符号在 Scala 2.10 中被移除了。Scala School 里的例子仅能在 Scala 2.9.x 下正常工作。你可以使用新版本的 Scala，但可能会遇到错误</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">scala&gt;</span><span class="bash"> class Container[A](value: A) &#123; def addIt(implicit evidence: A =:= Int) = 123 + value &#125;</span></span><br><span class="line">defined class Container</span><br><span class="line"></span><br><span class="line"><span class="meta">scala&gt;</span><span class="bash"> (new Container(123)).addIt</span></span><br><span class="line">res11: Int = 246</span><br><span class="line"></span><br><span class="line"><span class="meta">scala&gt;</span><span class="bash"> (new Container(<span class="string">"123"</span>)).addIt</span></span><br><span class="line">&lt;console&gt;:10: error: could not find implicit value for parameter evidence: =:=[java.lang.String,Int]</span><br><span class="line"></span><br><span class="line">// 类似地，根据之前的隐式转换，我们可以将约束放松为可视性：</span><br><span class="line"><span class="meta">scala&gt;</span><span class="bash"> class Container[A](value: A) &#123; def addIt(implicit evidence: A &lt;%&lt; Int) = 123 + value &#125;</span></span><br><span class="line">defined class Container</span><br><span class="line"></span><br><span class="line"><span class="meta">scala&gt;</span><span class="bash"> (new Container(<span class="string">"123"</span>)).addIt</span></span><br><span class="line">res15: Int = 246</span><br></pre></td></tr></table></figure>
+
+<h1 id="集合操作符"><a href="#集合操作符" class="headerlink" title="集合操作符"></a>集合操作符</h1><p>这些符号全都是连接的作用，将元素与集合、集合与集合相连接</p>
+<h2 id="集合拼接-等操作"><a href="#集合拼接-等操作" class="headerlink" title="集合拼接 :: ++:等操作"></a>集合拼接 :: ++:等操作</h2><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; <span class="keyword">val</span> a =  <span class="type">List</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">a: <span class="type">List</span>[<span class="type">Int</span>] = <span class="type">List</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">scala&gt; <span class="keyword">val</span> b = <span class="type">List</span>(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>)</span><br><span class="line">b: <span class="type">List</span>[<span class="type">Int</span>] = <span class="type">List</span>(<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>位置</th>
+<th>解释</th>
+<th>操作</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>::</td>
+<td>前插</td>
+<td>把a当成一个元素，前插到b集合</td>
+<td>a :: b</td>
+<td>List(List(1, 2, 3), 4, 5, 6)</td>
+</tr>
+<tr>
+<td>+:</td>
+<td>前插</td>
+<td>同上</td>
+<td>a +: b</td>
+<td>List(List(1, 2, 3), 4, 5, 6)</td>
+</tr>
+<tr>
+<td>:+</td>
+<td>后插</td>
+<td>把b当成一个元素，后插到a集合</td>
+<td>a :+ b</td>
+<td>List(1, 2, 3, List(4, 5, 6))</td>
+</tr>
+<tr>
+<td>++</td>
+<td>拼接</td>
+<td>a和b集合顺序合并</td>
+<td>a ++ b</td>
+<td>List(1, 2, 3, 4, 5, 6)</td>
+</tr>
+<tr>
+<td>++:</td>
+<td>拼接</td>
+<td>同上</td>
+<td>a ++:b</td>
+<td>List(1, 2, 3, 4, 5, 6)</td>
+</tr>
+<tr>
+<td>:::</td>
+<td>拼接</td>
+<td>同上</td>
+<td>a :::b</td>
+<td>List(1, 2, 3, 4, 5, 6)</td>
+</tr>
+</tbody></table>
+<p><code>::</code>操作符是右结合的，如<code>9 :: 5 :: 2 :: Nil</code>相当于<code>9 :: (5 :: (2 :: Nil))</code>。
+所以 <code>:: +: :::</code>这些操作符都是在前面插入。<code>:+ ++ ++:</code>这些是追加、拼接。</p>
+<h2 id="集合拼接-–-等操作"><a href="#集合拼接-–-等操作" class="headerlink" title="集合拼接 ++= –= 等操作"></a>集合拼接 ++= –= 等操作</h2><ul>
+<li>++= —= </li>
+<li>++= 用于拼接容器，而 += 用于拼接元素</li>
+</ul>
+<p><strong>加法</strong></p>
+<ul>
+<li>xs += x 把元素 x 添加到集合 xs 中。该操作有副作用，它会返回左操作符，这里是 xs 自身。</li>
+<li>xs += (x, y, z) 添加指定的元素到集合 xs 中，并返回 xs 本身。（同样有副作用）</li>
+<li>xs ++= ys 添加集合 ys 中的所有元素到集合 xs 中，并返回 xs 本身。（表达式有副作用）</li>
+<li>xs add x 把元素 x 添加到集合 xs 中，如集合 xs 之前没有包含 x，该操作返回 true，否则返回 false。</li>
+</ul>
+<p><strong>移除</strong></p>
+<ul>
+<li>xs -= x 从集合 xs 中删除元素 x，并返回 xs 本身。（表达式有副作用）</li>
+<li>xs -= (x, y, z) 从集合 xs 中删除指定的元素，并返回 xs 本身。（表达式有副作用）</li>
+<li>xs –= ys 从集合 xs 中删除所有属于集合 ys 的元素，并返回 xs 本身。（表达式有副作用）</li>
+<li>xs remove x 从集合 xs 中删除元素 x 。如之前 xs 中包含了 x 元素，返回 true，否则返回 false。</li>
+<li>xs retain p 只保留集合 xs 中满足条件 p 的元素。</li>
+<li>xs.clear() 删除集合 xs 中的所有元素。</li>
+</ul>
+<p><strong>更新</strong></p>
+<ul>
+<li>xs(x) = b （ 同 xs.update(x, b) ）参数 b 为布尔类型，如果值为 true 就把元素x加入集合 xs，否则从集合 xs 中删除 x。</li>
+</ul>
+<p><strong>克隆</strong></p>
+<ul>
+<li>xs.clone 产生一个与 xs 具有相同元素的可变集合。</li>
+</ul>
+<h1 id="字符串插值"><a href="#字符串插值" class="headerlink" title="字符串插值"></a>字符串插值</h1><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>s 字符串插值器</td>
+<td>在任何字符串前加上s，就可以直接在串中使用变量</td>
+</tr>
+<tr>
+<td>f 插值器</td>
+<td>在任何字符串字面前加上 f，就可以生成简单的格式化串，功能相似于其他语言中的 printf 函数</td>
+</tr>
+<tr>
+<td>raw 插值器</td>
+<td>除了对字面值中的字符不做编码外，raw 插值器与 s 插值器在功能上是相同的</td>
+</tr>
+</tbody></table>
+<p><strong>举例</strong></p>
+<ul>
+<li><p>s 字符串插值器</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> name=<span class="string">"James"</span></span><br><span class="line"><span class="comment">// $name嵌套在一个将被s字符串插值器处理的字符串中。</span></span><br><span class="line"><span class="comment">// 插值器知道在这个字符串的这个地方应该插入这个name变量的值，以使输出字符串为Hello,James。</span></span><br><span class="line"><span class="comment">// 使用s插值器，在这个字符串中可以使用任何在处理范围内的名字。</span></span><br><span class="line">println(<span class="string">s"Hello,<span class="subst">$name</span>"</span>) <span class="comment">//Hello,James </span></span><br><span class="line"></span><br><span class="line">println(<span class="string">s"1+1=<span class="subst">$&#123;1+1&#125;</span>"</span>) <span class="comment">//将会输出字符串1+1=2。任何表达式都可以嵌入到$&#123;&#125;中。</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>f 插值器</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> height=<span class="number">1.9</span>d</span><br><span class="line"><span class="keyword">val</span> name=<span class="string">"James"</span></span><br><span class="line"><span class="comment">// f 插值器是类型安全的</span></span><br><span class="line">println(<span class="string">f"<span class="subst">$name</span>%s is <span class="subst">$height</span>%2.2f meters tall"</span>)<span class="comment">//James is 1.90 meters tall </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> height:<span class="type">Double</span>=<span class="number">1.9</span>d</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果试图向只支持 int 的格式化串传入一个double 值，编译器则会报错。例如：</span></span><br><span class="line">scala&gt;<span class="string">f"<span class="subst">$height</span>%4d"</span></span><br><span class="line">&lt;console&gt;:<span class="number">9</span>: error: <span class="class"><span class="keyword">type</span> <span class="title">mismatch</span></span>;</span><br><span class="line"> found : <span class="type">Double</span></span><br><span class="line"> required: <span class="type">Int</span></span><br><span class="line">           <span class="string">f"<span class="subst">$height</span>%4d"</span></span><br><span class="line">              ^ f 插值器利用了java中的字符串数据格式。这种以%开头的格式在</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>raw 插值器</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">scala&gt;<span class="string">s"a\nb"</span></span><br><span class="line">res0:<span class="type">String</span>=</span><br><span class="line">a</span><br><span class="line">b </span><br><span class="line"><span class="comment">// 这里，s 插值器用回车代替了\n。而raw插值器却不会如此处理。</span></span><br><span class="line"></span><br><span class="line">scala&gt;<span class="string">raw"a\nb"</span></span><br><span class="line">res1:<span class="type">String</span>=a\nb </span><br><span class="line"><span class="comment">// 当不想输入\n被转换为回车的时候，raw 插值器是非常实用的。</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="（下划线）的用法"><a href="#（下划线）的用法" class="headerlink" title="_（下划线）的用法"></a><code>_</code>（下划线）的用法</h1><ol>
+<li><p>通配符</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//_可以起到类似于*作用的通配符</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.<span class="type">SparkContext</span>._</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>指代集合中的每一个元素</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 例如 遍历集合筛选列表中大于某个值的元素。</span></span><br><span class="line"><span class="keyword">val</span> lst = <span class="type">List</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line"><span class="keyword">val</span> lstFilter = lst.filter(_ &gt; <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取元组中指定下标的元素值</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> ss = (<span class="number">1</span>,<span class="string">"22"</span>,<span class="string">"333"</span>)</span><br><span class="line">println(ss._1)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用模式匹配可以用来获取元组的组员</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> m = <span class="type">Map</span>(<span class="number">1</span> -&gt; <span class="number">2</span>,<span class="number">2</span> -&gt; <span class="number">4</span>)</span><br><span class="line"><span class="comment">//如果不需要所有部件， 则在不需要的部件使用_； 本例只取key,因此在value处用_</span></span><br><span class="line"><span class="keyword">for</span> ((k,_) &lt;- m) println(k)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>成员变量而非局部变量添加默认值</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s:<span class="type">Int</span>=_</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</span><br><span class="line">    println(s)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可变长度参数</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">scala&gt;</span><span class="bash"> val arr = Array(1,2,3,4,5)</span></span><br><span class="line">arr: Array[Int] = Array(1, 2, 3, 4, 5)</span><br><span class="line"></span><br><span class="line"><span class="meta">scala&gt;</span><span class="bash"> val Array(first, second, _*) = arr</span></span><br><span class="line">first: Int = 1</span><br><span class="line">second: Int = 2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不需要的部件使用<code>_</code></p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Some</span>(<span class="number">5</span>) <span class="keyword">match</span> &#123; </span><br><span class="line">    <span class="keyword">case</span> <span class="type">Some</span>(_) =&gt; println(<span class="string">"Yes"</span>) </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">match</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="type">List</span>(<span class="number">1</span>,_,_) =&gt; <span class="string">" a list with three element and the first element is 1"</span></span><br><span class="line">    <span class="keyword">case</span> <span class="type">List</span>(_*)  =&gt; <span class="string">" a list with zero or more elements "</span></span><br><span class="line">    <span class="keyword">case</span> <span class="type">Map</span>[_,_] =&gt; <span class="string">" matches a map with any key type and any value type "</span></span><br><span class="line">    <span class="keyword">case</span> _ =&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> (a, _) = (<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"><span class="keyword">for</span> (_ &lt;- <span class="number">1</span> to <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//如果不需要所有部件， 则在不需要的部件使用_； 本例只取key,因此在value处用 _ </span></span><br><span class="line"><span class="keyword">val</span> m = <span class="type">Map</span>(<span class="number">1</span> -&gt; <span class="number">2</span>,<span class="number">2</span> -&gt; <span class="number">4</span>)</span><br><span class="line"><span class="keyword">for</span> ((k,_) &lt;- m) println(k)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="参数序列处理"><a href="#参数序列处理" class="headerlink" title=":_*参数序列处理"></a><code>:_*</code>参数序列处理</h1><p>:_* 作为一个整体，告诉编译器你希望将某个参数当作参数序列处理</p>
+<p>当函数接收的参数不定长的时候，假如你想输入一个队列，可以在一个队列后加入“:_*”，因此，这里的“1 to 5”也可以改写为：“Seq(1,2,3,4,5)”。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">Sample</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">def</span> <span class="title">main</span> </span>(args: <span class="type">Array</span>[<span class="type">String</span>])=&#123;</span><br><span class="line">    <span class="keyword">val</span> result=sum(<span class="number">1</span> to <span class="number">5</span>:_*)   <span class="comment">// 在后面写上: _*将1 to 5转化为参数序列</span></span><br><span class="line">     println(result)</span><br><span class="line">   &#125;</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">sum</span></span>(parms:<span class="type">Int</span>*)=&#123;</span><br><span class="line">    <span class="keyword">var</span> result=<span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span>(parm &lt;- parms)result+=parm</span><br><span class="line">    result</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="模式匹配中使用"><a href="#模式匹配中使用" class="headerlink" title="模式匹配中使用 @"></a>模式匹配中使用 @</h1><p><code>@</code>的主要功能是在模式匹配中，匹配到一个模式后，将引用交给<code>@</code>前的参数<br><strong>案例1</strong></p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> o: <span class="type">Option</span>[<span class="type">Int</span>] = <span class="type">Some</span>(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">o <span class="keyword">match</span> &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="type">Some</span>(x) =&gt; println(x)  <span class="comment">// 打印2</span></span><br><span class="line">  <span class="keyword">case</span> _ =&gt; println(<span class="string">"do nothing"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">o <span class="keyword">match</span> &#123;</span><br><span class="line">  <span class="keyword">case</span> someRef @ <span class="type">Some</span>(x) =&gt; println(someRef)  <span class="comment">// 打印Some(2)</span></span><br><span class="line">  <span class="keyword">case</span> _ =&gt; println(<span class="string">"do nothing"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">o <span class="keyword">match</span> &#123;</span><br><span class="line">  <span class="keyword">case</span> x @ <span class="type">Some</span>(_) =&gt; println(x)  <span class="comment">// 打印Some(2)</span></span><br><span class="line">  <span class="keyword">case</span> _ =&gt; println(<span class="string">"do nothing"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>案例2</strong></p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在处理 request 请求的时候，需要匹配请求的路径，然后还需要直接使用 requet</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">intent</span> </span>= &#123;</span><br><span class="line"> <span class="keyword">case</span> req @ <span class="type">GET</span>(<span class="type">Path</span>(<span class="type">Seg</span>(<span class="string">"api"</span> :: <span class="string">"user"</span> :: <span class="type">IntPathElement</span>(userId) :: <span class="type">Nil</span>))) =&gt;</span><br><span class="line">      <span class="keyword">val</span> f = (userManager ? <span class="type">FindUserById</span>(userId))</span><br><span class="line">      respond(f, req)</span><br><span class="line">      </span><br><span class="line"> <span class="keyword">case</span> req @ <span class="type">GET</span>(<span class="type">Path</span>(<span class="type">Seg</span>(<span class="string">"api"</span> :: <span class="string">"user"</span> :: <span class="type">Nil</span>))) &amp; <span class="type">Params</span>(<span class="type">EmailParam</span>(email)) =&gt;</span><br><span class="line">      <span class="keyword">val</span> f = (userManager ? <span class="type">FindUserByEmail</span>(email))</span><br><span class="line">      respond(f, req)  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Akka-相关特殊字符"><a href="#Akka-相关特殊字符" class="headerlink" title="Akka 相关特殊字符! ?"></a>Akka 相关特殊字符<code>! ?</code></h1><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>!</td>
+<td>表示“即发即忘”，例如异步发送消息并立即返回,也称为tell</td>
+</tr>
+<tr>
+<td>?</td>
+<td>异步发送消息并返回表示可能回复的Future,也称为ask</td>
+</tr>
+</tbody></table>
+<p><strong>举例</strong></p>
+<ul>
+<li><p>send !</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="type">ArticleBody</span>(uri, body) =&gt; <span class="comment">//If we get the parsed article back, then we've just parsed it</span></span><br><span class="line">    cacheActor ! <span class="type">SetRequest</span>(uri, body) <span class="comment">//Cache it as we just</span></span><br><span class="line">    parsed it</span><br><span class="line">    senderRef ! body</span><br><span class="line">    context.stop(self)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ask ?</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> future = pongActor ? <span class="string">"unknown"</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</div><div class="tags"><a href="/tags/BigData/">BigData</a></div><div class="post-share"></div><div class="post-nav"><a href="/2020/07/07/Ubuntu中安装离线API文档大全Zeal/" class="pre">Ubuntu中安装离线API文档大全Zeal</a><a href="/2020/06/14/Ubuntu中安装词典GoldenDict/" class="next">Ubuntu中安装词典GoldenDict</a></div><div id="comments"><div id="lv-container" data-id="city" data-uid="MTAyMC80NDg2NC8yMTM4NQ=="></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#泛型限定"><span class="toc-text">泛型限定</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#集合操作符"><span class="toc-text">集合操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#集合拼接-等操作"><span class="toc-text">集合拼接 :: ++:等操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#集合拼接-–-等操作"><span class="toc-text">集合拼接 ++= –= 等操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#字符串插值"><span class="toc-text">字符串插值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#（下划线）的用法"><span class="toc-text">_（下划线）的用法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参数序列处理"><span class="toc-text">:_*参数序列处理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#模式匹配中使用"><span class="toc-text">模式匹配中使用 @</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Akka-相关特殊字符"><span class="toc-text">Akka 相关特殊字符! ?</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/08/02/Ubuntu20-04中安装flameshot截屏工具/">Ubuntu20.04中安装flameshot截屏工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/31/Ubuntu刷新DNS/">Ubuntu刷新DNS</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/28/循环冗余校验（CRC）算法/">循环冗余校验（CRC）算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/26/ubuntu中Rime输入法的安装和配置/">ubuntu中Rime输入法的安装和配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/26/Ubuntu18.04中ibus-sunpinyin的安装与设置/">ubuntu18.04中ibus-Sunpinyin的安装与设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/25/Ubuntu设置开机自动加-挂载硬盘/">Ubuntu设置开机自动加/挂载硬盘</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/18/Ubuntu18-04如何固定图标到任务栏/">Ubuntu18.04如何固定图标到任务栏</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/11/Ubuntu中批量下载bilibili网站的视频/">Ubuntu中批量下载bilibili网站的视频</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/08/Ubuntu中安装分区管理工具gparted/">Ubuntu中安装分区管理工具gparted</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/08/Ubuntu中基于Docker安装QQ和WeChat/">Ubuntu中基于Docker安装QQ和WeChat</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BigData/">BigData</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Eclipse/">Eclipse</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Excel/">Excel</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">83</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tampermonkey/">Tampermonkey</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ubuntu/">Ubuntu</a><span class="category-list-count">47</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vim/">vim</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构与算法/">数据结构与算法</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/正则表达式/">正则表达式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/视频笔记/">视频笔记</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机操作系统/">计算机操作系统</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机组成原理/">计算机组成原理</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">4</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/Http/" style="font-size: 15px;">Http</a> <a href="/tags/Eclipse/" style="font-size: 15px;">Eclipse</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/vim/" style="font-size: 15px;">vim</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Linux命令/" style="font-size: 15px;">Linux命令</a> <a href="/tags/Spring/" style="font-size: 15px;">Spring</a> <a href="/tags/SpringMVC/" style="font-size: 15px;">SpringMVC</a> <a href="/tags/Ubuntu装机日志/" style="font-size: 15px;">Ubuntu装机日志</a> <a href="/tags/Lombok/" style="font-size: 15px;">Lombok</a> <a href="/tags/Linux配置/" style="font-size: 15px;">Linux配置</a> <a href="/tags/Java细节/" style="font-size: 15px;">Java细节</a> <a href="/tags/Thymeleaf/" style="font-size: 15px;">Thymeleaf</a> <a href="/tags/Junit/" style="font-size: 15px;">Junit</a> <a href="/tags/设计模式/" style="font-size: 15px;">设计模式</a> <a href="/tags/JVM/" style="font-size: 15px;">JVM</a> <a href="/tags/Jackson/" style="font-size: 15px;">Jackson</a> <a href="/tags/BigData/" style="font-size: 15px;">BigData</a> <a href="/tags/Tomcat/" style="font-size: 15px;">Tomcat</a> <a href="/tags/Servlet/" style="font-size: 15px;">Servlet</a> <a href="/tags/Eclipse插件/" style="font-size: 15px;">Eclipse插件</a> <a href="/tags/Hibernate/" style="font-size: 15px;">Hibernate</a> <a href="/tags/JSP-EL-JSTL/" style="font-size: 15px;">JSP/EL/JSTL</a> <a href="/tags/Struts2/" style="font-size: 15px;">Struts2</a> <a href="/tags/OGNL/" style="font-size: 15px;">OGNL</a> <a href="/tags/maven/" style="font-size: 15px;">maven</a> <a href="/tags/MyBatis/" style="font-size: 15px;">MyBatis</a> <a href="/tags/SpringBoot/" style="font-size: 15px;">SpringBoot</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/Jquery/" style="font-size: 15px;">Jquery</a> <a href="/tags/SpringSecurity/" style="font-size: 15px;">SpringSecurity</a> <a href="/tags/SSH/" style="font-size: 15px;">SSH</a> <a href="/tags/Hadoop/" style="font-size: 15px;">Hadoop</a> <a href="/tags/正则表达式/" style="font-size: 15px;">正则表达式</a> <a href="/tags/Excel/" style="font-size: 15px;">Excel</a> <a href="/tags/视频笔记/" style="font-size: 15px;">视频笔记</a> <a href="/tags/计算机组成原理/" style="font-size: 15px;">计算机组成原理</a> <a href="/tags/Ubuntu配置/" style="font-size: 15px;">Ubuntu配置</a> <a href="/tags/数据结构与算法-Java实现/" style="font-size: 15px;">数据结构与算法(Java实现)</a> <a href="/tags/Tampermonkey/" style="font-size: 15px;">Tampermonkey</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">82</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">79</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">28</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="https://lotabout.me/" title="三点水" target="_blank">三点水</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p><span> Copyright &copy;<a href="/." rel="nofollow">zjc.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><div id="fullscreen-img" class="hide"><span class="close"></span></div><script type="text/javascript" src="/js/imgview.js?v=2.0.5" async></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.5" async></script><script>(function(d, s) {
+  var j, e = d.getElementsByTagName('body')[0];
+  if (typeof LivereTower === 'function') { return; }
+  j = d.createElement(s);
+  j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+  j.async = true;
+  e.appendChild(j);
+})(document, 'script');
+</script></body></html>
