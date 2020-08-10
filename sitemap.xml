@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zjinc36.github.io/2019/08/10/Java8%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3Consumer%E3%80%81Supplier%E3%80%81Predicate%E5%92%8CFunction%E8%AF%B4%E6%98%8E/</loc>
+    
+    <lastmod>2020-08-10T03:48:15.669Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zjinc36.github.io/2017/08/10/%E8%B0%83%E6%95%B4eclipse%E5%B7%A6%E8%BE%B9%E5%8C%85%E7%9A%84%E6%98%BE%E7%A4%BA%E6%96%B9%E5%BC%8F/</loc>
+    
+    <lastmod>2020-08-10T03:08:51.115Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zjinc36.github.io/2020/05/09/%E9%AA%91%E5%A3%AB%E5%91%A8%E6%B8%B8%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2020-08-09T08:08:48.364Z</lastmod>
@@ -702,13 +716,6 @@
   </url>
   
   <url>
-    <loc>https://zjinc36.github.io/categories/index.html</loc>
-    
-    <lastmod>2020-03-27T09:06:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://zjinc36.github.io/friends/index.html</loc>
     
     <lastmod>2020-03-27T09:06:04.000Z</lastmod>
@@ -717,6 +724,13 @@
   
   <url>
     <loc>https://zjinc36.github.io/about/index.html</loc>
+    
+    <lastmod>2020-03-27T09:06:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zjinc36.github.io/categories/index.html</loc>
     
     <lastmod>2020-03-27T09:06:04.000Z</lastmod>
     
