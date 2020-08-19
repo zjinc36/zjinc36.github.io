@@ -2,16 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://zjinc36.github.io/2017/08/11/%E9%9B%86%E5%90%88%E7%B1%BB%E4%B8%8D%E5%AE%89%E5%85%A8/</loc>
+    <loc>https://zjinc36.github.io/2017/08/19/%E5%8E%9F%E5%AD%90%E7%B1%BBAtomicInteger%E7%9A%84ABA%E9%97%AE%E9%A2%98/</loc>
     
-    <lastmod>2020-08-11T14:12:22.013Z</lastmod>
+    <lastmod>2020-08-19T15:44:01.319Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zjinc36.github.io/2017/08/12/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%AD%E9%94%81%E7%9A%84%E5%85%AB%E7%A7%8D%E6%83%85%E5%86%B5/</loc>
+    
+    <lastmod>2020-08-19T14:29:04.675Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zjinc36.github.io/2020/07/11/Ubuntu%E4%B8%AD%E6%89%B9%E9%87%8F%E4%B8%8B%E8%BD%BDbilibili%E7%BD%91%E7%AB%99%E7%9A%84%E8%A7%86%E9%A2%91/</loc>
+    
+    <lastmod>2020-08-19T03:37:39.795Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zjinc36.github.io/2017/08/19/CAS%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/</loc>
+    
+    <lastmod>2020-08-19T03:29:47.152Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zjinc36.github.io/2017/08/12/%E7%90%86%E8%A7%A3Java%E4%B8%AD%E7%9A%84volatile%E5%85%B3%E9%94%AE%E5%AD%97/</loc>
+    
+    <lastmod>2020-08-18T12:52:06.944Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zjinc36.github.io/2017/08/11/Java%E5%AE%B9%E5%99%A8%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8%E8%AF%A5%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86/</loc>
+    
+    <lastmod>2020-08-18T10:25:12.356Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zjinc36.github.io/2017/08/11/Java%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/</loc>
     
-    <lastmod>2020-08-11T14:04:08.935Z</lastmod>
+    <lastmod>2020-08-18T10:23:30.117Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zjinc36.github.io/2019/08/18/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</loc>
+    
+    <lastmod>2020-08-17T16:32:24.019Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zjinc36.github.io/2019/08/18/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</loc>
+    
+    <lastmod>2020-08-17T12:51:40.366Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zjinc36.github.io/2019/08/18/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%A6%82%E7%8E%87%E8%AE%BA/</loc>
+    
+    <lastmod>2020-08-17T10:41:02.476Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zjinc36.github.io/2019/08/17/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%9F%BA%E7%A1%80%E8%AF%B4%E6%98%8E/</loc>
+    
+    <lastmod>2020-08-17T10:36:04.172Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zjinc36.github.io/2019/08/18/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/</loc>
+    
+    <lastmod>2020-08-17T10:34:12.265Z</lastmod>
     
   </url>
   
@@ -387,13 +457,6 @@
   </url>
   
   <url>
-    <loc>https://zjinc36.github.io/2020/07/11/Ubuntu%E4%B8%AD%E6%89%B9%E9%87%8F%E4%B8%8B%E8%BD%BDbilibili%E7%BD%91%E7%AB%99%E7%9A%84%E8%A7%86%E9%A2%91/</loc>
-    
-    <lastmod>2020-07-11T03:55:40.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://zjinc36.github.io/2018/07/09/Java%E4%B8%AD%E7%9A%84%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/</loc>
     
     <lastmod>2020-07-09T03:16:52.000Z</lastmod>
@@ -723,13 +786,6 @@
   </url>
   
   <url>
-    <loc>https://zjinc36.github.io/404.html</loc>
-    
-    <lastmod>2020-03-27T09:06:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://zjinc36.github.io/about/index.html</loc>
     
     <lastmod>2020-03-27T09:06:04.000Z</lastmod>
@@ -737,7 +793,7 @@
   </url>
   
   <url>
-    <loc>https://zjinc36.github.io/categories/index.html</loc>
+    <loc>https://zjinc36.github.io/404.html</loc>
     
     <lastmod>2020-03-27T09:06:04.000Z</lastmod>
     
@@ -745,6 +801,13 @@
   
   <url>
     <loc>https://zjinc36.github.io/friends/index.html</loc>
+    
+    <lastmod>2020-03-27T09:06:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zjinc36.github.io/categories/index.html</loc>
     
     <lastmod>2020-03-27T09:06:04.000Z</lastmod>
     
