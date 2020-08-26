@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zjinc36.github.io/"/>
-  <updated>2020-08-26T05:08:53.069Z</updated>
+  <updated>2020-08-26T05:16:57.198Z</updated>
   <id>https://zjinc36.github.io/</id>
   
   <author>
@@ -21,19 +21,17 @@
     <link href="https://zjinc36.github.io/2020/08/26/%E8%A7%A3%E5%86%B3Github-Page%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E7%9A%84%E5%85%B6%E4%B8%AD%E4%B8%80%E7%A7%8D%E6%83%85%E5%86%B5/"/>
     <id>https://zjinc36.github.io/2020/08/26/解决Github-Page无法访问的其中一种情况/</id>
     <published>2020-08-26T12:56:43.000Z</published>
-    <updated>2020-08-26T05:08:53.069Z</updated>
+    <updated>2020-08-26T05:16:57.198Z</updated>
     
     <content type="html"><![CDATA[<h1 id="修改ip"><a href="#修改ip" class="headerlink" title="修改ip"></a>修改ip</h1><p>网上很多帖子,但是我修改之后无效</p><h1 id="修改dns服务器"><a href="#修改dns服务器" class="headerlink" title="修改dns服务器"></a>修改dns服务器</h1><ol><li>查看域名指向哪里<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nslookup github.io</span><br></pre></td></tr></table></figure></li></ol><p>我本地如下,指向了127.0.0.1,所以确认是需要修改dns服务器地址了<br><img src="/images/2020/08/20200826130349.png" alt></p><ol start="2"><li>修改dns服务器地址<br>修改文件 /etc/resolvconf/resolv.conf.d/head（这个文件默认为空），添加以下内容：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nameserver 114.114.114.114</span><br></pre></td></tr></table></figure></li></ol><p>执行更新：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">resolvconf -u</span><br></pre></td></tr></table></figure><p>通过 /etc/resolv.conf 查看 DNS 设置,可看到多了:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nameserver 114.114.114.114</span><br></pre></td></tr></table></figure><p>此时nslookup可以看到如下<br><img src="/images/2020/08/20200826130600.png" alt><br>然后能成功访问<br><img src="/images/2020/08/20200826130832.png" alt></p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h1 id=&quot;修改ip&quot;&gt;&lt;a href=&quot;#修改ip&quot; class=&quot;headerlink&quot; title=&quot;修改ip&quot;&gt;&lt;/a&gt;修改ip&lt;/h1&gt;&lt;p&gt;网上很多帖子,但是我修改之后无效&lt;/p&gt;
-&lt;h1 id=&quot;修改dns服务器&quot;&gt;&lt;a href=&quot;#修改dns服务器&quot; cla
-      
+      解决Github-Page无法访问的其中一种情况
     
     </summary>
+    
+      <category term="未分类" scheme="https://zjinc36.github.io/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/"/>
     
     
   </entry>
