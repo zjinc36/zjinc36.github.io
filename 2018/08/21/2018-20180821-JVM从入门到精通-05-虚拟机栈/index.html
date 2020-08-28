@@ -1,0 +1,394 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><title>JVM从入门到精通_05_虚拟机栈 | 想了20分钟的博客名</title></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">JVM从入门到精通_05_虚拟机栈</h1><a id="logo" href="/.">想了20分钟的博客名</a><p class="description">世界是唯物辩证的</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">JVM从入门到精通_05_虚拟机栈</h1><div class="post-meta"><a href="/2018/08/21/2018-20180821-JVM从入门到精通-05-虚拟机栈/#comments" class="comment-count"></a><p><span class="date">Aug 21, 2018</span><span><a href="/categories/Java/" class="category">Java</a></span></p></div><div class="post-content"><h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><ol>
+<li>系列文章是”尚硅谷宋红康老师的JVM教程”的读书笔记</li>
+<li>是基于这个<a href="http://moxi159753.gitee.io/learningnotes/#/README?id=jvm" target="_blank" rel="noopener">学习笔记</a>进行修订</li>
+</ol>
+<h1 id="先对虚拟机栈有一个整体认识"><a href="#先对虚拟机栈有一个整体认识" class="headerlink" title="先对虚拟机栈有一个整体认识"></a>先对虚拟机栈有一个整体认识</h1><h2 id="虚拟机栈出现的背景"><a href="#虚拟机栈出现的背景" class="headerlink" title="虚拟机栈出现的背景"></a>虚拟机栈出现的背景</h2><p>由于跨平台性的设计，Java的指令都是根据栈来设计的。不同平台CPU架构不同，所以不能设计为基于寄存器的。 优点是跨平台，指令集小，编译器容易实现，缺点是性能下降，实现同样的功能需要更多的指令。</p>
+<p>有不少Java开发人员一提到Java内存结构，就会非常粗粒度地将JVM中的内存区理解为仅有Java堆（heap）和Java栈（stack）？为什么？</p>
+<p>首先<code>栈是运行时的单位，而堆是存储的单位</code></p>
+<ul>
+<li>栈解决程序的运行问题，即程序如何执行，或者说如何处理数据。</li>
+<li>堆解决的是数据存储的问题，即数据怎么放，放哪里</li>
+</ul>
+<p><img src="/images/2020/08/20200821155015.png" alt></p>
+<h2 id="Java虚拟机栈是什么"><a href="#Java虚拟机栈是什么" class="headerlink" title="Java虚拟机栈是什么"></a>Java虚拟机栈是什么</h2><p>Java虚拟机栈（Java Virtual Machine Stack），早期也叫Java栈。<code>每个线程在创建时都会创建一个虚拟机栈，其内部保存一个个的栈帧（Stack Frame），对应着一次次的Java方法调用</code>。</p>
+<blockquote>
+<p>  是线程私有的<br><img src="/images/2020/08/20200821155051.png" alt></p>
+</blockquote>
+<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p>生命周期和线程一致，也就是线程结束了，该虚拟机栈也销毁了</p>
+<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>主管Java程序的运行，它保存方法的局部变量(8种基本数据类型,对象的引用地址)、部分结果，并参与方法的调用和返回。</p>
+<ul>
+<li>局部变量，它是相比于成员变量来说的（或属性）</li>
+<li>基本数据类型变量 VS 引用类型变量（类、数组、接口）</li>
+</ul>
+<h2 id="栈的特点"><a href="#栈的特点" class="headerlink" title="栈的特点"></a>栈的特点</h2><p>栈是一种快速有效的分配存储方式，访问速度仅次于程序计数器(程序计数器是最快的,没人能超过它)。</p>
+<p>JVM直接对Java栈的操作只有两个：</p>
+<ul>
+<li>每个方法执行，伴随着进栈（入栈、压栈）</li>
+<li>执行结束后的出栈工作</li>
+</ul>
+<p><code>对于栈来说不存在垃圾回收问题</code>（栈存在溢出的情况）<br><img src="/images/2020/08/20200821155202.png" alt></p>
+<h2 id="开发中遇到哪些异常？"><a href="#开发中遇到哪些异常？" class="headerlink" title="开发中遇到哪些异常？"></a>开发中遇到哪些异常？</h2><h3 id="栈中可能出现的异常"><a href="#栈中可能出现的异常" class="headerlink" title="栈中可能出现的异常"></a>栈中可能出现的异常</h3><ul>
+<li>Java 虚拟机规范允许Java栈的大小是动态的或者是固定不变的。<ul>
+<li><strong>栈溢出异常</strong>:如果采用固定大小的Java虚拟机栈，那每一个线程的Java虚拟机栈容量可以在线程创建的时候独立选定。如果<code>线程请求分配的栈容量超过Java虚拟机栈允许的最大容量，Java虚拟机将会抛出一个StackoverflowError 异常(栈溢出异常)</code>。</li>
+<li><strong>内存不足异常</strong>:如果Java虚拟机栈可以动态扩展，并且<code>在尝试扩展的时候无法申请到足够的内存，或者在创建新的线程时没有足够的内存去创建对应的虚拟机栈，那Java虚拟机将会抛出一个 outofMemoryError 异常(内存不足异常)</code>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="代码实现抛出栈溢出异常"><a href="#代码实现抛出栈溢出异常" class="headerlink" title="代码实现抛出栈溢出异常"></a>代码实现抛出栈溢出异常</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 演示栈中的异常：StackOverflowError</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StackErrorTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> count = <span class="number">1</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(count++);</span><br><span class="line">        main(args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当栈深度达到9803的时候，就出现栈内存空间不足</p>
+<h2 id="设置栈内存大小"><a href="#设置栈内存大小" class="headerlink" title="设置栈内存大小"></a>设置栈内存大小</h2><p><img src="/images/2020/08/20200821164115.png" alt></p>
+<h3 id="设置栈内存大小的参数"><a href="#设置栈内存大小的参数" class="headerlink" title="设置栈内存大小的参数"></a>设置栈内存大小的参数</h3><p>我们可以使用参数<code>-Xss</code>选项来设置线程的最大栈空间，栈的大小直接决定了函数调用的最大可达深度</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-Xss1m</span><br><span class="line">-Xss1k</span><br></pre></td></tr></table></figure>
+
+<h3 id="代码验证"><a href="#代码验证" class="headerlink" title="代码验证"></a>代码验证</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 演示栈中的异常:StackOverflowError</span><br><span class="line"> * @author shkstart</span><br><span class="line"> * @create 2020 下午 9:08</span><br><span class="line"> *</span><br><span class="line"> *  默认情况下：count : 11420</span><br><span class="line"> *  设置栈的大小： -Xss256k : count : 2465</span><br><span class="line"> */</span><br><span class="line">public class StackErrorTest &#123;</span><br><span class="line">    private static int count = 1;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        System.out.println(count);</span><br><span class="line">        count++;</span><br><span class="line">        main(args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="再看看栈内部的结构"><a href="#再看看栈内部的结构" class="headerlink" title="再看看栈内部的结构"></a>再看看栈内部的结构</h1><h2 id="栈的存储单位的基本说明"><a href="#栈的存储单位的基本说明" class="headerlink" title="栈的存储单位的基本说明"></a>栈的存储单位的基本说明</h2><h3 id="栈中存储什么？"><a href="#栈中存储什么？" class="headerlink" title="栈中存储什么？"></a>栈中存储什么？</h3><ul>
+<li>每个线程都有自己的栈，栈中的数据都是以<code>栈帧（Stack Frame）</code>的格式存在。</li>
+<li>在这个线程上正在执行的每个方法都各自对应一个栈帧（Stack Frame）,即方法和栈帧是一一对应关系,就是下图,也是前面出现的图。<br><img src="/images/2020/08/20200821155051.png" alt></li>
+<li>栈帧是一个内存区块，是一个数据集，维系着方法执行过程中的各种数据信息。</li>
+<li>JVM直接对Java栈的操作只有两个，就是对栈帧的<code>压栈</code>和<code>出栈</code>，遵循<code>“先进后出”/“后进先出”</code>原则。</li>
+<li>在一条活动线程中，一个时间点上，只会有一个活动的栈帧。即只有当前正在执行的方法的栈帧（栈顶栈帧）是有效的，这个栈帧被称为<code>当前栈帧（Current Frame）</code>，与当前栈帧相对应的方法就是<code>当前方法（Current Method）</code>，定义这个方法的类就是<code>当前类（Current Class）</code>。</li>
+<li>执行引擎运行的所有字节码指令只针对当前栈帧进行操作。</li>
+<li>如果在该方法中调用了其他方法，对应的新的栈帧会被创建出来，放在栈的顶端，成为新的当前帧。<br><img src="/images/2020/08/20200821155359.png" alt></li>
+</ul>
+<p>下面写一个简单的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 栈帧</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StackFrameTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        method01();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">method01</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"方法1的开始"</span>);</span><br><span class="line">        <span class="keyword">int</span> i = method02();</span><br><span class="line">        System.out.println(<span class="string">"方法1的结束"</span>);</span><br><span class="line">        <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">method02</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"方法2的开始"</span>);</span><br><span class="line">        <span class="keyword">int</span> i = method03();;</span><br><span class="line">        System.out.println(<span class="string">"方法2的结束"</span>);</span><br><span class="line">        <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">method03</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"方法3的开始"</span>);</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">30</span>;</span><br><span class="line">        System.out.println(<span class="string">"方法3的结束"</span>);</span><br><span class="line">        <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">方法1的开始</span><br><span class="line">方法2的开始</span><br><span class="line">方法3的开始</span><br><span class="line">方法3的结束</span><br><span class="line">方法2的结束</span><br><span class="line">方法1的结束</span><br></pre></td></tr></table></figure>
+
+<p>满足栈先进后出的概念，通过Idea的 DEBUG，能够看到栈信息<br><img src="/images/2020/08/20200821155452.png" alt></p>
+<h3 id="栈运行原理"><a href="#栈运行原理" class="headerlink" title="栈运行原理"></a>栈运行原理</h3><p>不同线程中所包含的栈帧是不允许存在相互引用的，即不可能在一个栈帧之中引用另外一个线程的栈帧。</p>
+<p>如果当前方法调用了其他方法，方法返回之际，当前栈帧会传回此方法的执行结果给前一个栈帧，接着，虚拟机会丢弃当前栈帧，使得前一个栈帧重新成为当前栈帧。</p>
+<p>Java方法有两种返回函数的方式，一种是正常的函数返回，使用return指令；另外一种是抛出异常(指的是没有处理的异常)。不管使用哪种方式，都会导致栈帧被弹出。</p>
+<h2 id="栈帧的内部结构"><a href="#栈帧的内部结构" class="headerlink" title="栈帧的内部结构"></a>栈帧的内部结构</h2><p>每个栈帧中存储着：</p>
+<ul>
+<li>局部变量表（Local Variables）</li>
+<li>操作数栈（operand Stack）（或表达式栈）</li>
+<li>动态链接（DynamicLinking）（或指向运行时常量池的方法引用）</li>
+<li>方法返回地址（Return Address）（或方法正常退出或者异常退出的定义）</li>
+<li>一些附加信息</li>
+</ul>
+<p><img src="/images/2020/08/20200821155540.png" alt></p>
+<p>并行每个线程下的栈都是私有的，因此每个线程都有自己各自的栈，并且每个栈里面都有很多栈帧，<strong>栈能放多少个栈帧由栈帧的大小决定,而栈帧的大小主要由局部变量表和操作数栈决定的</strong><br><img src="/images/2020/08/20200821155604.png" alt></p>
+<h1 id="局部变量表"><a href="#局部变量表" class="headerlink" title="局部变量表"></a>局部变量表</h1><ol>
+<li>分开来看:”局部变量”和”表”</li>
+<li>局部变量就是变量分类中的一种</li>
+<li>表,这里指的是一维的表,JVM中用数组进行实现,所以用索引的方式进行访问</li>
+</ol>
+<h2 id="局部变量表基本说明"><a href="#局部变量表基本说明" class="headerlink" title="局部变量表基本说明"></a>局部变量表基本说明</h2><ul>
+<li>局部变量表：Local Variables，被称之为局部变量数组或本地变量表</li>
+<li>定义为<code>一个数字数组，主要用于存储方法参数和定义在方法体内的局部变量</code>,这些数据类型包括各类基本数据类型、对象引用（reference），以及returnAddress类型。</li>
+<li>由于局部变量表是建立在线程的栈上，是<code>线程的私有数据，因此不存在数据安全问题</code></li>
+<li><code>局部变量表所需的容量大小是在编译期确定下来的</code>，并保存在方法的Code属性的maximum local variables数据项中。在方法运行期间是不会改变局部变量表的大小的。(如下图,两种方式查看)<ul>
+<li>使用javap命令,查看class文件的反编译文件<br><img src="/images/2020/08/20200823112038.png" alt></li>
+<li>使用前面文章安装的idea插件<br><img src="/images/2020/08/20200823114349.png" alt><br><img src="/images/2020/08/20200823120712.png" alt><br><img src="/images/2020/08/20200823120808.png" alt><br><img src="/images/2020/08/20200823164153.png" alt><br><img src="/images/2020/08/20200823113238.png" alt></li>
+</ul>
+</li>
+<li><code>方法嵌套调用的次数由栈的大小决定</code>。一般来说，<code>栈越大，方法嵌套调用次数越多</code>。对一个函数而言，它的参数和局部变量越多，使得局部变量表膨胀，它的栈帧就越大，以满足方法调用所需传递的信息增大的需求。进而函数调用就会占用更多的栈空间，导致其嵌套调用次数就会减少。</li>
+<li><code>局部变量表中的变量只在当前方法调用中有效</code>。在方法执行时，虚拟机通过使用局部变量表完成参数值到参数变量列表的传递过程。<code>当方法调用结束后，随着方法栈帧的销毁，局部变量表也会随之销毁</code>。</li>
+</ul>
+<h2 id="关于Slot的理解"><a href="#关于Slot的理解" class="headerlink" title="关于Slot的理解"></a>关于Slot的理解</h2><ul>
+<li>参数值的存放总是在局部变量数组的index0开始，到数组长度-1的索引结束。</li>
+<li><code>局部变量表，最基本的存储单元是Slot（变量槽）</code></li>
+<li>局部变量表中<code>存放编译期可知的各种基本数据类型（8种），引用类型（reference），returnAddress类型的变量</code>。</li>
+<li>在局部变量表里，<code>32位以内的类型只占用一个slot（包括returnAddress类型），64位的类型（long和double）占用两个slot</code>。<ul>
+<li>byte、short、char 在存储前被转换为int，boolean也被转换为int，0表示false，非0表示true。 </li>
+<li>long和double则占据两个slot。</li>
+</ul>
+</li>
+<li>JVM会为局部变量表中的每一个Slot都分配一个访问索引，通过这个索引即可成功访问到局部变量表中指定的局部变量值</li>
+<li>当一个实例方法被调用的时候，它的方法参数和方法体内部定义的局部变量将会<code>按照顺序被复制</code>到局部变量表中的每一个slot上</li>
+<li>如果需要访问局部变量表中一个64bit的局部变量值时，只需要使用前一个索引即可。（比如：访问long或double类型变量）<br><img src="/images/2020/08/20200823164535.png" alt></li>
+<li>如果当前帧是<code>由构造方法或者实例方法创建的，那么该对象引用this将会存放在index为0的slot处，其余的参数按照参数表顺序继续排列</code>。
+<img src="/images/2020/08/20200823163838.png" alt></li>
+</ul>
+<h2 id="Slot可以重复利用"><a href="#Slot可以重复利用" class="headerlink" title="Slot可以重复利用"></a>Slot可以重复利用</h2><p>栈帧中的局部变量表中的槽位是可以重用的，如果一个局部变量过了其作用域，那么在其作用域之后申明的新的局部变就很有可能会复用过期局部变量的槽位，从而达到节省资源的目的。<br><img src="/images/2020/08/20200823165514.png" alt><br><img src="/images/2020/08/20200823165934.png" alt></p>
+<h2 id="静态变量与局部变量的对比"><a href="#静态变量与局部变量的对比" class="headerlink" title="静态变量与局部变量的对比"></a>静态变量与局部变量的对比</h2><p>变量的分类：</p>
+<ul>
+<li>按数据类型分：基本数据类型、引用数据类型</li>
+<li>按类中声明的位置分：<ul>
+<li>成员变量（类变量，实例变量）,在使用前都经历过默认初始化状态<ul>
+<li>类变量：linking的prepare阶段，给类变量默认赋值，初始化阶段给类变量显示赋值即静态代码块(如果有)</li>
+<li>实例变量：随着对象创建，会在堆空间中分配实例变量空间，并进行默认赋值</li>
+</ul>
+</li>
+<li>局部变量：在使用前必须进行显式赋值，不然编译不通过。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">变量的分类：按照数据类型分：① 基本数据类型  ② 引用数据类型</span></span><br><span class="line"><span class="comment">按照在类中声明的位置分：</span></span><br><span class="line"><span class="comment">① 成员变量：在使用前，都经历过默认初始化赋值</span></span><br><span class="line"><span class="comment">        类变量： linking的prepare阶段：给类变量默认赋值  ---&gt; initial阶段：给类变量显式赋值即静态代码块赋值</span></span><br><span class="line"><span class="comment">        实例变量：随着对象的创建，会在堆空间中分配实例变量空间，并进行默认赋值</span></span><br><span class="line"><span class="comment">② 局部变量：在使用前，必须要进行显式赋值的！否则，编译不通过</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test5Temp</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num;</span><br><span class="line">    <span class="comment">//System.out.println(num);//错误信息：变量num未进行初始化</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>我们知道类变量表有两次初始化的机会，第一次是在“准备阶段”，执行系统初始化，对类变量设置零值，另一次则是在“初始化”阶段，赋予程序员在代码中定义的初始值。</li>
+<li>和类变量初始化不同的是，局部变量表不存在系统初始化的过程，这意味着一旦定义了局部变量则必须人为的初始化，否则无法使用。</li>
+<li>参数表分配完毕之后，再根据方法体内定义的变量的顺序和作用域分配。</li>
+</ul>
+<h2 id="补充说明"><a href="#补充说明" class="headerlink" title="补充说明"></a>补充说明</h2><ul>
+<li>在栈帧中，与性能调优关系最为密切的部分就是前面提到的局部变量表。在方法执行时，虚拟机使用局部变量表完成方法的传递。</li>
+<li><code>局部变量表中的变量也是重要的垃圾回收根节点，只要被局部变量表中直接或间接引用的对象都不会被回收</code>。</li>
+</ul>
+<h1 id="操作数栈"><a href="#操作数栈" class="headerlink" title="操作数栈"></a>操作数栈</h1><ol>
+<li>操作数栈(Operand Stack)名词解释:这个栈是为了操作数据而存在的</li>
+<li>栈可以用数组也可以用链表进行实现,操作数栈使用的是数组实现方式,数组实现栈之后就只能先进后出,而不再拥有索引</li>
+</ol>
+<h2 id="操作数栈基本说明"><a href="#操作数栈基本说明" class="headerlink" title="操作数栈基本说明"></a>操作数栈基本说明</h2><ul>
+<li><p>每一个独立的栈帧除了包含局部变量表以外，还包含一个后进先出（Last - In - First -Out）的 操作数栈，也可以称之为<code>表达式栈（Expression Stack）</code></p>
+</li>
+<li><p><code>操作数栈，在方法执行过程中，根据字节码指令，往栈中写入数据或提取数据，即入栈（push）和 出栈（pop）</code></p>
+<ul>
+<li>某些字节码指令将值压入操作数栈，其余的字节码指令将操作数取出栈。使用它们后再把结果压入栈</li>
+<li>比如：执行复制、交换、求和等操作<br><img src="/images/2020/08/20200821155921.png" alt></li>
+</ul>
+</li>
+<li><p>代码举例<br><img src="/images/2020/08/20200823171808.png" alt></p>
+</li>
+<li><p>操作数栈，<code>主要用于保存计算过程的中间结果，同时作为计算过程中变量临时的存储空间</code>。</p>
+</li>
+<li><p>操作数栈就是JVM执行引擎的一个工作区，当一个方法刚开始执行的时候，一个新的栈帧也会随之被创建出来，<code>这个方法的操作数栈是空的</code>。</p>
+</li>
+<li><p>每一个操作数栈都会拥有一个明确的栈深度用于存储数值，其所需的最大深度在编译期就定义好了，保存在方法的Code属性中，为maxstack的值。</p>
+</li>
+<li><p>操作数栈<code>并非采用访问索引的方式来进行数据访问的，而是只能通过标准的入栈和出栈操作来完成一次数据访问</code></p>
+</li>
+<li><p>栈中的任何一个元素都是可以任意的Java数据类型</p>
+<ul>
+<li>32bit的类型占用一个栈单位深度</li>
+<li>64bit的类型占用两个栈单位深度</li>
+</ul>
+</li>
+<li><p><code>如果被调用的方法带有返回值的话，其返回值将会被压入当前栈帧的操作数栈中</code>，并更新PC寄存器中下一条需要执行的字节码指令。</p>
+</li>
+<li><p>操作数栈中元素的数据类型必须与字节码指令的序列严格匹配，这由编译器在编译器期间进行验证，同时在类加载过程中的类检验阶段的数据流分析阶段要再次验证。</p>
+</li>
+<li><p>另外，我们说<code>Java虚拟机的解释引擎是基于栈的执行引擎，其中的栈指的就是操作数栈</code>。</p>
+</li>
+</ul>
+<h2 id="代码追踪"><a href="#代码追踪" class="headerlink" title="代码追踪"></a>代码追踪</h2><p>我们给定代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAddOperation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">byte</span> i = <span class="number">15</span>;</span><br><span class="line">    <span class="keyword">int</span> j = <span class="number">8</span>;</span><br><span class="line">    <span class="keyword">int</span> k = i + j;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用javap 命令反编译class文件： javap -v 类名.class<br><img src="/images/2020/08/20200821160051.png" alt></p>
+<blockquote>
+<p>  byte、short、char、boolean 内部都是使用int型来进行保存的<br>  从上面的代码我们可以知道，我们都是通过bipush对操作数 15 和 8进行入栈操作<br>  同时使用的是 iadd方法进行相加操作，i -&gt; 代表的就是 int，也就是int类型的加法操作</p>
+</blockquote>
+<p>执行流程如下所示：</p>
+<p>首先执行第一条语句，PC寄存器指向的是0，也就是指令地址为0，然后使用bipush让操作数15入栈。<br><img src="/images/2020/08/20200821160146.png" alt><br>执行完后，让PC + 1，指向下一行代码，下一行代码就是将操作数栈的元素存储到局部变量表1的位置，我们可以看到局部变量表的已经增加了一个元素<br><img src="/images/2020/08/20200821160208.png" alt></p>
+<blockquote>
+<p>  为什么局部变量表不是从0开始的呢？<br>  其实局部变量表也是从0开始的，但是因为0号位置存储的是this指针，所以说就直接省略了</p>
+</blockquote>
+<p>然后PC+1，指向的是下一行。让操作数8也入栈，同时执行store操作，存入局部变量表中<br><img src="/images/2020/08/20200821160312.png" alt><br><img src="/images/2020/08/20200821160320.png" alt></p>
+<p>然后从局部变量表中，依次将数据放在操作数栈中<br><img src="/images/2020/08/20200821160340.png" alt><br><img src="/images/2020/08/20200823174904.png" alt></p>
+<p>然后将操作数栈中的两个元素执行相加操作，并存储在局部变量表3的位置<br><img src="/images/2020/08/20200821160403.png" alt><br><img src="/images/2020/08/20200821160410.png" alt></p>
+<p>最后PC寄存器的位置指向10，也就是return方法，则直接退出方法</p>
+<h2 id="面试问题-i-和-i的区别"><a href="#面试问题-i-和-i的区别" class="headerlink" title="面试问题:i++和++i的区别"></a>面试问题:i++和++i的区别</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">程序员面试过程中， 常见的i++和++i 的区别，放到字节码篇章时再介绍。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//第1类问题：</span></span><br><span class="line">    <span class="keyword">int</span> i1 = <span class="number">10</span>;</span><br><span class="line">    i1++;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i2 = <span class="number">10</span>;</span><br><span class="line">    ++i2;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//第2类问题：</span></span><br><span class="line">    <span class="keyword">int</span> i3 = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">int</span> i4 = i3++;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i5 = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">int</span> i6 = ++i5;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//第3类问题：</span></span><br><span class="line">    <span class="keyword">int</span> i7 = <span class="number">10</span>;</span><br><span class="line">    i7 = i7++;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i8 = <span class="number">10</span>;</span><br><span class="line">    i8 = ++i8;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//第4类问题：</span></span><br><span class="line">    <span class="keyword">int</span> i9 = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">int</span> i10 = i9++ + ++i9;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="栈顶缓存技术-Top-Of-Stack-Cashing"><a href="#栈顶缓存技术-Top-Of-Stack-Cashing" class="headerlink" title="栈顶缓存技术(Top Of Stack Cashing)"></a>栈顶缓存技术(Top Of Stack Cashing)</h2><p>前面提过，基于栈式架构的虚拟机所使用的零地址指令更加紧凑，但完成一项操作的时候必然需要使用更多的入栈和出栈指令，这同时也就意味着将需要更多的指令分派（instruction dispatch）次数和内存读/写次数。</p>
+<p>由于操作数是存储在内存中的，因此频繁地执行内存读/写操作必然会影响执行速度。为了解决这个问题，HotSpot JVM的设计者们提出了栈顶缓存（Tos，Top-of-Stack Cashing）技术，将栈顶元素全部缓存在物理CPU的寄存器中，以此降低对内存的读/写次数，提升执行引擎的执行效率。</p>
+<blockquote>
+<p>  寄存器：指令更少，执行速度快</p>
+</blockquote>
+<h1 id="动态链接-Dynamic-Linking-–指向运行时常量池的方法引用"><a href="#动态链接-Dynamic-Linking-–指向运行时常量池的方法引用" class="headerlink" title="动态链接(Dynamic Linking)–指向运行时常量池的方法引用"></a>动态链接(Dynamic Linking)–指向运行时常量池的方法引用</h1><h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><h3 id="静态链接"><a href="#静态链接" class="headerlink" title="静态链接"></a>静态链接</h3><ul>
+<li>符号引用到直接引用的转换在编译期间可以确定下来就称之为静态链接</li>
+<li>当一个字节码文件被装载进JVM内部时，如果被调用的目标方法在编译期可知，且运行期保持不变时，这种情况下调用方法的符号引用转换为直接引用的过程称之为静态链接</li>
+</ul>
+<h3 id="动态链接"><a href="#动态链接" class="headerlink" title="动态链接"></a>动态链接</h3><h4 id="动态链接基本说明"><a href="#动态链接基本说明" class="headerlink" title="动态链接基本说明"></a>动态链接基本说明</h4><ul>
+<li>符号引用到直接引用的转换在编译期间无法确定下来就称之为动态链接</li>
+<li>如果<code>被调用的方法在编译期无法被确定下来</code>，也就是说，只能够在程序运行期将调用的方法的符号转换为直接引用，由于这种引用转换过程具备动态性，因此也被称之为动态链接。</li>
+<li>每一个栈帧内部都包含一个指向运行时常量池中该栈帧所属方法的引用,包含这个引用的目的就是为了支持当前方法的代码能够实现动态链接（Dynamic Linking）。<ul>
+<li>比如：invokedynamic指令</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/2020/08/20200823231047.png" alt></p>
+<blockquote>
+<p>  动态链接、方法返回地址、附加信息 ： 有些地方被称为帧数据区</p>
+</blockquote>
+<h4 id="动态链接作用"><a href="#动态链接作用" class="headerlink" title="动态链接作用"></a>动态链接作用</h4><ul>
+<li>在<strong>Java源文件被编译到字节码文件中时，所有的变量和方法引用都作为符号引用（symbolic Reference）保存在class文件的常量池里</strong>。<ul>
+<li>比如：描述一个方法调用了另外的其他方法时，就是通过常量池中指向方法的符号引用来表示的</li>
+</ul>
+</li>
+<li><strong>动态链接的作用就是为了将这些符号引用转换为调用方法的直接引用</strong>。<ul>
+<li>面向对象,有多态,虚拟机该如何知道调用的是哪个方法<br><img src="/images/2020/08/20200821160546.png" alt></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>  为什么需要运行时常量池？<br>  因为在不同的方法，都可能调用常量或者方法，所以只需要存储一份即可，节省了空间<br>  常量池的作用：就是为了提供一些符号和常量，便于指令的识别</p>
+</blockquote>
+<h2 id="绑定机制"><a href="#绑定机制" class="headerlink" title="绑定机制"></a>绑定机制</h2><p>对应的方法的绑定机制为：早期绑定（Early Binding）和晚期绑定（Late Binding）。绑定是一个字段、方法或者类在符号引用被替换为直接引用的过程，这仅仅发生一次。</p>
+<h3 id="早期绑定"><a href="#早期绑定" class="headerlink" title="早期绑定"></a>早期绑定</h3><p>早期绑定就是指被调用的目标方法如果在编译期可知，且运行期保持不变时，即可将这个方法与所属的类型进行绑定，这样一来，由于明确了被调用的目标方法究竟是哪一个，因此也就可以使用静态链接的方式将符号引用转换为直接引用。</p>
+<h3 id="晚期绑定"><a href="#晚期绑定" class="headerlink" title="晚期绑定"></a>晚期绑定</h3><p>如果被调用的方法在编译期无法被确定下来，只能够在程序运行期根据实际的类型绑定相关的方法，这种绑定方式也就被称之为晚期绑定。</p>
+<p>代码说明</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.atguigu.java2;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 说明早期绑定和晚期绑定的例子</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> shkstart</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> 2020 上午 11:59</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"动物进食"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Huntable</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">hunt</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> <span class="keyword">implements</span> <span class="title">Huntable</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"狗吃骨头"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hunt</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"捕食耗子，多管闲事"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> <span class="keyword">implements</span> <span class="title">Huntable</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">super</span>();<span class="comment">//表现为：早期绑定</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>();<span class="comment">//表现为：早期绑定</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.eat();<span class="comment">//表现为：早期绑定</span></span><br><span class="line">        System.out.println(<span class="string">"猫吃鱼"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hunt</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"捕食耗子，天经地义"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnimalTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showAnimal</span><span class="params">(Animal animal)</span></span>&#123;</span><br><span class="line">        animal.eat();<span class="comment">//表现为：晚期绑定</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showHunt</span><span class="params">(Huntable h)</span></span>&#123;</span><br><span class="line">        h.hunt();<span class="comment">//表现为：晚期绑定</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>调用指令说明在后文</p>
+<ol>
+<li><p>表现为：早期绑定<br><img src="/images/2020/08/20200824121927.png" alt></p>
+</li>
+<li><p>表现为：晚期绑定<br><img src="/images/2020/08/20200824121443.png" alt><br><img src="/images/2020/08/20200824121500.png" alt></p>
+</li>
+</ol>
+<h3 id="早晚期绑定的发展历史"><a href="#早晚期绑定的发展历史" class="headerlink" title="早晚期绑定的发展历史"></a>早晚期绑定的发展历史</h3><ul>
+<li>面向过程只具备早期绑定</li>
+<li>随着高级语言的横空出世，类似于Java一样的基于面向对象的编程语言如今越来越多，尽管这类编程语言在语法风格上存在一定的差别，但是它们彼此之间始终保持着一个共性，那就是都支持封装、继承和多态等面向对象特性，既然这一类的编程语言<code>具备多态特性，那么自然也就具备早期绑定和晚期绑定两种绑定方式</code>。</li>
+<li>Java中任何一个普通的方法其实都具备虚函数的特征(所谓虚函数的特征就是具备晚期绑定的特点,即在运行期才能确定下来)，它们相当于C++语言中的虚函数（C++中则需要使用关键字virtual来显式定义）。<code>如果在Java程序中不希望某个方法拥有虚函数的特征时，则可以使用关键字final来标记这个方法</code>。<ul>
+<li>Java中任何一个普通的方法其实都具备虚函数的特征,即Java中任何一个普通方法都能被继承,重写</li>
+<li>Java程序中不希望某个方法拥有虚函数的特征时，则可以使用关键字final来标记这个方法,这和我们认知相当,带final标记的方法是不能被重写的</li>
+</ul>
+</li>
+</ul>
+<h2 id="方法调用"><a href="#方法调用" class="headerlink" title="方法调用"></a>方法调用</h2><p>在JVM中，将符号引用转换为调用方法的直接引用与方法的绑定机制相关<br><img src="/images/2020/08/20200824115927.png" alt></p>
+<h2 id="虚方法和非虚方法"><a href="#虚方法和非虚方法" class="headerlink" title="虚方法和非虚方法"></a>虚方法和非虚方法</h2><ul>
+<li>如果方法在编译期就确定了具体的调用版本，这个版本在运行时是不可变的。这样的方法称为非虚方法。</li>
+<li>静态方法、私有方法、fina1方法、实例构造器、父类方法都是非虚方法。</li>
+<li>其他方法称为虚方法。</li>
+<li>子类对象的多态的使用前提<ul>
+<li>类的继承关系</li>
+<li>方法的重写</li>
+</ul>
+</li>
+</ul>
+<h2 id="调用指令"><a href="#调用指令" class="headerlink" title="调用指令"></a>调用指令</h2><p>虚拟机中提供了以下几条方法调用指令：</p>
+<ul>
+<li>普通调用指令：<ul>
+<li>表明非虚方法<ul>
+<li>invokestatic：调用静态方法，解析阶段确定唯一方法版本</li>
+<li>invokespecial：调用方法、私有及父类方法，解析阶段确定唯一方法版本</li>
+</ul>
+</li>
+<li>表明非虚方法<ul>
+<li>invokevirtual：调用所有虚方法</li>
+<li>invokeinterface：调用接口方法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>动态调用指令：<ul>
+<li>invokedynamic：动态解析出需要调用的方法，然后执行</li>
+</ul>
+</li>
+</ul>
+<p>前四条指令固化在虚拟机内部，方法的调用执行不可人为干预，而invokedynamic指令则支持由用户确定方法版本。其中invokestatic指令和invokespecial指令调用的方法称为非虚方法，其余的（final修饰的除外）称为虚方法。</p>
+<p>invokednamic指令:</p>
+<ul>
+<li>JVM字节码指令集一直比较稳定，一直到Java7中才增加了一个invokedynamic指令，这是Java为了实现动态类型语言】支持而做的一种改进。</li>
+<li>但是在Java7中并没有提供直接生成invokedynamic指令的方法，需要借助ASM这种底层字节码工具来产生invokedynamic指令。直到Java8的Lambda表达式的出现，invokedynamic指令的生成，在Java中才有了直接的生成方式。</li>
+<li>Java7中增加的动态语言类型支持的本质是对Java虚拟机规范的修改，而不是对Java语言规则的修改，这一块相对来讲比较复杂，增加了虚拟机中的方法调用，最直接的受益者就是运行在Java平台的动态语言的编译器。</li>
+</ul>
+<h2 id="动态类型语言和静态类型语言"><a href="#动态类型语言和静态类型语言" class="headerlink" title="动态类型语言和静态类型语言"></a>动态类型语言和静态类型语言</h2><ul>
+<li>动态类型语言和静态类型语言两者的区别就在于对类型的检查是在编译期还是在运行期，满足前者就是静态类型语言，反之是动态类型语言。</li>
+<li>说的再直白一点就是<ul>
+<li>静态类型语言是判断变量自身的类型信息；</li>
+<li>动态类型语言是判断变量值的类型信息，变量没有类型信息，变量值才有类型信息，这是动态语言的一个重要特征。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Java：String info = &quot;mogu blog&quot;; (Java是静态类型语言的，会先编译就进行类型检查)</span><br><span class="line">JS：var name = &quot;shkstart&quot;; var name = 10; （运行时才进行检查）</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法重写的本质"><a href="#方法重写的本质" class="headerlink" title="方法重写的本质"></a>方法重写的本质</h2><h3 id="Java-语言中方法重写的本质："><a href="#Java-语言中方法重写的本质：" class="headerlink" title="Java 语言中方法重写的本质："></a>Java 语言中方法重写的本质：</h3><ul>
+<li>找到操作数栈顶的第一个元素所执行的对象的实际类型，记作C。</li>
+<li>如果在类型C中找到与常量中的描述符和简单名称都相符的方法，则<code>进行访问权限校验</code>，如果通过则返回这个方法的直接引用，查找过程结束；如果<code>不通过，则返回java.lang.IllegalAccessError 异常</code>。</li>
+<li>否则，按照继承关系从下往上依次对C的各个父类进行第2步的搜索和验证过程。</li>
+<li>如果<code>始终没有找到合适的方法，则抛出java.lang.AbstractMethodsError异常</code>。</li>
+</ul>
+<p><img src="/images/2020/08/20200824121928.png" alt></p>
+<h3 id="IllegalAccessError介绍-非法访问异常"><a href="#IllegalAccessError介绍-非法访问异常" class="headerlink" title="IllegalAccessError介绍(非法访问异常)"></a>IllegalAccessError介绍(非法访问异常)</h3><p>程序试图访问或修改一个属性或调用一个方法，这个属性或方法，你没有权限访问。一般的，这个会引起编译器异常。这个错误如果发生在运行时，就说明一个类发生了不兼容的改变。</p>
+<h3 id="虚方法表–提高方法的调用的效率"><a href="#虚方法表–提高方法的调用的效率" class="headerlink" title="虚方法表–提高方法的调用的效率"></a>虚方法表–提高方法的调用的效率</h3><h4 id="虚方法表作用–提高方法的调用的效率"><a href="#虚方法表作用–提高方法的调用的效率" class="headerlink" title="虚方法表作用–提高方法的调用的效率"></a>虚方法表作用–提高方法的调用的效率</h4><ul>
+<li>在面向对象的编程中，会很频繁的使用到动态分派，如果在每次动态分派的过程中都要重新在类的方法元数据中搜索合适的目标的话就可能影响到执行效率。因此，为了提高性能，JVM采用在类的方法区建立一个虚方法表 （virtual method table）（非虚方法不会出现在表中）来实现。使用索引表来代替查找。</li>
+<li>每个类中都有一个虚方法表，表中存放着各个方法的实际入口。</li>
+</ul>
+<h4 id="虚方法表什么时候被创建"><a href="#虚方法表什么时候被创建" class="headerlink" title="虚方法表什么时候被创建?"></a>虚方法表什么时候被创建?</h4><p><strong>虚方法表会在类加载的链接阶段被创建并开始初始化，类的变量初始值准备完成之后，JVM会把该类的方法表也初始化完毕</strong>。
+<img src="/images/2020/08/20200821161046.png" alt><br>如上图所示：如果类中重写了方法，那么调用的时候，就会直接在虚方法表中查找，否则将会直接连接到Object的方法中。</p>
+<h1 id="方法返回地址"><a href="#方法返回地址" class="headerlink" title="方法返回地址"></a>方法返回地址</h1><p><code>存放调用该方法的pc寄存器的值</code>。</p>
+<p>一个方法的结束，有两种方式：</p>
+<ol>
+<li>正常执行完成</li>
+<li>出现未处理的异常，非正常退出</li>
+</ol>
+<p>无论通过哪种方式退出，在方法退出后都返回到该方法被调用的位置。方法正常退出时，调用者的pc计数器的值作为返回地址，即调用该方法的指令的下一条指令的地址。而通过异常退出的，返回地址是要通过异常表来确定，栈帧中一般不会保存这部分信息。</p>
+<p>当一个方法开始执行后，只有两种方式可以退出这个方法：</p>
+<p>执行引擎遇到任意一个方法返回的字节码指令（return），会有返回值传递给上层的方法调用者，简称正常完成出口；</p>
+<ul>
+<li>一个方法在正常调用完成之后，究竟需要使用哪一个返回指令，还需要根据方法返回值的实际数据类型而定。</li>
+<li>在字节码指令中，返回指令包含ireturn（当返回值是boolean，byte，char，short和int类型时使用），lreturn（Long类型），freturn（Float类型），dreturn（Double类型），areturn(返回引用)。另外还有一个return指令声明为void的方法，实例初始化方法，类和接口的初始化方法使用。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 返回指令包含ireturn（当返回值是boolean、byte、char、short和int类型时使用）、</span></span><br><span class="line"><span class="comment"> * lreturn、freturn、dreturn以及areturn，另外还有一个return指令供声明为void的方法、</span></span><br><span class="line"><span class="comment"> * 实例初始化方法、类和接口的初始化方法使用。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReturnAddressTest</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 返回ireturn</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">methodBoolean</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回ireturn</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">byte</span> <span class="title">methodByte</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回ireturn</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">short</span> <span class="title">methodShort</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回ireturn</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">char</span> <span class="title">methodChar</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'a'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回ireturn</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">methodInt</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回lreturn</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">methodLong</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0L</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回freturn</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">methodFloat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0.0f</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回dreturn</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">methodDouble</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0.0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回areturn</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">methodString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回areturn</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Date <span class="title">methodDate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回return</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">methodVoid</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>在方法执行过程中遇到异常（Exception），并且这个异常没有在方法内进行处理，也就是只要在本方法的异常表中没有搜索到匹配的异常处理器，就会导致方法退出，简称异常完成出口。</p>
+<p>方法执行过程中，抛出异常时的异常处理，存储在一个异常处理表，方便在发生异常的时候找到处理异常的代码<br><img src="/images/2020/08/20200821161159.png" alt><br><img src="/images/2020/08/20200825104128.png" alt><br><img src="/images/2020/08/20200825104439.png" alt></p>
+<ul>
+<li>本质上，方法的退出就是当前栈帧出栈的过程。此时，需要恢复上层方法的局部变量表、操作数栈、将返回值压入调用者栈帧的操作数栈、设置PC寄存器值等，让调用者方法继续执行下去。</li>
+<li><code>正常完成出口和异常完成出口的区别在于：通过异常完成出口退出的不会给他的上层调用者产生任何的返回值</code>。</li>
+</ul>
+<h1 id="一些附加信息"><a href="#一些附加信息" class="headerlink" title="一些附加信息"></a>一些附加信息</h1><p>栈帧中还允许携带与Java虚拟机实现相关的一些附加信息。例如：对程序调试提供支持的信息。</p>
+<h1 id="栈的相关面试题"><a href="#栈的相关面试题" class="headerlink" title="栈的相关面试题"></a>栈的相关面试题</h1><ul>
+<li>举例栈溢出的情况？（StackOverflowError）<ul>
+<li>通过 -Xss设置栈的大小</li>
+</ul>
+</li>
+<li>调整栈大小，就能保证不出现溢出么？<ul>
+<li>不能保证不溢出</li>
+</ul>
+</li>
+<li>分配的栈内存越大越好么？<ul>
+<li>不是，一定时间内降低了OOM概率，但是会挤占其它的线程空间，因为整个空间是有限的。</li>
+</ul>
+</li>
+<li>垃圾回收是否涉及到虚拟机栈？<ul>
+<li>不会</li>
+</ul>
+</li>
+<li>方法中定义的局部变量是否线程安全？<ul>
+<li>具体问题具体分析</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 面试题</span></span><br><span class="line"><span class="comment"> * 方法中定义局部变量是否线程安全？具体情况具体分析</span></span><br><span class="line"><span class="comment"> * 何为线程安全？</span></span><br><span class="line"><span class="comment"> *    如果只有一个线程才可以操作此数据，则必是线程安全的</span></span><br><span class="line"><span class="comment"> *    如果有多个线程操作，则此数据是共享数据，如果不考虑共享机制，则为线程不安全</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StringBuilderTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// s1的声明方式是线程安全的</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">method01</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 线程内部创建的，属于局部变量</span></span><br><span class="line">        StringBuilder s1 = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        s1.append(<span class="string">"a"</span>);</span><br><span class="line">        s1.append(<span class="string">"b"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 这个也是线程不安全的，因为有返回值，有可能被其它的程序所调用</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> StringBuilder <span class="title">method04</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        StringBuilder stringBuilder = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        stringBuilder.append(<span class="string">"a"</span>);</span><br><span class="line">        stringBuilder.append(<span class="string">"b"</span>);</span><br><span class="line">        <span class="keyword">return</span> stringBuilder;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// stringBuilder 是线程不安全的，操作的是共享数据</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">method02</span><span class="params">(StringBuilder stringBuilder)</span> </span>&#123;</span><br><span class="line">        stringBuilder.append(<span class="string">"a"</span>);</span><br><span class="line">        stringBuilder.append(<span class="string">"b"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 同时并发的执行，会出现线程不安全的问题</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">method03</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        StringBuilder stringBuilder = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">            stringBuilder.append(<span class="string">"a"</span>);</span><br><span class="line">            stringBuilder.append(<span class="string">"b"</span>);</span><br><span class="line">        &#125;, <span class="string">"t1"</span>).start();</span><br><span class="line"></span><br><span class="line">        method02(stringBuilder);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// StringBuilder是线程安全的，但是String也可能线程不安全的</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">method05</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        StringBuilder stringBuilder = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        stringBuilder.append(<span class="string">"a"</span>);</span><br><span class="line">        stringBuilder.append(<span class="string">"b"</span>);</span><br><span class="line">        <span class="keyword">return</span> stringBuilder.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>总结一句话就是：如果对象是在内部产生，并在内部消亡，没有返回到外部，那么它就是线程安全的，反之则是线程不安全的。</p>
+<p>运行时数据区，是否存在Error和GC？</p>
+<table>
+<thead>
+<tr>
+<th>运行时数据区</th>
+<th>是否存在Error</th>
+<th>是否存在GC</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>程序计数器</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td>虚拟机栈</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td>本地方法栈</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td>方法区</td>
+<td>是（OOM）</td>
+<td>是</td>
+</tr>
+<tr>
+<td>堆</td>
+<td>是</td>
+<td>是</td>
+</tr>
+</tbody></table>
+</div><div class="tags"><a href="/tags/JVM/">JVM</a></div><div class="post-share"></div><div class="post-nav"><a href="/2018/08/25/2018-20180825-JVM从入门到精通-06-本地方法接口/" class="pre">JVM从入门到精通_06_本地方法接口</a><a href="/2018/08/21/2018-20180821-JVM从入门到精通-04-程序计数器/" class="next">JVM从入门到精通_04_程序计数器</a></div><div id="comments"><div id="lv-container" data-id="city" data-uid="MTAyMC80NDg2NC8yMTM4NQ=="></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#写在前面"><span class="toc-text">写在前面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#先对虚拟机栈有一个整体认识"><span class="toc-text">先对虚拟机栈有一个整体认识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#虚拟机栈出现的背景"><span class="toc-text">虚拟机栈出现的背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java虚拟机栈是什么"><span class="toc-text">Java虚拟机栈是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生命周期"><span class="toc-text">生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作用"><span class="toc-text">作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#栈的特点"><span class="toc-text">栈的特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发中遇到哪些异常？"><span class="toc-text">开发中遇到哪些异常？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#栈中可能出现的异常"><span class="toc-text">栈中可能出现的异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现抛出栈溢出异常"><span class="toc-text">代码实现抛出栈溢出异常</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置栈内存大小"><span class="toc-text">设置栈内存大小</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置栈内存大小的参数"><span class="toc-text">设置栈内存大小的参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码验证"><span class="toc-text">代码验证</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#再看看栈内部的结构"><span class="toc-text">再看看栈内部的结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#栈的存储单位的基本说明"><span class="toc-text">栈的存储单位的基本说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#栈中存储什么？"><span class="toc-text">栈中存储什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#栈运行原理"><span class="toc-text">栈运行原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#栈帧的内部结构"><span class="toc-text">栈帧的内部结构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#局部变量表"><span class="toc-text">局部变量表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#局部变量表基本说明"><span class="toc-text">局部变量表基本说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于Slot的理解"><span class="toc-text">关于Slot的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Slot可以重复利用"><span class="toc-text">Slot可以重复利用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#静态变量与局部变量的对比"><span class="toc-text">静态变量与局部变量的对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#补充说明"><span class="toc-text">补充说明</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#操作数栈"><span class="toc-text">操作数栈</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#操作数栈基本说明"><span class="toc-text">操作数栈基本说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码追踪"><span class="toc-text">代码追踪</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面试问题-i-和-i的区别"><span class="toc-text">面试问题:i++和++i的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#栈顶缓存技术-Top-Of-Stack-Cashing"><span class="toc-text">栈顶缓存技术(Top Of Stack Cashing)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#动态链接-Dynamic-Linking-–指向运行时常量池的方法引用"><span class="toc-text">动态链接(Dynamic Linking)–指向运行时常量池的方法引用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#链接"><span class="toc-text">链接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#静态链接"><span class="toc-text">静态链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态链接"><span class="toc-text">动态链接</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#动态链接基本说明"><span class="toc-text">动态链接基本说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#动态链接作用"><span class="toc-text">动态链接作用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绑定机制"><span class="toc-text">绑定机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#早期绑定"><span class="toc-text">早期绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#晚期绑定"><span class="toc-text">晚期绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#早晚期绑定的发展历史"><span class="toc-text">早晚期绑定的发展历史</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法调用"><span class="toc-text">方法调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#虚方法和非虚方法"><span class="toc-text">虚方法和非虚方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调用指令"><span class="toc-text">调用指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态类型语言和静态类型语言"><span class="toc-text">动态类型语言和静态类型语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法重写的本质"><span class="toc-text">方法重写的本质</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java-语言中方法重写的本质："><span class="toc-text">Java 语言中方法重写的本质：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IllegalAccessError介绍-非法访问异常"><span class="toc-text">IllegalAccessError介绍(非法访问异常)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚方法表–提高方法的调用的效率"><span class="toc-text">虚方法表–提高方法的调用的效率</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#虚方法表作用–提高方法的调用的效率"><span class="toc-text">虚方法表作用–提高方法的调用的效率</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#虚方法表什么时候被创建"><span class="toc-text">虚方法表什么时候被创建?</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#方法返回地址"><span class="toc-text">方法返回地址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一些附加信息"><span class="toc-text">一些附加信息</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#栈的相关面试题"><span class="toc-text">栈的相关面试题</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/08/26/2020-20200826-解决Github-Page无法访问的其中一种情况/">解决Github-Page无法访问的其中一种情况</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/26/2020-20200826-Ubuntu中修改DNS的方法/">Ubuntu中修改DNS的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/26/2020-20200826-nslookup命令-查DNS信息用/">Nslookup命令-查DNS信息用</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/02/2020-20200801-Ubuntu20-04中安装flameshot截屏工具/">Ubuntu20.04中安装flameshot截屏工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/31/2020-20200731-Ubuntu刷新DNS/">Ubuntu刷新DNS</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/28/2020-20200727-循环冗余校验（CRC）算法/">循环冗余校验（CRC）算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/26/2020-20200726-ubuntu中Rime输入法的安装和配置/">ubuntu中Rime输入法的安装和配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/26/2020-20200726-Ubuntu18-04中ibus-sunpinyin的安装与设置/">ubuntu18.04中ibus-Sunpinyin的安装与设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/25/2020-20200724-Ubuntu设置开机自动加-挂载硬盘/">Ubuntu设置开机自动加/挂载硬盘</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/18/2020-20200718-Ubuntu18-04如何固定图标到任务栏/">Ubuntu18.04如何固定图标到任务栏</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BigData/">BigData</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Eclipse/">Eclipse</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Excel/">Excel</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">97</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tampermonkey/">Tampermonkey</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ubuntu/">Ubuntu</a><span class="category-list-count">49</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vim/">vim</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/人工智能/">人工智能</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构与算法/">数据结构与算法</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/正则表达式/">正则表达式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/视频笔记/">视频笔记</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机操作系统/">计算机操作系统</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机组成原理/">计算机组成原理</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">4</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/Servlet/" style="font-size: 15px;">Servlet</a> <a href="/tags/Eclipse/" style="font-size: 15px;">Eclipse</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/vim/" style="font-size: 15px;">vim</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Linux命令/" style="font-size: 15px;">Linux命令</a> <a href="/tags/Ubuntu装机日志/" style="font-size: 15px;">Ubuntu装机日志</a> <a href="/tags/Spring/" style="font-size: 15px;">Spring</a> <a href="/tags/SpringMVC/" style="font-size: 15px;">SpringMVC</a> <a href="/tags/Lombok/" style="font-size: 15px;">Lombok</a> <a href="/tags/Java细节/" style="font-size: 15px;">Java细节</a> <a href="/tags/Thymeleaf/" style="font-size: 15px;">Thymeleaf</a> <a href="/tags/Linux配置/" style="font-size: 15px;">Linux配置</a> <a href="/tags/Junit/" style="font-size: 15px;">Junit</a> <a href="/tags/设计模式/" style="font-size: 15px;">设计模式</a> <a href="/tags/JVM/" style="font-size: 15px;">JVM</a> <a href="/tags/Jackson/" style="font-size: 15px;">Jackson</a> <a href="/tags/Tomcat/" style="font-size: 15px;">Tomcat</a> <a href="/tags/BigData/" style="font-size: 15px;">BigData</a> <a href="/tags/Http/" style="font-size: 15px;">Http</a> <a href="/tags/Eclipse插件/" style="font-size: 15px;">Eclipse插件</a> <a href="/tags/JSP-EL-JSTL/" style="font-size: 15px;">JSP/EL/JSTL</a> <a href="/tags/Struts2/" style="font-size: 15px;">Struts2</a> <a href="/tags/Hibernate/" style="font-size: 15px;">Hibernate</a> <a href="/tags/OGNL/" style="font-size: 15px;">OGNL</a> <a href="/tags/maven/" style="font-size: 15px;">maven</a> <a href="/tags/MyBatis/" style="font-size: 15px;">MyBatis</a> <a href="/tags/人工智能/" style="font-size: 15px;">人工智能</a> <a href="/tags/SSH/" style="font-size: 15px;">SSH</a> <a href="/tags/SpringBoot/" style="font-size: 15px;">SpringBoot</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/SpringSecurity/" style="font-size: 15px;">SpringSecurity</a> <a href="/tags/Hadoop/" style="font-size: 15px;">Hadoop</a> <a href="/tags/Jquery/" style="font-size: 15px;">Jquery</a> <a href="/tags/正则表达式/" style="font-size: 15px;">正则表达式</a> <a href="/tags/Excel/" style="font-size: 15px;">Excel</a> <a href="/tags/计算机组成原理/" style="font-size: 15px;">计算机组成原理</a> <a href="/tags/视频笔记/" style="font-size: 15px;">视频笔记</a> <a href="/tags/Ubuntu配置/" style="font-size: 15px;">Ubuntu配置</a> <a href="/tags/数据结构与算法-Java实现/" style="font-size: 15px;">数据结构与算法(Java实现)</a> <a href="/tags/Tampermonkey/" style="font-size: 15px;">Tampermonkey</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">85</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">85</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">35</span></li></ul></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p><span> Copyright &copy;<a href="/." rel="nofollow">zjc.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><div id="fullscreen-img" class="hide"><span class="close"></span></div><script type="text/javascript" src="/js/imgview.js?v=2.0.5" async></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.5" async></script><script>(function(d, s) {
+  var j, e = d.getElementsByTagName('body')[0];
+  if (typeof LivereTower === 'function') { return; }
+  j = d.createElement(s);
+  j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+  j.async = true;
+  e.appendChild(j);
+})(document, 'script');
+</script></body></html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><title>Struts2的标签库 | 想了20分钟的博客名</title></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Struts2的标签库</h1><a id="logo" href="/.">想了20分钟的博客名</a><p class="description">世界是唯物辩证的</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">Struts2的标签库</h1><div class="post-meta"><a href="/2019/07/13/2019-20190713-Struts2的标签库/#comments" class="comment-count"></a><p><span class="date">Jul 13, 2019</span><span><a href="/categories/Java/" class="category">Java</a></span></p></div><div class="post-content"><h1 id="标签分类"><a href="#标签分类" class="headerlink" title="标签分类"></a>标签分类</h1><p><img src="/images/20190713002.png" alt></p>
+<h1 id="自定义标签"><a href="#自定义标签" class="headerlink" title="自定义标签"></a>自定义标签</h1><p><a href="https://www.jellythink.com/archives/218" target="_blank" rel="noopener"><em>自定义标签</em></a></p>
+<h1 id="OGNL标签详解"><a href="#OGNL标签详解" class="headerlink" title="OGNL标签详解"></a>OGNL标签详解</h1><p><a href="https://www.cnblogs.com/langtianya/archive/2013/03/05/2944443.html" target="_blank" rel="noopener"><em>参考:OGNL标签详解</em></a></p>
+<h1 id="非用户界面标签库"><a href="#非用户界面标签库" class="headerlink" title="非用户界面标签库"></a>非用户界面标签库</h1><h2 id="控制标签if-elseif-标签"><a href="#控制标签if-elseif-标签" class="headerlink" title="控制标签if...elseif...标签"></a>控制标签<code>if...elseif...</code>标签</h2><p>由于if…elseif…标签后都可以指定一个boolean表达式，所以if…elseif…标签可接受一个test属性，该属性确定执行判断的boolean表达式。具体用法如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">s:if</span> <span class="attr">test</span>=<span class="string">"100 in &#123;100,200,300&#125;"</span>&gt;</span></span><br><span class="line">   包含</span><br><span class="line"><span class="tag">&lt;/<span class="name">s:if</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">s:else</span>&gt;</span></span><br><span class="line">   不包含</span><br><span class="line"><span class="tag">&lt;/<span class="name">s:else</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="迭代iterator标签"><a href="#迭代iterator标签" class="headerlink" title="迭代iterator标签"></a>迭代<code>iterator</code>标签</h2><p>iterator标签主要用于对集合（List、Set、数组和Map）进行迭代。使用iterator标签对集合进行迭代输出时，可以指定以下三个属性：</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>描述</th>
+<th>是否可选</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>value</td>
+<td>用于指定被迭代的集合；如果没有指定value属性，则使用ValueStack栈顶的集合</td>
+<td>可选</td>
+</tr>
+<tr>
+<td>id</td>
+<td>用于指定集合里元素的ID</td>
+<td>可选</td>
+</tr>
+<tr>
+<td>status</td>
+<td>用于指定迭代时的IteratorStatus实例，通过该实例即可判断当前迭代元素的属性，例如是否为最后一个，以及当前迭代元素的索引等</td>
+<td>可选</td>
+</tr>
+</tbody></table>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--List--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">s:set</span> <span class="attr">name</span>=<span class="string">"varList"</span> <span class="attr">value</span>=<span class="string">"&#123;'www.jellythink.com', 'www.google.com', 'www.facebook.com'&#125;"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">s:iterator</span> <span class="attr">value</span>=<span class="string">"#varList"</span> <span class="attr">id</span>=<span class="string">"website"</span> <span class="attr">status</span>=<span class="string">"st"</span>&gt;</span></span><br><span class="line">   当前已经输出了<span class="tag">&lt;<span class="name">s:property</span> <span class="attr">value</span>=<span class="string">"#st.getCount()"</span>/&gt;</span>个<span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">s:property</span> <span class="attr">value</span>=<span class="string">"website"</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">s:iterator</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--Map--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">s:set</span> <span class="attr">name</span>=<span class="string">"varMap"</span> <span class="attr">value</span>=<span class="string">"#&#123;'谷歌':'www.jellythink.com', '脸书':'www.facebook.com'"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">s:iterator</span> <span class="attr">value</span>=<span class="string">"#varMap"</span> <span class="attr">id</span>=<span class="string">"website"</span> <span class="attr">status</span>=<span class="string">"st"</span>&gt;</span></span><br><span class="line">   第<span class="tag">&lt;<span class="name">s:property</span> <span class="attr">value</span>=<span class="string">"#st.getCount()"</span>/&gt;</span>组</span><br><span class="line"> <span class="tag">&lt;<span class="name">s:property</span> <span class="attr">value</span>=<span class="string">"key"</span>/&gt;</span>=<span class="tag">&lt;<span class="name">s:property</span> <span class="attr">value</span>=<span class="string">"value"</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">s:iterator</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>为<code>&lt;s:iterator.../&gt;</code>标签指定<code>status</code>属性，即每次迭代时都会有一个<code>IteratorStatus</code>实例，该实例包含以下几个方法：</p>
+<ul>
+<li>int getCount()：返回当前迭代了几个元素</li>
+<li>int getIndex()：返回当前迭代元素的索引</li>
+<li>boolean isEven()：返回当前迭代元素的索引是否是偶数</li>
+<li>boolean isOdd()：返回当前迭代元素的索引是否是奇数</li>
+<li>boolean isFirst()：返回当前迭代元素是否是第一个元素</li>
+<li>boolean isLast()：返回当前迭代元素是否是最后一个元素</li>
+</ul>
+<h2 id="合并集合对象append标签"><a href="#合并集合对象append标签" class="headerlink" title="合并集合对象append标签"></a>合并集合对象<code>append</code>标签</h2><p>append标签用于将多个集合对象拼接起来，组成一个新的集合。通过这种拼接，从而允许通过一个&lt;s:iterator…/&gt;标签就可以完成对多个集合的迭代。<br>使用append标签时需要指定一个var属性，该属性确定拼接生成的新集合的名字，该新集合被放入Stack Context中。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">s:set</span> <span class="attr">name</span>=<span class="string">"varList"</span> <span class="attr">value</span>=<span class="string">"&#123;'www.google.com', 'www.facebook.com'&#125;"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">s:set</span> <span class="attr">name</span>=<span class="string">"varList2"</span> <span class="attr">value</span>=<span class="string">"&#123;'www.xiaomi.com', 'www.qq.com'&#125;"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">s:append</span> <span class="attr">var</span>=<span class="string">"newCollection"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">s:param</span> <span class="attr">value</span>=<span class="string">"#varList"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">s:param</span> <span class="attr">value</span>=<span class="string">"#varList2"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">s:append</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="合并集合对象merge标签"><a href="#合并集合对象merge标签" class="headerlink" title="合并集合对象merge标签"></a>合并集合对象<code>merge</code>标签</h2><p>merge标签和append标签看起来非常类似，也是用于将多个集合拼接成一个集合，但它采用的拼接方式与append的拼接方式有所不同，比如现在有三个集合，每个集合有三个元素，分别使用append和merge方式进行拼接，产生的新集合将有所区别。<br>使用append方式拼接，则新集合的元素顺序为：<br>第一个集合中的第一个元素<br>第一个集合中的第二个元素<br>第一个集合中的第三个元素<br>第二个集合中的第一个元素<br>第二个集合中的第二个元素<br>第二个集合中的第三个元素<br>第三个集合中的第一个元素<br>第三个集合中的第二个元素<br>第三个集合中的第三个元素<br>使用merge方式拼接，则新集合的元素顺序为：</p>
+<p>第一个集合中的第一个元素<br>第二个集合中的第一个元素<br>第三个集合中的第一个元素<br>第一个集合中的第二个元素<br>第二个集合中的第二个元素<br>第三个集合中的第二个元素<br>第一个集合中的第三个元素<br>第二个集合中的第三个元素<br>第三个集合中的第三个元素<br>从上面可以看出来，采用append和merge方式合并集合时，新集合中集合元素完全相同，只是新集合中集合元素的顺序有所不同。</p>
+<h2 id="分割字符串generator标签"><a href="#分割字符串generator标签" class="headerlink" title="分割字符串generator标签"></a>分割字符串<code>generator</code>标签</h2><p>generator标签可以将指定字符串按指定分隔符分隔成多个子串，临时生成的多个子串可以使用iterator标签来迭代输出。在该标签的标签体内，整个临时生成的集合将位于ValueStack的顶端，但一旦该标签结束，该集合将被移出ValueStack。<br>使用generator标签时可以指定如下几个属性：</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>描述</th>
+<th>是否可选</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>count</td>
+<td>指定生成集合中元素的总数</td>
+<td>可选</td>
+</tr>
+<tr>
+<td>separator</td>
+<td>指定用于解析字符串的分隔符</td>
+<td>必填</td>
+</tr>
+<tr>
+<td>val</td>
+<td>指定被解析的字符串</td>
+<td>必填</td>
+</tr>
+<tr>
+<td>converter</td>
+<td>该属性指定一个转换器，该转换器负责将集合中的每个字符串转换成对象，通过该转换器可以将一个字符串解析成对象的集合。该属性值必须是一个org.apache.Struts2.util.IteratorGenerator.Converter对象</td>
+<td>可选</td>
+</tr>
+<tr>
+<td>var</td>
+<td>如果指定了该属性，则将生成的Iterator对象放入Stack Context中</td>
+<td>可选</td>
+</tr>
+</tbody></table>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">s:generator</span> <span class="attr">val</span>=<span class="string">"'www.google.com,www.baidu.com'"</span> <span class="attr">separator</span>=<span class="string">","</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">s:iterator</span> <span class="attr">id</span>=<span class="string">"website"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">s:property</span> <span class="attr">value</span>=<span class="string">"website"</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">s:iterator</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">s:generator</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="取得集合子集subset标签"><a href="#取得集合子集subset标签" class="headerlink" title="取得集合子集subset标签"></a>取得集合子集<code>subset</code>标签</h2><p>用于取得集合的子集，具体使用请参见相关文档。</p>
+<h2 id="对集合进行排序sort标签"><a href="#对集合进行排序sort标签" class="headerlink" title="对集合进行排序sort标签"></a>对集合进行排序<code>sort</code>标签</h2><p>sort标签用于对指定的集合元素进行排序，进行排序时，必须提供自定义的排序规则，即实现自己的Comparator，自定义的Comparator需要实现java.util.Comparator接口<br>使用sort标签时可指定如下几个属性：</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>描述</th>
+<th>是否可选</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>comparator</td>
+<td>指定进行排序的Comparator</td>
+<td>必填</td>
+</tr>
+<tr>
+<td>source</td>
+<td>指定被排序的集合；如果不指定该属性，则对ValueStack栈顶的集合进行排序</td>
+<td>可选</td>
+</tr>
+<tr>
+<td>var</td>
+<td>如果指定了该属性，则将生成的Iterator对象设置成page范围的属性，不放入Stack Context中</td>
+<td>可选</td>
+</tr>
+</tbody></table>
+<h1 id="数据标签"><a href="#数据标签" class="headerlink" title="数据标签"></a>数据标签</h1><p>数据标签主要结合OGNL表达式进行数据访问，比如显示一个Action里的属性值，或者生成国际化输出等。数据标签主要包含如下几个：</p>
+<h2 id="在页面中调用action标签"><a href="#在页面中调用action标签" class="headerlink" title="在页面中调用action标签"></a>在页面中调用<code>action</code>标签</h2><p>使用action标签可以允许在JSP页面中直接调用Action。在使用action标签时，可以指定如下几个属性：<br>|属性名    |描述    |是否可选|<br>|—-|—-|—-|<br>|var    |一旦定义了该属性，该Action将被放入ValueStack中    |可选|<br>|name    |该属性指定该标签调用哪个Action|    必填|<br>|namespace    |该属性指定标签调用的Action所在的namespace    |可选|<br>|executeResult    |该属性指定是否要将Action的处理结果页面包含到本页面，默认为false    |可选|<br>|ignoreContextParams    |指定该页面中的请求参数是否需要传入调用的Action，默认为false，即将本页面的请求参数传入被调用的Action|    可选|</p>
+<h2 id="创建一个JavaBean实例bean标签"><a href="#创建一个JavaBean实例bean标签" class="headerlink" title="创建一个JavaBean实例bean标签"></a>创建一个JavaBean实例<code>bean</code>标签</h2><p>bean标签用于创建一个JavaBean实例。创建JavaBean实例时，可以在该标签体内使用param标签为该JavaBean实例传入属性。使用bean标签时可以指定以下属性：</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>描述</th>
+<th>是否可选</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td>指定要实例化的JavaBean的实现类</td>
+<td>必填</td>
+</tr>
+<tr>
+<td>var</td>
+<td>如果指定了该属性，则该JavaBean实例会被放入Stack Context中，并放入requestScope中</td>
+<td>可选</td>
+</tr>
+</tbody></table>
+<p>具体的代码示例请参见push标签中的代码。</p>
+<h2 id="时间date标签"><a href="#时间date标签" class="headerlink" title="时间date标签"></a>时间<code>date</code>标签</h2><p>date标签用于格式化输出一个日期，除此之外，date标签还可以计算指定日期和当前时刻之间的时差。使用date标签时，可以指定以下几个属性：</p>
+<p>|属性名    描述    是否可选|<br>|—-|—-|—-|<br>|format    |根据该属性指定的格式来格式化日期    |可选|<br>|nice    |用于指定是否输出指定日期和当前时刻之间的时差，默认为false，即不输出时差|    可选|<br>|name    |指定要格式化的日期值|    必填|<br>|var    |格式化后的字符串将被放入Stack Context中|    可选|</p>
+<h2 id="用于调试debug标签"><a href="#用于调试debug标签" class="headerlink" title="用于调试debug标签"></a>用于调试<code>debug</code>标签</h2><p>debug标签主要用于调试，它在页面上生成一个超链接，通过该链接可以查看到ValueStack和Stack Context中所有的值信息</p>
+<h2 id="包含其他页面include标签"><a href="#包含其他页面include标签" class="headerlink" title="包含其他页面include标签"></a>包含其他页面<code>include</code>标签</h2><p>include标签用于将一个JSP页面，或者一个Servlet包含到本页面中，使用时需要指定以下属性：</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>描述</th>
+<th>是否可选</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>value</td>
+<td>该属性指定需要被包含的JSP页面，或者Servlet</td>
+<td>必填</td>
+</tr>
+</tbody></table>
+<p>例如下面这段代码包含regist.jsp:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">s:include</span> <span class="attr">value</span>=<span class="string">"regist.jsp"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">s:param</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"'jelly'"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">s:param</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"1234567"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">s:include</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>regist.jsp的代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%=request.getParameter("name")</span> %&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">%=request.getParameter("password")</span> %&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="为其它标签提供参数param标签"><a href="#为其它标签提供参数param标签" class="headerlink" title="为其它标签提供参数param标签"></a>为其它标签提供参数<code>param</code>标签</h2><p>param标签主要用于为其它标签提供参数，具体请参见下面的push标签的示例代码。</p>
+<h2 id="将某个值放到ValueStack的栈顶push标签"><a href="#将某个值放到ValueStack的栈顶push标签" class="headerlink" title="将某个值放到ValueStack的栈顶push标签"></a>将某个值放到ValueStack的栈顶<code>push</code>标签</h2><p>push标签用于将某个值放到ValueStack的栈顶。就一个属性值：</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>描述</th>
+<th>是否可选</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>value</td>
+<td>该属性指定需要放到ValueStack栈顶的值</td>
+<td>必填</td>
+</tr>
+</tbody></table>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">s:bean</span> <span class="attr">name</span>=<span class="string">"com.jellythink.practise.LoginAction"</span> <span class="attr">var</span>=<span class="string">"p"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">s:param</span> <span class="attr">name</span>=<span class="string">"userName"</span> <span class="attr">value</span>=<span class="string">"jelly"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">s:param</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"123456"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">s:bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">s:push</span> <span class="attr">value</span>=<span class="string">"#p"</span>&gt;</span></span><br><span class="line">    ValueStack栈顶对象的username属性：<span class="tag">&lt;<span class="name">s:property</span> <span class="attr">value</span>=<span class="string">"name"</span> /&gt;</span></span><br><span class="line">    ValueStack栈顶对象的password属性：<span class="tag">&lt;<span class="name">s:property</span> <span class="attr">value</span>=<span class="string">"password"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">s:push</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>只有在push标签内时，被push标签放入ValueStack中的对象才存在；一旦离开了push标签，则刚刚放入的对象将立刻被移出ValueStack。</p>
+<h2 id="将某个值放入指定范围内set标签"><a href="#将某个值放入指定范围内set标签" class="headerlink" title="将某个值放入指定范围内set标签"></a>将某个值放入指定范围内<code>set</code>标签</h2><p>set标签用于将某个值放入指定范围内</p>
+<h2 id="生成一个URL地址url标签"><a href="#生成一个URL地址url标签" class="headerlink" title="生成一个URL地址url标签"></a>生成一个URL地址<code>url</code>标签</h2><p>url标签用于生成一个URL地址，可以通过url标签指定param子元素，从而向指定URL发送请求参数。</p>
+<h2 id="输出value属性指定的值property标签"><a href="#输出value属性指定的值property标签" class="headerlink" title="输出value属性指定的值property标签"></a>输出value属性指定的值<code>property</code>标签</h2><p>property标签输出value属性指定的值，如果没有指定value属性，则默认输出ValueStack栈顶的值。该标签有以下几个属性：</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>描述</th>
+<th>是否可选</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>default</td>
+<td>如果需要输出的属性值为null，则显示default属性指定的值</td>
+<td>可选</td>
+</tr>
+<tr>
+<td>escape</td>
+<td>指定是否escape HTML代码，默认为true</td>
+<td>可选</td>
+</tr>
+<tr>
+<td>value</td>
+<td>指定需要输出的属性值，如果没有指定该属性，则默认输出ValueStack栈顶的值</td>
+<td>可选</td>
+</tr>
+</tbody></table>
+</div><div class="tags"><a href="/tags/Struts2/">Struts2</a></div><div class="post-share"></div><div class="post-nav"><a href="/2019/07/13/2019-20190713-Spring如何下载包/" class="pre">Spring如何下载包</a><a href="/2019/07/13/2019-20190713-Struts2的拦截器/" class="next">Struts2的拦截器</a></div><div id="comments"><div id="lv-container" data-id="city" data-uid="MTAyMC80NDg2NC8yMTM4NQ=="></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#标签分类"><span class="toc-text">标签分类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#自定义标签"><span class="toc-text">自定义标签</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#OGNL标签详解"><span class="toc-text">OGNL标签详解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#非用户界面标签库"><span class="toc-text">非用户界面标签库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#控制标签if-elseif-标签"><span class="toc-text">控制标签if...elseif...标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#迭代iterator标签"><span class="toc-text">迭代iterator标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#合并集合对象append标签"><span class="toc-text">合并集合对象append标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#合并集合对象merge标签"><span class="toc-text">合并集合对象merge标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分割字符串generator标签"><span class="toc-text">分割字符串generator标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#取得集合子集subset标签"><span class="toc-text">取得集合子集subset标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对集合进行排序sort标签"><span class="toc-text">对集合进行排序sort标签</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据标签"><span class="toc-text">数据标签</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#在页面中调用action标签"><span class="toc-text">在页面中调用action标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建一个JavaBean实例bean标签"><span class="toc-text">创建一个JavaBean实例bean标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#时间date标签"><span class="toc-text">时间date标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用于调试debug标签"><span class="toc-text">用于调试debug标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#包含其他页面include标签"><span class="toc-text">包含其他页面include标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为其它标签提供参数param标签"><span class="toc-text">为其它标签提供参数param标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将某个值放到ValueStack的栈顶push标签"><span class="toc-text">将某个值放到ValueStack的栈顶push标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将某个值放入指定范围内set标签"><span class="toc-text">将某个值放入指定范围内set标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成一个URL地址url标签"><span class="toc-text">生成一个URL地址url标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#输出value属性指定的值property标签"><span class="toc-text">输出value属性指定的值property标签</span></a></li></ol></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/08/26/2020-20200826-解决Github-Page无法访问的其中一种情况/">解决Github-Page无法访问的其中一种情况</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/26/2020-20200826-Ubuntu中修改DNS的方法/">Ubuntu中修改DNS的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/26/2020-20200826-nslookup命令-查DNS信息用/">Nslookup命令-查DNS信息用</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/02/2020-20200801-Ubuntu20-04中安装flameshot截屏工具/">Ubuntu20.04中安装flameshot截屏工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/31/2020-20200731-Ubuntu刷新DNS/">Ubuntu刷新DNS</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/28/2020-20200727-循环冗余校验（CRC）算法/">循环冗余校验（CRC）算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/26/2020-20200726-ubuntu中Rime输入法的安装和配置/">ubuntu中Rime输入法的安装和配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/26/2020-20200726-Ubuntu18-04中ibus-sunpinyin的安装与设置/">ubuntu18.04中ibus-Sunpinyin的安装与设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/25/2020-20200724-Ubuntu设置开机自动加-挂载硬盘/">Ubuntu设置开机自动加/挂载硬盘</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/18/2020-20200718-Ubuntu18-04如何固定图标到任务栏/">Ubuntu18.04如何固定图标到任务栏</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BigData/">BigData</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Eclipse/">Eclipse</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Excel/">Excel</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">97</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tampermonkey/">Tampermonkey</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ubuntu/">Ubuntu</a><span class="category-list-count">49</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vim/">vim</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/人工智能/">人工智能</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构与算法/">数据结构与算法</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/正则表达式/">正则表达式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/视频笔记/">视频笔记</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机操作系统/">计算机操作系统</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机组成原理/">计算机组成原理</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">4</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/Servlet/" style="font-size: 15px;">Servlet</a> <a href="/tags/Eclipse/" style="font-size: 15px;">Eclipse</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/vim/" style="font-size: 15px;">vim</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Linux命令/" style="font-size: 15px;">Linux命令</a> <a href="/tags/Ubuntu装机日志/" style="font-size: 15px;">Ubuntu装机日志</a> <a href="/tags/Spring/" style="font-size: 15px;">Spring</a> <a href="/tags/SpringMVC/" style="font-size: 15px;">SpringMVC</a> <a href="/tags/Lombok/" style="font-size: 15px;">Lombok</a> <a href="/tags/Java细节/" style="font-size: 15px;">Java细节</a> <a href="/tags/Thymeleaf/" style="font-size: 15px;">Thymeleaf</a> <a href="/tags/Linux配置/" style="font-size: 15px;">Linux配置</a> <a href="/tags/Junit/" style="font-size: 15px;">Junit</a> <a href="/tags/设计模式/" style="font-size: 15px;">设计模式</a> <a href="/tags/JVM/" style="font-size: 15px;">JVM</a> <a href="/tags/Jackson/" style="font-size: 15px;">Jackson</a> <a href="/tags/Tomcat/" style="font-size: 15px;">Tomcat</a> <a href="/tags/BigData/" style="font-size: 15px;">BigData</a> <a href="/tags/Http/" style="font-size: 15px;">Http</a> <a href="/tags/Eclipse插件/" style="font-size: 15px;">Eclipse插件</a> <a href="/tags/JSP-EL-JSTL/" style="font-size: 15px;">JSP/EL/JSTL</a> <a href="/tags/Struts2/" style="font-size: 15px;">Struts2</a> <a href="/tags/Hibernate/" style="font-size: 15px;">Hibernate</a> <a href="/tags/OGNL/" style="font-size: 15px;">OGNL</a> <a href="/tags/maven/" style="font-size: 15px;">maven</a> <a href="/tags/MyBatis/" style="font-size: 15px;">MyBatis</a> <a href="/tags/人工智能/" style="font-size: 15px;">人工智能</a> <a href="/tags/SSH/" style="font-size: 15px;">SSH</a> <a href="/tags/SpringBoot/" style="font-size: 15px;">SpringBoot</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/SpringSecurity/" style="font-size: 15px;">SpringSecurity</a> <a href="/tags/Hadoop/" style="font-size: 15px;">Hadoop</a> <a href="/tags/Jquery/" style="font-size: 15px;">Jquery</a> <a href="/tags/正则表达式/" style="font-size: 15px;">正则表达式</a> <a href="/tags/Excel/" style="font-size: 15px;">Excel</a> <a href="/tags/计算机组成原理/" style="font-size: 15px;">计算机组成原理</a> <a href="/tags/视频笔记/" style="font-size: 15px;">视频笔记</a> <a href="/tags/Ubuntu配置/" style="font-size: 15px;">Ubuntu配置</a> <a href="/tags/数据结构与算法-Java实现/" style="font-size: 15px;">数据结构与算法(Java实现)</a> <a href="/tags/Tampermonkey/" style="font-size: 15px;">Tampermonkey</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">85</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">85</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">35</span></li></ul></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p><span> Copyright &copy;<a href="/." rel="nofollow">zjc.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><div id="fullscreen-img" class="hide"><span class="close"></span></div><script type="text/javascript" src="/js/imgview.js?v=2.0.5" async></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.5" async></script><script>(function(d, s) {
+  var j, e = d.getElementsByTagName('body')[0];
+  if (typeof LivereTower === 'function') { return; }
+  j = d.createElement(s);
+  j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+  j.async = true;
+  e.appendChild(j);
+})(document, 'script');
+</script></body></html>
