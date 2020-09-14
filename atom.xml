@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zjinc36.github.io/"/>
-  <updated>2020-09-01T03:08:09.399Z</updated>
+  <updated>2020-09-14T03:17:31.692Z</updated>
   <id>https://zjinc36.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Druid-Kylin-Presto-Impala-SparkSQL-ES比较</title>
+    <link href="https://zjinc36.github.io/2020/09/14/Druid-Kylin-Presto-Impala-SparkSQL-ES%E6%AF%94%E8%BE%83/"/>
+    <id>https://zjinc36.github.io/2020/09/14/Druid-Kylin-Presto-Impala-SparkSQL-ES比较/</id>
+    <published>2020-09-14T11:07:27.000Z</published>
+    <updated>2020-09-14T03:17:31.692Z</updated>
+    
+    <content type="html"><![CDATA[<!-- ![](/images/2020/09/20200914110558.png) --><table><thead><tr><th>对比项目</th><th>Druid</th><th>Kylin</th><th>Presto</th><th>Impala</th><th>Spark SQL</th><th>ES</th></tr></thead><tbody><tr><td>亚秒级响应</td><td>Y</td><td>Y</td><td>N</td><td>N</td><td>N</td><td>N</td></tr><tr><td>百亿数据集</td><td>Y</td><td>Y</td><td>Y</td><td>Y</td><td>Y</td><td>Y</td></tr><tr><td>SQL支持</td><td>N(开发中)</td><td>Y</td><td>Y</td><td>Y</td><td>Y</td><td>N</td></tr><tr><td>离线</td><td>Y</td><td>Y</td><td>Y</td><td>Y</td><td>Y</td><td>Y</td></tr><tr><td>实时</td><td>Y</td><td>Y</td><td>N</td><td>N</td><td>N</td><td>Y</td></tr><tr><td>精确去重</td><td>N</td><td>Y</td><td>Y</td><td>Y</td><td>Y</td><td>N</td></tr><tr><td>多表Join</td><td>N</td><td>Y</td><td>Y</td><td>Y</td><td>Y</td><td>N</td></tr><tr><td>JDBC for BI</td><td>N</td><td>Y</td><td>Y</td><td>Y</td><td>Y</td><td>N</td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      Druid-Kylin-Presto-Impala-SparkSQL-ES比较
+    
+    </summary>
+    
+      <category term="BigData" scheme="https://zjinc36.github.io/categories/BigData/"/>
+    
+    
+      <category term="BigData" scheme="https://zjinc36.github.io/tags/BigData/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux下查询进程占用的内存方法总结</title>
@@ -427,28 +449,6 @@
     
     
       <category term="Ubuntu装机日志" scheme="https://zjinc36.github.io/tags/Ubuntu%E8%A3%85%E6%9C%BA%E6%97%A5%E5%BF%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux中使用tar和gzip进行打包拆包压缩解压</title>
-    <link href="https://zjinc36.github.io/2020/06/11/2020-20200611-Linux%E4%B8%AD%E4%BD%BF%E7%94%A8tar%E5%92%8Cgzip%E8%BF%9B%E8%A1%8C%E6%89%93%E5%8C%85%E6%8B%86%E5%8C%85%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B/"/>
-    <id>https://zjinc36.github.io/2020/06/11/2020-20200611-Linux中使用tar和gzip进行打包拆包压缩解压/</id>
-    <published>2020-06-11T09:22:52.000Z</published>
-    <updated>2020-09-01T03:07:41.225Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="压缩格式："><a href="#压缩格式：" class="headerlink" title="压缩格式："></a>压缩格式：</h1><ul><li><p>windows (zip、rar)</p></li><li><p>linux  (gz ，bzip，zip)</p></li><li><p>先打包再压缩， 打包后可以拆包，压缩后可以解压</p></li><li><p>打包：目录可能有很多个文件，我先把它们打包成一个文件</p></li><li><p>压缩：把打包后的那个文件压缩</p></li></ul><h1 id="tar打包与拆包"><a href="#tar打包与拆包" class="headerlink" title="tar打包与拆包"></a>tar打包与拆包</h1><h2 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h2><ol><li><p>命令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar  -cvf  打包后的文件名即归档文件.tar  欲打包的文件夹名</span><br></pre></td></tr></table></figure></li><li><p>例子</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar  -cvf  news.tar  ./java   把java文件夹打包成new.tar</span><br></pre></td></tr></table></figure></li></ol><h2 id="拆包"><a href="#拆包" class="headerlink" title="拆包"></a>拆包</h2><ol><li><p>命令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar  -xvf  打包后的文件名即归档文件名.tar</span><br></pre></td></tr></table></figure></li><li><p>例子</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar  -xvf  news.tar   可以把new.tar拆包，拆出来java文件夹</span><br></pre></td></tr></table></figure></li></ol><h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- c ：打包，创建的一个归档文件 ，即打包文件夹</span><br><span class="line"></span><br><span class="line">- x ：拆包</span><br><span class="line"></span><br><span class="line">- z ：以gzip 格式压缩，默认压缩倍数 6倍  （0-9）</span><br><span class="line"></span><br><span class="line">- j ：以bzip2格式压缩</span><br><span class="line"></span><br><span class="line">- v ：显示打包或者拆包的文件信息</span><br><span class="line"></span><br><span class="line">- f ： 后面紧接一个 归档文件</span><br></pre></td></tr></table></figure><h1 id="gzip-压缩与解压-bzip2也可以"><a href="#gzip-压缩与解压-bzip2也可以" class="headerlink" title="gzip   压缩与解压(bzip2也可以)"></a>gzip   压缩与解压(bzip2也可以)</h1><h2 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h2><ol><li><p>命令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip  要压缩的打包后的文件名即归档文件名.tar</span><br></pre></td></tr></table></figure></li><li><p>例子</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip  news.tar</span><br></pre></td></tr></table></figure></li></ol><h2 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h2><ol><li><p>命令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip  -d  要解压的文件名.tar.gz</span><br></pre></td></tr></table></figure></li><li><p>例子</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip  -d  news.tar.gz</span><br></pre></td></tr></table></figure></li></ol><h1 id="打包且压缩"><a href="#打包且压缩" class="headerlink" title="打包且压缩"></a>打包且压缩</h1><ol><li><p>命令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar  -czvf  打包并压缩后的文件名.tar.gz  欲打包及压缩的文件夹名</span><br></pre></td></tr></table></figure></li><li><p>例子</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar  -czvf  news.tar.gz  ./java</span><br><span class="line">或</span><br><span class="line">tar  -czvf  news.tar.gz  java/</span><br><span class="line">或</span><br><span class="line">tar  -czvf  news.tar.gz  java</span><br></pre></td></tr></table></figure></li></ol><h1 id="解压及拆包"><a href="#解压及拆包" class="headerlink" title="解压及拆包"></a>解压及拆包</h1><ol><li><p>命令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar  -xzvf  打包及压缩后的文件名.tar.gz</span><br></pre></td></tr></table></figure></li><li><p>例子</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar  -xzvf  news.tar.gz</span><br></pre></td></tr></table></figure></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      tar、gzip (打包拆包、压缩解压、打包压缩、解压拆包)
-    
-    </summary>
-    
-      <category term="Ubuntu" scheme="https://zjinc36.github.io/categories/Ubuntu/"/>
-    
-    
-      <category term="Linux命令" scheme="https://zjinc36.github.io/tags/Linux%E5%91%BD%E4%BB%A4/"/>
     
   </entry>
   
