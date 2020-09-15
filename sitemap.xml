@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zjinc36.github.io/2019/09/15/2019-20190915-%E9%A1%B9%E7%9B%AE%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B9%8BFlume/</loc>
+    
+    <lastmod>2020-09-15T03:49:44.930Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zjinc36.github.io/2018/09/15/2018-20180915-%E9%A1%B9%E7%9B%AE%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B9%8BHadoop/</loc>
     
     <lastmod>2020-09-15T03:46:43.644Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://zjinc36.github.io/2017/09/15/2017-20170915-%E9%A1%B9%E7%9B%AE%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B9%8BKafka/</loc>
     
     <lastmod>2020-09-15T03:24:40.577Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zjinc36.github.io/2020/09/15/2019-20190915-%E9%A1%B9%E7%9B%AE%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B9%8BFlume/</loc>
-    
-    <lastmod>2020-09-15T03:22:10.713Z</lastmod>
     
   </url>
   
@@ -1073,14 +1073,14 @@
   </url>
   
   <url>
-    <loc>https://zjinc36.github.io/categories/index.html</loc>
+    <loc>https://zjinc36.github.io/404.html</loc>
     
     <lastmod>2020-03-27T09:06:04.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://zjinc36.github.io/about/index.html</loc>
+    <loc>https://zjinc36.github.io/categories/index.html</loc>
     
     <lastmod>2020-03-27T09:06:04.000Z</lastmod>
     
@@ -1094,7 +1094,7 @@
   </url>
   
   <url>
-    <loc>https://zjinc36.github.io/404.html</loc>
+    <loc>https://zjinc36.github.io/about/index.html</loc>
     
     <lastmod>2020-03-27T09:06:04.000Z</lastmod>
     

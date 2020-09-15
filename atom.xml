@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zjinc36.github.io/"/>
-  <updated>2020-09-15T03:22:10.713Z</updated>
+  <updated>2020-09-15T03:14:24.206Z</updated>
   <id>https://zjinc36.github.io/</id>
   
   <author>
@@ -15,30 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>项目遇到的问题之Flume</title>
-    <link href="https://zjinc36.github.io/2020/09/15/2019-20190915-%E9%A1%B9%E7%9B%AE%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B9%8BFlume/"/>
-    <id>https://zjinc36.github.io/2020/09/15/2019-20190915-项目遇到的问题之Flume/</id>
-    <published>2020-09-15T11:19:34.000Z</published>
-    <updated>2020-09-15T03:22:10.713Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Ganglia监控Flume发现发现尝试提交的次数大于最终成功的次数"><a href="#Ganglia监控Flume发现发现尝试提交的次数大于最终成功的次数" class="headerlink" title="Ganglia监控Flume发现发现尝试提交的次数大于最终成功的次数"></a>Ganglia监控Flume发现发现尝试提交的次数大于最终成功的次数</h1><ul><li>增加Flume内存</li><li>增加Flume台数</li></ul><h1 id="Flume上传文件到HDFS时参数大量小文件"><a href="#Flume上传文件到HDFS时参数大量小文件" class="headerlink" title="Flume上传文件到HDFS时参数大量小文件?"></a>Flume上传文件到HDFS时参数大量小文件?</h1><p>调整hdfs.rollInterval、hdfs.rollSize、hdfs.rollCount这三个参数的值。</p>]]></content>
-    
-    <summary type="html">
-    
-      项目遇到的问题之Flume
-    
-    </summary>
-    
-      <category term="BigData" scheme="https://zjinc36.github.io/categories/BigData/"/>
-    
-    
-      <category term="项目遇到的问题" scheme="https://zjinc36.github.io/tags/%E9%A1%B9%E7%9B%AE%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    
-      <category term="Flume" scheme="https://zjinc36.github.io/tags/Flume/"/>
-    
-  </entry>
   
   <entry>
     <title>Kafka工作流程分析</title>
@@ -448,6 +424,28 @@
     <summary type="html">
     
       Ubuntu中批量下载bilibili网站的视频
+    
+    </summary>
+    
+      <category term="Ubuntu" scheme="https://zjinc36.github.io/categories/Ubuntu/"/>
+    
+    
+      <category term="Ubuntu装机日志" scheme="https://zjinc36.github.io/tags/Ubuntu%E8%A3%85%E6%9C%BA%E6%97%A5%E5%BF%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu中安装分区管理工具gparted</title>
+    <link href="https://zjinc36.github.io/2020/07/08/2020-20200708-Ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85%E5%88%86%E5%8C%BA%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7gparted/"/>
+    <id>https://zjinc36.github.io/2020/07/08/2020-20200708-Ubuntu中安装分区管理工具gparted/</id>
+    <published>2020-07-08T15:16:44.000Z</published>
+    <updated>2020-07-08T07:21:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><ul><li><a href="https://gparted.org/index.php" target="_blank" rel="noopener">官网</a></li><li>GNOME Partition Editor,分区管理工具</li></ul><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><ul><li><p><a href="https://gparted.org/download.php" target="_blank" rel="noopener">https://gparted.org/download.php</a></p></li><li><p>Ubuntu安装</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gparted</span><br></pre></td></tr></table></figure></li><li><p>主界面<br><img src="/images/2020/07/20200708001.png" alt></p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      Ubuntu中安装分区管理工具gparted
     
     </summary>
     
