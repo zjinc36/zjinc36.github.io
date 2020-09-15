@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zjinc36.github.io/"/>
-  <updated>2020-09-14T14:21:23.641Z</updated>
+  <updated>2020-09-15T03:22:10.713Z</updated>
   <id>https://zjinc36.github.io/</id>
   
   <author>
@@ -17,9 +17,55 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>项目遇到的问题之Flume</title>
+    <link href="https://zjinc36.github.io/2020/09/15/2019-20190915-%E9%A1%B9%E7%9B%AE%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B9%8BFlume/"/>
+    <id>https://zjinc36.github.io/2020/09/15/2019-20190915-项目遇到的问题之Flume/</id>
+    <published>2020-09-15T11:19:34.000Z</published>
+    <updated>2020-09-15T03:22:10.713Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Ganglia监控Flume发现发现尝试提交的次数大于最终成功的次数"><a href="#Ganglia监控Flume发现发现尝试提交的次数大于最终成功的次数" class="headerlink" title="Ganglia监控Flume发现发现尝试提交的次数大于最终成功的次数"></a>Ganglia监控Flume发现发现尝试提交的次数大于最终成功的次数</h1><ul><li>增加Flume内存</li><li>增加Flume台数</li></ul><h1 id="Flume上传文件到HDFS时参数大量小文件"><a href="#Flume上传文件到HDFS时参数大量小文件" class="headerlink" title="Flume上传文件到HDFS时参数大量小文件?"></a>Flume上传文件到HDFS时参数大量小文件?</h1><p>调整hdfs.rollInterval、hdfs.rollSize、hdfs.rollCount这三个参数的值。</p>]]></content>
+    
+    <summary type="html">
+    
+      项目遇到的问题之Flume
+    
+    </summary>
+    
+      <category term="BigData" scheme="https://zjinc36.github.io/categories/BigData/"/>
+    
+    
+      <category term="项目遇到的问题" scheme="https://zjinc36.github.io/tags/%E9%A1%B9%E7%9B%AE%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    
+      <category term="Flume" scheme="https://zjinc36.github.io/tags/Flume/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kafka工作流程分析</title>
+    <link href="https://zjinc36.github.io/2020/09/15/2020-20200915-Kafka%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90/"/>
+    <id>https://zjinc36.github.io/2020/09/15/2020-20200915-Kafka工作流程分析/</id>
+    <published>2020-09-15T10:55:45.000Z</published>
+    <updated>2020-09-15T03:14:24.206Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/2020/09/20200914110559.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      Kafka工作流程分析
+    
+    </summary>
+    
+      <category term="BigData" scheme="https://zjinc36.github.io/categories/BigData/"/>
+    
+    
+      <category term="Kafka" scheme="https://zjinc36.github.io/tags/Kafka/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JUC之Semaphore信号灯</title>
-    <link href="https://zjinc36.github.io/2020/09/15/JUC%E4%B9%8BSemaphore%E4%BF%A1%E5%8F%B7%E7%81%AF/"/>
-    <id>https://zjinc36.github.io/2020/09/15/JUC之Semaphore信号灯/</id>
+    <link href="https://zjinc36.github.io/2020/09/15/2020-20200914-JUC%E4%B9%8BSemaphore%E4%BF%A1%E5%8F%B7%E7%81%AF/"/>
+    <id>https://zjinc36.github.io/2020/09/15/2020-20200914-JUC之Semaphore信号灯/</id>
     <published>2020-09-14T22:19:04.000Z</published>
     <updated>2020-09-14T14:21:23.641Z</updated>
     
@@ -40,8 +86,8 @@
   
   <entry>
     <title>JUC之CyclicBarrier循环栅栏</title>
-    <link href="https://zjinc36.github.io/2020/09/15/JUC%E4%B9%8BCyclicBarrier%E5%BE%AA%E7%8E%AF%E6%A0%85%E6%A0%8F/"/>
-    <id>https://zjinc36.github.io/2020/09/15/JUC之CyclicBarrier循环栅栏/</id>
+    <link href="https://zjinc36.github.io/2020/09/15/2020-20200914-JUC%E4%B9%8BCyclicBarrier%E5%BE%AA%E7%8E%AF%E6%A0%85%E6%A0%8F/"/>
+    <id>https://zjinc36.github.io/2020/09/15/2020-20200914-JUC之CyclicBarrier循环栅栏/</id>
     <published>2020-09-14T22:16:51.000Z</published>
     <updated>2020-09-14T14:19:30.543Z</updated>
     
@@ -62,8 +108,8 @@
   
   <entry>
     <title>JUC之CountDownLatch减少计数</title>
-    <link href="https://zjinc36.github.io/2020/09/15/JUC%E4%B9%8BCountDownLatch%E5%87%8F%E5%B0%91%E8%AE%A1%E6%95%B0/"/>
-    <id>https://zjinc36.github.io/2020/09/15/JUC之CountDownLatch减少计数/</id>
+    <link href="https://zjinc36.github.io/2020/09/15/2020-20200914-JUC%E4%B9%8BCountDownLatch%E5%87%8F%E5%B0%91%E8%AE%A1%E6%95%B0/"/>
+    <id>https://zjinc36.github.io/2020/09/15/2020-20200914-JUC之CountDownLatch减少计数/</id>
     <published>2020-09-14T22:11:43.000Z</published>
     <updated>2020-09-14T14:17:10.487Z</updated>
     
@@ -84,8 +130,8 @@
   
   <entry>
     <title>Druid-Kylin-Presto-Impala-SparkSQL-ES比较</title>
-    <link href="https://zjinc36.github.io/2020/09/14/Druid-Kylin-Presto-Impala-SparkSQL-ES%E6%AF%94%E8%BE%83/"/>
-    <id>https://zjinc36.github.io/2020/09/14/Druid-Kylin-Presto-Impala-SparkSQL-ES比较/</id>
+    <link href="https://zjinc36.github.io/2020/09/14/2020-20200914-Druid-Kylin-Presto-Impala-SparkSQL-ES%E6%AF%94%E8%BE%83/"/>
+    <id>https://zjinc36.github.io/2020/09/14/2020-20200914-Druid-Kylin-Presto-Impala-SparkSQL-ES比较/</id>
     <published>2020-09-14T11:07:27.000Z</published>
     <updated>2020-09-14T03:17:31.692Z</updated>
     
@@ -123,6 +169,54 @@
     
     
       <category term="Linux命令" scheme="https://zjinc36.github.io/tags/Linux%E5%91%BD%E4%BB%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>项目遇到的问题之Spark</title>
+    <link href="https://zjinc36.github.io/2020/08/29/2020-20200829-%E9%A1%B9%E7%9B%AE%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B9%8BSpark/"/>
+    <id>https://zjinc36.github.io/2020/08/29/2020-20200829-项目遇到的问题之Spark/</id>
+    <published>2020-08-29T11:37:34.000Z</published>
+    <updated>2020-09-15T03:46:14.666Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="SparkStreaming优雅关闭"><a href="#SparkStreaming优雅关闭" class="headerlink" title="SparkStreaming优雅关闭"></a>SparkStreaming优雅关闭</h1><p>如何优雅的关闭SparkStreaming任务（将写好的代码打包，Spark-Submit） =&gt; Kill -9 xxx ?<br>开启另外一个线程每5秒监听HDFS上一个文件是否存在。如果检测到存在，调用ssc.stop()方法关闭SparkStreaming任务（当你要关闭任务时，可以创建你自定义监控的文件目录）</p>]]></content>
+    
+    <summary type="html">
+    
+      项目遇到的问题之Spark
+    
+    </summary>
+    
+      <category term="BigData" scheme="https://zjinc36.github.io/categories/BigData/"/>
+    
+    
+      <category term="项目遇到的问题" scheme="https://zjinc36.github.io/tags/%E9%A1%B9%E7%9B%AE%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    
+      <category term="Spark" scheme="https://zjinc36.github.io/tags/Spark/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>项目遇到的问题之Sqoop</title>
+    <link href="https://zjinc36.github.io/2020/08/28/2020-20200828-%E9%A1%B9%E7%9B%AE%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B9%8BSqoop/"/>
+    <id>https://zjinc36.github.io/2020/08/28/2020-20200828-项目遇到的问题之Sqoop/</id>
+    <published>2020-08-28T11:27:52.000Z</published>
+    <updated>2020-09-15T03:38:10.817Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Sqoop数据导出Parquet"><a href="#Sqoop数据导出Parquet" class="headerlink" title="Sqoop数据导出Parquet"></a>Sqoop数据导出Parquet</h1><p>Ads层数据用Sqoop往MySql中导入数据的时候，如果用了orc（Parquet）不能导入，需转化成text格式</p><h1 id="Sqoop中导入导出Null存储一致性问题"><a href="#Sqoop中导入导出Null存储一致性问题" class="headerlink" title="Sqoop中导入导出Null存储一致性问题"></a>Sqoop中导入导出Null存储一致性问题</h1><p>Hive中的Null在底层是以“\N”来存储，而MySQL中的Null在底层就是Null，为了保证数据两端的一致性。在导出数据时采用–input-null-string和–input-null-non-string两个参数。导入数据时采用–null-string和–null-non-string。</p><h1 id="Sqoop导出数据到MySql时，使用4个map怎么保证数据的一致性"><a href="#Sqoop导出数据到MySql时，使用4个map怎么保证数据的一致性" class="headerlink" title="Sqoop导出数据到MySql时，使用4个map怎么保证数据的一致性"></a>Sqoop导出数据到MySql时，使用4个map怎么保证数据的一致性</h1><p>因为在导出数据的过程中map任务可能会失败，可以使用<code>--staging-table  --clear-staging</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sqoop export \</span><br><span class="line">--connect jdbc:mysql://192.168.137.10:3306/user_behavior \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--table app_cource_study_report \</span><br><span class="line">--columns watch_video_cnt,complete_video_cnt,dt --fields-terminated-by &quot;\t&quot; \</span><br><span class="line">--export-dir &quot;/user/hive/warehouse/tmp.db/app_cource_study_analysis_$&#123;day&#125;&quot; \</span><br><span class="line">--staging-table app_cource_study_report_tmp \</span><br><span class="line">--clear-staging-table \</span><br><span class="line">--input-null-string &apos;\N&apos;</span><br></pre></td></tr></table></figure><p>任务执行成功首先在tmp临时表中，然后将tmp表中的数据复制到目标表中（这个时候可以使用事务，保证事务的一致性）</p>]]></content>
+    
+    <summary type="html">
+    
+      项目遇到的问题之Sqoop
+    
+    </summary>
+    
+      <category term="BigData" scheme="https://zjinc36.github.io/categories/BigData/"/>
+    
+    
+      <category term="项目遇到的问题" scheme="https://zjinc36.github.io/tags/%E9%A1%B9%E7%9B%AE%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    
+      <category term="Sqoop" scheme="https://zjinc36.github.io/tags/Sqoop/"/>
     
   </entry>
   
@@ -354,94 +448,6 @@
     <summary type="html">
     
       Ubuntu中批量下载bilibili网站的视频
-    
-    </summary>
-    
-      <category term="Ubuntu" scheme="https://zjinc36.github.io/categories/Ubuntu/"/>
-    
-    
-      <category term="Ubuntu装机日志" scheme="https://zjinc36.github.io/tags/Ubuntu%E8%A3%85%E6%9C%BA%E6%97%A5%E5%BF%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu中安装分区管理工具gparted</title>
-    <link href="https://zjinc36.github.io/2020/07/08/2020-20200708-Ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85%E5%88%86%E5%8C%BA%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7gparted/"/>
-    <id>https://zjinc36.github.io/2020/07/08/2020-20200708-Ubuntu中安装分区管理工具gparted/</id>
-    <published>2020-07-08T15:16:44.000Z</published>
-    <updated>2020-07-08T07:21:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><ul><li><a href="https://gparted.org/index.php" target="_blank" rel="noopener">官网</a></li><li>GNOME Partition Editor,分区管理工具</li></ul><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><ul><li><p><a href="https://gparted.org/download.php" target="_blank" rel="noopener">https://gparted.org/download.php</a></p></li><li><p>Ubuntu安装</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gparted</span><br></pre></td></tr></table></figure></li><li><p>主界面<br><img src="/images/2020/07/20200708001.png" alt></p></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      Ubuntu中安装分区管理工具gparted
-    
-    </summary>
-    
-      <category term="Ubuntu" scheme="https://zjinc36.github.io/categories/Ubuntu/"/>
-    
-    
-      <category term="Ubuntu装机日志" scheme="https://zjinc36.github.io/tags/Ubuntu%E8%A3%85%E6%9C%BA%E6%97%A5%E5%BF%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu中基于Docker安装QQ和WeChat</title>
-    <link href="https://zjinc36.github.io/2020/07/08/2020-20200708-Ubuntu%E4%B8%AD%E5%9F%BA%E4%BA%8EDocker%E5%AE%89%E8%A3%85QQ%E5%92%8CWeChat/"/>
-    <id>https://zjinc36.github.io/2020/07/08/2020-20200708-Ubuntu中基于Docker安装QQ和WeChat/</id>
-    <published>2020-07-08T14:30:14.000Z</published>
-    <updated>2020-07-08T06:34:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="github上有这两个项目"><a href="#github上有这两个项目" class="headerlink" title="github上有这两个项目"></a>github上有这两个项目</h1><ul><li><a href="https://github.com/bestwu/docker-wechat" target="_blank" rel="noopener">https://github.com/bestwu/docker-wechat</a></li><li><a href="https://github.com/bestwu/docker-qq" target="_blank" rel="noopener">https://github.com/bestwu/docker-qq</a></li></ul><h1 id="有个管理脚本脚本"><a href="#有个管理脚本脚本" class="headerlink" title="有个管理脚本脚本"></a>有个管理脚本脚本</h1><ul><li><a href="https://github.com/ygcaicn/ubuntu_qq" target="_blank" rel="noopener">https://github.com/ygcaicn/ubuntu_qq</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      Ubuntu中安装离线API文档大全Zeal
-    
-    </summary>
-    
-      <category term="Ubuntu" scheme="https://zjinc36.github.io/categories/Ubuntu/"/>
-    
-    
-      <category term="Ubuntu装机日志" scheme="https://zjinc36.github.io/tags/Ubuntu%E8%A3%85%E6%9C%BA%E6%97%A5%E5%BF%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu中安装桌面搜索应用DocFetcher</title>
-    <link href="https://zjinc36.github.io/2020/07/07/2020-20200707-Ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85%E6%A1%8C%E9%9D%A2%E6%90%9C%E7%B4%A2%E5%BA%94%E7%94%A8DocFetcher/"/>
-    <id>https://zjinc36.github.io/2020/07/07/2020-20200707-Ubuntu中安装桌面搜索应用DocFetcher/</id>
-    <published>2020-07-07T08:15:49.000Z</published>
-    <updated>2020-07-07T00:36:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><ul><li>DocFetcher 是一个使用 Java 语言开发的开源桌面搜索应用程序<ul><li>能搜索docx和pdf的内容</li></ul></li></ul><h1 id="平台"><a href="#平台" class="headerlink" title="平台"></a>平台</h1><p>Windows，Linux 和 OS X</p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><ol><li>基于java,所以需要运行环境：Java Runtime Environment（JRE）1.7 +</li><li>参考官网说明:<a href="http://docfetcher.sourceforge.net/en/download.html" target="_blank" rel="noopener">http://docfetcher.sourceforge.net/en/download.html</a></li></ol><h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><h2 id="建立索引"><a href="#建立索引" class="headerlink" title="建立索引"></a>建立索引</h2><p>为了快速的进行文本检索，DocFetcher 在检索文档文本前需要建立索引，用户可以根据需要为文件夹或者整个磁盘建立索引，当然，仅仅在第一次检索时需要为所要检索的文件夹或磁盘建立索引，建立索引后，当文件内容发生了变化 DocFetcher 会自动更新索引。以下是建立索引的详细方法：</p><ol><li><p>如图所示，右击[搜索范围]框的空白处，选择弹出菜单中的[建立索引 - 资料夹]。<br><img src="/images/2020/07/20200707003.png" alt></p></li><li><p>在弹出的选择窗口中选择需要检索文档的位置，点击[确认]。<br><img src="/images/2020/07/20200707004.png" alt></p></li><li><p>在弹出的窗口中可以对索引的细节进行设置，可以选择所要检索的文件格式，在排除列表中可以使用正则表达式过滤不需要建立索引的文件和文件格式，其他选项没有特殊要求使用默认值即可。最后选择[执行]，将开始建立索引。<br><img src="/images/2020/07/20200707005.png" alt></p></li><li><p>建立索引的过程耗时较长，具体时间取决于所选建立索引的文件夹中包含的文件数量及文件大小。索引建立完成后在首页的[搜索范围]框内便有了对应的目录。</p></li></ol><h2 id="检索数据"><a href="#检索数据" class="headerlink" title="检索数据"></a>检索数据</h2><p>对于建立好索引的目录，可以通过勾选检索目录、勾选文件类型、设定文件大小、输入关键字来进行文本检索，这里仅对 DocFetcher 的检索语法做简单介绍，详细内容请参照官方文档。</p><ul><li>短语搜索：需要将所要检索的短语放入英文双引号内。如 ：”可转债”，返回包含词语”可转债”的文件；</li><li>布尔运算：支持复杂条件的检索，常用运算符包含 AND、OR 、NOT 等，短语间没有运算符时将默认使用 OR。如 “可转债” AND “可交换债”，返回既包含短语”可转债”又包含短语”可交换债”的文件；</li><li>通配符：问号（’?’）和星号（’<em>‘）可用于表示某些字符未知。如 ：”可”</em>，返回包含”可以”、”可转债”、”可交换债”等包含以”可”开头的语句的文件；</li><li>模糊搜索：可以搜索与给定单词类似的单词。如，roam~，返回包含 foam 和的单词的文档 roams 的文件。</li></ul><h3 id="检索关键字格式"><a href="#检索关键字格式" class="headerlink" title="检索关键字格式"></a>检索关键字格式</h3><p>关键字是默认分词的，中文分词有时候一言难尽，所以<strong>如果想搜索整个词语请务必使用英文双引号括住</strong>，否则将导致 DocFetcher 将词语分词后使用 OR 运算进行检索，最终使检索结果出乎意料</p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://hacpai.com/article/1568960776746#part1-%E5%BB%BA%E7%AB%8B%E7%B4%A2%E5%BC%95" target="_blank" rel="noopener">DocFetcher 使用教程——高效的文档文本检索工具</a></p>]]></content>
-    
-    <summary type="html">
-    
-      Ubuntu中安装桌面搜索应用DocFetcher
-    
-    </summary>
-    
-      <category term="Ubuntu" scheme="https://zjinc36.github.io/categories/Ubuntu/"/>
-    
-    
-      <category term="Ubuntu装机日志" scheme="https://zjinc36.github.io/tags/Ubuntu%E8%A3%85%E6%9C%BA%E6%97%A5%E5%BF%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu中安装离线API文档大全Zeal</title>
-    <link href="https://zjinc36.github.io/2020/07/07/2020-20200707-Ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85%E7%A6%BB%E7%BA%BFAPI%E6%96%87%E6%A1%A3%E5%A4%A7%E5%85%A8Zeal/"/>
-    <id>https://zjinc36.github.io/2020/07/07/2020-20200707-Ubuntu中安装离线API文档大全Zeal/</id>
-    <published>2020-07-07T08:03:04.000Z</published>
-    <updated>2020-07-07T00:14:05.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h1><p><a href="https://zealdocs.org/" target="_blank" rel="noopener">Zeal</a></p><h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>离线 API 文档大全</p><h1 id="平台"><a href="#平台" class="headerlink" title="平台"></a>平台</h1><p>Linux 和 Windows </p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><ul><li>参考这里<a href="https://zealdocs.org/download.html" target="_blank" rel="noopener">https://zealdocs.org/download.html</a></li><li>ubuntu安装<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install zeal</span><br></pre></td></tr></table></figure></li></ul><h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="下载文档"><a href="#下载文档" class="headerlink" title="下载文档"></a>下载文档</h2><p>在初次安装 Zeal 之后，需要转到 File → Options → Docsets 先下载文档，然后方能使用<br><img src="/images/2020/07/20200707001.png" alt></p><h2 id="使用文档"><a href="#使用文档" class="headerlink" title="使用文档"></a>使用文档</h2><ul><li>有两种方式来查询文档<ul><li>直接输入 keyword 关键字进行查询，这将搜索已下载的所有文档。</li><li>包含文档类型前缀的查询，例如：python:keyword 这将仅限于搜索 Python 文档。</li></ul></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      Ubuntu中安装离线API文档大全Zeal
     
     </summary>
     
