@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zjinc36.github.io/"/>
-  <updated>2020-10-14T02:44:54.000Z</updated>
+  <updated>2021-01-02T04:20:20.367Z</updated>
   <id>https://zjinc36.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Tldr-简化版Man</title>
+    <link href="https://zjinc36.github.io/2021/01/02/2021-20210102-tldr-%E7%AE%80%E5%8C%96%E7%89%88man/"/>
+    <id>https://zjinc36.github.io/2021/01/02/2021-20210102-tldr-简化版man/</id>
+    <published>2021-01-02T12:01:43.000Z</published>
+    <updated>2021-01-02T04:20:20.367Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="tldr命令是什么"><a href="#tldr命令是什么" class="headerlink" title="tldr命令是什么"></a>tldr命令是什么</h1><p>TLDR 页的 GitHub 仓库将其描述为简化的、社区驱动的手册页集合。在实际示例的帮助下，努力让使用手册页的体验变得更简单。如果还不知道，TLDR 取自互联网的常见俚语：太长没读Too Long Didn’t Read。</p><p>如果你想比较一下，让我们以 tar 命令为例。 通常，手册页的篇幅会超过 1000 行。tar 是一个归档实用程序，经常与 bzip 或 gzip 等压缩方法结合使用。看一下它的手册页：<br><img src="/images/2021/01/20210102120351.png" alt></p><p>而另一方面，TLDR 页面让你只是浏览一下命令，看看它是如何工作的。 tar 的 TLDR 页面看起来像这样，并带有一些方便的例子 —— 你可以使用此实用程序完成的最常见任务：<br><img src="/images/2021/01/20210102120649.png" alt></p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><ol><li><p>最成熟的 TLDR 客户端是基于 Node.js 的，你可以使用 NPM 包管理器轻松安装它。如果你的系统上没有 Node 和 NPM，请运行以下命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br><span class="line">sudo apt-get install npm</span><br></pre></td></tr></table></figure></li><li><p>现在，通过在终端中运行以下命令，在 Linux 机器上安装 TLDR 客户端：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g tldr</span><br></pre></td></tr></table></figure></li><li><p>一旦安装了此终端实用程序，最好在尝试之前更新其缓存。 为此，请运行以下命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tldr  --update</span><br></pre></td></tr></table></figure></li><li><p>执行此操作后，就可以阅读任何 Linux 命令的 TLDR 页面了。 为此，只需键入：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tldr  &lt;commandname&gt;</span><br></pre></td></tr></table></figure></li></ol><p><img src="/images/2021/01/20210102120926.png" alt></p><h1 id="错误说明"><a href="#错误说明" class="headerlink" title="错误说明"></a>错误说明</h1><ol><li><p>如果出现如下错误，是nodejs版本太低，要升级</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/lib/node_modules/tldr/node_modules/fs-extra/lib/mkdirs/make-dir.js:85</span><br><span class="line">      &#125; catch &#123;</span><br><span class="line">              ^</span><br><span class="line"></span><br><span class="line">SyntaxError: Unexpected token &#123;</span><br><span class="line">    at new Script (vm.js:51:7)</span><br><span class="line">    at createScript (vm.js:136:10)</span><br><span class="line">    at Object.runInThisContext (vm.js:197:10)</span><br><span class="line">    at Module._compile (module.js:613:28)</span><br><span class="line">    at Object.Module._extensions..js (module.js:660:10)</span><br><span class="line">    at Module.load (module.js:561:32)</span><br><span class="line">    at tryModuleLoad (module.js:501:12)</span><br><span class="line">    at Function.Module._load (module.js:493:3)</span><br><span class="line">    at Module.require (module.js:593:17)</span><br><span class="line">    at require (internal/module.js:11:18)</span><br></pre></td></tr></table></figure></li><li><p>升级操作</p></li></ol><ul><li>更新npm，执行<code>npm install -g npm</code></li><li>升级nodejs，主要包含如下三步:<ul><li>第一步：先清除npm缓存：npm cache clean -f</li><li>第二步：安装n模块：<code>npm install -g n</code> (n模块专门用来管理nodejs的版本)</li><li>第三步：升级node.js到最新稳定版：<code>n stable</code>  (当然也可以选择最新版本 n lastest)</li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      tldr-简化版man
+    
+    </summary>
+    
+      <category term="Ubuntu" scheme="https://zjinc36.github.io/categories/Ubuntu/"/>
+    
+    
+      <category term="Linux命令" scheme="https://zjinc36.github.io/tags/Linux%E5%91%BD%E4%BB%A4/"/>
+    
+  </entry>
   
   <entry>
     <title>大数据挖掘学习思路</title>
@@ -422,28 +444,6 @@
     <summary type="html">
     
       Ubuntu设置开机自动加/挂载硬盘
-    
-    </summary>
-    
-      <category term="Ubuntu" scheme="https://zjinc36.github.io/categories/Ubuntu/"/>
-    
-    
-      <category term="Ubuntu装机日志" scheme="https://zjinc36.github.io/tags/Ubuntu%E8%A3%85%E6%9C%BA%E6%97%A5%E5%BF%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu18.04如何固定图标到任务栏</title>
-    <link href="https://zjinc36.github.io/2020/07/18/2020-20200718-Ubuntu18-04%E5%A6%82%E4%BD%95%E5%9B%BA%E5%AE%9A%E5%9B%BE%E6%A0%87%E5%88%B0%E4%BB%BB%E5%8A%A1%E6%A0%8F/"/>
-    <id>https://zjinc36.github.io/2020/07/18/2020-20200718-Ubuntu18-04如何固定图标到任务栏/</id>
-    <published>2020-07-18T14:53:24.000Z</published>
-    <updated>2020-07-18T07:15:21.816Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="添加图标"><a href="#添加图标" class="headerlink" title="添加图标"></a>添加图标</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /usr/share/applications/softName.desktop</span><br><span class="line">或者</span><br><span class="line">sudo vim ~/.local/share/applications/softName.desktop</span><br></pre></td></tr></table></figure><ul><li>softName就是添加快捷方式的名称，也就是软件的名称</li></ul><p>添加如下内容</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">#!/usr/bin/env xdg-open</span><br><span class="line">[Desktop Entry]</span><br><span class="line">Version=1.0</span><br><span class="line">Terminal=false</span><br><span class="line">Type=Application</span><br><span class="line">Name=</span><br><span class="line">Exec=</span><br><span class="line">Icon=</span><br><span class="line">NoDisplay=false</span><br><span class="line">StartupWMClass=</span><br></pre></td></tr></table></figure><p><img src="/images/2020/07/20200701006.png" alt></p><p>说明</p><ul><li>[Desktop Entry] 每个desktop文件都以这个标签开始，说明这是一个Desktop Entry文件</li><li>Version = 1.0 标明Desktop Entry的版本（可选）</li><li>Name = IdeaIU 程序名称（必须），这里以创建一个idea的快捷方式为例</li><li>GenericName = IdeaIU 程序通用名称（可选）</li><li>Comment =IdeaIU 程序描述（可选）</li><li>Exec = 程序的启动命令（必选），可以带参数运行</li><li>Icon = 设置快捷方式的图标（可选），当Type为Application，此项有效</li><li>Terminal = false 是否在终端中运行（可选），当Type为Application，此项有效</li><li>Type = Application desktop的类型（必选），常见值有“Application”和“Link”</li><li>Categories = GNOME;Application;Network; //注明在菜单栏中显示的类别（可选）</li></ul><h1 id="将图标放到任务栏"><a href="#将图标放到任务栏" class="headerlink" title="将图标放到任务栏"></a>将图标放到任务栏</h1><p>点击应用按钮，把刚生成的应用图标拖到任务栏中<br><img src="/images/2020/07/20200701003.png" alt></p><p>但是有可能会出现启动应用出现双图标,如下<br><img src="/images/2020/07/20200701004.png" alt></p><p>为了解决这个问题，首先打开应用，然后在终端输入：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xprop |grep WM_CLASS</span><br></pre></td></tr></table></figure><p>此时鼠标指针会变成一个十字准心，点击已经打开的软件界面，终端会反馈一条信息，包括2个字符串<br><img src="/images/2020/07/20200701005.png" alt><br>把第1个字符串里的内容添加到StartupWMClass里，保存，关闭应用重新打开，将不会出现双图标的情况了</p>]]></content>
-    
-    <summary type="html">
-    
-      Ubuntu18.04如何固定图标到任务栏
     
     </summary>
     
