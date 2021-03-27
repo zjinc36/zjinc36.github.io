@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zjinc36.github.io/"/>
-  <updated>2021-01-02T04:20:20.367Z</updated>
+  <updated>2021-03-27T09:06:08.639Z</updated>
   <id>https://zjinc36.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Clickhouse与kudu,kylin,druid的区别和使用场景</title>
+    <link href="https://zjinc36.github.io/2021/03/28/2021-20210327-Clickhouse%E4%B8%8Ekudu-kylin-druid%E7%9A%84%E5%8C%BA%E5%88%AB%E5%92%8C%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/"/>
+    <id>https://zjinc36.github.io/2021/03/28/2021-20210327-Clickhouse与kudu-kylin-druid的区别和使用场景/</id>
+    <published>2021-03-27T17:01:57.000Z</published>
+    <updated>2021-03-27T09:06:08.639Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="OLAP数据库分类"><a href="#OLAP数据库分类" class="headerlink" title="OLAP数据库分类"></a>OLAP数据库分类</h1><ul><li><p>OLAP到现在也都是两个套路</p><ul><li>一个用空间换时间，就是MOLAP（多维在线分析）</li><li>一个充分利用所有资源快速计算, 就是ROLAP（关系型在线分析）</li><li>当然还有一个混合的，那个不管</li></ul></li><li><p>OLAP数据库</p><ul><li>Kylin和Druid都是MOLAP的典范</li><li>ClickHouse则是ROLAP的佼佼者</li><li>kudu是一个支持OLAP的大数据存储引擎，也能用来做OLAP</li></ul></li></ul><h1 id="如何选择"><a href="#如何选择" class="headerlink" title="如何选择"></a>如何选择</h1><ol><li>如果你的业务部门要求高并发高性能，那就可以用Kylin和Druid，这两个都是预计算的套路，你给他设定好分析路线，kylin建CUBE，Druid做各种group by的计算，业务部门分析的时候就等于是直接查询已经计算好的结果。速度和并发量的表现都非常棒。缺点是吃存储，分析路径比较死，加一个维度得改模型。</li><li>如果你的业务部门人不多，就内部用，但是比较挑剔，要非常高的自由度，那就可以用ClickHouse。这个你建各种表就好了。业务部门基于数据关系自己选择，CK现算，给答案。这个单表查询效率超高，join的话不太满意。而且因为都是现算的，并发量上不去。最关键的是CK所在的服务器基本干不了别的，查几条数据都有可能吃掉50%以上的CPU。</li></ol><h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><p>这个文章里有各大厂使用ClickHouse的案例，可以了解一下：<br><a href="https://mp.weixin.qq.com/s?__biz=MzIwNjM0MTc0Ng==&amp;mid=2247485372&amp;idx=1&amp;sn=20359e5a696144ace29f1b705ca69f97&amp;chksm=972254a1a055ddb7944bfacd7927df6188276c8668411b538ad1ea60ea54c1fd0bb6af702b39#rd" target="_blank" rel="noopener">https://mp.weixin.qq.com/s?__biz=MzIwNjM0MTc0Ng==&amp;mid=2247485372&amp;idx=1&amp;sn=20359e5a696144ace29f1b705ca69f97&amp;chksm=972254a1a055ddb7944bfacd7927df6188276c8668411b538ad1ea60ea54c1fd0bb6af702b39#rd</a></p><h1 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h1><ul><li><a href="https://www.zhihu.com/question/303991599/answer/1555185339" target="_blank" rel="noopener">https://www.zhihu.com/question/303991599/answer/1555185339</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      Clickhouse与kudu,kylin,druid的区别和使用场景
+    
+    </summary>
+    
+      <category term="BigData" scheme="https://zjinc36.github.io/categories/BigData/"/>
+    
+    
+      <category term="clickhouse" scheme="https://zjinc36.github.io/tags/clickhouse/"/>
+    
+  </entry>
   
   <entry>
     <title>Tldr-简化版Man</title>
@@ -429,28 +451,6 @@
     
     
       <category term="Ubuntu配置" scheme="https://zjinc36.github.io/tags/Ubuntu%E9%85%8D%E7%BD%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu设置开机自动加/挂载硬盘</title>
-    <link href="https://zjinc36.github.io/2020/07/25/2020-20200724-Ubuntu%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%8A%A0-%E6%8C%82%E8%BD%BD%E7%A1%AC%E7%9B%98/"/>
-    <id>https://zjinc36.github.io/2020/07/25/2020-20200724-Ubuntu设置开机自动加-挂载硬盘/</id>
-    <published>2020-07-24T18:28:39.000Z</published>
-    <updated>2020-07-24T11:00:28.130Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="找到要挂载的磁盘的名称"><a href="#找到要挂载的磁盘的名称" class="headerlink" title="找到要挂载的磁盘的名称"></a>找到要挂载的磁盘的名称</h1><p><img src="/images/2020/07/20200724001.png" alt></p><h1 id="查看磁盘的分区UUID"><a href="#查看磁盘的分区UUID" class="headerlink" title="查看磁盘的分区UUID"></a>查看磁盘的分区UUID</h1><ol><li>新打开一个终端：sudo blkid </li><li>找到分区的UUID与tpye<br><img src="/images/2020/07/20200724003.png" alt></li></ol><h1 id="在-etc-fstab中添加"><a href="#在-etc-fstab中添加" class="headerlink" title="在/etc/fstab中添加"></a>在/etc/fstab中添加</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /etc/fstab: static file system information.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Use 'blkid' to print the universally unique identifier for a</span></span><br><span class="line"><span class="comment"># device; this may be used with UUID= as a more robust way to name devices</span></span><br><span class="line"><span class="comment"># that works even if disks are added and removed. See fstab(5).</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># &lt;file system&gt; &lt;mount point&gt;   &lt;type&gt;  &lt;options&gt;       &lt;dump&gt;  &lt;pass&gt;</span></span><br><span class="line"><span class="comment"># # &lt;file system&gt; 磁盘设备名或该设备的Label</span></span><br><span class="line"><span class="comment"># # &lt;mount point&gt; 挂载点（目录）</span></span><br><span class="line"><span class="comment"># # &lt;type&gt; 磁盘分区的文件系统</span></span><br><span class="line"><span class="comment"># # &lt;options&gt; 文件系统参数</span></span><br><span class="line"><span class="comment"># # &lt;dump&gt; 能否被dump命令作用</span></span><br><span class="line"><span class="comment"># # &lt;pass&gt; 是否以fsck检测扇区</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># / was on /dev/nvme0n1p5 during installation</span></span><br><span class="line">UUID=81ae4ddb-7784-45bf-b770-47cb89c85aca /               ext4    errors=remount-ro 0       1</span><br><span class="line"><span class="comment"># /boot/efi was on /dev/nvme0n1p1 during installation</span></span><br><span class="line">UUID=3024-823F  /boot/efi       vfat    <span class="built_in">umask</span>=0077      0       1</span><br><span class="line"><span class="comment"># swap was on /dev/nvme0n1p6 during installation</span></span><br><span class="line">UUID=7b9777a0-d735-4c9e-b6ba-109ffce567c2 none            swap    sw              0       0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 复制前面的</span></span><br><span class="line"><span class="comment"># UUID=81ae4ddb-7784-45bf-b770-47cb89c85aca /               ext4    errors=remount-ro 0       1</span></span><br><span class="line"><span class="comment"># 将UUID改为前面得到的UUID</span></span><br><span class="line"><span class="comment"># 把/改为/media/zjc/otherDocuments</span></span><br><span class="line"><span class="comment"># 把errors=remount-ro改为defaults</span></span><br><span class="line"><span class="comment"># 后面的1改0</span></span><br><span class="line">UUID=EC9CB4199CB3DBF0 /media/zjc/otherDocuments               ntfs    defaults 0       1</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      Ubuntu设置开机自动加/挂载硬盘
-    
-    </summary>
-    
-      <category term="Ubuntu" scheme="https://zjinc36.github.io/categories/Ubuntu/"/>
-    
-    
-      <category term="Ubuntu装机日志" scheme="https://zjinc36.github.io/tags/Ubuntu%E8%A3%85%E6%9C%BA%E6%97%A5%E5%BF%97/"/>
     
   </entry>
   
