@@ -1,14 +1,10 @@
 <!-- _coverpage.md -->
-<!-- ![logo](https://throwable-blog-1256189093.cos.ap-guangzhou.myqcloud.com/202009/_media/icon.svg) -->
+<!-- ![logo](./images/themes/avater.png) -->
 
-# zjc's Blog <!-- <small>3.5</small> -->
+#   zjc's Blog
 
->   一边学习，一边生产，克服困难
+-   一边学习，一边生产，克服困难，敌人丧胆
 
-<!-- - xxxx -->
-
-<!-- [GitHub](https://github.com/docsifyjs/docsify/)  -->
-
-[Get Started](#docsify)
+[开始阅读](README)
 
 
