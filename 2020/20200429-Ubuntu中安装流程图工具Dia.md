@@ -37,7 +37,9 @@ $ sudo apt-get autoremove dia.
 2.  右键
 3.	选择`Input Methods`
 4.	点击`x input method`
+
 ![](../images/2020/04/20200429001.png)
+
 
 此时有可能发现还是无法使用中文输入，原因可能是因为打开.dia文件的时候，直接右键打开了。所以，此时应该在命令行输入：
 ```

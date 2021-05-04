@@ -8,12 +8,20 @@
 - SpringBoot
 ---
 #   创建maven项目
+
 ![](../images/springboot/20190903004.png)
+
+
 ![](../images/springboot/20190903005.png)
+
+
 ![](../images/springboot/20190903006.png)
 
+
 项目创建完成后的结构图
+
 ![](../images/springboot/20190903007.png)
+
 
 #   修改pom.xml文件
 ```xml
@@ -45,7 +53,9 @@
 ```
 
 #   创建示例代码
+
 ![](../images/springboot/20190903008.png)
+
 
 图片中的代码如下
 ```java
@@ -70,7 +80,11 @@ public class MySpringBootApplication {
 #   运行
 `run as` -> `spring boot app`可以看到如下结果
 
+
 ![](../images/springboot/20190903009.png)
 
+
 在浏览器访问可以看到已经访问成功(页面出现错误是现在什么页面都没有)
+
 ![](../images/springboot/20190903010.png)
+

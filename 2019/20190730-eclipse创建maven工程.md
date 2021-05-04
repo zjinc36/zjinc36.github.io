@@ -8,19 +8,31 @@
 - maven
 ---
 #   创建一个maven工程
+
 ![](../images/20190730021.png)
+
+
 ![](../images/20190730022.png)
+
+
 ![](../images/20190730024.png)
+
 #   刚生成的工程就报错
 ##  问题
 因为是web工程,webapp下缺少必要的目录和文件
+
 ![](../images/20190730025.png)
 
+
 缺少的文件如下
+
 ![](../images/20190730030.png)
+
 ##  解决
 1.  方式一,使用eclipse的直接生成
+
 ![](../images/20190730028.png)
+
 
 2.  方式二,手动创建缺少的目录和文件
 
@@ -38,9 +50,13 @@
 使用eclipse界面操作修改pom.xml文件
 1.  `右键项目 -> Maven -> Add Plugin`
 2.  出现如下窗口后,进行图中所示配置
+
 ![](../images/20190730032.png)
+
 3.  此时打开pom.xml文件会发现如下内容
+
 ![](../images/20190730033.png)
+
 4.  在pom.xml文件中增加如下内容
 ```xml
 <configuration>
@@ -50,7 +66,9 @@
 </configuration>
 ```
 5.  此时,pom.xml如下所示
+
 ![](../images/20190730035.png)
+
 6.  `右键项目 -> Maven -> Update Project`
 
 ###  方式二
@@ -99,7 +117,9 @@
 ## 新增Servlet
 1.  `src/main/java` -> 右键 -> new -> servlet
 2.  键入如下内容,进行创建
+
 ![](../images/20190730040.png)
+
 
 ##  增加示例代码
 1.	/helloworld/src/main/java/com/zjinc36/web/HelloServlet.java
@@ -209,7 +229,9 @@ servlet项目需要增加两种依赖
 ```
 ### 方式二
 与eclipse紧密结合放方式
+
 ![](../images/20190730038.png)
+
 
 ##  增加jsp依赖
 ```xml

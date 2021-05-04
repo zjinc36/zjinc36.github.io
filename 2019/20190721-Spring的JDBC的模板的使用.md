@@ -11,7 +11,9 @@
 +   引入基本开发包
 +   数据库驱动
 +   Spring的JDBC模板的jar包
+
 ![](../images/20190721003.png)
+
 
 #   入门程序
 此时连接池直接出现在代码中
@@ -115,7 +117,9 @@ org.springframework.jdbc.datasource.DriverManagerDataSource
 
 ##  DHCP连接池
 1.  jar包
+
 ![](../images/20190721005.png)
+
 2.  applicationContext.xml
 org.apache.commons.dbcp.BasicDataSource
 ```xml
@@ -131,7 +135,9 @@ org.apache.commons.dbcp.BasicDataSource
 
 ##   c3p0连接池
 1.	jar包
+
 ![](../images/20190721006.png)
+
 2.	applicationContext.xml
 ```xml
 	<bean

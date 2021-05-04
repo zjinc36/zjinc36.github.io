@@ -17,4 +17,6 @@ tags:
 sudo apt-get install gparted
 ```
 +   主界面
+
 ![](../images/2020/07/20200708001.png)
+

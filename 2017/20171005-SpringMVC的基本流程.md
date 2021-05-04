@@ -8,7 +8,9 @@
 - SpringMVC
 ---
 #   从请求到响应
+
 ![](../images/springmvc/20191005007.png)
+
 1.  访问http://localhost:8080/springhello/hello.action
 2.  web.xml文件配置了拦截规则
 3.  web.xml文件中规定要加载的核心控制器
@@ -23,7 +25,9 @@
 
 
 #   画图说明
+
 ![](../images/springmvc/20191007002.png)
+
 
 组件说明在这里
 [SpringMVC的默认组件加载](/2017/10/07/SpringMVC的默认组件加载/)

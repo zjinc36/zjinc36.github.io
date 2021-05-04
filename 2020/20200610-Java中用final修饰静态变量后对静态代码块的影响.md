@@ -47,7 +47,9 @@ user....
 #   为什么不打印`Emp....`
 我们分别查看User.java和Emp.java的字节码
 ##   不加final的User的字节码
+
 ![](../images/2020/06/20200610004.png)
+
 ```
 {
   public static int age;
@@ -90,7 +92,9 @@ SourceFile: "User.java"
 ```
 
 ##   加final的Emp的字节码
+
 ![](../images/2020/06/20200610003.png)
+
 ```
 {
   public static final int age;

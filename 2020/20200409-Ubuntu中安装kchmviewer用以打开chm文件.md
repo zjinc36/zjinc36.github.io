@@ -26,6 +26,8 @@ KchmViewer
 sudo apt-get install kchmviewer
 ```
 #   出现乱码如何处理
+
 ![](../images/2020/04/20200409001.png)
+
 
 

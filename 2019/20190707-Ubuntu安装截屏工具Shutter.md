@@ -67,8 +67,12 @@ sudo killall shutter
 ###     Ubuntu20.04
 +   截至20200802为止,暂时没有找到好的解决方法
 +   按照18.04的解决方法操作,`libgoo-canvas-perl_0.06-2ubuntu3_amd64.deb`需要依赖`perlapi-5.26.0`,但无法安装
+
 ![](../images/2020/08/20200802130024.png)
+
 
 #   设置快捷键
 [_参考:ubuntu 安装截图工具 Shutter，并设置快捷键 Ctrl+Alt+A_](https://blog.csdn.net/hanshileiai/article/details/46843713)
+
 ![](../images/20190730018.png)
+

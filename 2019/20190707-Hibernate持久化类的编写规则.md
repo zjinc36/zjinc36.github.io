@@ -115,7 +115,9 @@ public class HibernateDemo3 {
 #   三种状态的转换
 *参考这篇文章[https://blog.csdn.net/a772304419/article/details/79319988](https://blog.csdn.net/a772304419/article/details/79319988)*
 
+
 ![](../images/20190707001.png)
+
 ##  瞬时态对象
 ### 获得
 Customer customer = new Customer();
@@ -183,15 +185,25 @@ Hibernate一级缓存中的特殊区域
 ## 快照区和缓冲区的作用
 比较缓冲区和快照区的数据,一致则不更新数据库,不一致则更新数据库
 ###   代码运行过程
+
 ![](../images/20190707005.png)
+
 
 ####   eclipse观察缓存区和快照区的变化
 +   取出数据后,快照区和缓冲区的变化
+
 ![](../images/20190707007.png)
+
+
 ![](../images/20190707009.png)
+
 +   修改数据后,快照区和缓冲区的变化
+
 ![](../images/20190707010.png)
+
+
 ![](../images/20190707011.png)
+
 ###   过程说明
 再来解剖一下
 ```java

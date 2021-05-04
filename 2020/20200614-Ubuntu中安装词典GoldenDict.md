@@ -18,22 +18,32 @@ sudo apt-get install goldendict
 没测试过[http://download.huzheng.org/](http://download.huzheng.org/)
 
 2.  添加
+
 ![](../images/2020/06/20200614003.png)
+
 
 
 3.  添加在线搜索
 这里添加有道`http://dict.youdao.com/search?q=%GDWORD%&ue=utf8`
+
 ![](../images/2020/06/20200614005.png)
 
+
 4.  取消百科的搜索
+
 ![](../images/2020/06/20200614006.png)
 
+
 5.  调整词典顺序
+
 ![](../images/2020/06/20200614004.png)
+
 
 #   使用
 +   快捷键
+
 ![](../images/2020/06/20200614007.png)
+
 
 +   屏幕取词
 将需要查询的内容选取,按`ctrl + c + c`快捷键

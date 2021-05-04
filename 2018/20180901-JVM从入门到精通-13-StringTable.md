@@ -18,9 +18,13 @@
 +   String实现了Serializable接口：表示字符串是支持序列化的。实现了Comparable接口：表示string可以比较大小
 +   string在jdk8及以前内部定义了`final char[] value`用于存储字符串数据。JDK9时改为`byte[]`
 
+
 ![](../images/2020/09/20200901143305.png)
 
+
+
 ![](../images/2020/09/20200901143137.png)
+
 
 
 
@@ -248,9 +252,13 @@ public class StringTest2 {
 
 Java8元空间，字符串常量在堆
 
+
 ![](../images/2020/09/20200901140435.png)
 
+
+
 ![](../images/2020/09/20200901140444.png)
+
 
 ##  证明一下JDK6时字符串常量在永久代中而JDK8在堆中
 ```
@@ -278,9 +286,13 @@ public class StringTest3 {
 
 ```
 运行参数设置为jdk6,且`-XX:PermSize=6m -XX:MaxPermSize=6m -Xms6m -Xmx6m`,OOM后报如下错误
+
 ![](../images/2020/09/20200901153053.png)
+
 运行参数设置为jdk8,且`-XX:MetaspaceSize=6m -XX:MaxMetaspaceSize=6m -Xms6m -Xmx6m`,OOM后报如下错误
+
 ![](../images/2020/09/20200901153221.png)
+
 
 
 ##  为什么StringTable从永久代调整到堆中
@@ -354,7 +366,9 @@ public class StringTest5 {
 
 ##  底层原理
 拼接操作的底层其实使用了StringBuilder
+
 ![](../images/2020/09/20200901140601.png)
+
 s1 + s2的执行细节
 
     StringBuilder s = new StringBuilder();
@@ -478,9 +492,13 @@ public class StringIntern2 {
 }
 ```
 不使用intern占用的空间
+
 ![](../images/2020/09/20200902122717.png)
+
 使用intern占用的空间
+
 ![](../images/2020/09/20200902122824.png)
+
 结论：对于程序中大量使用存在的字符串时，尤其存在很多已经重复的字符串时，使用intern()方法能够节省内存空间。
 
 大的网站平台，需要内存中存储大量的字符串。比如社交网站，很多人都存储：北京市、海淀区等信息。这时候如果字符串都调用intern() 方法，就会很明显降低内存的大小。
@@ -507,7 +525,9 @@ public class StringNewTest {
  9 astore_1
 10 return
 ```
+
 ![](../images/2020/09/20200901171757.png)
+
 
 这里面就是两个对象
 
@@ -603,7 +623,9 @@ s3.intern();
 String s4 = "11";
 System.out.println(s3 == s4); // true
 ```
+
 ![](../images/2020/09/20200901141348.png)
+
 
 
 ##  扩展
@@ -630,7 +652,9 @@ JDK1.7起，将这个字符串对象尝试放入串池。
 +   如果没有，则**会把对象的引用地址复制一份**，放入串池，并返回串池中的引用地址
 
 练习：
+
 ![](../images/2020/09/20200901141436.png)
+
 
 +   在JDK6中，在字符串常量池中创建一个字符串 “ab”
 +   在JDK8中，在字符串常量池中没有创建 “ab”，而是将堆中的地址复制到 串池中。
@@ -645,10 +669,14 @@ false
 false
 true
 ```
+
 ![](../images/2020/09/20200901141520.png)
 
+
 针对下面这题，在JDK6和8中表现的是一样的
+
 ![](../images/2020/09/20200901141539.png)
+
 
 #   StringTable的垃圾回收
 ```JAVA

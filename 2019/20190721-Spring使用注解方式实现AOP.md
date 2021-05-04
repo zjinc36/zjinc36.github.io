@@ -16,7 +16,9 @@
 +   spring-aspects-4.2.5.RELEASE.jar
 
 这样，springAOP项目共须jar包如下：
+
 ![](../images/20190721002.png)
+
 要进行AOP编程，我们接着要在Spring的配置文件——beans.xml中引入aop命名空间：
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

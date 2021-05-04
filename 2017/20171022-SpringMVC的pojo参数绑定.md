@@ -12,7 +12,9 @@
 [SpringMVC的快速入门](/2017/10/04/SpringMVC的快速入门/)
 
 ##  本文中的文件结构
+
 ![](../images/springmvc/20191022012.png)
+
 
 ##  页面
 +   index.jsp
@@ -165,7 +167,11 @@ public class TestPojoController {
 #   跑项目
 访问`http://localhost:8080/springhello/index.action`,可以看到如下页面,输入数据提交
 
+
 ![](../images/springmvc/20191022010.png)
 
+
 在eclipse控制台中打出如下数据
+
 ![](../images/springmvc/20191022011.png)
+

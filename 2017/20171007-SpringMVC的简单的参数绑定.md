@@ -9,7 +9,9 @@
 ---
 #   参数绑定的三种方式
 这是截图,具体代码在底下
+
 ![](../images/springmvc/20191007003.png)
+
 
 ##  方式一:使用`HttpServletRequest`
 使用`HttpServletRequest`获取参数

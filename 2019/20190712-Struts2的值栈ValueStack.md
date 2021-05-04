@@ -39,10 +39,14 @@ ValueStack其实类似一个数据中转站(Struts2的框架当中的数据就�
 ### 方法一:源码分析
 #### 查看源码
 *ognl的源代码没有在Struts2的源码包里面*
+
 ![](../images/20190711004.png)
 
+
 #### 值栈结构图
+
 ![](../images/20190712003.png)
+
 
 ### 方法二:打印debug页面
 ####    1.Action代码
@@ -85,7 +89,9 @@ public class ValueStackDemo1 extends ActionSupport{
 </html>
 ```
 ####    3.在浏览器打开
+
 ![](../images/20190712004.png)
+
 
 
 #   ActionContext
@@ -191,7 +197,9 @@ public class ValueStackDemo3 extends ActionSupport{
 </html>
 ```
 3.  结果页面
+
 ![](../images/20190712006.png)
+
 
 ### 使用值栈的push方法
 1.  Action
@@ -245,7 +253,9 @@ public class ValueStackDemo4 extends ActionSupport{
 </html>
 ```
 3.  结果页面
+
 ![](../images/20190712008.png)
+
 
 ###	使用值栈的set方法
 1.  Action
@@ -296,7 +306,9 @@ public class ValueStackDemo4 extends ActionSupport{
 </html>
 ```
 3.  结果页面
+
 ![](../images/20190712009.png)
+
 
 ### 使用值栈的set方法(设置ArrayList)
 1.  Action
@@ -410,8 +422,12 @@ public class ValueStackDemo4 extends ActionSupport{
 ```
 
 3.	结果页面
+
 ![](../images/20190712011.png)
+
+
 ![](../images/20190712010.png)
+
 
 **注意:如果request没有设置数据,而我们又有取request的数据,则能拿到的是session的数据,同理,其他也有类似规则(不需要特意记忆,在页面开debug找就行)**
 

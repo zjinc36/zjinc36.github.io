@@ -14,11 +14,15 @@
 
 ##  本文中的文件结构
 
+
 ![](../images/springmvc/20191024003.png)
+
 
 ##  页面
 这个页面有改动,改动部分如图
+
 ![](../images/springmvc/20191024001.png)
+
 +   index.jsp
 ```html
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -179,4 +183,6 @@ public class TestPojoController {
 ##   跑项目
 访问`http://localhost:8080/springhello/index.action`,输入数据提交
 在eclipse控制台中打出如下数据
+
 ![](../images/springmvc/20191024002.png)
+

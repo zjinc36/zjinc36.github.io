@@ -16,7 +16,9 @@ tags:
 #   安装
 ##  最好去官网看
 +   官网地址:[https://gnomepomodoro.org/](https://gnomepomodoro.org/)
-+   ![](../images/2020/04/20200421006.png)
++   
+![](../images/2020/04/20200421006.png)
+
 
 ##  Ubuntu18.04安装
 ```
@@ -24,7 +26,11 @@ sudo apt-get install gnome-shell-pomodoro
 ```
 
 #   安装后软件运行效果图
+
 ![](../images/2020/04/20200421005.png)
 
+
+
 ![](../images/2020/04/20200421008.png)
+
 

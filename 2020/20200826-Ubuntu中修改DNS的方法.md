@@ -51,12 +51,16 @@ lrwxrwxrwx 1 root root 39 Feb 15  2019 /etc/resolv.conf -> ../run/systemd/resolv
 ```
 cat /etc/resolv.conf
 ```
+
 ![](../images/2020/08/20200826124922.png)
+
 
 ##  检查DNSNameservers
 
 在这种情况下，当APT程序包管理器之类的本地应用程序尝试访问本地网络上的FQDN （ 完全合格的域名 ）时，结果是“ 名称解析临时失败 ”错误，如下图所示。
+
 ![](../images/2020/08/20200826125005.png)
+
 
 ##  临时故障解决
 
@@ -64,7 +68,9 @@ cat /etc/resolv.conf
 ```
 $ ping google.com
 ```
+
 ![](../images/2020/08/20200826125029.png)
+
 
 名称解析暂时失败
 
@@ -104,7 +110,9 @@ $ sudo nano /etc/resolvconf/resolv.conf.d/head
 nameserver 8.8.8.8 
 nameserver 8.8.4.4
 ```
+
 ![](../images/2020/08/20200826125154.png)
+
 
 在Resolvconf中设置永久DNSNameservers
 
@@ -113,5 +121,7 @@ nameserver 8.8.4.4
 $ sudo systemctl start resolvconf.service
 ```
 现在，当您检查/etc/resolv.conf文件时，Nameservers条目应永久存储在此处。 从今以后，您将不会在系统上遇到任何有关名称解析的问题
+
 ![](../images/2020/08/20200826125212.png)
+
 永久DNSNameservers

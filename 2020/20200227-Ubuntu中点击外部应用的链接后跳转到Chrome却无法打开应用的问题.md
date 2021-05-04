@@ -41,6 +41,8 @@ Exec=/opt/google/chrome/chrome
 ```
 Exec=/opt/google/chrome/chrome %U
 ```
+
 ![](../images/2020/02/20200227001.png)
+
 
 4.  保存文件即可

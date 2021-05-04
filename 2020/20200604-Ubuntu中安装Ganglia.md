@@ -31,7 +31,9 @@ sudo apt-get install rrdtool
 
 #   ganglia简介
 Ganglia的核心包含 gmond、gmetad 以及一个 Web 接界面。主要是用来监控系统性能，如：cpu 、mem、硬盘利用率， I/O 负载、网络流量情况等，通过曲线很容易见到每个节点的工作状态，对合理调整、分配系统资源，提高系统整体性能起到重要作用。
+
 ![](../images/2020/06/20200604001.png)
+
 
 ##  Gmod
 Ganglia monitoring，它是一个守护进程，用于收集机器内的 metric，它还可以接受别的 node 发送过来的 metric，并且保存一小段时间（几十秒），运行在每一个需要监测的节点上，收集监测统计，发送和接受在同一个组播或单播通道上的统计信息。Gmond 可以扮演下面三种角色：
@@ -134,7 +136,9 @@ systemctl restart apache2.service
 
 #   配置完成,访问
 然后在浏览器输入http://serverIP/ganglia 即可访问
+
 ![](../images/2020/06/20200604002.png)
+
 
 #   参考
 [ubuntu安装ganglia](https://blog.csdn.net/Scape1989/article/details/19252431)

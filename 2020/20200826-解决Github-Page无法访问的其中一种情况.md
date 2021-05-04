@@ -13,7 +13,9 @@ categories:
 nslookup github.io
 ```
 我本地如下,指向了127.0.0.1,所以确认是需要修改dns服务器地址了
+
 ![](../images/2020/08/20200826130349.png)
+
 
 2.  修改dns服务器地址
 修改文件 /etc/resolvconf/resolv.conf.d/head（这个文件默认为空），添加以下内容：
@@ -30,8 +32,12 @@ resolvconf -u
 nameserver 114.114.114.114
 ```
 此时nslookup可以看到如下
+
 ![](../images/2020/08/20200826130600.png)
+
 然后能成功访问
+
 ![](../images/2020/08/20200826130832.png)
+
 
 

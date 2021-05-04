@@ -25,7 +25,9 @@ sudo apt-get install zeal
 #   使用
 ##  下载文档
 在初次安装 Zeal 之后，需要转到 File → Options → Docsets 先下载文档，然后方能使用
+
 ![](../images/2020/07/20200707001.png)
+
 
 ##  使用文档
 +   有两种方式来查询文档

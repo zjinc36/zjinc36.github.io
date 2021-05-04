@@ -16,7 +16,9 @@ sudo apt install ibus-rime
 ```
 
 2.  添加Rime输入法
+
 ![](../images/2020/07/20200724004.png)
+
 
 #   配置
 +   Rime的配置是没有界面的

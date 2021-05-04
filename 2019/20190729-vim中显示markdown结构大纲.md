@@ -68,7 +68,9 @@ let g:tagbar_type_markdown = {
 这两个地方需要和你的 vim 所识别的 markdown 格式匹配,检测自己的 vim 所识别的 markdown 文本的格式的方式是在 vim 中输入 :set filetype? ，所显示的 filetype= 后面的内容如果不是markdown
 
 #   效果图
+
 ![](../images/20190729001.png)
+
 
 #   参考
 +   [_https://github.com/jszakmeister/markdown2ctags_](https://github.com/jszakmeister/markdown2ctags)

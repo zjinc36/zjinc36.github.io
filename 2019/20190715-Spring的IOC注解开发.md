@@ -9,7 +9,9 @@
 [_参考Spring IOC注解开发_](https://blog.csdn.net/q547550831/article/details/54911516#spring%E7%9A%84ioc%E6%B3%A8%E8%A7%A3%E7%9A%84%E8%AF%A6%E8%A7%A3)
 #   入门案例
 ##	引入jar包
+
 ![](../images/20190715001.png)
+
 
 ##	引入配置文件
 +	log4j.properties
@@ -245,7 +247,9 @@ Bean的范围的注解：默认是单例的
 PS：可以到WebApplicationContext接口和ConfigurableBeanFactory类中找到@Scope的取值。
 
 #	Spring的IOC的XML方式和注解方式比较
+
 ![](../images/20190715002.png)
+
 适用场景
 +	XML:可以适用任何场景,结构清晰,维护方便
 +	注解:有些地方用不了,比如类不是自己提供的,但是开发方便

@@ -56,7 +56,9 @@ create table cst_linkman (
 ```
 
 ####	对应的ER图
+
 ![](../images/20190708001.png)
+
 
 ###	java对象
 ####	一的一方
@@ -477,7 +479,9 @@ public class LinkMan {
 
 ## 一对多设置了双向关联产生多余的SQL语句
 ###    原因
+
 ![](../images/20190708003.png)
+
 ###    解决
 +   单向维护
 +   使一的一方放弃维护权 -> 在set上配置 inverse="true"
@@ -545,7 +549,9 @@ CREATE TABLE sys_user_role (
 ```
 
 ###	ER图
+
 ![](../images/20190709001.png)
+
 ### java代码
 ```java
 public class Role {

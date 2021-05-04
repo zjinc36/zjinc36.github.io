@@ -31,7 +31,9 @@ JAVA_OPTS="-Dflume.monitoring.type=ganglia -Dflume.monitoring.hosts=192.168.1.10
 $ telnet localhost 44444
 ```
 样式如图：
+
 ![](../images/2020/09/20200907110403.png)
+
 图例说明：
 
 |字段（图表名称）        |字段含义|

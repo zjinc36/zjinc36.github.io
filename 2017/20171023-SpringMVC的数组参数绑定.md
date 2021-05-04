@@ -13,7 +13,9 @@
 底下代码基本相同
 
 ##  本文中的文件结构
+
 ![](../images/springmvc/20191022012.png)
+
 
 ##  页面
 这个页面有改动,增加checkbox,用以传到服务器的变量的内容是一个参数
@@ -163,10 +165,14 @@ public class TestPojoController {
 ##   跑项目
 访问`http://localhost:8080/springhello/index.action`,可以看到如下页面,输入数据提交
 
+
 ![](../images/springmvc/20191023001.png)
 
+
 在eclipse控制台中打出如下数据
+
 ![](../images/springmvc/20191023002.png)
+
 
 
 #   问题:如果后台中有两个相同的变量用以接收前台传进来的变量,此时会怎样?
@@ -225,7 +231,9 @@ public class TestPojoController {
 ##  跑项目
 访问`http://localhost:8080/springhello/index.action`,输入数据提交
 在eclipse控制台中打出如下数据
+
 ![](../images/springmvc/20191023003.png)
+
 
 ##  结论
 只要名字相同,会将前台传进来的变量赋值给每个名字相同的变量
