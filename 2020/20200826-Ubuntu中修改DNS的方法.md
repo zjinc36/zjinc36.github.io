@@ -1,11 +1,10 @@
----
-title: Ubuntu中修改DNS的方法
-date: 2020-08-26 12:43:41
-description: Ubuntu中修改DNS的方法
-categories:
-- Ubuntu
-tags:
-- Linux命令
+#   Ubuntu中修改DNS的方法
++ date: 2020-08-26 12:43:41
++ description: Ubuntu中修改DNS的方法
++ categories:
+  - Ubuntu
++ tags:
+  - Linux命令
 ---
 #   修改DNS的方法
 修改文件 `/etc/resolvconf/resolv.conf.d/head`（这个文件默认为空），添加以下内容：

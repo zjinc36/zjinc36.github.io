@@ -1,11 +1,10 @@
----
-title: vim中显示markdown结构大纲
-date: 2019-07-29 12:50:30
-description: vim 中显示 markdown 结构大纲
-categories:
-- vim
-tags:
-- vim
+#   vim中显示markdown结构大纲
++ date: 2019-07-29 12:50:30
++ description: vim 中显示 markdown 结构大纲
++ categories:
+  - vim
++ tags:
+  - vim
 ---
 #	简介
 可能许多人都知道利用 ctags 工具和 tagbar 插件可以在 vim 中显示侧边栏，列出代码文件的结构、类和函数等。实际上在写 markdown 文本时，如果也能在 tagbar 中显示文本大纲，那么显然可以帮助我们理清写作思路，也能快速定位到相关的段落进行修改。

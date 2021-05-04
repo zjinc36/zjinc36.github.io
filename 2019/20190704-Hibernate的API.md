@@ -1,11 +1,10 @@
----
-title: Hibernate的API
-date: 2019-07-04 14:19:31
-description: Hibernate的API
-categories:
-- Java
-tags:
-- Hibernate
+#   Hibernate的API
++ date: 2019-07-04 14:19:31
++ description: Hibernate的API
++ categories:
+  - Java
++ tags:
+  - Hibernate
 ---
 #   Configuration
 ##  作用

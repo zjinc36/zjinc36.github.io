@@ -1,11 +1,10 @@
----
-title: Ubuntu中点击外部应用的链接后跳转到Chrome却无法打开应用的问题
-date: 2020-02-27 22:33:04
-description: Ubuntu中点击外部应用的链接后跳转到Chrome却无法打开应用的问题
-categories:
-- Ubuntu
-tags:
-- Ubuntu装机日志
+#   Ubuntu中点击外部应用的链接后跳转到Chrome却无法打开应用的问题
++ date: 2020-02-27 22:33:04
++ description: Ubuntu中点击外部应用的链接后跳转到Chrome却无法打开应用的问题
++ categories:
+  - Ubuntu
++ tags:
+  - Ubuntu装机日志
 ---
 ##  参考
 [External links are opened as blank tabs in new browser window in Chrome

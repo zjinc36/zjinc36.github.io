@@ -1,11 +1,10 @@
----
-title: eclipse创建maven工程
-date: 2019-07-30 21:05:20
-description: eclipse创建maven工程,配置依赖,说明依赖的作用范围
-categories:
-- Java
-tags:
-- Eclipse
+#   eclipse创建maven工程
++ date: 2019-07-30 21:05:20
++ description: eclipse创建maven工程,配置依赖,说明依赖的作用范围
++ categories:
+  - Java
++ tags:
+  - Eclipse
 - maven
 ---
 #   创建一个maven工程

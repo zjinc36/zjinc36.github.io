@@ -1,11 +1,10 @@
----
-title: eclipse中解决git冲突
-date: 2017-12-23 22:13:42
-description: eclipse中git解决冲突
-categories:
-- Java
-tags:
-- Eclipse
+#   eclipse中解决git冲突
++ date: 2017-12-23 22:13:42
++ description: eclipse中git解决冲突
++ categories:
+  - Java
++ tags:
+  - Eclipse
 ---
 #   0、来源
 [eclipse 中git解决冲突](https://blog.csdn.net/rosten/article/details/17068285)

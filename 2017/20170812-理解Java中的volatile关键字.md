@@ -1,11 +1,10 @@
----
-title: 理解Java中的volatile关键字
-date: 2017-08-12 10:43:16
-description: 理解Java中的volatile关键字
-categories:
-- Java
-tags:
-- JUC
+#   理解Java中的volatile关键字
++ date: 2017-08-12 10:43:16
++ description: 理解Java中的volatile关键字
++ categories:
+  - Java
++ tags:
+  - JUC
 ---
 
 

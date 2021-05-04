@@ -1,11 +1,10 @@
----
-title: Spring的JDBC的模板的使用
-date: 2019-07-21 16:30:02
-description: Spring的JDBC的模板的使用
-categories:
-- Java
-tags:
-- Spring
+#   Spring的JDBC的模板的使用
++ date: 2019-07-21 16:30:02
++ description: Spring的JDBC的模板的使用
++ categories:
+  - Java
++ tags:
+  - Spring
 ---
 #   创建项目
 引入jar包

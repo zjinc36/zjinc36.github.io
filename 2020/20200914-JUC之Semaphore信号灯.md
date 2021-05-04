@@ -1,11 +1,10 @@
----
-title: JUC之Semaphore信号灯
-date: 2020-09-14 22:19:04
-description: JUC之Semaphore信号灯
-categories:
-- Java
-tags:
-- JUC
+#   JUC之Semaphore信号灯
++ date: 2020-09-14 22:19:04
++ description: JUC之Semaphore信号灯
++ categories:
+  - Java
++ tags:
+  - JUC
 ---
 #   概念
 信号量主要用于两个目的

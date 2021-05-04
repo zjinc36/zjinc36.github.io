@@ -1,11 +1,10 @@
----
-title: SpringMVC的简单的参数绑定
-date: 2017-10-07 21:18:53
-description: SpringMVC的简单的参数绑定
-categories:
-- Java
-tags:
-- Spring
+#   SpringMVC的简单的参数绑定
++ date: 2017-10-07 21:18:53
++ description: SpringMVC的简单的参数绑定
++ categories:
+  - Java
++ tags:
+  - Spring
 - SpringMVC
 ---
 #   参数绑定的三种方式

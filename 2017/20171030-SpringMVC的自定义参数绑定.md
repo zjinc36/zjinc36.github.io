@@ -1,11 +1,10 @@
----
-title: SpringMVC的自定义参数绑定
-date: 2017-10-30 22:26:51
-description: SpringMVC的自定义参数绑定
-categories:
-- Java
-tags:
-- Spring
+#   SpringMVC的自定义参数绑定
++ date: 2017-10-30 22:26:51
++ description: SpringMVC的自定义参数绑定
++ categories:
+  - Java
++ tags:
+  - Spring
 - SpringMVC
 ---
 #   为什么需要自动绑定

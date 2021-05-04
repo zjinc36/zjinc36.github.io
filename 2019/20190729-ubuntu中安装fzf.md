@@ -1,11 +1,10 @@
----
-title: ubuntu中安装fzf
-date: 2019-07-29 15:54:00
-description: Fzf是一款小巧，超快，通用，跨平台的命令行模糊查找器
-categories:
-- Ubuntu
-tags:
-- Ubuntu装机日志
+#   ubuntu中安装fzf
++ date: 2019-07-29 15:54:00
++ description: Fzf是一款小巧，超快，通用，跨平台的命令行模糊查找器
++ categories:
+  - Ubuntu
++ tags:
+  - Ubuntu装机日志
 ---
 ##  安装fzf
 ### 作用

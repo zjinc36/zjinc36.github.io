@@ -1,11 +1,10 @@
----
-title: Spring的IOC和DI
-date: 2019-07-13 12:52:17
-description: Spring的控制反转(IOC)和依赖注入(DI)
-categories:
-- Java
-tags:
-- Spring
+#   Spring的IOC和DI
++ date: 2019-07-13 12:52:17
++ description: Spring的控制反转(IOC)和依赖注入(DI)
++ categories:
+  - Java
++ tags:
+  - Spring
 ---
 #   IOC控制反转
 将对象的创建权反转给了Spring

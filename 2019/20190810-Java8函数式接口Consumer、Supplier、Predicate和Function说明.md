@@ -1,11 +1,10 @@
----
-title: Java8函数式接口和Consumer、Supplier、Predicate、Function说明
-date: 2019-08-10 11:20:50
-description: Java8函数式接口和Consumer、Supplier、Predicate、Function说明
-categories:
-- Java
-tags:
-- Java
+#   Java8函数式接口和Consumer、Supplier、Predicate、Function说明
++ date: 2019-08-10 11:20:50
++ description: Java8函数式接口和Consumer、Supplier、Predicate、Function说明
++ categories:
+  - Java
++ tags:
+  - Java
 ---
 #   @FunctionalInterface注解
 与@Override 注解的作用类似，Java 8中专门为函数式接口引入了一个新的注解：@FunctionalInterface 。该注解可用于一个接口的定义上,一旦使用该注解来定义接口，编译器将会强制检查该接口是否确实有且仅有一个抽象方法，否则将会报错。但是这个注解不是必须的，只要符合函数式接口的定义，那么这个接口就是函数式接口。

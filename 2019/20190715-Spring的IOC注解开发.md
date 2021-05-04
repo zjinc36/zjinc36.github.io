@@ -1,11 +1,10 @@
----
-title: Spring的IOC注解开发
-date: 2019-07-15 09:29:33
-description: Spring的IOC注解开发
-categories:
-- Java
-tags:
-- Spring
+#   Spring的IOC注解开发
++ date: 2019-07-15 09:29:33
++ description: Spring的IOC注解开发
++ categories:
+  - Java
++ tags:
+  - Spring
 ---
 [_参考Spring IOC注解开发_](https://blog.csdn.net/q547550831/article/details/54911516#spring%E7%9A%84ioc%E6%B3%A8%E8%A7%A3%E7%9A%84%E8%AF%A6%E8%A7%A3)
 #   入门案例

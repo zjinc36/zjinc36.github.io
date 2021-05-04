@@ -1,11 +1,10 @@
----
-title: Spring使用注解方式实现AOP
-date: 2019-07-21 15:56:28
-description: 基于Spring注解的方式声明切面
-categories:
-- Java
-tags:
-- Spring
+#   Spring使用注解方式实现AOP
++ date: 2019-07-21 15:56:28
++ description: 基于Spring注解的方式声明切面
++ categories:
+  - Java
++ tags:
+  - Spring
 ---
 [_参考:使用Spring的注解方式实现AOP入门_](https://blog.csdn.net/yerenyuan_pku/article/details/52865330)
 [_参考:使用Spring的注解方式实现AOP的细节_](https://blog.csdn.net/yerenyuan_pku/article/details/52879669)

@@ -1,11 +1,10 @@
----
-title: JUC之CountDownLatch减少计数
-date: 2020-09-14 22:11:43
-description: JUC之CountDownLatch减少计数
-categories:
-- Java
-tags:
-- JUC
+#   JUC之CountDownLatch减少计数
++ date: 2020-09-14 22:11:43
++ description: JUC之CountDownLatch减少计数
++ categories:
+  - Java
++ tags:
+  - JUC
 ---
 #   概念
 让一些线程阻塞直到另一些线程完成一系列操作才被唤醒

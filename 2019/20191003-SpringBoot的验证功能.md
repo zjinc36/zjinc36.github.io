@@ -1,11 +1,10 @@
----
-title: SpringBoot的验证功能
-date: 2019-10-03 14:34:30
-description: SpringBoot的验证功能
-categories:
-- Java
-tags:
-- SpringBoot
+#   SpringBoot的验证功能
++ date: 2019-10-03 14:34:30
++ description: SpringBoot的验证功能
++ categories:
+  - Java
++ tags:
+  - SpringBoot
 - Spring
 ---
 #   来源

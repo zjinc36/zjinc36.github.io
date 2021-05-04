@@ -1,5 +1,4 @@
----
-title: Java中的Lambda表达式(匿名内部类)
+#   Java中的Lambda表达式(匿名内部类)
 description: Java中的Lambda表达式(匿名内部类)
 date: 2018-04-09 21:01:09
 categories:

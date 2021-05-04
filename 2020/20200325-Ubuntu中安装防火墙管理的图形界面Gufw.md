@@ -1,5 +1,4 @@
----
-title: Ubuntu中安装防火墙管理的图形界面Gufw
+#   Ubuntu中安装防火墙管理的图形界面Gufw
 description: An easy way to configure your firewall
 date: 2020-03-25 22:21:38
 categories:

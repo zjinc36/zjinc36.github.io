@@ -1,11 +1,10 @@
----
-title: org.xml.sax.SAXParseException:元素类型input必须由匹配的结束标记/input终止
-date: 2017-11-12 10:36:16
-description: org.xml.sax.SAXParseException:元素类型input必须由匹配的结束标记/input终止
-categories:
-- Java
-tags:
-- Java细节
+#   org.xml.sax.SAXParseException:元素类型input必须由匹配的结束标记/input终止
++ date: 2017-11-12 10:36:16
++ description: org.xml.sax.SAXParseException:元素类型input必须由匹配的结束标记/input终止
++ categories:
+  - Java
++ tags:
+  - Java细节
 - Thymeleaf
 ---
 #   参考与引用

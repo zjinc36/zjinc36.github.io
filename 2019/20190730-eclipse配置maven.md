@@ -1,11 +1,10 @@
----
-title: eclipse配置maven
-date: 2019-07-30 19:57:15
-description: eclipse配置maven
-categories:
-- Java
-tags:
-- Eclipse
+#   eclipse配置maven
++ date: 2019-07-30 19:57:15
++ description: eclipse配置maven
++ categories:
+  - Java
++ tags:
+  - Eclipse
 - maven
 ---
 ##  设定编码

@@ -1,5 +1,4 @@
----
-title: Ubuntu中基于Docker安装QQ和WeChat
+#   Ubuntu中基于Docker安装QQ和WeChat
 description: Ubuntu中安装离线API文档大全Zeal
 date: 2020-07-08 14:30:14
 categories:

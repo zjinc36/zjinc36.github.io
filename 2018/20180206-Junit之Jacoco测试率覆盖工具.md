@@ -1,11 +1,10 @@
----
-title: Junit之Jacoco测试率覆盖工具
-date: 2018-02-06 20:59:47
-description: Junit之Jacoco测试率覆盖工具
-categories:
-- Java
-tags:
-- Junit
+#   Junit之Jacoco测试率覆盖工具
++ date: 2018-02-06 20:59:47
++ description: Junit之Jacoco测试率覆盖工具
++ categories:
+  - Java
++ tags:
+  - Junit
 - Java
 ---
 #	介绍JaCoCo

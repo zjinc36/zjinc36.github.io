@@ -1,5 +1,4 @@
----
-title: Ubuntu中安装桌面搜索应用DocFetcher
+#   Ubuntu中安装桌面搜索应用DocFetcher
 description: Ubuntu中安装桌面搜索应用DocFetcher
 date: 2020-07-07 08:15:49
 categories:

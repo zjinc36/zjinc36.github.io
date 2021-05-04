@@ -1,5 +1,4 @@
----
-title: Ubuntu中安装离线API文档大全Zeal
+#   Ubuntu中安装离线API文档大全Zeal
 description: Ubuntu中安装离线API文档大全Zeal
 date: 2020-07-07 08:03:04
 categories:

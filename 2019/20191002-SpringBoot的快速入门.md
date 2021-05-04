@@ -1,11 +1,10 @@
----
-title: SpringBoot的快速入门
-date: 2019-10-02 22:52:32
-description: SpringBoot的快速入门
-categories:
-- Java
-tags:
-- Spring
+#   SpringBoot的快速入门
++ date: 2019-10-02 22:52:32
++ description: SpringBoot的快速入门
++ categories:
+  - Java
++ tags:
+  - Spring
 - SpringBoot
 ---
 +   Controller编写和测试

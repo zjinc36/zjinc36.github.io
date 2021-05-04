@@ -1,11 +1,10 @@
----
-title: Ubuntu刷新DNS
-date: 2020-07-31 09:59:24
-description: Ubuntu设置开机自动加/挂载硬盘
-categories:
-- Ubuntu
-tags:
-- Ubuntu配置
+#   Ubuntu刷新DNS
++ date: 2020-07-31 09:59:24
++ description: Ubuntu设置开机自动加/挂载硬盘
++ categories:
+  - Ubuntu
++ tags:
+  - Ubuntu配置
 ---
 #   方式一:刷新DNS
 ```bash

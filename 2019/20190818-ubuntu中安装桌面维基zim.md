@@ -1,11 +1,10 @@
----
-title: ubuntu中安装桌面维基zim
-date: 2019-08-18 16:49:05
-description: Zim是一个图形文本编辑器，用于维护一组wiki页面
-categories:
-- Ubuntu
-tags:
-- Ubuntu装机日志
+#   ubuntu中安装桌面维基zim
++ date: 2019-08-18 16:49:05
++ description: Zim是一个图形文本编辑器，用于维护一组wiki页面
++ categories:
+  - Ubuntu
++ tags:
+  - Ubuntu装机日志
 ---
 #   zim是什么
 Zim是一个图形文本编辑器，用于维护一组wiki页面。

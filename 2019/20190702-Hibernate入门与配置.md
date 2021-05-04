@@ -1,11 +1,10 @@
----
-title: Hibernate入门与配置
-date: 2019-07-02 00:25:13
-description: Hibernate入门与配置
-categories:
-- Java
-tags:
-- Hibernate
+#   Hibernate入门与配置
++ date: 2019-07-02 00:25:13
++ description: Hibernate入门与配置
++ categories:
+  - Java
++ tags:
+  - Hibernate
 ---
 #  Hibernate在项目中的位置
 EE的三层结构

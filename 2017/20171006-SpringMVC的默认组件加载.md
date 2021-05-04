@@ -1,11 +1,10 @@
----
-title: SpringMVC的默认组件加载
-date: 2017-10-06 15:59:06
-description: SpringMVC的默认组件加载
-categories:
-- Java
-tags:
-- Spring
+#   SpringMVC的默认组件加载
++ date: 2017-10-06 15:59:06
++ description: SpringMVC的默认组件加载
++ categories:
+  - Java
++ tags:
+  - Spring
 - SpringMVC
 ---
 #   默认组件加载选择

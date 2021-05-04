@@ -1,11 +1,10 @@
----
-title: Hibernate事务管理
-date: 2019-07-07 23:11:59
-description: Hibernate事物管理
-categories:
-- Java
-tags:
-- Hibernate
+#   Hibernate事务管理
++ date: 2019-07-07 23:11:59
++ description: Hibernate事物管理
++ categories:
+  - Java
++ tags:
+  - Hibernate
 ---
 #   事务
 ##   什么是事务

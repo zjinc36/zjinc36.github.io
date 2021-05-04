@@ -1,11 +1,10 @@
----
-title: Git的diff命令和patch命令的使用
-date: 2017-02-14 20:06:24
-description: Git的diff命令和patch命令的使用
-categories:
-- Git
-tags:
-- Git
+#   Git的diff命令和patch命令的使用
++ date: 2017-02-14 20:06:24
++ description: Git的diff命令和patch命令的使用
++ categories:
+  - Git
++ tags:
+  - Git
 ---
 #	diff命令的使用方法
 ##	diff命令的作用

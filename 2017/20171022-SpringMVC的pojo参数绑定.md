@@ -1,11 +1,10 @@
----
-title: SpringMVC的pojo参数绑定
-date: 2017-10-22 16:16:49
-description: SpringMVC的pojo参数绑定
-categories:
-- Java
-tags:
-- Spring
+#   SpringMVC的pojo参数绑定
++ date: 2017-10-22 16:16:49
++ description: SpringMVC的pojo参数绑定
++ categories:
+  - Java
++ tags:
+  - Spring
 - SpringMVC
 ---
 #  基本代码

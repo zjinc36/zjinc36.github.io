@@ -1,5 +1,4 @@
----
-title: Java匿名内部类访问外部变量，为何需被标志为final
+#   Java匿名内部类访问外部变量，为何需被标志为final
 date: 2019-07-28 10:39:27
 copyright: false
 description: Java匿名内部类访问外部变量，为何需被标志为final

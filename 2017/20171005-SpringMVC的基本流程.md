@@ -1,11 +1,10 @@
----
-title: SpringMVC的基本流程
-date: 2017-10-05 21:10:09
-description: SpringMVC的基本流程
-categories:
-- Java
-tags:
-- Spring
+#   SpringMVC的基本流程
++ date: 2017-10-05 21:10:09
++ description: SpringMVC的基本流程
++ categories:
+  - Java
++ tags:
+  - Spring
 - SpringMVC
 ---
 #   从请求到响应

@@ -1,5 +1,4 @@
----
-title: Ubuntu中安装kchmviewer用以打开chm文件
+#   Ubuntu中安装kchmviewer用以打开chm文件
 description: Ubuntu中安装kchmviewer用以打开chm文件
 date: 2020-04-09 08:55:53
 categories:

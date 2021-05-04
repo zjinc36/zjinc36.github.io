@@ -1,5 +1,4 @@
----
-title: Java中用final修饰静态变量后对静态代码块的影响
+#   Java中用final修饰静态变量后对静态代码块的影响
 description: Java中用final修饰静态变量后对静态代码块的影响
 date: 2020-06-10 12:34:22
 tags:

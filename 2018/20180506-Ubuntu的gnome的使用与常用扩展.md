@@ -1,11 +1,10 @@
----
-title: Ubuntu的gnome的使用与常用扩展
-date: 2018-05-06 10:26:32
-description: Ubuntu的gnome的使用与常用扩展
-categories:
-- Ubuntu
-tags:
-- Ubuntu装机日志
+#   Ubuntu的gnome的使用与常用扩展
++ date: 2018-05-06 10:26:32
++ description: Ubuntu的gnome的使用与常用扩展
++ categories:
+  - Ubuntu
++ tags:
+  - Ubuntu装机日志
 ---
 #   gnome中的一些快捷键
 +   Alt+F2 快速使用命令(r命令重启shell，rt命令重载shell主题）

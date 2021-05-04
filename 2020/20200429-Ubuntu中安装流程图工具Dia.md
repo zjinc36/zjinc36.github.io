@@ -1,5 +1,4 @@
----
-title: Ubuntu中安装流程图工具Dia
+#   Ubuntu中安装流程图工具Dia
 description: Ubuntu中安装流程图工具Dia
 date: 2020-04-29 09:44:24
 categories:

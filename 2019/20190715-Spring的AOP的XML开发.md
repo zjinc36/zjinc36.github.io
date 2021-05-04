@@ -1,11 +1,10 @@
----
-title: Spring的AOP的XML开发
-date: 2019-07-15 10:38:51
-description: Spring的AOP的xml开发
-categories:
-- Java
-tags:
-- Spring
+#   Spring的AOP的XML开发
++ date: 2019-07-15 10:38:51
++ description: Spring的AOP的xml开发
++ categories:
+  - Java
++ tags:
+  - Spring
 ---
 #   AOP概述
 AOP，Aspect Oriented Programming，面向切面编程，是指在运行时，动态地将代码切入到类的指定方法、指定位置上的一种编程技术。AOP 是 OOP 的延续，是软件开发中的一个热点，也是 Spring 框架中的一个重要内容。利用 AOP 可以对业务逻辑与横切关注点（cross-cutting concerns，例如日志记录，事务处理）进行隔离，从而使得业务逻辑与横切关注点的耦合度降低，提高程序的可重用性，同时提高了开发的效率。

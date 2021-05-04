@@ -1,11 +1,10 @@
----
-title: MyBatis中的DAO包装
-date: 2019-07-31 21:48:53
-description: MyBatis中的DAO包装
-categories:
-- Java
-tags:
-- MyBatis
+#   MyBatis中的DAO包装
++ date: 2019-07-31 21:48:53
++ description: MyBatis中的DAO包装
++ categories:
+  - Java
++ tags:
+  - MyBatis
 ---
 #   传统的DAO包装
 ##  项目基本代码

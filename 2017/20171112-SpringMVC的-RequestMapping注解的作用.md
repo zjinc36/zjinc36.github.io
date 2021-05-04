@@ -1,11 +1,10 @@
----
-title: SpringMVC的@RequestMapping注解的作用
-date: 2017-11-12 10:24:34
-description: SpringMVC的@RequestMapping注解的作用
-categories:
-- Java
-tags:
-- Spring
+#   SpringMVC的@RequestMapping注解的作用
++ date: 2017-11-12 10:24:34
++ description: SpringMVC的@RequestMapping注解的作用
++ categories:
+  - Java
++ tags:
+  - Spring
 - SpringMVC
 ---
 #	参考与引用

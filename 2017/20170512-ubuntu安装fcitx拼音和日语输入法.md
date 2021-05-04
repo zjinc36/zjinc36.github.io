@@ -1,5 +1,4 @@
----
-title: ubuntu安装fcitx拼音和日语输入法
+#   ubuntu安装fcitx拼音和日语输入法
 description: ubuntu安装fcitx拼音和日语输入法
 date: 2017-05-12 10:44:44
 categories:

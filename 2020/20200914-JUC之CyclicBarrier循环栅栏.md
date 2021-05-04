@@ -1,11 +1,10 @@
----
-title: JUC之CyclicBarrier循环栅栏
-date: 2020-09-14 22:16:51
-description: JUC之CyclicBarrier循环栅栏
-categories:
-- Java
-tags:
-- JUC
+#   JUC之CyclicBarrier循环栅栏
++ date: 2020-09-14 22:16:51
++ description: JUC之CyclicBarrier循环栅栏
++ categories:
+  - Java
++ tags:
+  - JUC
 ---
 #   概念
 和CountDownLatch相反，需要集齐七颗龙珠，召唤神龙。也就是做加法，开始是0，加到某个值的时候就执行

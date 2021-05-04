@@ -1,11 +1,10 @@
----
-title: SpringSecurity的CSRF问题Invalid CSRF Token null was found on...
-date: 2019-11-12 09:48:48
-description: SpringSecurity的CSRF问题Invalid CSRF Token null was found on...
-categories:
-- Java
-tags:
-- Java细节
+#   SpringSecurity的CSRF问题Invalid CSRF Token null was found on...
++ date: 2019-11-12 09:48:48
++ description: SpringSecurity的CSRF问题Invalid CSRF Token null was found on...
++ categories:
+  - Java
++ tags:
+  - Java细节
 - Spring
 - SpringSecurity
 ---

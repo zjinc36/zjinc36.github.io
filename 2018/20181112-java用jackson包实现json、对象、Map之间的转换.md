@@ -1,11 +1,10 @@
----
-title: java用jackson包实现json、对象、Map之间的转换
-date: 2019-11-12 10:25:25
-description: java用jackson包实现json、对象、Map之间的转换
-categories:
-- Java
-tags:
-- Jackson
+#   java用jackson包实现json、对象、Map之间的转换
++ date: 2019-11-12 10:25:25
++ description: java用jackson包实现json、对象、Map之间的转换
++ categories:
+  - Java
++ tags:
+  - Jackson
 ---
 ##	将对象转换成json
 ```java

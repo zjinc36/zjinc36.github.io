@@ -1,11 +1,10 @@
----
-title: SpringMVC的List参数绑定
-date: 2017-10-24 23:39:54
-description: SpringMVC的List参数绑定
-categories:
-- Java
-tags:
-- Spring
+#   SpringMVC的List参数绑定
++ date: 2017-10-24 23:39:54
++ description: SpringMVC的List参数绑定
++ categories:
+  - Java
++ tags:
+  - Spring
 - SpringMVC
 ---
 #  基本代码

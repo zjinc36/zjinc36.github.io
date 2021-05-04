@@ -1,11 +1,10 @@
----
-title: Ubuntu安装截屏工具Shutter
-date: 2019-07-07 21:24:30
-description: Shutter是Ubuntu中的屏幕快照工具,并设置快捷键
-categories:
-- Ubuntu
-tags:
-- Ubuntu装机日志
+#   Ubuntu安装截屏工具Shutter
++ date: 2019-07-07 21:24:30
++ description: Shutter是Ubuntu中的屏幕快照工具,并设置快捷键
++ categories:
+  - Ubuntu
++ tags:
+  - Ubuntu装机日志
 ---
 #  安装截图工具Shutter
 ##  安装

@@ -1,11 +1,10 @@
----
-title: Ubuntu20.04中安装flameshot截屏工具
-date: 2020-08-01 23:27:28
-description: 截图工具，可添加文字、箭头等
-categories:
-- Ubuntu
-tags:
-- Ubuntu装机日志
+#   Ubuntu20.04中安装flameshot截屏工具
++ date: 2020-08-01 23:27:28
++ description: 截图工具，可添加文字、箭头等
++ categories:
+  - Ubuntu
++ tags:
+  - Ubuntu装机日志
 ---
 #   作用
 截图工具，可添加文字、箭头等

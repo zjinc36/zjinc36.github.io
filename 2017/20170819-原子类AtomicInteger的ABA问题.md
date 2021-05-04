@@ -1,11 +1,10 @@
----
-title: 原子类AtomicInteger的ABA问题
-date: 2017-08-19 11:30:56
-description: 原子类AtomicInteger的ABA问题
-categories:
-- Java
-tags:
-- JUC
+#   原子类AtomicInteger的ABA问题
++ date: 2017-08-19 11:30:56
++ description: 原子类AtomicInteger的ABA问题
++ categories:
+  - Java
++ tags:
+  - JUC
 ---
 #   连环套路
 

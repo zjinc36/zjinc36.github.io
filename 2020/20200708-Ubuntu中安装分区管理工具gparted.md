@@ -1,5 +1,4 @@
----
-title: Ubuntu中安装分区管理工具gparted
+#   Ubuntu中安装分区管理工具gparted
 description: Ubuntu中安装分区管理工具gparted
 date: 2020-07-08 15:16:44
 categories:

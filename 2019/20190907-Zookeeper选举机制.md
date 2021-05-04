@@ -1,11 +1,10 @@
----
-title: Zookeeper选举机制
-date: 2019-09-07 12:46:05
-description: Zookeeper选举机制
-categories:
-- BigData
-tags:
-- Zookeeper
+#   Zookeeper选举机制
++ date: 2019-09-07 12:46:05
++ description: Zookeeper选举机制
++ categories:
+  - BigData
++ tags:
+  - Zookeeper
 ---
 #   选票格式
 (myid, ZXID) => (自己机器的id, 事务id)

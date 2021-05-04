@@ -1,11 +1,10 @@
----
-title: Hibernate持久化类的编写规则
-date: 2019-07-07 11:57:44
-description: Hibernate持久化类
-categories:
-- Java
-tags:
-- Hibernate
+#   Hibernate持久化类的编写规则
++ date: 2019-07-07 11:57:44
++ description: Hibernate持久化类
++ categories:
+  - Java
++ tags:
+  - Hibernate
 ---
 #  什么是持久化类
 +   持久化:将内存中的一个对象持久化到数据库中的过程,Hibernate就是用来进行持久化的框架

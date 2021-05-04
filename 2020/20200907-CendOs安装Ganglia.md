@@ -1,11 +1,10 @@
----
-title: CendOs安装Ganglia
-date: 2020-06-04 09:38:42
-description: CendOs安装Ganglia
-categories:
-- BigData
-tags:
-- Flume
+#   CendOs安装Ganglia
++ date: 2020-06-04 09:38:42
++ description: CendOs安装Ganglia
++ categories:
+  - BigData
++ tags:
+  - Flume
 ---
 1.  安装httpd服务与php
 

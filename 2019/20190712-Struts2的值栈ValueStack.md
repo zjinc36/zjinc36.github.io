@@ -1,11 +1,10 @@
----
-title: Struts2的值栈(ValueStack)
-date: 2019-07-12 16:48:14
-description: OGNL的值栈
-categories:
-- Java
-tags:
-- OGNL
+#   Struts2的值栈(ValueStack)
++ date: 2019-07-12 16:48:14
++ description: OGNL的值栈
++ categories:
+  - Java
++ tags:
+  - OGNL
 - Struts2
 ---
 #	值栈

@@ -1,11 +1,10 @@
----
-title: Ubuntu安装数据库可视化工具dbeaver
-date: 2019-07-03 10:09:35
-description: dbeaver,一款基于java的数据库可视化工具
-categories:
-- Ubuntu
-tags:
-- Ubuntu装机日志
+#   Ubuntu安装数据库可视化工具dbeaver
++ date: 2019-07-03 10:09:35
++ description: dbeaver,一款基于java的数据库可视化工具
++ categories:
+  - Ubuntu
++ tags:
+  - Ubuntu装机日志
 ---
 ##  dbeaver是什么
 dbeaver,一款基于java的数据库可视化工具

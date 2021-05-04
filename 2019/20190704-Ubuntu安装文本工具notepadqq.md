@@ -1,11 +1,10 @@
----
-title: Ubuntu安装文本工具notepadqq
-date: 2019-07-04 09:59:33
-description: 就是Windows上的Notepad++
-categories:
-- Ubuntu
-tags:
-- Ubuntu装机日志
+#   Ubuntu安装文本工具notepadqq
++ date: 2019-07-04 09:59:33
++ description: 就是Windows上的Notepad++
++ categories:
+  - Ubuntu
++ tags:
+  - Ubuntu装机日志
 ---
 ##  安装notepadqq
 ### 作用

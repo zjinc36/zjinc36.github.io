@@ -1,5 +1,4 @@
----
-title: Ubuntu中安装Ganglia
+#   Ubuntu中安装Ganglia
 description: Ubuntu中安装Ganglia
 date: 2020-06-04 10:19:34
 categories:

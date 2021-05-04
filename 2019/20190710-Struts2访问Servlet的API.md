@@ -1,11 +1,10 @@
----
-title: Struts2访问Servlet的API
-date: 2019-07-10 16:27:56
-description: Struts2访问Servlet的API方式
-categories:
-- Java
-tags:
-- Struts2
+#   Struts2访问Servlet的API
++ date: 2019-07-10 16:27:56
++ description: Struts2访问Servlet的API方式
++ categories:
+  - Java
++ tags:
+  - Struts2
 ---
 #	Servlet 和 Action 的区别
 >	[_参考:https://blog.csdn.net/siwuxie095/article/details/77075528_](https://blog.csdn.net/siwuxie095/article/details/77075528)

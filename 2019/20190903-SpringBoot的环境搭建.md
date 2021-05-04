@@ -1,11 +1,10 @@
----
-title: SpringBoot的环境搭建
-date: 2019-09-03 22:39:41
-description: SpringBoot的环境搭建
-categories:
-- Java
-tags:
-- Spring
+#   SpringBoot的环境搭建
++ date: 2019-09-03 22:39:41
++ description: SpringBoot的环境搭建
++ categories:
+  - Java
++ tags:
+  - Spring
 - SpringBoot
 ---
 #   创建maven项目

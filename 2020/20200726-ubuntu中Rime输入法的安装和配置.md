@@ -1,11 +1,10 @@
----
-title: ubuntu中Rime输入法的安装和配置
-date: 2020-07-26 12:24:13
-description: ubuntu中Rime输入法的安装和配置
-categories:
-- Ubuntu
-tags:
-- Ubuntu装机日志
+#   ubuntu中Rime输入法的安装和配置
++ date: 2020-07-26 12:24:13
++ description: ubuntu中Rime输入法的安装和配置
++ categories:
+  - Ubuntu
++ tags:
+  - Ubuntu装机日志
 ---
 #   官方网站及文档
 [https://rime.im/](https://rime.im/)

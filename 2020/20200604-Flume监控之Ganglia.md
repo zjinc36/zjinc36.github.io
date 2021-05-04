@@ -1,11 +1,10 @@
----
-title: Flume监控之Ganglia
-date: 2020-06-04 10:36:19
-description: Flume监控之Ganglia
-categories:
-- BigData
-tags:
-- Flume
+#   Flume监控之Ganglia
++ date: 2020-06-04 10:36:19
++ description: Flume监控之Ganglia
++ categories:
+  - BigData
++ tags:
+  - Flume
 ---
 #   配置Flume被Ganglia监控
 修改`/opt/module/flume/conf`目录下的`flume-env.sh`配置：

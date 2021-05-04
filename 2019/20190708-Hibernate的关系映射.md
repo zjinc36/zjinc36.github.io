@@ -1,11 +1,10 @@
----
-title: Hibernate的关系映射
-date: 2019-07-08 11:43:06
-description: 一对多/多对多关系
-categories:
-- Java
-tags:
-- Hibernate
+#   Hibernate的关系映射
++ date: 2019-07-08 11:43:06
++ description: 一对多/多对多关系
++ categories:
+  - Java
++ tags:
+  - Hibernate
 ---
 #   一对多关系
 ##  什么样关系属于一对多

@@ -1,5 +1,4 @@
----
-title: Servlet中关于HttpServletRequest和HttpServletResponse的使用
+#   Servlet中关于HttpServletRequest和HttpServletResponse的使用
 date: 2019-06-27 23:15:01
 description: HttpServletRequest和HttpServletResponse的使用
 tags:

@@ -1,11 +1,10 @@
----
-title: Spring的AOP的基本使用案例
-date: 2019-07-20 22:31:18
-description: Spring的AOP的入门开发
-categories:
-- Java
-tags:
-- Spring
+#   Spring的AOP的基本使用案例
++ date: 2019-07-20 22:31:18
++ description: Spring的AOP的入门开发
++ categories:
+  - Java
++ tags:
+  - Spring
 ---
 本质上就是将面向切面变成要写的一堆代码变成只需要配置xml文件就可以了
 ##	ProductDao.java

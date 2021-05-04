@@ -1,11 +1,10 @@
----
-title: 问题:xxx is a raw type. References to generic type xxx<y> should be parameterized
-date: 2019-07-09 10:55:11
-description: 出现 Query is a raw type. References to generic type Query<R> should be parameterized 或者 List is a raw type. References to generic type List should be parameterized 警告
-categories:
-- Java
-tags:
-- Java细节
+#   问题:xxx is a raw type. References to generic type xxx<y> should be parameterized
++ date: 2019-07-09 10:55:11
++ description: 出现 Query is a raw type. References to generic type Query<R> should be parameterized 或者 List is a raw type. References to generic type List should be parameterized 警告
++ categories:
+  - Java
++ tags:
+  - Java细节
 ---
 #   Eclipse出现如下报错
 >   +   Query is a raw type. References to generic type Query<R> should be parameterized

@@ -1,11 +1,10 @@
----
-title: Linux中使用tar和gzip进行打包拆包压缩解压
-date: 2020-06-11 09:22:52
-description: tar、gzip (打包拆包、压缩解压、打包压缩、解压拆包)
-categories:
-- Ubuntu
-tags:
-- Linux命令
+#   Linux中使用tar和gzip进行打包拆包压缩解压
++ date: 2020-06-11 09:22:52
++ description: tar、gzip (打包拆包、压缩解压、打包压缩、解压拆包)
++ categories:
+  - Ubuntu
++ tags:
+  - Linux命令
 ---
 #   压缩格式：
 +   windows (zip、rar)

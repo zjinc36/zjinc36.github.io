@@ -1,5 +1,4 @@
----
-title: Ubuntu中一键OCR识别图片截图文字转文本
+#   Ubuntu中一键OCR识别图片截图文字转文本
 description: 本文主要希望在ubuntu系统下实现 一键OCR识别图片截图中的内容使之转换为文本可以复制粘贴
 date: 2020-06-14 09:20:26
 categories:

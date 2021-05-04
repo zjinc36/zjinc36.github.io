@@ -1,11 +1,10 @@
----
-title: SpringMVC的数组参数绑定
-date: 2017-10-23 23:15:27
-description: SpringMVC的数组参数绑定
-categories:
-- Java
-tags:
-- Spring
+#   SpringMVC的数组参数绑定
++ date: 2017-10-23 23:15:27
++ description: SpringMVC的数组参数绑定
++ categories:
+  - Java
++ tags:
+  - Spring
 - SpringMVC
 ---
 #  基本代码

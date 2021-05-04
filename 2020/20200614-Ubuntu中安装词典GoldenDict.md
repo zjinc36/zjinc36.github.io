@@ -1,5 +1,4 @@
----
-title: Ubuntu中安装词典GoldenDict
+#   Ubuntu中安装词典GoldenDict
 description: Ubuntu中安装词典GoldenDict
 date: 2020-06-14 12:15:30
 categories:

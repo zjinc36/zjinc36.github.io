@@ -1,5 +1,4 @@
----
-title: Ubuntu中安装番茄工作法软件gnome-shell-pomodoro
+#   Ubuntu中安装番茄工作法软件gnome-shell-pomodoro
 description: Ubuntu中安装番茄工作法软件gnome-shell-pomodoro
 date: 2020-04-21 11:17:05
 categories:

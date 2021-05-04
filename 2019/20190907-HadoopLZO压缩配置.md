@@ -1,11 +1,10 @@
----
-title: HadoopLZO压缩配置
-date: 2019-09-07 11:58:01
-description: HadoopLZO压缩配置
-categories:
-- BigData
-tags:
-- Hadoop
+#   HadoopLZO压缩配置
++ date: 2019-09-07 11:58:01
++ description: HadoopLZO压缩配置
++ categories:
+  - BigData
++ tags:
+  - Hadoop
 ---
 1. 先下载lzo的jar项目
 

@@ -1,11 +1,10 @@
----
-title: nslookup命令-查DNS信息用
-date: 2020-08-26 12:35:29
-description: nslookup命令-查DNS信息用
-categories:
-- Ubuntu
-tags:
-- Linux命令
+#   nslookup命令-查DNS信息用
++ date: 2020-08-26 12:35:29
++ description: nslookup命令-查DNS信息用
++ categories:
+  - Ubuntu
++ tags:
+  - Linux命令
 ---
 #   基本说明
  nslookup命令是常用域名查询工具，就是查DNS信息用的命令。

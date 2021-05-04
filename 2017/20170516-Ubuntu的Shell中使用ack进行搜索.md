@@ -1,5 +1,4 @@
----
-title: Ubuntu的Shell中使用Ack进行搜索
+#   Ubuntu的Shell中使用Ack进行搜索
 description: Ubuntu的Shell中使用Ack进行搜索
 date: 2017-05-16 23:28:16
 categories:

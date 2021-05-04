@@ -1,5 +1,4 @@
----
-title: Ubuntu中KeePass使用快捷键自动输入用户名密码无效
+#   Ubuntu中KeePass使用快捷键自动输入用户名密码无效
 description: 错误:the xdotool utility/package is required for auto-type install this package and try again
 date: 2020-03-24 15:22:19
 categories:

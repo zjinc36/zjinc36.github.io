@@ -1,5 +1,4 @@
----
-title: Ubuntu中安装全局搜索软件Synapse
+#   Ubuntu中安装全局搜索软件Synapse
 description: 搜索你想要的
 date: 2020-03-25 22:07:51
 categories:

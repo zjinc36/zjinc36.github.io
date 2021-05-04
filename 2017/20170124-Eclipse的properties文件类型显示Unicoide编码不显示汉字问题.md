@@ -1,11 +1,10 @@
----
-title: Eclipse的properties文件类型显示Unicoide编码不显示汉字问题
-date: 2017-01-24 11:39:25
-description: Eclipse的properties文件类型显示Unicoide编码不显示汉字问题
-categories:
-- Java
-tags:
-- Eclipse
+#   Eclipse的properties文件类型显示Unicoide编码不显示汉字问题
++ date: 2017-01-24 11:39:25
++ description: Eclipse的properties文件类型显示Unicoide编码不显示汉字问题
++ categories:
+  - Java
++ tags:
+  - Eclipse
 - Eclipse插件
 ---
 #   安装插件propedit

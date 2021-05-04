@@ -1,11 +1,10 @@
----
-title: SpringMVC的快速入门
-date: 2017-10-03 21:49:39
-description: SpringMVC的入门
-categories:
--   Java
-tags:
--   Spring
+#   SpringMVC的快速入门
++ date: 2017-10-03 21:49:39
++ description: SpringMVC的入门
++ categories:
+  -   Java
++ tags:
+  -   Spring
 -   SpringMVC
 ---
 

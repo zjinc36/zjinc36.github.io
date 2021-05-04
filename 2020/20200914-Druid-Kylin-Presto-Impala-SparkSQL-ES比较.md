@@ -1,11 +1,10 @@
----
-title: Druid-Kylin-Presto-Impala-SparkSQL-ES比较
-date: 2020-09-14 11:07:27
-description: Druid-Kylin-Presto-Impala-SparkSQL-ES比较
-categories:
-- BigData
-tags:
-- BigData
+#   Druid-Kylin-Presto-Impala-SparkSQL-ES比较
++ date: 2020-09-14 11:07:27
++ description: Druid-Kylin-Presto-Impala-SparkSQL-ES比较
++ categories:
+  - BigData
++ tags:
+  - BigData
 ---
 <!-- ![](../images/2020/09/20200914110558.png) -->
 

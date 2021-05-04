@@ -1,11 +1,10 @@
----
-title: eclipse中导入dtd和xsd使得xml文件能自动提示
-date: 2019-07-03 15:54:31
-description: 在Eclipse中导入dtd和xsd文件，使XML自动提示
-categories:
-- Java
-tags:
-- Eclipse
+#   eclipse中导入dtd和xsd使得xml文件能自动提示
++ date: 2019-07-03 15:54:31
++ description: 在Eclipse中导入dtd和xsd文件，使XML自动提示
++ categories:
+  - Java
++ tags:
+  - Eclipse
 ---
 ##	DTD 类型约束文件
 1. Window->Preferences->XML->XML Catalog->User Specified Entries窗口中,选择Add 按纽

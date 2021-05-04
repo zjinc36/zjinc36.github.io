@@ -1,5 +1,4 @@
----
-title: Ubuntu开启smb协议与手机互联
+#   Ubuntu开启smb协议与手机互联
 description: Ubuntu开启smb协议与手机互联
 date: 2020-05-29 15:44:23
 categories:

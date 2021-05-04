@@ -1,11 +1,10 @@
----
-title: Hibernate的查询方式
-date: 2019-07-09 01:44:54
-description: HQL/QBC/SQL
-categories:
-- Java
-tags:
-- Hibernate
+#   Hibernate的查询方式
++ date: 2019-07-09 01:44:54
++ description: HQL/QBC/SQL
++ categories:
+  - Java
++ tags:
+  - Hibernate
 ---
 #   OID查询
 Hibernate根据对象的OID(主键)进行检索
