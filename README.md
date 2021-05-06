@@ -17,6 +17,8 @@
 
 ##  CentOs操作日志
 -   [CendOs安装Ganglia](2020/20200907-CendOs安装Ganglia.md)
+-   [Centos7.x离线安装docker](2021/20210506-centos7离线安装docker.md)
+-   [docker安装jenkins](2021/20210506-docker安装jenkins.md)
 
 ##  Clickhouse
 -   [Clickhouse与kudu-kylin-druid的区别和使用场景](2021/20210327-Clickhouse与kudu-kylin-druid的区别和使用场景.md)
@@ -27,6 +29,7 @@
 
 ##   Docker
 -   [docker简介](2019/20191123-docker简介.md)
+-   [docker安装jenkins](2021/20210506-docker安装jenkins.md)
 
 ##  电商数仓案例分析
 -   [电商数仓每个层级表的依赖关系](2020/20200924-电商数仓每个层级表的依赖关系.md)
