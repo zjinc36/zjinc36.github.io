@@ -16,9 +16,27 @@
 
 
 ##  CentOs操作日志
--   [CendOs安装Ganglia](2020/20200907-CendOs安装Ganglia.md)
--   [Centos7.x离线安装docker](2021/20210506-centos7离线安装docker.md)
+-   [设置主机名.md](2021/20210506-设置主机名.md)
+-   [配置命令提示符颜色](2021/20210506-配置命令提示符颜色.md)
+-   [修改ssh端口](2021/20210506-修改ssh端口.md)
+-   [开启firewalls](2021/20210506-开启firewalls.md)
+-   [云服务器数据盘挂载操作](2021/20210506-云服务器数据盘挂载操作.md)
+-   [移动数据库文件和日志文件到数据盘](2021/20210506-移动数据库文件和日志文件到数据盘.md)
+-   [切换yum源到阿里云](2021/20210506-切换yum源到阿里云.md)
+-   [设置服务器时间同步](2021/20210506-设置服务器时间同步.md)
+-   [安装k8s和docker](2021/20210506-安装k8s和docker.md)
+-   [离线安装docker](2021/20210506-centos7离线安装docker.md)
+-   [安装jdk](2021/20210506-安装jdk.md)
+-   [安装mysql](2021/20210506-安装mysql.md)
+-   [安装prometheus和grafana](2021/20210506-安装prometheus和grafana.md)
+-   [安装node_exporter采集主机运行数据到prometheus](2021/20210506-安装node_exporter采集主机运行数据到prometheus.md)
+-   [安装jmx_exporter](2021/20210506-安装jmx_exporter.md)
+-   [基于jmx_exporter采集zookeeper数据到prometheus](2021/20210506-基于jmx_exporter采集zookeeper数据到prometheus.md)
+-   [安装mysqld_exporter采集mysql运行数据到prometheus](2021/20210506-安装mysqld_exporter采集mysql运行数据到prometheus.md)
+-   [安装scala](2021/20210506-安装scala.md)
+-   [安装Ganglia](2020/20200907-CendOs安装Ganglia.md)
 -   [docker安装jenkins](2021/20210506-docker安装jenkins.md)
+
 
 ##  Clickhouse
 -   [Clickhouse与kudu-kylin-druid的区别和使用场景](2021/20210327-Clickhouse与kudu-kylin-druid的区别和使用场景.md)
