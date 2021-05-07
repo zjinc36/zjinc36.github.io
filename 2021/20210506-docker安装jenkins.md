@@ -83,7 +83,7 @@ $ docker ps
 管理员初始密码被放到了/var/jenkins_home/secrets/initialAdminPassword 文件中，因为我们把 Jenkins 部署在了 Docker 容器中，因此需要先进入到容器，再去查看对应的文件initialAdminPassword内容：
 
 ```
-$ docker exec -it jenkins-blueocean /bin/bash
+$ docker exec -it jenkins /bin/bash
 jenkins@93f88d6ca212:/$ cat /var/jenkins_home/secrets/initialAdminPassword
 a6f6d08fcc474178833001d1fc79be62
 ```
