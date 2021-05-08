@@ -1,11 +1,13 @@
 #   Ubuntu中安装流程图工具Dia
-description: Ubuntu中安装流程图工具Dia
-date: 2020-04-29 09:44:24
-categories:
-- Ubuntu
-tags:
-- Ubuntu装机日志
++   description: Ubuntu中安装流程图工具Dia
++   date: 2020-04-29 09:44:24
++   categories:
+    - Ubuntu
++   tags:
+    - Ubuntu装机日志
+
 ---
+
 #   参考
 [ubuntu安装dia](https://www.cnblogs.com/yibeimingyue/p/11843963.html)
 [完美解决Dia无法输入中文的问题](https://www.jianshu.com/p/9a7d736126d1)
