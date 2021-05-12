@@ -118,6 +118,9 @@ rules:
 ```
 
 ##  kafka启动时开启jmx_exporter
+```
+vim /opt/module/kafka/bin/kafka-server-start.sh
+```
 
 ```
 export JMX_PORT="9999"
