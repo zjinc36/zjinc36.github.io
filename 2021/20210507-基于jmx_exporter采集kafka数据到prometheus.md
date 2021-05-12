@@ -124,6 +124,8 @@ export JMX_PORT="9999"
 export KAFKA_OPTS="-javaagent:/opt/module/jmx_exporter/jmx_prometheus_javaagent-0.13.0.jar=9308:/opt/module/jmx_exporter/kafka-2_0_0.yml"
 ```
 
+![](../images/2021/05/20210512145307.png)
+
 ##  重启kafka
 
 ```
