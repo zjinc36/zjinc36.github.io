@@ -45,6 +45,8 @@
 -   [0181_grafana监控clickhouse](2021/20210507-grafana监控clickhouse.md)
 -   [0190_安装Ganglia](2020/20200907-CendOs安装Ganglia.md)
 -   [0200_docker安装jenkins](2021/20210506-docker安装jenkins.md)
+-   [0210_离线安装hadoop](2021/20210514-离线安装hadoop.md)
+-   [0220_docker安装nginx](2021/20210514-docker安装nginx.md)
 
 
 ##  Clickhouse
@@ -57,6 +59,7 @@
 ##   Docker
 -   [docker简介](2019/20191123-docker简介.md)
 -   [docker安装jenkins](2021/20210506-docker安装jenkins.md)
+-   [docker安装nginx](2021/20210514-docker安装nginx.md)
 
 ##  电商数仓案例分析
 -   [电商数仓每个层级表的依赖关系](2020/20200924-电商数仓每个层级表的依赖关系.md)
@@ -97,6 +100,7 @@
 -   [解决Github-Page无法访问的其中一种情况](2020/20200826-解决Github-Page无法访问的其中一种情况.md)
 
 ##  Hadoop
+-   [离线安装hadoop](2021/20210514-离线安装hadoop.md)
 -   [项目遇到的问题之Hadoop](2018/20180915-项目遇到的问题之Hadoop.md)
 -   [HadoopLZO压缩配置](2019/20190907-HadoopLZO压缩配置.md)
 -   [Hadoop参数调优](2019/20190907-Hadoop参数调优.md)
