@@ -47,6 +47,7 @@
 -   [0200_docker安装jenkins](2021/20210506-docker安装jenkins.md)
 -   [0210_离线安装hadoop](2021/20210514-离线安装hadoop.md)
 -   [0220_docker安装nginx](2021/20210514-docker安装nginx.md)
+-   [0230_Centos7离线安装Flume](2021/20210520-Centos7离线安装Flume.md)
 
 
 ##  Clickhouse
@@ -84,6 +85,7 @@
 -   [Flink运行架构总结](2019/20190014-Flink运行架构总结.md)
 
 ##  Flume
+-   [Centos7离线安装Flume](2021/20210520-Centos7离线安装Flume.md)
 -   [项目遇到的问题之Flume](2019/20190915-项目遇到的问题之Flume.md)
 -   [Flume内存优化](2020/20200107-Flume内存优化.md)
 -   [Flume监控之Ganglia](2020/20200604-Flume监控之Ganglia.md)
@@ -100,16 +102,16 @@
 -   [解决Github-Page无法访问的其中一种情况](2020/20200826-解决Github-Page无法访问的其中一种情况.md)
 
 ##  Hadoop
+-   [离线安装hadoop](2021/20210514-离线安装hadoop.md)
+-   [Hadoop概述](2019/20191211-Hadoop概述.md)
 -   [HDFS概述](2021/20210520-HDFS概述.md)
 -   [HDFS的Shell操作](2021/20210520-HDFS的Shell操作.md)
 -   [HDFS客户端操作](2021/20210520-HDFS客户端操作.md)
--   [离线安装hadoop](2021/20210514-离线安装hadoop.md)
 -   [项目遇到的问题之Hadoop](2018/20180915-项目遇到的问题之Hadoop.md)
 -   [HadoopLZO压缩配置](2019/20190907-HadoopLZO压缩配置.md)
 -   [Hadoop参数调优](2019/20190907-Hadoop参数调优.md)
 -   [Hadoop存储多目录](2019/20190907-Hadoop存储多目录.md)
 -   [Hadoop基准测试](2019/20190907-Hadoop基准测试.md)
--   [Hadoop安装](2019/20191211-Hadoop安装.md)
 -   [Hadoop核心问题](2019/20191212-Hadoop核心问题.md)
 -   [Hadoop运行模式](2019/20191212-Hadoop运行模式.md)
 -   [Yarn运行机制流程图](2019/20191213-Yarn运行机制流程图.md)
