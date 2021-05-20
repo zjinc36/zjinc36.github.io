@@ -100,6 +100,9 @@
 -   [解决Github-Page无法访问的其中一种情况](2020/20200826-解决Github-Page无法访问的其中一种情况.md)
 
 ##  Hadoop
+-   [HDFS概述](2021/20210520-HDFS概述.md)
+-   [HDFS的Shell操作](2021/20210520-HDFS的Shell操作.md)
+-   [HDFS客户端操作](2021/20210520-HDFS客户端操作.md)
 -   [离线安装hadoop](2021/20210514-离线安装hadoop.md)
 -   [项目遇到的问题之Hadoop](2018/20180915-项目遇到的问题之Hadoop.md)
 -   [HadoopLZO压缩配置](2019/20190907-HadoopLZO压缩配置.md)
