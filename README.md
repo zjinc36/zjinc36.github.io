@@ -16,38 +16,39 @@
 
 
 ##  CentOs操作日志
--   [0005_设置主机名.md](2021/20210506-设置主机名.md)
--   [0007_配置命令提示符颜色](2021/20210506-配置命令提示符颜色.md)
--   [0008_修改ssh端口](2021/20210506-修改ssh端口.md)
--   [0009_开启firewalls](2021/20210506-开启firewalls.md)
--   [0010_云服务器数据盘挂载操作](2021/20210506-云服务器数据盘挂载操作.md)
--   [0020_移动数据库文件和日志文件到数据盘](2021/20210506-移动数据库文件和日志文件到数据盘.md)
--   [0025_切换yum源到阿里云](2021/20210506-切换yum源到阿里云.md)
--   [0030_设置服务器时间同步](2021/20210506-设置服务器时间同步.md)
--   [0040_安装k8s和docker](2021/20210506-安装k8s和docker.md)
--   [0050_离线安装docker](2021/20210506-centos7离线安装docker.md)
--   [0060_安装jdk8](2021/20210506-安装jdk8.md)
--   [0065_安装mysql](2021/20210506-安装mysql.md)
--   [0070_安装prometheus和grafana](2021/20210506-安装prometheus和grafana.md)
--   [0080_安装node_exporter采集主机运行数据到prometheus](2021/20210506-安装node_exporter采集主机运行数据到prometheus.md)
--   [0090_安装jmx_exporter](2021/20210506-安装jmx_exporter.md)
--   [0095_基于jmx_exporter采集zookeeper数据到prometheus](2021/20210506-基于jmx_exporter采集zookeeper数据到prometheus.md)
--   [0100_安装mysqld_exporter采集mysql运行数据到prometheus](2021/20210506-安装mysqld_exporter采集mysql运行数据到prometheus.md)
--   [0110_安装scala](2021/20210506-安装scala.md)
--   [0120_安装jdk11](2021/20210507-安装jdk11.md)
--   [0140_安装kafka](2021/20210507-安装kafka.md)
--   [0145_基于jmx_exporter采集kafka数据到prometheus](2021/20210507-基于jmx_exporter采集kafka数据到prometheus.md)
--   [0150_安装kafka-manager](2021/20210507-安装kafka-manager.md)
--   [0155_安装flink](2021/20210507-安装flink.md)
--   [0160_离线安装clickhouse](2021/20210507-离线安装clickhouse.md)
--   [0170_离线安装mongodb](2021/20210507-离线安装mongodb.md)
--   [0180_离线安装ELK](2021/20210507-离线安装ELK.md)
--   [0181_grafana监控clickhouse](2021/20210507-grafana监控clickhouse.md)
--   [0190_安装Ganglia](2020/20200907-CendOs安装Ganglia.md)
--   [0200_docker安装jenkins](2021/20210506-docker安装jenkins.md)
--   [0210_离线安装hadoop](2021/20210514-离线安装hadoop.md)
--   [0220_docker安装nginx](2021/20210514-docker安装nginx.md)
--   [0230_Centos7离线安装Flume](2021/20210520-Centos7离线安装Flume.md)
+-   [设置主机名.md](2021/20210506-设置主机名.md)
+-   [配置命令提示符颜色](2021/20210506-配置命令提示符颜色.md)
+-   [修改ssh端口](2021/20210506-修改ssh端口.md)
+-   [开启firewalls](2021/20210506-开启firewalls.md)
+-   [云服务器数据盘挂载操作](2021/20210506-云服务器数据盘挂载操作.md)
+-   [移动数据库文件和日志文件到数据盘](2021/20210506-移动数据库文件和日志文件到数据盘.md)
+-   [切换yum源到阿里云](2021/20210506-切换yum源到阿里云.md)
+-   [设置服务器时间同步](2021/20210506-设置服务器时间同步.md)
+-   [安装k8s和docker](2021/20210506-安装k8s和docker.md)
+-   [离线安装docker](2021/20210506-centos7离线安装docker.md)
+-   [安装jdk8](2021/20210506-安装jdk8.md)
+-   [安装mysql](2021/20210506-安装mysql.md)
+-   [安装prometheus和grafana](2021/20210506-安装prometheus和grafana.md)
+-   [安装node_exporter采集主机运行数据到prometheus](2021/20210506-安装node_exporter采集主机运行数据到prometheus.md)
+-   [安装jmx_exporter](2021/20210506-安装jmx_exporter.md)
+-   [基于jmx_exporter采集zookeeper数据到prometheus](2021/20210506-基于jmx_exporter采集zookeeper数据到prometheus.md)
+-   [安装mysqld_exporter采集mysql运行数据到prometheus](2021/20210506-安装mysqld_exporter采集mysql运行数据到prometheus.md)
+-   [安装scala](2021/20210506-安装scala.md)
+-   [安装jdk11](2021/20210507-安装jdk11.md)
+-   [安装kafka](2021/20210507-安装kafka.md)
+-   [基于jmx_exporter采集kafka数据到prometheus](2021/20210507-基于jmx_exporter采集kafka数据到prometheus.md)
+-   [安装kafka-manager](2021/20210507-安装kafka-manager.md)
+-   [安装flink](2021/20210507-安装flink.md)
+-   [离线安装clickhouse](2021/20210507-离线安装clickhouse.md)
+-   [离线安装mongodb](2021/20210507-离线安装mongodb.md)
+-   [离线安装ELK](2021/20210507-离线安装ELK.md)
+-   [grafana监控clickhouse](2021/20210507-grafana监控clickhouse.md)
+-   [安装Ganglia](2020/20200907-CendOs安装Ganglia.md)
+-   [docker安装jenkins](2021/20210506-docker安装jenkins.md)
+-   [离线安装hadoop](2021/20210514-离线安装hadoop.md)
+-   [docker安装nginx](2021/20210514-docker安装nginx.md)
+-   [Centos7离线安装Flume](2021/20210520-Centos7离线安装Flume.md)
+-   [Sqoop离线安装](2021/20210521-Sqoop离线安装.md)
 
 
 ##  Clickhouse
@@ -288,6 +289,13 @@
 ##  Spark
 -   [项目遇到的问题之Spark](2019/20200829-项目遇到的问题之Spark.md)
 
+##  Sqoop
+-   [Sqoop简介和原理](2021/20210521-Sqoop简介和原理.md)
+-   [Sqoop离线安装](2021/20210521-Sqoop离线安装.md)
+-   [Sqoop的简单使用案例](2021/20210521-Sqoop的简单使用案例.md)
+-   [Sqoop一些常用命令及参数](2021/20210521-Sqoop一些常用命令及参数.md)
+-   [项目遇到的问题之Sqoop](2020/20200828-项目遇到的问题之Sqoop.md)
+
 ##   Struts2
 -   [Struts2入门和配置](2019/20190709-Struts2入门和配置.md)
 -   [Struts2的数据封装](2019/20190710-Struts2的数据封装.md)
@@ -296,10 +304,6 @@
 -   [Struts2的值栈ValueStack](2019/20190712-Struts2的值栈ValueStack.md)
 -   [Struts2的标签库](2019/20190713-Struts2的标签库.md)
 -   [Struts2的拦截器](2019/20190713-Struts2的拦截器.md)
-
-
-##  Sqoop
--   [项目遇到的问题之Sqoop](2019/20200828-项目遇到的问题之Sqoop.md)
 
 ##   设计模式
 -   [设计模式之桥接模式](2018/20180225-设计模式之桥接模式.md)
