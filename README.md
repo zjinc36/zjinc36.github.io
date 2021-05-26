@@ -15,7 +15,7 @@
 -   [Zookeeper => 跳转到本文档中对应位置](README?id=Zookeeper)
 
 
-##  CentOs操作日志
+##  CentOs装机日志
 -   [设置主机名.md](2021/20210506-设置主机名.md)
 -   [配置命令提示符颜色](2021/20210506-配置命令提示符颜色.md)
 -   [修改ssh端口](2021/20210506-修改ssh端口.md)
@@ -27,7 +27,8 @@
 -   [安装k8s和docker](2021/20210506-安装k8s和docker.md)
 -   [离线安装docker](2021/20210506-centos7离线安装docker.md)
 -   [安装jdk8](2021/20210506-安装jdk8.md)
--   [安装mysql](2021/20210506-安装mysql.md)
+-   [CentOs7使用rpm离线包安装Mysql5.6.42](2021/20210526-CentOs7使用rpm离线包安装Mysql5.6.42.md)
+-   [安装mysql8](2021/20210506-安装mysql8.md)
 -   [安装prometheus和grafana](2021/20210506-安装prometheus和grafana.md)
 -   [安装node_exporter采集主机运行数据到prometheus](2021/20210506-安装node_exporter采集主机运行数据到prometheus.md)
 -   [安装jmx_exporter](2021/20210506-安装jmx_exporter.md)

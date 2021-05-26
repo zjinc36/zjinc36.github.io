@@ -74,7 +74,7 @@ WantedBy=multi-user.target
 
 ```
 systemctl daemon-reload
-systemctl restart mysql_exporter.service
+systemctl start mysqld_exporter.service
 ```
 
 #   配置Prometheus，收集node exporter的数据
