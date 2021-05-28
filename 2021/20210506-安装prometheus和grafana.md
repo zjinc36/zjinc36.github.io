@@ -126,6 +126,50 @@ http://ip:7101/graph
 
 ![](../images/2021/05/20210506155330.png)
 
+##  增加访问web页面需要用户名密码
+
+[官网](https://prometheus.io/docs/guides/basic-auth/)说了,prometheus本身是没有用户名密码的配置的,但可以通过nginx反向代理进行实现
+
+实现如下
+
+1.  使用htpasswd工具创建.htpasswd文件
+
+```
+mkdir -p /etc/nginx
+htpasswd -c /etc/nginx/.htpasswd admin
+```
+
+2.  配置nginx配置文件
+
+```
+http {
+    server {
+        listen 12321;
+
+        location /prometheus/ {
+            auth_basic           "Prometheus";
+            auth_basic_user_file /etc/nginx/.htpasswd;
+            # 反向代理地址指向prometheus的访问地址
+            proxy_pass           http://localhost:9090/;
+        }
+    }
+}
+
+events {}
+```
+记得重启nginx
+
+3.  prometheus启动语句变成如下内容
+
+```
+// http://localhost:12321/prometheus => 这个我们在nginx里配置的地址,用以跳转到prometheus的地址
+// 这个地址要能访问外网
+prometheus \
+  --config.file=/path/to/prometheus.yml \
+  --web.external-url=http://localhost:12321/prometheus \
+  --web.route-prefix="/"
+```
+记得重启prometheus
 
 # 安装grafana
 

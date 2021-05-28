@@ -1,9 +1,9 @@
 <!-- _coverpage.md -->
-<!-- ![logo](./images/themes/avater.png) -->
+<!-- ![logo](/images/thems/avater3.png) -->
 
-#   zjc's Blog
+#   zjc的笔记
 
--   一边学习，一边生产，克服困难，敌人丧胆
+-   一边学习，一边生产，克服困难
 
 [开始阅读](README)
 
