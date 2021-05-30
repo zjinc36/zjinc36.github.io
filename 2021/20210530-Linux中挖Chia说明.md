@@ -38,7 +38,7 @@ Chia农场不需要 ASIC 硬件。理论上而言，普通的笔记本电脑就�
 ssh -i "aws-mark.pem" ec2-user@xxx-xxx-xxx-xxx.us-west-2.compute.amazonaws.com -o ServerAliveInterval=30
 ```
 
-#   挂载申请的磁盘
+##  挂载申请的磁盘
 
 1.  列出磁盘状态
 
@@ -67,7 +67,7 @@ sudo chown -R ec2-user.ec2-user /tmp1
 sudo chown -R ec2-user.ec2-user /data1
 ```
 
-#   开始安装chia相关工具
+##  开始安装chia相关工具
 
 ```
 sudo yum update -y
@@ -105,7 +105,7 @@ chia start farmer
 chia wallet show
 ```
 
-#   P盘
+##  P盘
 
 ```
 nohup chia plots create -k 32 -b 4000 -r 2 -n 6 -t /tmp1 -d /data1 >> plots2.log 2>&1 &
@@ -124,7 +124,7 @@ P好之后就会出现.plot文件了
 
 ![](../images/2021/05/20210530174343.png)
 
-#   查看farm情况
+##  查看farm情况
 
 ```
 chia farm summary
