@@ -48,8 +48,9 @@
 -   [docker安装jenkins](2021/20210506-docker安装jenkins.md)
 -   [离线安装hadoop](2021/20210514-离线安装hadoop.md)
 -   [docker安装nginx](2021/20210514-docker安装nginx.md)
--   [Centos7离线安装Flume](2021/20210520-Centos7离线安装Flume.md)
+-   [离线安装Flume](2021/20210520-离线安装Flume.md)
 -   [Sqoop离线安装](2021/20210521-Sqoop离线安装.md)
+-   [离线安装hive](2021/20210601-离线安装hive.md)
 
 
 ##  Clickhouse
@@ -87,11 +88,11 @@
 -   [Flink运行架构总结](2019/20190014-Flink运行架构总结.md)
 
 ##  Flume
--   [Centos7离线安装Flume](2021/20210520-Centos7离线安装Flume.md)
--   [项目遇到的问题之Flume](2019/20190915-项目遇到的问题之Flume.md)
+-   [离线安装Flume](2021/20210520-离线安装Flume.md)
 -   [Flume内存优化](2020/20200107-Flume内存优化.md)
 -   [Flume监控之Ganglia](2020/20200604-Flume监控之Ganglia.md)
 -   [Druid-Kylin-Presto-Impala-SparkSQL-ES比较](2020/20200914-Druid-Kylin-Presto-Impala-SparkSQL-ES比较.md)
+-   [项目遇到的问题之Flume](2019/20190915-项目遇到的问题之Flume.md)
 
 ##   Git
 -   [Git的diff命令和patch命令的使用](2017/20170214-Git的diff命令和patch命令的使用.md)
@@ -152,6 +153,7 @@
 -   [Java的类加载器](2020/20200610-Java的类加载器.md)
 -   [Java中的多态传递](2020/20200610-Java中的多态传递.md)
 -   [Java中用final修饰静态变量后对静态代码块的影响](2020/20200610-Java中用final修饰静态变量后对静态代码块的影响.md)
+-   [Java内部类详解](2021/20210602-Java内部类详解.md)
 
 ##   Junit
 -   [Junit单元测试](2018/20180119-Junit单元测试.md)
