@@ -367,7 +367,7 @@
 
 ##  Ubuntu操作日志
 -   [oh-my-zsh配置文件](2017/20170102-oh-my-zsh配置文件.md)
--   [20170512-ubuntu安装fcitx拼音和日语输入法](2017/20170102-20170512-ubuntu安装fcitx拼音和日语输入法.md)
+-   [ubuntu安装fcitx拼音和日语输入法](2017/20170102-20170512-ubuntu安装fcitx拼音和日语输入法.md)
 -   [Ubuntu的Shell中使用ack进行搜索](2017/20170516-Ubuntu的Shell中使用ack进行搜索.md)
 -   [使用awk命令处理文本](2017/20170711-使用awk命令处理文本.md)
 -   [Ubuntu环境变量的位置与配置](2018/20180208-Ubuntu环境变量的位置与配置.md)
