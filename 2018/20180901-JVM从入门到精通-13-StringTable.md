@@ -1,10 +1,5 @@
 #   JVM从入门到精通_13_StringTable
-+ date: 2018-09-01 14:00:03
-+ description: StringTable
-+ categories:
-  - Java
-+ tags:
-  - JVM
+
 ---
 #   写在前面
 1.  系列文章是"尚硅谷宋红康老师的JVM教程"的读书笔记
