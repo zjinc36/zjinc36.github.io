@@ -51,6 +51,7 @@
 -   [离线安装Flume](2021/20210520-离线安装Flume.md)
 -   [Sqoop离线安装](2021/20210521-Sqoop离线安装.md)
 -   [离线安装hive](2021/20210601-离线安装hive.md)
+-   [安装nacos集群](2021/20210617-安装nacos集群.md)
 
 
 ##  Clickhouse
