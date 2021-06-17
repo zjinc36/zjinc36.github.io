@@ -52,6 +52,7 @@
 -   [Sqoop离线安装](2021/20210521-Sqoop离线安装.md)
 -   [离线安装hive](2021/20210601-离线安装hive.md)
 -   [安装nacos集群](2021/20210617-安装nacos集群.md)
+-   [安装sentinel](2021/20210617-安装sentinel.md)
 
 
 ##  Clickhouse
