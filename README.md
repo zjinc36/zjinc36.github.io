@@ -19,7 +19,7 @@
 -   [设置主机名](2021/20210506-设置主机名.md)
 -   [配置命令提示符颜色](2021/20210506-配置命令提示符颜色.md)
 -   [修改ssh端口](2021/20210506-修改ssh端口.md)
--   [开启firewalls](2021/20210506-开启firewalls.md)
+-   [开启和配置firewalls](2021/20210506-开启和配置firewalls.md)
 -   [云服务器数据盘挂载操作](2021/20210506-云服务器数据盘挂载操作.md)
 -   [移动数据库文件和日志文件到数据盘](2021/20210506-移动数据库文件和日志文件到数据盘.md)
 -   [切换yum源到阿里云](2021/20210506-切换yum源到阿里云.md)
@@ -48,8 +48,11 @@
 -   [docker安装jenkins](2021/20210506-docker安装jenkins.md)
 -   [离线安装hadoop](2021/20210514-离线安装hadoop.md)
 -   [docker安装nginx](2021/20210514-docker安装nginx.md)
--   [Centos7离线安装Flume](2021/20210520-Centos7离线安装Flume.md)
+-   [离线安装Flume](2021/20210520-离线安装Flume.md)
 -   [Sqoop离线安装](2021/20210521-Sqoop离线安装.md)
+-   [离线安装hive](2021/20210601-离线安装hive.md)
+-   [安装nacos集群](2021/20210617-安装nacos集群.md)
+-   [安装sentinel](2021/20210617-安装sentinel.md)
 
 
 ##  Clickhouse
@@ -87,11 +90,11 @@
 -   [Flink运行架构总结](2019/20190014-Flink运行架构总结.md)
 
 ##  Flume
--   [Centos7离线安装Flume](2021/20210520-Centos7离线安装Flume.md)
--   [项目遇到的问题之Flume](2019/20190915-项目遇到的问题之Flume.md)
+-   [离线安装Flume](2021/20210520-离线安装Flume.md)
 -   [Flume内存优化](2020/20200107-Flume内存优化.md)
 -   [Flume监控之Ganglia](2020/20200604-Flume监控之Ganglia.md)
 -   [Druid-Kylin-Presto-Impala-SparkSQL-ES比较](2020/20200914-Druid-Kylin-Presto-Impala-SparkSQL-ES比较.md)
+-   [项目遇到的问题之Flume](2019/20190915-项目遇到的问题之Flume.md)
 
 ##   Git
 -   [Git的diff命令和patch命令的使用](2017/20170214-Git的diff命令和patch命令的使用.md)
@@ -152,6 +155,7 @@
 -   [Java的类加载器](2020/20200610-Java的类加载器.md)
 -   [Java中的多态传递](2020/20200610-Java中的多态传递.md)
 -   [Java中用final修饰静态变量后对静态代码块的影响](2020/20200610-Java中用final修饰静态变量后对静态代码块的影响.md)
+-   [Java内部类详解](2021/20210602-Java内部类详解.md)
 
 ##   Junit
 -   [Junit单元测试](2018/20180119-Junit单元测试.md)
@@ -287,6 +291,14 @@
 -   [SpringBoot的验证功能](2019/20191003-SpringBoot的验证功能.md)
 -   [SpringSecurity的CSRF问题Invalid-CSRF-Token-null-was-found-on](2019/20191112-SpringSecurity的CSRF问题Invalid-CSRF-Token-null-was-found-on.md)
 
+##  SpringCloud
+-   [SpringCloud-01-基本说明](2021/20210625-SpringCloud-01-基本说明.md)
+-   [SpringCloud-02-基本工程](2021/20210625-SpringCloud-02-基本工程.md)
+-   [SpringCloud-03-Eureka](2021/20210625-SpringCloud-03-Eureka.md)
+-   [SpringCloud-04-Zookeeper](2021/20210625-SpringCloud-04-Zookeeper.md)
+-   [SpringCloud-05-Consul](2021/20210625-SpringCloud-05-Consul.md)
+
+
 ##  Spark
 -   [项目遇到的问题之Spark](2019/20200829-项目遇到的问题之Spark.md)
 
@@ -365,7 +377,7 @@
 
 ##  Ubuntu操作日志
 -   [oh-my-zsh配置文件](2017/20170102-oh-my-zsh配置文件.md)
--   [20170512-ubuntu安装fcitx拼音和日语输入法](2017/20170102-20170512-ubuntu安装fcitx拼音和日语输入法.md)
+-   [ubuntu安装fcitx拼音和日语输入法](2017/20170102-20170512-ubuntu安装fcitx拼音和日语输入法.md)
 -   [Ubuntu的Shell中使用ack进行搜索](2017/20170516-Ubuntu的Shell中使用ack进行搜索.md)
 -   [使用awk命令处理文本](2017/20170711-使用awk命令处理文本.md)
 -   [Ubuntu环境变量的位置与配置](2018/20180208-Ubuntu环境变量的位置与配置.md)
