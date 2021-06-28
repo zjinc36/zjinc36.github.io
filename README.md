@@ -303,6 +303,13 @@
 -   [SpringCloud-08-OpenFeign](2021/20210628-SpringCloud-08-OpenFeign.md)
 -   [SpringCloud-09-Hystrix](2021/20210628-SpringCloud-09-Hystrix.md)
 -   [SpringCloud-10-Gateway和Zuul](2021/20210628-SpringCloud-10-Gateway和Zuul.md)
+-   [SpringCloud-11-Config分布式配置中心](2021/20210628-SpringCloud-11-Config分布式配置中心.md)
+-   [SpringCloud-13-Stream](2021/20210628-SpringCloud-13-Stream.md)
+-   [SpringCloud-14-Sleuth](2021/20210628-SpringCloud-14-Sleuth.md)
+-   [SpringCloud-15-Nacos](2021/20210628-SpringCloud-15-Nacos.md)
+-   [SpringCloud-16-Sentinel](2021/20210628-SpringCloud-16-Sentinel.md)
+-   [SpringCloud-17-分布式事务Seata](2021/20210628-SpringCloud-17-分布式事务Seata.md)
+-   [SpringCloud-18-组件总结](2021/20210628-SpringCloud-18-组件总结.md)
 
 
 ##  Spark
