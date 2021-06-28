@@ -312,5 +312,40 @@ public class ApplicationContextConfig
 }
 ```
 
+6.  Controller
+
+```java
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import javax.annotation.Resource;
+
+@RestController
+@Slf4j
+public class OrderConsulController
+{
+    public static final String INVOKE_URL = "http://consul-provider-payment";
+
+    @Resource
+    private RestTemplate restTemplate;
+
+    @GetMapping(value = "/consumer/payment/consul")
+    public String paymentInfo()
+    {
+        String result = restTemplate.getForObject(INVOKE_URL+"/payment/consul",String.class);
+        return result;
+    }
+}
+```
+
+7.  验证测试
+
+运行consul，cloud-providerconsul-payment8006，cloud-consumerconsul-order80
+
+http://localhost:8500/ 主页会显示出consul，cloud-providerconsul-payment8006，cloud-consumerconsul-order80三服务
+
+8.  访问测试地址 - http://localhost/consumer/payment/consul
 
 

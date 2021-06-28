@@ -297,6 +297,11 @@
 -   [SpringCloud-03-Eureka](2021/20210625-SpringCloud-03-Eureka.md)
 -   [SpringCloud-04-Zookeeper](2021/20210625-SpringCloud-04-Zookeeper.md)
 -   [SpringCloud-05-Consul](2021/20210625-SpringCloud-05-Consul.md)
+-   [SpringCloud-06-三个注册中心异同点](2021/20210628-SpringCloud-06-三个注册中心异同点.md)
+-   [SpringCloud-07-Ribbon](2021/20210628-SpringCloud-07-Ribbon.md)
+-   [SpringCloud-08-OpenFeign](2021/20210628-SpringCloud-08-OpenFeign.md)
+-   [SpringCloud-09-Hystrix](2021/20210628-SpringCloud-09-Hystrix.md)
+-   [SpringCloud-10-Gateway和Zuul](2021/20210628-SpringCloud-10-Gateway和Zuul.md)
 
 
 ##  Spark
