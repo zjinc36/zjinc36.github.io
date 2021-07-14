@@ -291,6 +291,7 @@
 -   [SpringBoot的快速入门](2019/20191002-SpringBoot的快速入门.md)
 -   [SpringBoot的验证功能](2019/20191003-SpringBoot的验证功能.md)
 -   [SpringSecurity的CSRF问题Invalid-CSRF-Token-null-was-found-on](2019/20191112-SpringSecurity的CSRF问题Invalid-CSRF-Token-null-was-found-on.md)
+-   [SpringSecurity OAuth2.0认证授权](2021/20210714-Spring_Security_OAuth2.0认证授权.md)
 
 ##  SpringCloud
 -   [SpringCloud-01-基本说明](2021/20210625-SpringCloud-01-基本说明.md)

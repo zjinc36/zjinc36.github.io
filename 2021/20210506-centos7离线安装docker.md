@@ -100,5 +100,22 @@ systemctl restart docker.service
 docker info
 ```
 
+##  安装docker-compose
+下载 https://github.com/docker/compose/releases
+
+![](../images/2021/07/20210714155319.png)
+
+```
+mv docker-compose-Linux-x86_64 /usr/bin/docker-compose 
+chmod +x /usr/bin/docker-compose
+
+第三步：重启docker
+systemctl restart docker.service
+
+docker-compose -v
+```
+
+
+
 #   参考
 [docker离线安装并导入镜像](https://www.jianshu.com/p/1dd72a6b5ae9)
