@@ -10,11 +10,11 @@ OAuth（开放授权）是一个开放标准，允许用户授权第三方应用
 
 听起来挺拗口，不如举个例子说明下，就以stackoverflow登录为例：我们登录stackoverflow，网站上会提示几种登录方式，如下所示
 
-20210714155958.png
+![](../images/2021/07/20210714155958.png)
 
 其中有一种github登录的方式，点一下进入以下页面
 
-20210714160008.png
+![](../images/2021/07/20210714160008.png)
 
 这个页面实际上是github授权登陆stackoverflow的页面，只要点击授权按钮，就可以使用github上注册的相关信息注册stackoverflow了，仔细看下这个授权页面，这个授权页面上有几个值得注意的点：
 
@@ -104,7 +104,7 @@ OAauth2.0包括以下角色：
 
 如此，上面使用github登陆stackoverflow的流程大体上如下图所示：
 
-20210714160143.png
+![](../images/2021/07/20210714160143.png)
 
 下面将演示如何使用spring boot搭建OAuth2.0认证中心以实现类似于stackoverflow使用github账号登陆的效果。
 
@@ -279,3 +279,430 @@ AuthorizationServerTokenServices 接口定义了一些操作使得你可以对�
 ### 定义AuthorizationServerTokenServices
 
 在AuthorizationServer中定义AuthorizationServerTokenServices
+
+```java
+@Autowired
+private TokenStore tokenStore;
+
+@Autowired
+private ClientDetailsService clientDetailsService;
+
+@Bean
+public AuthorizationServerTokenServices tokenServices(){
+    DefaultTokenServices services = new DefaultTokenServices();
+    services.setClientDetailsService(clientDetailsService);
+    services.setSupportRefreshToken(true);
+    services.setTokenStore(tokenStore);
+    services.setAccessTokenValiditySeconds(7200);
+    services.setRefreshTokenValiditySeconds(259200);
+    return services;
+}
+```
+
+##  令牌访问端点配置
+
+AuthorizationServerEndpointsConfigurer 这个对象的实例可以完成令牌服务以及令牌endpoint配置。
+
+### AuthorizationServerEndpointsConfigurer 授权类型
+
+AuthorizationServerEndpointsConfigurer 通过设定以下属性决定支持的授权类型（Grant Types）:
+
++   authenticationManager ：认证管理器，当你选择了资源所有者密码（password）授权类型的时候，请设置这个属性注入一个 AuthenticationManager 对象。
++   userDetailsService ：如果你设置了这个属性的话，那说明你有一个自己的 UserDetailsService 接口的实现，或者你可以把这个东西设置到全局域上面去（例如 GlobalAuthenticationManagerConfigurer 这个配置对象），当你设置了这个之后，那么 "refresh_token" 即刷新令牌授权类型模式的流程中就会包含一个检查，用来确保这个账号是否仍然有效，假如说你禁用了这个账户的话。
++   authorizationCodeServices ：这个属性是用来设置授权码服务的（即 AuthorizationCodeServices 的实例对象），主要用于 "authorization_code" 授权码类型模式。
++   implicitGrantService ：这个属性用于设置隐式授权模式，用来管理隐式授权模式的状态。
++   tokenGranter ：当你设置了这个东西（即 TokenGranter 接口实现），那么授权将会交由你来完全掌控，并且会忽略掉上面的这几个属性，这个属性一般是用作拓展用途的，即标准的四种授权模式已经满足不了你的需求的时候，才会考虑使用这个。
+
+### AuthorizationServerEndpointsConfigurer授权端点
+
+AuthorizationServerEndpointsConfigurer 这个配置对象有一个叫做 pathMapping() 的方法用来配置端点URL链接，它有两个参数：
+
++   第一个参数： String 类型的，这个端点URL的默认链接。
++   第二个参数： String 类型的，你要进行替代的URL链接。
+
+以上的参数都将以 "/" 字符为开始的字符串，框架的默认URL链接如下列表，可以作为这个 pathMapping() 方法的第一个参数：
+
++   /oauth/authorize ：授权端点。
++   /oauth/token ：令牌端点。
++   /oauth/confirm_access ：用户确认授权提交端点。
++   /oauth/error ：授权服务错误信息端点。
++   /oauth/check_token ：用于资源服务访问的令牌解析端点。
++   /oauth/token_key ：提供公有密匙的端点，如果你使用JWT令牌的话。
+
+综上AuthorizationServerEndpointsConfigurer配置如下
+
+```java
+@Autowired
+private AuthenticationManager authenticationManager;
+
+@Autowired
+private AuthorizationCodeServices authorizationCodeServices;
+
+@Bean
+public AuthorizationCodeServices authorizationCodeServices(){
+    return new InMemoryAuthorizationCodeServices();
+}
+
+@Override
+public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+    endpoints
+        .authenticationManager(authenticationManager)
+        .authorizationCodeServices(authorizationCodeServices)
+        .tokenServices(tokenServices())
+        .allowedTokenEndpointRequestMethods(HttpMethod.POST);
+
+    endpoints.pathMapping("/oauth/confirm_access","/custom/confirm_access");//自定义授权页面需要
+}
+```
+
+上面需要的AuthenticationManager的定义在SpringSecurity的配置中，下面会讲到。
+
+##  令牌端点的安全约束
+
+AuthorizationServerSecurityConfigurer 用来配置令牌端点(Token Endpoint)的安全约束，在AuthorizationServer中配置如下。
+
+```java
+@Override
+public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
+    security
+        .tokenKeyAccess("permitAll()") //(1)
+        .checkTokenAccess("permitAll()")//(2)
+        .allowFormAuthenticationForClients();//(3)
+}
+```
+
+1.  tokenkey这个endpoint当使用JwtToken且使用非对称加密时，资源服务用于获取公钥而开放的，这里指这个endpoint完全公开。
+2.  checkToken这个endpoint完全公开
+3.  允许表单认证
+
+##  web安全配置
+
+这里可以配置安全拦截机制、自定义登录页面、登录失败拦截器等等
+
+在以下的配置中创建了AuthenticationManager bean，这是 7.2 中所需要的。
+
+```java
+@Configuration
+@EnableGlobalMethodSecurity(securedEnabled = true,prePostEnabled = true)
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private MyAuthenticationFailureHandler myAuthenticationFailureHandler;
+
+    //认证管理器
+    @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
+    //密码编码器
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    //安全拦截机制
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+                .csrf().disable()
+                .authorizeRequests()
+                .antMatchers("/login*","/css/*").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login.html")
+                .loginProcessingUrl("/login")
+                .failureHandler(myAuthenticationFailureHandler);
+
+    }
+}
+```
+
+#   自定义登陆页面
+
+spring security默认带的登录页面不可修改，加载速度贼慢，原因是使用的css链接是国外的。所以从各方面来说自定义登录页面都是需要的。
+
+##  创建login.html文件
+
+这个非常简单，只需要将spring security加载速度贼慢的那个页面扒下来就好。
+
+项目中代码链接：https://gitee.com/kdyzm/spring-security-oauth-study/blob/master/auth-center/src/main/resources/static/login.html
+
+##  配置拦截规则
+
+WebSecurityConfig下如下设置
+
+```java
+@Override
+protected void configure(HttpSecurity http) throws Exception {
+    http
+        .csrf().disable()
+        .authorizeRequests()
+        .antMatchers("/login*","/css/*").permitAll()
+        .anyRequest().authenticated()
+        .and()
+        .formLogin()
+        .loginPage("/login.html")
+        .loginProcessingUrl("/login")
+        .failureHandler(myAuthenticationFailureHandler);
+}
+
+.antMatchers("/login*","/css/*").permitAll()是必须的，否则没法登陆，会陷入重定向死循环；
+
+.loginPage("/login.html")
+.loginProcessingUrl("/login")
+```
+
+这两个必须一起配置，否则会login 404。
+
+##  自定义登陆失败页面
+
+自定义登陆页面之后登录失败的原因就不提示了，这里使用拦截器进行简单的拦截并返回给前端结果（非常丑，但能用）
+
+```java
+@Component
+public class MyAuthenticationFailureHandler implements AuthenticationFailureHandler {
+    @Override
+    public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
+        response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
+        response.setContentType("application/json;charset=utf-8");
+        response.getWriter().write(JSONObject.toJSONString(exception.getMessage()));
+    }
+}
+```
+
+##  自定义授权页面
+
+默认的授权页面非常丑，这里重写该页面，页面代码地址：https://gitee.com/kdyzm/spring-security-oauth-study/blob/master/auth-center/src/main/resources/templates/grant.html
+
+然后配置OAuth访问端点替换掉原来的地址：
+
+endpoints.pathMapping("/oauth/confirm_access","/custom/confirm_access");
+
+同时，由于重写了页面地址，需要实现/custom/confirm_access 接口
+
+```java
+@Controller
+@SessionAttributes("authorizationRequest")
+public class GrantController {
+
+    /**
+     * @see WhitelabelApprovalEndpoint#getAccessConfirmation(java.util.Map, javax.servlet.http.HttpServletRequest)
+     * @param model
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/custom/confirm_access")
+    public ModelAndView getAccessConfirmation(Map<String, Object> model, HttpServletRequest request) throws Exception {
+        AuthorizationRequest authorizationRequest = (AuthorizationRequest) model.get("authorizationRequest");
+        ModelAndView view = new ModelAndView();
+        view.setViewName("grant");
+        view.addObject("clientId", authorizationRequest.getClientId());
+        view.addObject("scopes",authorizationRequest.getScope());
+        return view;
+    }
+}
+```
+
+##  实现UserDetailsService接口
+
+完成以上配置之后基本上已经配置完了，但是还差一点，那就是实现UserDetailsService接口，不实现该接口，会出现后端死循环导致的stackoverflow问题。
+
+为什么要实现该接口？
+
+该接口通过userName获取用户密码信息用于校验用户密码登陆和权限信息等。
+
+```java
+@Service
+@Slf4j
+public class MyUserDetailsServiceImpl implements UserDetailsService {
+
+    @Autowired
+    private UserMapper userMapper;
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
+        TUser tUser = userMapper.selectOne(new LambdaQueryWrapper<TUser>().eq(TUser::getUsername, username));
+        if (Objects.isNull(tUser)) {
+            throw new UsernameNotFoundException(username + "账号不存在");//return null也可以
+        }
+        List<String> allPermissions = userMapper.findAllPermissions(tUser.getId());
+        String[] array = null;
+        if (CollectionUtils.isEmpty(allPermissions)) {
+            log.warn("{} 无任何权限", tUser.getUsername());
+            array = new String[]{};
+        } else {
+            array = new String[allPermissions.size()];
+            allPermissions.toArray(array);
+        }
+        return User
+                .withUsername(tUser.getUsername())
+                .password(tUser.getPassword())
+                .authorities(array).build();
+    }
+}
+```
+
+#   接口测试
+
+在测试前，需要先执行数据库脚本并启动服务
+
++   执行auth-center/docs/sql/init.sql 文件，创建数据库并创建相关的表
++   修改auth-center项目下的配置文件中的数据库连接配置
+
+然后运行 AuthCenterApplication 程序，测试几种oauth认证模式
+
+##  授权码认证模式
+
+>   最安全的一种模式。一般用于client是Web服务器端应用或第三方的原生App调用资源服务的时候。因为在这种模式中access_token不会经过浏览器或移动端的App，而是直接从服务端去交换，这样就最大限度的减小了令牌泄漏的风险。该模式下获取token需要分两步走，第一步获取授权码，第二步获取token。
+
++   获取授权码
+
+![](../images/2021/07/20210714160144.jpg)
+
+接口地址 http://127.0.0.1:30000/oauth/authorize
+
+请求方式 GET
+
+请求参数
+
+|    字段名     |                        描述                       |
+|---------------|---------------------------------------------------|
+| client_id     | 改值必须和配置在clients中的值保持一致             |
+| response_type | 固定传值code表示使用授权码模式进行认证            |
+| scope         | 改值必须配置的clients中的值一致                   |
+| redirect_uri  | 获取code之后重定向的地址，必须和配置的clients一致 |
+
+
+   请求示例
+
+http://127.0.0.1:30000/oauth/authorize?client_id=c1&response_type=code&scope=all&redirect_uri=https://www.baidu.com
+
+账号密码分别输入：zhangsan/123，进入授权页面之后点击授权按钮，页面跳转之后获取到code。
+
++   获取token
+
+在上一步获取到code之后，利用获取到的该code获取token。
+
+接口地址 http://127.0.0.1:30000/oauth/token
+
+请求方式 POST
+
+请求参数
+   
+|    字段名     |                        描述                       |
+|---------------|---------------------------------------------------|
+| code          | 上一步获取到的code                                |
+| grant_type    | 在授权码模式，固定使用authorization_code          |
+| client_id     | 改值必须和配置在clients中的值保持一致             |
+| client_secret | 这里的值必须和代码中配置的clients中配置的保持一致 |
+| redirect_uri  | 获取token之后重定向的地址，该地址可以随意写       |
+
+请求示例
+
+http://127.0.0.1:30000/oauth/token
+
+请求体
+
+```
+code:5Rmc3m
+grant_type:authorization_code
+client_id:c1
+client_secret:secret
+redirect_uri:https://www.baidu.com
+```
+
+##  简化模式
+
+>   该模式去掉了授权码，用户登陆之后直接获取token并显示在浏览器地址栏中，参数和请求授权码的接口基本上一模一样，唯一的区别就是response_type字段，授权码模式下使用的是code字段，在简化模式下使用的是token字段。一般来说，简化模式用于没有服务器端的第三方单页面应用，因为没有服务器端就无法接收授权码。
+
+接口地址 http://127.0.0.1:30000/oauth/authorize
+
+请求方式 GET
+
+请求参数
+
+|    字段名     |                        描述                       |
+|---------------|---------------------------------------------------|
+| client_id     | 改值必须和配置在clients中的值保持一致             |
+| response_type | 固定传值token表示使用简化模式进行认证             |
+| scope         | 该值必须和配置的clients中的值一致                 |
+| redirect_uri  | 获取code之后重定向的地址，必须和配置的clients一致 |
+
+请求示例
+
+http://127.0.0.1:30000/oauth/authorize?client_id=c1&response_type=token&scope=all&redirect_uri=https://www.baidu.com
+
+
+##  密码模式
+
+>   这种模式十分简单，但是却意味着直接将用户敏感信息泄漏给了client，因此这就说明这种模式只能用于client是我们自己开发的情况下。因此密码模式一般用于我们自己开发的，第一方原生App或第一方单页面应用
+
+接口地址 http://127.0.0.1:30000/oauth/token
+
+请求方式 POST
+
+请求参数
+
+|    字段名     |                  描述                 |
+|---------------|---------------------------------------|
+| client_id     | 改值必须和配置在clients中的值保持一致 |
+| client_secret | 改值必须和配置在clients中的值保持一致 |
+| grant_type    | 在密码模式下，该值固定为password      |
+| username      | 用户名                                |
+| password      | 密码                                  |
+
+请求示例
+
+http://127.0.0.1:30000/oauth/token?client_id=c1&client_secret=secret&grant_type=password&username=zhangsan&password=123
+
+##  客户端模式
+
+>   这种模式是最方便但最不安全的模式。因此这就要求我们对client完全的信任，而client本身也是安全的。因此这种模式一般用来提供给我们完全信任的服务器端服务。比如，合作方系统对接，拉取一组用户信息。
+
+接口地址 http://127.0.0.1:30000/oauth/token
+
+请求方式 POST
+
+请求参数
+
+|    字段名     |                    描述                    |
+|---------------|--------------------------------------------|
+| client_id     | 改值必须和配置在clients中的值保持一致      |
+| client_secret | 改值必须和配置在clients中的值保持一致      |
+| grant_type    | 在密码模式下，该值固定为client_credentials |
+
+请求示例
+
+http://127.0.0.1:30000/oauth/token?client_id=c1&client_secret=secret&grant_type=client_credentials
+
+##  refresh_token换取新token
+
+接口地址 http://127.0.0.1:30000/oauth/token
+
+请求方式 POST
+
+请求参数
+
+|    字段名     |                              描述                             |
+|---------------|---------------------------------------------------------------|
+| client_id     | 该值必须和配置在clients中的值保持一致                         |
+| client_secret | 该值必须和配置在clients中的值保持一致                         |
+| grant_type    | 如果想根据refresh_token换新的token，这里固定传值refresh_token |
+| refresh_token | 未失效的refresh_token                                         |
+
+请求示例
+
+http://127.0.0.1:30000/oauth/token?grant_type=refresh_token&refresh_token=09c9d11a-525a-4e5f-bac1-4f32e9025301&client_id=c1&client_secret=secret
+
+#   源码地址
+
+源码地址：https://gitee.com/kdyzm/spring-security-oauth-study
+
+#   参考
+
+这个文档来自(主要是为了备份):https://www.cnblogs.com/kuangdaoyizhimei/p/14250374.html
+
+
