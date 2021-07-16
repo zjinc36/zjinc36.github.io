@@ -322,3 +322,7 @@ public class JavaTest01Controller {
     }
 }
 ```
+
+##  参考
++   [通过`RestTemplate`上传文件(InputStreamResource详解)](https://www.cnblogs.com/paxing/p/11485049.html)
++   [RestTemplate通过InputStreamResource上传文件](https://www.cnblogs.com/DXDE443/p/10308059.html)
