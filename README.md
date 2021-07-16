@@ -58,12 +58,13 @@
 
 ##  Clickhouse
 -   [Clickhouse与kudu-kylin-druid的区别和使用场景](2021/20210327-Clickhouse与kudu-kylin-druid的区别和使用场景.md)
+-   [Clickhouse最佳实战之分布式集群方案研究](2021/20210715-Clickhouse最佳实战之分布式集群方案研究.md)
 
 
 ##  插件与脚本
 -   [Tampermonkey增加去除简书的推荐阅读脚本](2020/20200521-Tampermonkey增加去除简书的推荐阅读脚本.md)
 
-##   Docker
+##  Docker
 -   [docker简介](2019/20191123-docker简介.md)
 -   [docker安装jenkins](2021/20210506-docker安装jenkins.md)
 -   [docker安装nginx](2021/20210514-docker安装nginx.md)
@@ -71,7 +72,7 @@
 ##  电商数仓案例分析
 -   [电商数仓每个层级表的依赖关系](2020/20200924-电商数仓每个层级表的依赖关系.md)
 
-##   Eclipse配置日志
+##  Eclipse配置日志
 -   [Eclipse的properties文件类型显示Unicoide编码不显示汉字问题](2017/20170124-Eclipse的properties文件类型显示Unicoide编码不显示汉字问题.md)
 -   [Eclipse目录树中不显示空包](2017/20170401-Eclipse目录树中不显示空包.md)
 -   [Eclipse显示隐藏文件](2017/20170225-Eclipse显示隐藏文件.md)
@@ -97,7 +98,7 @@
 -   [Druid-Kylin-Presto-Impala-SparkSQL-ES比较](2020/20200914-Druid-Kylin-Presto-Impala-SparkSQL-ES比较.md)
 -   [项目遇到的问题之Flume](2019/20190915-项目遇到的问题之Flume.md)
 
-##   Git
+##  Git
 -   [Git的diff命令和patch命令的使用](2017/20170214-Git的diff命令和patch命令的使用.md)
 -   [Git的log功能美化](2017/20170217-Git的log功能美化.md)
 -   [eclipse中解决git冲突](2017/20171223-eclipse中解决git冲突.md)
@@ -122,7 +123,7 @@
 -   [Hadoop运行模式](2019/20191212-Hadoop运行模式.md)
 -   [Yarn运行机制流程图](2019/20191213-Yarn运行机制流程图.md)
 
-##   Hibernate
+##  Hibernate
 -   [Hibernate入门与配置](2019/20190702-Hibernate入门与配置.md)
 -   [Hibernate的API](2019/20190704-Hibernate的API.md)
 -   [Hibernate持久化类的编写规则](2019/20190707-Hibernate持久化类的编写规则.md)
@@ -130,14 +131,14 @@
 -   [Hibernate的关系映射](2019/20190708-Hibernate的关系映射.md)
 -   [Hibernate的查询方式](2019/20190709-Hibernate的查询方式.md)
 
-##   Http协议
+##  Http协议
 -   [Http协议](2019/20190625-Http协议.md)
 
 ##  Idea
 -   [idea不显示Local_Changes界面](2021/20210102-idea不显示Local_Changes界面.md)
 -   [idea控制标签页多行显示](2021/20210421-idea控制标签页多行显示.md)
 
-##   Java
+##  Java
 -   [Java中的多线程](2017/20170408-Java中的多线程.md)
 -   [Java任务定时调度](2017/20170414-Java任务定时调度.md)
 -   [Java中的容器](2017/20170811-Java中的容器.md)
@@ -158,12 +159,12 @@
 -   [Java中用final修饰静态变量后对静态代码块的影响](2020/20200610-Java中用final修饰静态变量后对静态代码块的影响.md)
 -   [Java内部类详解](2021/20210602-Java内部类详解.md)
 
-##   Junit
+##  Junit
 -   [Junit单元测试](2018/20180119-Junit单元测试.md)
 -   [Junit之Jacoco测试率覆盖工具](2018/20180206-Junit之Jacoco测试率覆盖工具.md)
 -   [Junit单元测试](2018/20180119-Junit单元测试.md)
 
-##   Jquery
+##  Jquery
 -   [Jquery可输入也可选择的下拉框](2019/20191115-Jquery可输入也可选择的下拉框.md)
 
 ##  Juc
@@ -171,7 +172,7 @@
 -   [JUC之CyclicBarrier循环栅栏](2020/20200914-JUC之CyclicBarrier循环栅栏.md)
 -   [JUC之Semaphore信号灯](2020/20200914-JUC之Semaphore信号灯.md)
 
-##   Jvm
+##  Jvm
 -   [JVM从入门到精通_01_JVM与Java体系结构](2018/20180820-JVM从入门到精通_01_JVM与Java体系结构.md)
 -   [JVM从入门到精通_02_类加载子系统](2018/20180820-JVM从入门到精通_02_类加载子系统.md)
 -   [JVM从入门到精通-03-运行时数据区概述及线程](2018/20180821-JVM从入门到精通-03-运行时数据区概述及线程.md)
@@ -223,7 +224,7 @@
 -   [ip-加强版的的网络配置工具](2021/20210507-ip-加强版的的网络配置工具.md)
 -   [查看实时网络连接或端口的流量带宽占用情况](2021/20210507-查看实时网络连接或端口的流量带宽占用情况.md)
 
-##   Lombok
+##  Lombok
 -   [Lombok简化你的代码](2017/20171022-Lombok简化你的代码.md)
 
 ##   Maven
@@ -235,16 +236,19 @@
 -   [maven配置本地仓库](2019/20190730-maven配置本地仓库.md)
 -   [maven的工程拆分与聚合](2019/20190731-maven的工程拆分与聚合.md)
 
-##   Mysql
+##  Mysql
 -   [项目遇到的问题之MySql](2017/20170615-项目遇到的问题之MySql.md)
 
-##   MyBatis
+##  MyBatis
 -   [MyBatis工程搭建与增删改查](2019/20190731-MyBatis工程搭建与增删改查.md)
 -   [MyBatis架构](2019/20190731-MyBatis架构.md)
 -   [MyBatis配置文件详解](2019/20190731-MyBatis配置文件详解.md)
 -   [MyBatis中的DAO包装](2019/20190731-MyBatis中的DAO包装.md)
 
-##   人工智能
+##  RestTemplate
+-   [RestTemplate通过InputStreamResource上传文件](2021/20210716-RestTemplate通过InputStreamResource上传文件.md)
+
+##  人工智能
 -   [人工智能基础说明](2019/20190817-人工智能基础说明.md)
 -   [人工智能数学基础之概率论](2019/20190817-人工智能数学基础之概率论.md)
 -   [人工智能数学基础之数学分析](2019/20190817-人工智能数学基础之数学分析.md)
