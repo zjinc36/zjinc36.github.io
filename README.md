@@ -4,7 +4,6 @@
 -   [大数据学习大纲](2019/20191012-大数据学习大纲.md)
 -   [大数据挖掘大纲](2020/20201014-大数据挖掘大纲.md)
 -   [Druid-Kylin-Presto-Impala-SparkSQL-ES比较](2020/20200914-Druid-Kylin-Presto-Impala-SparkSQL-ES比较.md)
--   [Zookeeper => 跳转到本文档中对应位置](README?id=Zookeeper)
 
 ### Clickhouse
 -   [Clickhouse与kudu-kylin-druid的区别和使用场景](2021/20210327-Clickhouse与kudu-kylin-druid的区别和使用场景.md)
