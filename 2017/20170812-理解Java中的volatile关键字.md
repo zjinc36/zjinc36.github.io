@@ -1,12 +1,6 @@
 #   理解Java中的volatile关键字
-+ date: 2017-08-12 10:43:16
-+ description: 理解Java中的volatile关键字
-+ categories:
-  - Java
-+ tags:
-  - JUC
----
 
+---
 
 #   JMM
 ##  什么是JMM
@@ -40,7 +34,8 @@ JMM(Java内仔模型JavaMemoryModel,简称JMM)本身是一种抽象的概念并�
 
 ##  volatile的保证可见性
 ###     `int number = 0`没有`volatile`关键字
-```JAVA
+
+```java
 package com.zjc.collection;
 
 import java.util.concurrent.TimeUnit;
@@ -96,7 +91,8 @@ class MyData {
 
 
 ###     `int number = 0`添加`volatile`关键字
-```JAVA
+
+```java
 package com.zjc.collection;
 
 import java.util.concurrent.TimeUnit;
@@ -155,7 +151,8 @@ class MyData {
 
 ###     验证volatile不保证原子性
 1.  `number++`在多线程下是非线程安全的,即使number用volatile进行修饰,也不保证原子性
-```JAVA
+
+```java
 package com.zjc.collection;
 
 import java.util.concurrent.TimeUnit;
@@ -216,12 +213,14 @@ class MyData {
 
 
 让我们从程序执行的步骤开始分析，查看源码的字节码文件,我们可以发现，底层指令中可以分成4个指令
+
 ```
 getfield
 iconst_1
 iadd
 putfield
 ```
+
 +   A线程和B线程都进入了add方法中，也就是A线程和B线程都从主内存获取n的值;
 +   假设此时n=1，此时A线程执行完指令iadd，n的数值变为2，并执行putfield指令将数据写回主内存;
 +   此时B线程执行到了iadd执行，由于同一时间只能有一个线程往主内存中更新n的数值，所以B线程在iadd指令这里挂起了;
@@ -229,8 +228,10 @@ putfield
 +   因为n++不同于n = 30之类的指令，它是由4个指令组成的操作，会出现线程加塞的情况。
 
 ###     如何解决number++在多线程下的线程安全问题
+
 1.  增加`synchronized`的关键字
-```JAVA
+
+```java
 class MyData {
     volatile int number = 0;
     public int getNumber() {
@@ -250,7 +251,7 @@ class MyData {
 
 ![](../images/2020/08/20200818145517.png)
 
-```JAVA
+```java
 package com.zjc.collection;
 
 import java.util.concurrent.atomic.AtomicInteger;
@@ -283,6 +284,7 @@ class MyData02 {
     }
 }
 ```
+
 运行结果如下
 
 ![](../images/2020/08/20200818145946.png)
@@ -335,8 +337,10 @@ class MyData02 {
 
 ##  单例模式
 ###     单例模式在多线程环境下可能存在安全问题
+
 1.  普通写法的单例模式在单线程环境下的运行情况
-```JAVA
+
+```java
 package com.zjc.volatiledemo;
 
 public class SingletonDemo {
@@ -360,6 +364,7 @@ public class SingletonDemo {
     }
 }
 ```
+
 单线程情况下,`我是构造方法SingletonDemo`执行一次,完全没有问题,运行如下
 
 ![](../images/2020/08/20200818181209.png)
@@ -367,7 +372,8 @@ public class SingletonDemo {
 但我们用多线程调用会出问题
 
 2.  普通写法的单例模式在多线程环境下的运行情况
-```JAVA
+
+```java
 package com.zjc.volatiledemo;
 
 public class SingletonDemo {
@@ -394,6 +400,7 @@ public class SingletonDemo {
     }
 }
 ```
+
 理论上,对于单例模式,构造方法里的内容只能执行一次,但我们运行代码之后,如下
 
 ![](../images/2020/08/20200818181615.png)
@@ -403,7 +410,8 @@ public class SingletonDemo {
 ###     如何解决
 ####    使用DCL(Double Check Lock)双重检查锁定机制
 底下代码关注`getInstance()`方法的变化
-```JAVA
+
+```java
 package com.zjc.volatiledemo;
 
 public class SingletonDemo {
@@ -435,6 +443,7 @@ public class SingletonDemo {
     }
 }
 ```
+
 运行结果如下
 
 ![](../images/2020/08/20200818183131.png)
@@ -448,6 +457,7 @@ public class SingletonDemo {
 #####   说明
 针对上述代码,当某一个线程执行到第一次检测,读取到的instance部位null时,instance的引用对象可能没有完成初始化
 instance = new SingletonDemo();可以分为一下3步完成(伪代码)
+
 ```
 1. 分配对象内存空间
 memory = allocate();
@@ -456,7 +466,9 @@ instance(memory);
 3. 设置instance指向刚分配的内存地址,此时instance != null
 instance = memory;
 ```
+
 步骤2和步骤3不存在数据依赖关系,而昆无论重排前还是重排后程序的执行结果在单线程中并没有改变,因此这种重排优化是允许的
+
 ```
 1. 分配对象内存空间
 memory = allocate();
@@ -465,11 +477,13 @@ instance = memory;
 2. 初始化对象
 instance(memory);
 ```
+
 由于指令重排只会保证串行语义的执行的一致性(单线程),并不会关心多线程间的语义一致性,所以当一条线程访问instance不为null时,由于instance实力未必已初始化完成,也就造成了线程安全问题
 
 #####   写出伪代码再一次说明
 根据上面的分析,我们得到如下伪代码
-```JAVA
+
+```java
     // DCL(Double Check Lock)双端检查锁定机制
     public static SingletonDemo getInstance() {
         if (instance == null) {
@@ -489,12 +503,14 @@ instance(memory);
         return instance;
     }
 ```
+
 +   对于重排后的代码,A线程设置instance指向刚分配的内存地址,即`instance != null`,但还未初始化对象
 +   此时B线程调用getInstance()方法,由于instance != null,所以直接`return instance`,继续执行,但拿到的instance其实是null,会报错
 
 ###     多线程环境中单例模式代码
 增加了volatile用以禁止重排
-```JAVA
+
+```java
 package com.zjc.volatiledemo;
 
 public class SingletonDemo {
