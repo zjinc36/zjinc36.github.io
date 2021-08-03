@@ -255,4 +255,23 @@ Distributed，分布式引擎，本身不存储数据，可认为就是一张Vie
 
 参考资料：ClickHouse的数据复制：https://www.jianshu.com/p/d1842290bd48
 
+##  总结一下
+
+基于`ReplicatedMergeTree + Zookeeper`的表复制
+
+1.  使用的是复制表ReplicatedMergeTree+Zookeeper的协调一致性完成数据的复制和数据一致性
+2.  数据相互复制且会进行数据验证，自动保证数据一致性
+3.  建议3个节点做复制，设置至少保证2个节点收到数据才算成功，增强数据的一致性
+4.  关于复制引擎，ClickHouse官方建议不搞特别大的集群，建议一个业务就跑一个集群，具体多少分片，自己衡量
+
+基于`cluster + Distributed`的复制
+
+1.  使用分布式表Distributed，集群的分片的副本的自动复制
+2.  参数internal_replication要设置 `<internal_replication>false</internal_replication>` 写全部的分片，不建议：poor man replication
+3.  仅仅对分布式表写入：并且在internal_replication=false的情况下，会写入分布式表对应的子表
+4.  推荐使用的方式：
+
+    -   写分布式表的情况下，设置 `<internal_replication>true</internal_replication>`，即只写一个shard里面的一个副本
+    -   开启表级别的复制，无论哪一个副本被写入，副本数据都会被同步到其他副本节点
+
 
