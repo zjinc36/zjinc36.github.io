@@ -4077,6 +4077,16 @@ vim /opt/module/prometheus/prometheus.yml
 }
 ```
 
+# kafka仪表盘参考
++ https://grafana.com/grafana/dashboards/7589 （推介）
++ https://grafana.com/grafana/dashboards/9018 （参考-新的）
++ https://grafana.com/grafana/dashboards/9947（参考-新的）
++ https://grafana.com/grafana/dashboards/10973（JMX-阿里云）
++ https://www.menina.cn/article/88
++ https://cloud.tencent.com/developer/news/377416
+
+
 # 参考
 + https://blog.csdn.net/qq_25934401/article/details/84840740
 + http://www.eryajf.net/4736.html
++ https://www.cnblogs.com/caoweixiong/p/12736520.html

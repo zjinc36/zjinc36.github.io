@@ -174,7 +174,6 @@
 -   [vim中显示markdown结构大纲](2019/20190729-vim中显示markdown结构大纲.md)
 -   [vim中删除句尾的空白字符](2019/20190730-vim中删除句尾的空白字符.md)
 
-
 ##  Docker
 -   [docker简介](2019/20191123-docker简介.md)
 -   [docker安装jenkins](2021/20210506-docker安装jenkins.md)
@@ -297,10 +296,7 @@
 ### 日志
 -   [logback配置日志](2021/20210803-logback配置日志.md)
 
-##  Python数据分析
--   [Python数据分析_01_前奏](2021/20210718-Python数据分析_01_前奏.md)
-
-##  RestTemplate
+### RestTemplate
 -   [RestTemplate通过InputStreamResource上传文件](2021/20210716-RestTemplate通过InputStreamResource上传文件.md)
 
 ### Servlet
@@ -336,8 +332,11 @@
 -   [Spring使用注解方式实现AOP](2019/20190721-Spring使用注解方式实现AOP.md)
 -   [Spring的事务管理](2019/20190727-Spring的事务管理.md)
 -   [SSH整合方式](2019/20190728-SSH整合方式.md)
+
+### SpringBoot
 -   [SpringBoot的环境搭建](2019/20190903-SpringBoot的环境搭建.md)
 -   [SpringBoot的快速入门](2019/20191002-SpringBoot的快速入门.md)
+-   [Springboot的自定义参数验证](2021/20210805-Springboot的自定义参数验证.md)
 -   [SpringBoot的验证功能](2019/20191003-SpringBoot的验证功能.md)
 -   [SpringSecurity的CSRF问题Invalid-CSRF-Token-null-was-found-on](2019/20191112-SpringSecurity的CSRF问题Invalid-CSRF-Token-null-was-found-on.md)
 -   [SpringSecurity OAuth2.0认证授权](2021/20210714-Spring_Security_OAuth2.0认证授权.md)
@@ -396,7 +395,6 @@
 ##  Jquery
 -   [Jquery可输入也可选择的下拉框](2019/20191115-Jquery可输入也可选择的下拉框.md)
 
-
 ##  基础
 ### 计算机组成原理
 -   [深入理解浮点数与浮点数的精度问题](2020/20200309-深入理解浮点数与浮点数的精度问题.md)
@@ -453,6 +451,9 @@
 ##  Mysql
 -   [MySQL索引为什么设计成这样](2021/20210804-MySQL索引为什么设计成这样.md)
 -   [项目遇到的问题之MySql](2017/20170615-项目遇到的问题之MySql.md)
+
+##  Python数据分析
+-   [Python数据分析_01_前奏](2021/20210718-Python数据分析_01_前奏.md)
 
 ##  人工智能
 -   [人工智能基础说明](2019/20190817-人工智能基础说明.md)

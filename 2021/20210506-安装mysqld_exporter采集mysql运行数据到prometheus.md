@@ -77,6 +77,8 @@ systemctl daemon-reload
 systemctl start mysqld_exporter.service
 ```
 
+注意:如果最后仪表盘没有数据,可以手动启动`/opt/module/mysqld_exporter/mysqld_exporter --config.my-cnf=/opt/module/mysqld_exporter/.my.cnf`,看一下报错
+
 #   配置Prometheus，收集node exporter的数据
 ```
 vim /opt/module/prometheus/prometheus.yml
@@ -89,7 +91,7 @@ vim /opt/module/prometheus/prometheus.yml
 ![](../images/2021/05/20210506161413.png)
 
 #   导入grafana模板，数据展示
-在导入界面，我们输入模板的编号，这里我使用的是`7362`号模板，如要使用其他的模板，请到grafana的官网去查找 https://grafana.com/dashboards
+在导入界面，我们输入模板的编号，这里我使用的是`7362`号模板(或者`11323`号模板)，如要使用其他的模板，请到grafana的官网去查找 https://grafana.com/dashboards
 
 ![](../images/2021/05/20210506161436.png)
 

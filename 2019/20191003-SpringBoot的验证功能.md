@@ -24,7 +24,9 @@
 +   需要A,B,C存在才验证B
 +   验证需要快速失败,即参数A有验证甲乙丙三种,按顺序,甲失败了,乙就不继续验证了
 
-当然,好事来说,我经过这么折腾一次,整个验证都弄清楚了
+# 多字段联合校验 
++ [解决多字段联合逻辑校验问题](https://www.cnblogs.com/yourbatman/p/11387438.html)
++ [多字段联合校验 ](https://daiwenzh5.github.io/2020/11/18/yuque/%E5%A4%9A%E5%AD%97%E6%AE%B5%E8%81%94%E5%90%88%E6%A0%A1%E9%AA%8C/)
 
 #   SpringBoot的验证Validation
 ##  Hibernate Validator
