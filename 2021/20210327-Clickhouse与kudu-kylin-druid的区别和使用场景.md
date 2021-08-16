@@ -1,12 +1,6 @@
-#   'Clickhouse与kudu,kylin,druid的区别和使用场景'
-+ date: 2021-03-27 17:01:57
-+ description: Clickhouse与kudu,kylin,druid的区别和使用场景
-+ categories:
-  - BigData
-+ tags:
-  - clickhouse
----
+#   Clickhouse与kudu,kylin,druid的区别和使用场景
 
+---
 
 #   OLAP数据库分类
 +   OLAP到现在也都是两个套路
