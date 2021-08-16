@@ -11,7 +11,7 @@
     <meta name="description" content="Description">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <!-- 默认主题 -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/vue.css">
+    <link rel="stylesheet" href="./themes/css/vue.css">
 </head>
 
 <body>
@@ -30,9 +30,9 @@
 
         // 导航栏支持，默认加载的是项目根目录下的_navbar.md文件
         loadNavbar: true,
-        alias: {
-            '/.*/_sidebar.md': '/_sidebar.md'
-        },
+        // alias: {
+        //     '/.*/_sidebar.md': '/_sidebar.md'
+        // },
 
         // 封面支持，默认加载的是项目根目录下的_coverpage.md文件
         // coverpage: true,
@@ -44,7 +44,7 @@
         subMaxLevel: 3,
 
         // 切换页面后是否自动跳转到页面顶部
-        auto2top: true,
+        // auto2top: true,
 
         // 入口文件改为 /home.md
         homepage: 'README.md'
@@ -66,15 +66,16 @@
     };
     </script>
     <!-- docsify的js依赖 -->
-    <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+    <!-- <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script> -->
+    <script src="./themes/js/docsify.min.js"></script>
     <!-- emoji表情支持 -->
-    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+    <script src="./themes/js/emoji.min.js"></script>
     <!-- 图片放大缩小支持 -->
-    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+    <script src="./themes/js/zoom-image.min.js"></script>
     <!-- 搜索功能支持 -->
-    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+    <script src="./themes/js/search.min.js"></script>
     <!-- 在所有的代码块上添加一个简单的 Click to copy 按钮 -->
-    <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
+    <script src="./themes/js/docsify-copy-code"></script>
     <!-- 字数统计 -->
 <!--     <script>
     window.$docsify = {
@@ -87,18 +88,16 @@
     }
     </script>
     <script src="//unpkg.com/docsify-count/dist/countable.js"></script> -->
-    <!-- emoji 插件 -->
-    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
     <!-- 引入分页导航插件 -->
-    <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+    <script src="./themes/js/docsify-pagination.min.js"></script>
     <!-- java 代码高亮 -->
-    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-java.min.js"></script>
+    <script src="./themes/js/prism-java.min.js"></script>
     <!-- bash 代码高亮 -->
-    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+    <script src="./themes/js/prism-bash.min.js"></script>
     <!-- properties 代码高亮 -->
-    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-properties.min.js"></script>
+    <script src="./themes/js/prism-properties.min.js"></script>
     <!-- yaml 代码高亮 -->
-    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-yaml.min.js"></script>
+    <script src="./themes/js/prism-yaml.min.js"></script>
 </body>
 
 </html>
