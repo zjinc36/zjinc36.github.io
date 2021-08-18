@@ -20,8 +20,7 @@
     <script>
     window.$docsify = {
         // 项目名称
-        // name: 'zjc\'s blog',
-
+        name: 'zjc\'s 笔记',
         // 仓库地址，点击右上角的Github章鱼猫头像会跳转到此地址
         // repo: 'https://github.com/zjcscut/docsify-demo',
 
@@ -47,49 +46,55 @@
         // auto2top: true,
 
         // 入口文件改为 /home.md
-        homepage: 'README.md'
-
-    };
-    </script>
-    <script>
-    // 搜索配置
-    window.$docsify = {
+        homepage: 'README.md',
         search: {
-            maxAge: 86400000,
-            paths: auto,
-            placeholder: '搜索',
-            noData: '找不到结果',
-            depth: 4,
-            hideOtherSidebarContent: false,
-            namespace: 'docsify-demo',
-        }
-    };
-    </script>
-    <!-- docsify的js依赖 -->
-    <!-- <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script> -->
-    <script src="./themes/js/docsify.min.js"></script>
-    <!-- emoji表情支持 -->
-    <script src="./themes/js/emoji.min.js"></script>
-    <!-- 图片放大缩小支持 -->
-    <script src="./themes/js/zoom-image.min.js"></script>
-    <!-- 搜索功能支持 -->
-    <script src="./themes/js/search.min.js"></script>
-    <!-- 在所有的代码块上添加一个简单的 Click to copy 按钮 -->
-    <script src="./themes/js/docsify-copy-code"></script>
-    <!-- 字数统计 -->
-<!--     <script>
-    window.$docsify = {
-        count: {
-            countable: true,
-            fontsize: '0.9em',
-            color: 'rgb(90,90,90)',
-            language: 'chinese'
+            maxAge: 86400000, // Expiration time, the default one day
+            paths: 'auto',
+            placeholder: '🔍 搜索 ',
+            noData: '😞 没有结果 ',
+            depth: 6
+        },
+        scrollToTop: {
+            auto: true,
+            text: 'Top',
+            right: 15,
+            bottom: 15,
+            offset: 300
+        },
+        copyCode: {
+            buttonText : '拷贝到剪切板',
+            errorText  : '拷贝失败',
+            successText: '拷贝成功'
         }
     }
     </script>
-    <script src="//unpkg.com/docsify-count/dist/countable.js"></script> -->
-    <!-- 引入分页导航插件 -->
+
+    <!-- docsify的js依赖 -->
+    <script src="./themes/js/docsify.min.js"></script>
+
+    <!-- 回到顶部插件 -->
+    <script src="./themes/js/docsify-scroll-to-top.min.js"></script>
+
+    <!-- 全文搜索插件 -->
+    <!-- 目前似乎高于4.5.9版本的搜索插件有bug，只能搜索到首页的数据；建议使用该版本的搜索插件 -->
+    <!-- <script src="//cdn.bootcss.com/docsify/4.5.9/plugins/search.min.js"></script> -->
+    <script src="./themes/js/search.min.js"></script>
+
+    <!-- emoji表情支持 -->
+    <script src="./themes/js/emoji.min.js"></script>
+
+    <!-- 图片放大缩小支持 -->
+    <script src="./themes/js/zoom-image.min.js"></script>
+
+    <!-- 在所有的代码块上添加一个简单的 Click to copy 按钮 -->
+    <script src="./themes/js/docsify-copy-code.min.js"></script>
+
+    <!-- 字数统计 -->
+    <!-- <script src="//unpkg.comgg/docsify-count/dist/countable.js"></script> --> -->
+
+    <!-- 分页导航插件 -->
     <script src="./themes/js/docsify-pagination.min.js"></script>
+
     <!-- java 代码高亮 -->
     <script src="./themes/js/prism-java.min.js"></script>
     <!-- bash 代码高亮 -->
@@ -98,6 +103,10 @@
     <script src="./themes/js/prism-properties.min.js"></script>
     <!-- yaml 代码高亮 -->
     <script src="./themes/js/prism-yaml.min.js"></script>
+    <!-- c 代码高亮 -->
+    <script src="./themes/js/prism-c.min.js"></script>
+    <!-- sql 代码高亮 -->
+    <script src="./themes/js/prism-sql.min.js"></script>
 </body>
 
 </html>

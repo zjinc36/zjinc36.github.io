@@ -1,28 +1,29 @@
-#   学习笔记
 
-##  BigData(大数据)
+---
+
+#   BigData(大数据)
 -   [大数据学习大纲](2019/20191012-大数据学习大纲.md)
 -   [大数据挖掘大纲](2020/20201014-大数据挖掘大纲.md)
 -   [Druid-Kylin-Presto-Impala-SparkSQL-ES比较](2020/20200914-Druid-Kylin-Presto-Impala-SparkSQL-ES比较.md)
 
-### Clickhouse
+##  Clickhouse
 -   [Clickhouse与kudu-kylin-druid的区别和使用场景](2021/20210327-Clickhouse与kudu-kylin-druid的区别和使用场景.md)
 -   [Clickhouse最佳实战之分布式集群方案研究](2021/20210715-Clickhouse最佳实战之分布式集群方案研究.md)
 
-### 电商数仓案例分析
+##  电商数仓案例分析
 -   [电商数仓每个层级表的依赖关系](2020/20200924-电商数仓每个层级表的依赖关系.md)
 
-### Flink
+##  Flink
 -   [Flink运行架构总结](2019/20190014-Flink运行架构总结.md)
 
-### Flume
+##  Flume
 -   [离线安装Flume](2021/20210520-离线安装Flume.md)
 -   [Flume内存优化](2020/20200107-Flume内存优化.md)
 -   [Flume监控之Ganglia](2020/20200604-Flume监控之Ganglia.md)
 -   [Druid-Kylin-Presto-Impala-SparkSQL-ES比较](2020/20200914-Druid-Kylin-Presto-Impala-SparkSQL-ES比较.md)
 -   [项目遇到的问题之Flume](2019/20190915-项目遇到的问题之Flume.md)
 
-### Hadoop
+##  Hadoop
 -   [离线安装hadoop](2021/20210514-离线安装hadoop.md)
 -   [Hadoop概述](2019/20191211-Hadoop概述.md)
 -   [HDFS概述](2021/20210520-HDFS概述.md)
@@ -37,35 +38,35 @@
 -   [Hadoop运行模式](2019/20191212-Hadoop运行模式.md)
 -   [Yarn运行机制流程图](2019/20191213-Yarn运行机制流程图.md)
 
-### Kafka
+##  Kafka
 -   [项目遇到的问题之Kafka](2017/20170915-项目遇到的问题之Kafka.md)
 -   [Kafka机器数量计算](2019/20190907-Kafka机器数量计算.md)
 -   [Kafka压力测试](2019/20190907-Kafka压力测试.md)
 -   [Kafka工作流程分析](2020/20200915-Kafka工作流程分析.md)
 
-### Scala
+##  Scala
 -   [Scala中的特殊符号](2020/20200705-Scala中的特殊符号.md)
 
-### Spark
+##  Spark
 -   [项目遇到的问题之Spark](2019/20200829-项目遇到的问题之Spark.md)
 
-### Sqoop
+##  Sqoop
 -   [Sqoop简介和原理](2021/20210521-Sqoop简介和原理.md)
 -   [Sqoop离线安装](2021/20210521-Sqoop离线安装.md)
 -   [Sqoop的简单使用案例](2021/20210521-Sqoop的简单使用案例.md)
 -   [Sqoop一些常用命令及参数](2021/20210521-Sqoop一些常用命令及参数.md)
 -   [项目遇到的问题之Sqoop](2020/20200828-项目遇到的问题之Sqoop.md)
 
-### 维度建模指南
+##  维度建模指南
 -   [维度建模指南](2021/20210510-维度建模指南.md)
 
-### Zookeeper
+##  Zookeeper
 -   [Zookeeper选举机制](2019/20190907-Zookeeper选举机制.md)
 
-##  Linux系统
+#   Linux系统
 -   [shell中nologin和login的区别](2020/20200510-shell中nologin和login的区别.md)
 
-### CentOs装机日志
+##  CentOs装机日志
 -   [设置主机名](2021/20210506-设置主机名.md)
 -   [配置命令提示符颜色](2021/20210506-配置命令提示符颜色.md)
 -   [修改ssh端口](2021/20210506-修改ssh端口.md)
@@ -105,7 +106,7 @@
 -   [安装nacos集群](2021/20210617-安装nacos集群.md)
 -   [安装sentinel](2021/20210617-安装sentinel.md)
 
-### Linux命令与命令组合使用
+##  Linux命令与命令组合使用
 -   [getent命令-用来查看系统的数据库中的相关记录](2020/20200510-getent命令-用来查看系统的数据库中的相关记录.md)
 -   [Linux中使用tar和gzip进行打包拆包压缩解压](2020/20200611-Linux中使用tar和gzip进行打包拆包压缩解压.md)
 -   [nslookup命令-查DNS信息用](2020/20200826-nslookup命令-查DNS信息用.md)
@@ -116,7 +117,7 @@
 -   [ip-加强版的的网络配置工具](2021/20210507-ip-加强版的的网络配置工具.md)
 -   [查看实时网络连接或端口的流量带宽占用情况](2021/20210507-查看实时网络连接或端口的流量带宽占用情况.md)
 
-### Ubuntu操作日志
+##  Ubuntu操作日志
 -   [oh-my-zsh配置文件](2017/20170102-oh-my-zsh配置文件.md)
 -   [ubuntu安装fcitx拼音和日语输入法](2017/20170102-20170512-ubuntu安装fcitx拼音和日语输入法.md)
 -   [Ubuntu的Shell中使用ack进行搜索](2017/20170516-Ubuntu的Shell中使用ack进行搜索.md)
@@ -164,7 +165,7 @@
 -   [Ubuntu20-04中安装flameshot截屏工具](2020/20200801-Ubuntu20-04中安装flameshot截屏工具.md)
 -   [Ubuntu中修改DNS的方法](2020/20200826-Ubuntu中修改DNS的方法.md)
 
-### Vim
+##  Vim
 -   [vim配置文件](2017/20170102-vim配置文件.md)
 -   [vim的全局替换](2017/20170214-vim的全局替换.md)
 -   [vim全局搜索文件](2017/20170410-vim全局搜索文件.md)
@@ -174,14 +175,14 @@
 -   [vim中显示markdown结构大纲](2019/20190729-vim中显示markdown结构大纲.md)
 -   [vim中删除句尾的空白字符](2019/20190730-vim中删除句尾的空白字符.md)
 
-##  Docker
+#   Docker
 -   [docker简介](2019/20191123-docker简介.md)
 -   [docker安装jenkins](2021/20210506-docker安装jenkins.md)
 -   [docker安装nginx](2021/20210514-docker安装nginx.md)
 
 
-##  IDE使用日志
-### Eclipse使用日志
+#   IDE使用日志
+##  Eclipse使用日志
 -   [Eclipse的properties文件类型显示Unicoide编码不显示汉字问题](2017/20170124-Eclipse的properties文件类型显示Unicoide编码不显示汉字问题.md)
 -   [Eclipse目录树中不显示空包](2017/20170401-Eclipse目录树中不显示空包.md)
 -   [Eclipse显示隐藏文件](2017/20170225-Eclipse显示隐藏文件.md)
@@ -194,15 +195,15 @@
 -   [eclipse创建maven工程](2019/20190730-eclipse创建maven工程.md)
 -   [eclipse配置maven](2019/20190730-eclipse配置maven.md)
 
-### Idea使用日志
+##  Idea使用日志
 -   [idea不显示Local_Changes界面](2021/20210102-idea不显示Local_Changes界面.md)
 -   [idea控制标签页多行显示](2021/20210421-idea控制标签页多行显示.md)
 
-##  Excel
+#   Excel
 -   [Excel冻结窗格以锁定行和列](2020/20200229-Excel冻结窗格以锁定行和列.md)
 
 
-##  Git
+#   Git
 -   [Git的diff命令和patch命令的使用](2017/20170214-Git的diff命令和patch命令的使用.md)
 -   [Git的log功能美化](2017/20170217-Git的log功能美化.md)
 -   [eclipse中解决git冲突](2017/20171223-eclipse中解决git冲突.md)
@@ -212,11 +213,11 @@
 -   [Git合并分支](2020/20200301-Git合并分支.md)
 -   [解决Github-Page无法访问的其中一种情况](2020/20200826-解决Github-Page无法访问的其中一种情况.md)
 
-##  Http协议
+#   Http协议
 -   [Http协议](2019/20190625-Http协议.md)
 
-##  Java栈
-### Hibernate
+#   Java栈
+##  Hibernate
 -   [Hibernate入门与配置](2019/20190702-Hibernate入门与配置.md)
 -   [Hibernate的API](2019/20190704-Hibernate的API.md)
 -   [Hibernate持久化类的编写规则](2019/20190707-Hibernate持久化类的编写规则.md)
@@ -224,7 +225,7 @@
 -   [Hibernate的关系映射](2019/20190708-Hibernate的关系映射.md)
 -   [Hibernate的查询方式](2019/20190709-Hibernate的查询方式.md)
 
-### Java
+##  Java
 -   [Java中的多线程](2017/20170408-Java中的多线程.md)
 -   [Java任务定时调度](2017/20170414-Java任务定时调度.md)
 -   [Java中的容器](2017/20170811-Java中的容器.md)
@@ -246,12 +247,16 @@
 -   [Java中的枚举类型详解](2021/20210722-Java中的枚举类型详解.md)
 -   [Java内部类详解](2021/20210602-Java内部类详解.md)
 
-### Juc
+##  Java多线程
+-   [进程与线程的基本概念](2021/20210818-进程与线程的基本概念.md)
+-   [Java多线程入门类和接口](2021/20210818-Java多线程入门类和接口.md)
+
+##  Juc
 -   [JUC之CountDownLatch减少计数](2020/20200914-JUC之CountDownLatch减少计数.md)
 -   [JUC之CyclicBarrier循环栅栏](2020/20200914-JUC之CyclicBarrier循环栅栏.md)
 -   [JUC之Semaphore信号灯](2020/20200914-JUC之Semaphore信号灯.md)
 
-### Jvm
+##  Jvm
 -   [JVM从入门到精通_01_JVM与Java体系结构](2018/20180820-JVM从入门到精通_01_JVM与Java体系结构.md)
 -   [JVM从入门到精通_02_类加载子系统](2018/20180820-JVM从入门到精通_02_类加载子系统.md)
 -   [JVM从入门到精通-03-运行时数据区概述及线程](2018/20180821-JVM从入门到精通-03-运行时数据区概述及线程.md)
@@ -270,15 +275,15 @@
 -   [JVM从入门到精通-16-垃圾回收相关概念](2018/20180902-JVM从入门到精通-16-垃圾回收相关概念.md)
 -   [JVM从入门到精通-17-垃圾回收器](2018/20180904-JVM从入门到精通-17-垃圾回收器.md)
 
-### Junit
+##  Junit
 -   [Junit单元测试](2018/20180119-Junit单元测试.md)
 -   [Junit之Jacoco测试率覆盖工具](2018/20180206-Junit之Jacoco测试率覆盖工具.md)
 -   [Junit单元测试](2018/20180119-Junit单元测试.md)
 
-### Lombok
+##  Lombok
 -   [Lombok简化你的代码](2017/20171022-Lombok简化你的代码.md)
 
-### Maven
+##  Maven
 -   [eclipse创建maven工程](2019/20190730-eclipse创建maven工程.md)
 -   [eclipse配置maven](2019/20190730-eclipse配置maven.md)
 -   [maven的安装](2019/20190730-maven的安装.md)
@@ -287,26 +292,26 @@
 -   [maven配置本地仓库](2019/20190730-maven配置本地仓库.md)
 -   [maven的工程拆分与聚合](2019/20190731-maven的工程拆分与聚合.md)
 
-### MyBatis
+##  MyBatis
 -   [MyBatis工程搭建与增删改查](2019/20190731-MyBatis工程搭建与增删改查.md)
 -   [MyBatis架构](2019/20190731-MyBatis架构.md)
 -   [MyBatis配置文件详解](2019/20190731-MyBatis配置文件详解.md)
 -   [MyBatis中的DAO包装](2019/20190731-MyBatis中的DAO包装.md)
 
-### 日志
+##  日志
 -   [logback配置日志](2021/20210803-logback配置日志.md)
 
-### RestTemplate
+##  RestTemplate
 -   [RestTemplate通过InputStreamResource上传文件](2021/20210716-RestTemplate通过InputStreamResource上传文件.md)
 
-### Servlet
+##  Servlet
 -   [Servlet与ServletConfig与ServletContext的使用](2019/20190626-Servlet与ServletConfig与ServletContext的使用.md)
 -   [HTTP-method-GET-is-not-supported-by-this-URL](2019/20190627-HTTP-method-GET-is-not-supported-by-this-URL.md)
 -   [Servlet中关于Cookie和Session的使用](2019/20190627-Servlet中关于Cookie和Session的使用.md)
 -   [Servlet中关于HttpServletRequest和HttpServletResponse的使用](2019/20190627-Servlet中关于HttpServletRequest和HttpServletResponse的使用.md)
 -   [JSP和EL和JSTL](2019/20190629-JSP和EL和JSTL.md)
 
-### Spring
+##  Spring
 -   [SpringMVC的基本流程](2017/20171005-SpringMVC的基本流程.md)
 -   [SpringMVC的快速入门](2017/20171003-SpringMVC的快速入门.md)
 -   [SpringMVC的默认组件加载](2017/20171006-SpringMVC的默认组件加载.md)
@@ -333,7 +338,7 @@
 -   [Spring的事务管理](2019/20190727-Spring的事务管理.md)
 -   [SSH整合方式](2019/20190728-SSH整合方式.md)
 
-### SpringBoot
+##  SpringBoot
 -   [SpringBoot的环境搭建](2019/20190903-SpringBoot的环境搭建.md)
 -   [SpringBoot的快速入门](2019/20191002-SpringBoot的快速入门.md)
 -   [Springboot的自定义参数验证](2021/20210805-Springboot的自定义参数验证.md)
@@ -341,7 +346,7 @@
 -   [SpringSecurity的CSRF问题Invalid-CSRF-Token-null-was-found-on](2019/20191112-SpringSecurity的CSRF问题Invalid-CSRF-Token-null-was-found-on.md)
 -   [SpringSecurity OAuth2.0认证授权](2021/20210714-Spring_Security_OAuth2.0认证授权.md)
 
-### SpringCloud
+##  SpringCloud
 -   [SpringCloud-01-基本说明](2021/20210625-SpringCloud-01-基本说明.md)
 -   [SpringCloud-02-基本工程](2021/20210625-SpringCloud-02-基本工程.md)
 -   [SpringCloud-03-Eureka](2021/20210625-SpringCloud-03-Eureka.md)
@@ -360,7 +365,7 @@
 -   [SpringCloud-17-分布式事务Seata](2021/20210628-SpringCloud-17-分布式事务Seata.md)
 -   [SpringCloud-18-组件总结](2021/20210628-SpringCloud-18-组件总结.md)
 
-### Struts2
+##  Struts2
 -   [Struts2入门和配置](2019/20190709-Struts2入门和配置.md)
 -   [Struts2的数据封装](2019/20190710-Struts2的数据封装.md)
 -   [Struts2访问Servlet的API](2019/20190710-Struts2访问Servlet的API.md)
@@ -369,7 +374,7 @@
 -   [Struts2的标签库](2019/20190713-Struts2的标签库.md)
 -   [Struts2的拦截器](2019/20190713-Struts2的拦截器.md)
 
-### 设计模式
+##  设计模式
 -   [单一职责原则](2021/20210720-单一职责原则.md)
 -   [开闭原则](2021/20210720-开闭原则.md)
 -   [里氏替换原则](2021/20210720-里氏替换原则.md)
@@ -384,30 +389,30 @@
 -   [设计模式之外观模式](2018/20180226-设计模式之外观模式.md)
 -   [设计模式之装饰者模式](2018/20180226-设计模式之装饰者模式.md)
 
-### Thymeleaf
+##  Thymeleaf
 -   [Thymeleaf错误-org-xml-sax-SAXParseException-元素类型input必须由匹配的结束标记-input-终止](2017/20171112-Thymeleaf错误-org-xml-sax-SAXParseException-元素类型input必须由匹配的结束标记-input-终止.md)
 
-### Tomcat
+##  Tomcat
 -   [Tomcat安装](2019/20190624-Tomcat安装.md)
 -   [Tomcat发布项目](2019/20190624-Tomcat发布项目.md)
 
-### 正则表达式
+##  正则表达式
 -   [正则表达式之前瞻断言与后瞻断言](2020/20200124-正则表达式之前瞻断言与后瞻断言.md)
 
-##  Jquery
+#   Jquery
 -   [Jquery可输入也可选择的下拉框](2019/20191115-Jquery可输入也可选择的下拉框.md)
 
-##  基础
-### 计算机组成原理
+#   基础
+##  计算机组成原理
 -   [深入理解浮点数与浮点数的精度问题](2020/20200309-深入理解浮点数与浮点数的精度问题.md)
 -   [原码反码与补码](2020/20200309-原码反码与补码.md)
 
-### 计算机操作系统
+##  计算机操作系统
 -   [操作系统引论1](2018/20180916-操作系统引论1.md)
 -   [操作系统引论2](2018/20180916-操作系统引论2.md)
 -   [进程的描述和控制1](2018/20180916-进程的描述和控制1.md)
 
-### 数据结构与算法
+##  数据结构与算法
 -   [算法的复杂度](2020/20200320-算法的复杂度.md)
 -   [Java中实现队列](2020/20200327-Java中实现队列.md)
 -   [Java中实现链表之单链表](2020/20200328-Java中实现链表之单链表.md)
@@ -450,21 +455,21 @@
 -   [循环冗余校验（CRC）算法.md](2020/20200727-循环冗余校验（CRC）算法.md)
 
 
-##  Mysql
+#   Mysql
 -   [MySQL索引为什么设计成这样](2021/20210804-MySQL索引为什么设计成这样.md)
 -   [项目遇到的问题之MySql](2017/20170615-项目遇到的问题之MySql.md)
 
-##  Python数据分析
+#   Python数据分析
 -   [Python数据分析_01_前奏](2021/20210718-Python数据分析_01_前奏.md)
 
-##  人工智能
+#   人工智能
 -   [人工智能基础说明](2019/20190817-人工智能基础说明.md)
 -   [人工智能数学基础之概率论](2019/20190817-人工智能数学基础之概率论.md)
 -   [人工智能数学基础之数学分析](2019/20190817-人工智能数学基础之数学分析.md)
 -   [人工智能数学基础之线性代数](2019/20190817-人工智能数学基础之线性代数.md)
 -   [线性回归](2019/20190817-线性回归.md)
 
-##   未分类
+#    未分类
 -   [番茄工作法](2018/20180422-番茄工作法.md)
 -   [notes_中西方文化差异的渊源](2020/20200311-notes_中西方文化差异的渊源.md)
 -   [notes_企业家思想进化与全球格局](2020/20200320-notes_企业家思想进化与全球格局.md)
