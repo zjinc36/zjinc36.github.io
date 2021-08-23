@@ -165,23 +165,13 @@
 -   [Ubuntu20-04中安装flameshot截屏工具](2020/20200801-Ubuntu20-04中安装flameshot截屏工具.md)
 -   [Ubuntu中修改DNS的方法](2020/20200826-Ubuntu中修改DNS的方法.md)
 
-### Vim
--   [vim配置文件](2017/20170102-vim配置文件.md)
--   [vim的全局替换](2017/20170214-vim的全局替换.md)
--   [vim全局搜索文件](2017/20170410-vim全局搜索文件.md)
--   [Vim全局命令](2017/20170531-Vim全局命令.md)
--   [vim中显示markdown结构大纲](2019/20190729-vim中显示markdown结构大纲.md)
--   [vim中删除句尾的空白字符](2019/20190730-vim中删除句尾的空白字符.md)
--   [vim中显示markdown结构大纲](2019/20190729-vim中显示markdown结构大纲.md)
--   [vim中删除句尾的空白字符](2019/20190730-vim中删除句尾的空白字符.md)
-
 ##  Docker
 -   [docker简介](2019/20191123-docker简介.md)
 -   [docker安装jenkins](2021/20210506-docker安装jenkins.md)
 -   [docker安装nginx](2021/20210514-docker安装nginx.md)
 
 
-##  IDE使用日志
+##  IDE和编辑器
 ### Eclipse使用日志
 -   [Eclipse的properties文件类型显示Unicoide编码不显示汉字问题](2017/20170124-Eclipse的properties文件类型显示Unicoide编码不显示汉字问题.md)
 -   [Eclipse目录树中不显示空包](2017/20170401-Eclipse目录树中不显示空包.md)
@@ -198,6 +188,19 @@
 ### Idea使用日志
 -   [idea不显示Local_Changes界面](2021/20210102-idea不显示Local_Changes界面.md)
 -   [idea控制标签页多行显示](2021/20210421-idea控制标签页多行显示.md)
+
+### Sublime
+-   [sublime实现Markdown文件预览](2021/20210823-sublime实现Markdown文件预览.md)
+
+### Vim
+-   [vim配置文件](2017/20170102-vim配置文件.md)
+-   [vim的全局替换](2017/20170214-vim的全局替换.md)
+-   [vim全局搜索文件](2017/20170410-vim全局搜索文件.md)
+-   [Vim全局命令](2017/20170531-Vim全局命令.md)
+-   [vim中显示markdown结构大纲](2019/20190729-vim中显示markdown结构大纲.md)
+-   [vim中删除句尾的空白字符](2019/20190730-vim中删除句尾的空白字符.md)
+-   [vim中显示markdown结构大纲](2019/20190729-vim中显示markdown结构大纲.md)
+-   [vim中删除句尾的空白字符](2019/20190730-vim中删除句尾的空白字符.md)
 
 ##  Excel
 -   [Excel冻结窗格以锁定行和列](2020/20200229-Excel冻结窗格以锁定行和列.md)
