@@ -241,6 +241,7 @@
 -   [Java中的反射机制有什么用](2018/20180709-Java中的反射机制有什么用.md)
 -   [java用jackson包实现json、对象、Map之间的转换](2018/20181112-java用jackson包实现json、对象、Map之间的转换.md)
 -   [String直接赋值与使用new-String的区别](2019/20190627-String直接赋值与使用new-String的区别.md)
+-   [Java匿名子类](2021/20210824-Java匿名子类.md)
 -   [Java匿名内部类访问外部变量，为何需被标志为final](2019/20190728-Java匿名内部类访问外部变量，为何需被标志为final.md)
 -   [Java中的闭包](2019/20190728-Java中的闭包.md)
 -   [Java8函数式接口Consumer、Supplier、Predicate和Function说明](2019/20190810-Java8函数式接口Consumer、Supplier、Predicate和Function说明.md)
