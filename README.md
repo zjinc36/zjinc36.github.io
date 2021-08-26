@@ -480,3 +480,5 @@
 -   [Linux中挖Chia说明.md](2021/20210530-Linux中挖Chia说明.md)
 -   [Tampermonkey增加去除简书的推荐阅读脚本](2020/20200521-Tampermonkey增加去除简书的推荐阅读脚本.md)
 -   [docsify的Markdown使用](2021/20210819-docsify的Markdown使用.md)
+-   [DBeaver连接MongoDB](2021/20210826-DBeaver连接MongoDB.md)
+
