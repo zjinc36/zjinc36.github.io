@@ -485,5 +485,6 @@
 -   [docsify的Markdown使用](2021/20210819-docsify的Markdown使用.md)
 -   [DBeaver连接MongoDB](2021/20210826-DBeaver连接MongoDB.md)
 -   [OAuth2.0的四种授权模式](2021/20210903-OAuth2.0的四种授权模式.md)
+-   [Firefox和Chrome常用插件](2021/20210905-Firefox和Chrome常用插件.md)
 
 
