@@ -1,7 +1,7 @@
-#   SpringCloud-14-Sleuth
+# SpringCloud-14-Sleuth
 
 ---
-##  92_Sleuth是什么
+## 92_Sleuth是什么
 
 ### 为什么会出现这个技术？要解决哪些问题？
 
@@ -24,7 +24,7 @@
 >   英 [sluːθ] 美 [sluːθ]
 >   n. 侦探
 
-##  93_Sleuth之zipkin搭建安装
+## 93_Sleuth之zipkin搭建安装
 
 1.  zipkin
 
@@ -65,7 +65,7 @@ http://localhost:9411/zipkin/
 +   Trace：类似于树结构的Span集合，表示一条调用链路，存在唯一标识
 +   span：表示调用链路来源，通俗的理解span就是一次请求信息
 
-##  94_Sleuth链路监控展现
+## 94_Sleuth链路监控展现
 
 2.  服务提供者
 

@@ -261,6 +261,9 @@
 -   [Java线程的状态及主要转化方法](2021/20210825-Java线程的状态及主要转化方法.md)
 -   [Java线程间的通信](2021/20210901-Java线程间的通信.md)
 
+### Jenkins
+-   [Jenkins配置选择commit构建springcloud微服务项目](2021/20210915-Jenkins配置选择commit构建springcloud微服务项目.md)
+
 ### Juc
 -   [JUC之CountDownLatch减少计数](2020/20200914-JUC之CountDownLatch减少计数.md)
 -   [JUC之CyclicBarrier循环栅栏](2020/20200914-JUC之CyclicBarrier循环栅栏.md)
