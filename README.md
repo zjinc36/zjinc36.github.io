@@ -5,8 +5,10 @@
 -   [Druid-Kylin-Presto-Impala-SparkSQL-ES比较](2020/20200914-Druid-Kylin-Presto-Impala-SparkSQL-ES比较.md)
 
 ### Clickhouse
+-   [clickhouse常用sql语句](2021/20210915-clickhouse常用sql语句.md)
 -   [Clickhouse与kudu-kylin-druid的区别和使用场景](2021/20210327-Clickhouse与kudu-kylin-druid的区别和使用场景.md)
 -   [Clickhouse最佳实战之分布式集群方案研究](2021/20210715-Clickhouse最佳实战之分布式集群方案研究.md)
+
 
 ### 电商数仓案例分析
 -   [电商数仓每个层级表的依赖关系](2020/20200924-电商数仓每个层级表的依赖关系.md)
@@ -62,7 +64,7 @@
 ### Zookeeper
 -   [Zookeeper选举机制](2019/20190907-Zookeeper选举机制.md)
 
-##  Linux系统
+## Linux系统
 -   [shell中nologin和login的区别](2020/20200510-shell中nologin和login的区别.md)
 
 ### CentOs装机日志
@@ -166,7 +168,7 @@
 -   [Ubuntu20-04中安装flameshot截屏工具](2020/20200801-Ubuntu20-04中安装flameshot截屏工具.md)
 -   [Ubuntu中修改DNS的方法](2020/20200826-Ubuntu中修改DNS的方法.md)
 
-##  Docker
+## Docker
 -   [docker简介](2019/20191123-docker简介.md)
 -   [docker安装jenkins](2021/20210506-docker安装jenkins.md)
 -   [docker安装nginx](2021/20210514-docker安装nginx.md)
@@ -203,11 +205,11 @@
 -   [vim中显示markdown结构大纲](2019/20190729-vim中显示markdown结构大纲.md)
 -   [vim中删除句尾的空白字符](2019/20190730-vim中删除句尾的空白字符.md)
 
-##  Excel
+## Excel
 -   [Excel冻结窗格以锁定行和列](2020/20200229-Excel冻结窗格以锁定行和列.md)
 
 
-##  Git
+## Git
 -   [Git的diff命令和patch命令的使用](2017/20170214-Git的diff命令和patch命令的使用.md)
 -   [Git的log功能美化](2017/20170217-Git的log功能美化.md)
 -   [eclipse中解决git冲突](2017/20171223-eclipse中解决git冲突.md)
@@ -217,7 +219,7 @@
 -   [Git合并分支](2020/20200301-Git合并分支.md)
 -   [解决Github-Page无法访问的其中一种情况](2020/20200826-解决Github-Page无法访问的其中一种情况.md)
 
-##  Http协议
+## Http协议
 -   [Http协议](2019/20190625-Http协议.md)
 
 ##  Java栈
@@ -407,7 +409,7 @@
 ### 正则表达式
 -   [正则表达式之前瞻断言与后瞻断言](2020/20200124-正则表达式之前瞻断言与后瞻断言.md)
 
-##  Jquery
+## Jquery
 -   [Jquery可输入也可选择的下拉框](2019/20191115-Jquery可输入也可选择的下拉框.md)
 
 ##  基础
@@ -463,21 +465,21 @@
 -   [循环冗余校验（CRC）算法.md](2020/20200727-循环冗余校验（CRC）算法.md)
 
 
-##  Mysql
+## Mysql
 -   [MySQL索引为什么设计成这样](2021/20210804-MySQL索引为什么设计成这样.md)
 -   [项目遇到的问题之MySql](2017/20170615-项目遇到的问题之MySql.md)
 
-##  Python数据分析
+## Python数据分析
 -   [Python数据分析_01_前奏](2021/20210718-Python数据分析_01_前奏.md)
 
-##  人工智能
+## 人工智能
 -   [人工智能基础说明](2019/20190817-人工智能基础说明.md)
 -   [人工智能数学基础之概率论](2019/20190817-人工智能数学基础之概率论.md)
 -   [人工智能数学基础之数学分析](2019/20190817-人工智能数学基础之数学分析.md)
 -   [人工智能数学基础之线性代数](2019/20190817-人工智能数学基础之线性代数.md)
 -   [线性回归](2019/20190817-线性回归.md)
 
-##   未分类
+## 未分类
 -   [番茄工作法](2018/20180422-番茄工作法.md)
 -   [notes_中西方文化差异的渊源](2020/20200311-notes_中西方文化差异的渊源.md)
 -   [windows启动文件夹与设置开机自启动脚本和软件开机自启](2020/20210507-windows启动文件夹与设置开机自启动脚本和软件开机自启.md)

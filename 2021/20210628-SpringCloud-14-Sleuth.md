@@ -93,8 +93,8 @@ spring:
       base-url: http://localhost:9411
   sleuth: #<-------------------------------------关键
     sampler:
-    #采样率值介于 0 到 1 之间，1 则表示全部采集
-    probability: 1
+      #采样率值介于 0 到 1 之间，1 则表示全部采集
+      probability: 1
     
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
