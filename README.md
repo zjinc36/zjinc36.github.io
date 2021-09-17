@@ -263,6 +263,7 @@
 -   [Java多线程原理篇_06_Java内存模型基础知识](2021/20210916-Java内存模型基础知识.md)
 -   [Java多线程原理篇_07_重排序与happens-before](2021/20210917-重排序与happens-before.md)
 -   [Java多线程原理篇_08_volatitle](2021/20210917-volatitle.md)
+-   [Java多线程原理篇_09_synchronized与锁](2021/20210917-synchronized与锁.md)
 
 ### Jenkins
 -   [Jenkins配置选择commit构建springcloud微服务项目](2021/20210915-Jenkins配置选择commit构建springcloud微服务项目.md)

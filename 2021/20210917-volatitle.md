@@ -1,5 +1,7 @@
 # volatitle
 
+基于 http://concurrent.redspider.group/article/02/8.html 修订
+
 ----
 
 # 几个基本概念
