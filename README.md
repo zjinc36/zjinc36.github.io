@@ -265,6 +265,7 @@
 -   [Java多线程原理篇_03_volatitle](2021/20210917-volatitle.md)
 -   [Java多线程原理篇_04_synchronized与锁](2021/20210917-synchronized与锁.md)
 -   [Java多线程JDK工具篇_01_线程池原理](2021/20210922-线程池原理.md)
+-   [Java多线程JDK工具篇_02_阻塞队列](2021/20210922-阻塞队列.md)
 
 ### Jenkins
 -   [Jenkins配置选择commit构建springcloud微服务项目](2021/20210915-Jenkins配置选择commit构建springcloud微服务项目.md)
