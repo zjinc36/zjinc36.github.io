@@ -260,10 +260,11 @@
 -   [Java多线程基础篇_03_线程组和线程优先级](2021/20210823-线程组和线程优先级.md)
 -   [Java多线程基础篇_04_Java线程的状态及主要转化方法](2021/20210825-Java线程的状态及主要转化方法.md)
 -   [Java多线程基础篇_05_Java线程间的通信](2021/20210901-Java线程间的通信.md)
--   [Java多线程原理篇_06_Java内存模型基础知识](2021/20210916-Java内存模型基础知识.md)
--   [Java多线程原理篇_07_从零开始设计一个Java内存模型](2021/20210920-从零开始设计一个Java内存模型.md)
--   [Java多线程原理篇_08_volatitle](2021/20210917-volatitle.md)
--   [Java多线程原理篇_09_synchronized与锁](2021/20210917-synchronized与锁.md)
+-   [Java多线程原理篇_01_Java内存模型基础知识](2021/20210916-Java内存模型基础知识.md)
+-   [Java多线程原理篇_02_从零开始设计一个Java内存模型](2021/20210920-从零开始设计一个Java内存模型.md)
+-   [Java多线程原理篇_03_volatitle](2021/20210917-volatitle.md)
+-   [Java多线程原理篇_04_synchronized与锁](2021/20210917-synchronized与锁.md)
+-   [Java多线程JDK工具篇_01_线程池原理](2021/20210922-线程池原理.md)
 
 ### Jenkins
 -   [Jenkins配置选择commit构建springcloud微服务项目](2021/20210915-Jenkins配置选择commit构建springcloud微服务项目.md)
