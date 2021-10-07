@@ -167,6 +167,7 @@
 -   [Ubuntu刷新DNS](2020/20200731-Ubuntu刷新DNS.md)
 -   [Ubuntu20-04中安装flameshot截屏工具](2020/20200801-Ubuntu20-04中安装flameshot截屏工具.md)
 -   [Ubuntu中修改DNS的方法](2020/20200826-Ubuntu中修改DNS的方法.md)
+-   [Ubuntu自动运行用户脚本的方法](2021/20211007-Ubuntu自动运行用户脚本的方法.md)
 
 ## Docker
 -   [docker简介](2019/20191123-docker简介.md)
@@ -193,6 +194,7 @@
 -   [idea控制标签页多行显示](2021/20210421-idea控制标签页多行显示.md)
 
 ### Sublime
+-   [Sublime配置](2021/20211007-Sublime配置.md)
 -   [sublime实现Markdown文件预览](2021/20210823-sublime实现Markdown文件预览.md)
 
 ### Vim

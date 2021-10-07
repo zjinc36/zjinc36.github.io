@@ -1,8 +1,8 @@
-#   sublime实现Markdown文件预览
+# sublime实现Markdown文件预览
 
 ---
 
-##  安装Markdown Preview
+## 安装Markdown Preview
 
 支持在浏览器中预览markdown文件
 
@@ -36,10 +36,26 @@
 +   keys 自己设置的按键。
 +   parser: Markdown文件的浏览方式, “github”: 使用Github在线API解析markdown; “markdown”: 使用浏览器本地打开。
 
-##  安装LiveReload
+## 安装LiveReload
 
 +   LiveReload是一个可实时刷新的插件，可用于Markdown，HTML等。
 +   Ctrl+Shift+p, 输入 Install Package，输入LiveReload, 安装。
 +   安装成功后, 再次Ctrl+shift+p, 输入LiveReload: Enable/disable plug-ins --> 选择 Simple Reload
+
+**端口被占用问题**
+
+问题描述:sublime port(35729) is already using, trying (35730)
+
+```
+Preferences > Package Settings > Live Reload > Settings - User
+```
+
+键入如下内容
+
+```json
+{
+    "port" : 35730
+}
+```
 
 搞定,每次编辑过.md文件后, 保存, 就会在浏览器自动更新页面。
