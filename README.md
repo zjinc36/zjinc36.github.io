@@ -66,6 +66,7 @@
 
 ## Linux系统
 -   [shell中nologin和login的区别](2020/20200510-shell中nologin和login的区别.md)
+-   [chmod4775四位数中第一位详解](2021/20211010-chmod4775四位数中第一位详解.md)
 
 ### CentOs装机日志
 -   [设置主机名](2021/20210506-设置主机名.md)
