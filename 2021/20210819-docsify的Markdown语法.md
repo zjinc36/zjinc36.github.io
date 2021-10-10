@@ -1,10 +1,10 @@
-#   docsify的Markdown使用
+# docsify的Markdown语法
 
 ---
-#   来源
+# 来源
 https://jhildenbiddle.github.io/docsify-themeable/#/markdown
 
-#   Headings
+# Headings
 
 <!-- tabs:start -->
 
@@ -91,7 +91,7 @@ deserunt. Consequat qui tempor occaecat nostrud proident.
 ```
 <!-- tabs:end -->
 
-#   Text
+# Text
 <!-- tabs:start -->
 
 #### **Rendered**
@@ -139,7 +139,7 @@ This is <sup>superscript</sup>
 <!-- tabs:end -->
 
 
-#   Links
+# Links
 <!-- tabs:start -->
 
 #### **Rendered**
@@ -179,7 +179,7 @@ This is <sup>superscript</sup>
 <!-- tabs:end -->
 
 
-#   Lists
+# Lists
 <!-- tabs:start -->
 
 #### **Rendered**
@@ -243,7 +243,7 @@ This is <sup>superscript</sup>
 <!-- tabs:end -->
 
 
-#   Blockquotes
+# Blockquotes
 <!-- tabs:start -->
 
 #### **Rendered**
@@ -269,7 +269,7 @@ This is <sup>superscript</sup>
 <!-- tabs:end -->
 
 
-#   Notices
+# Notices
 <!-- tabs:start -->
 
 #### **Rendered**
@@ -293,7 +293,7 @@ force the content to wrap and span multiple lines.
 <!-- tabs:end -->
 
 
-#   Tab
+# Tab
 
 Tabs provided via the [docsify-tabs](https://jhildenbiddle.github.io/docsify-tabs) plugin.
 
@@ -334,7 +334,7 @@ Ciao!
 <!-- tabs:end -->
 
 
-#   Table
+# Table
 <!-- tabs:start -->
 
 #### **Rendered**
@@ -358,7 +358,7 @@ Ciao!
 <!-- tabs:end -->
 
 
-#   Keyboard
+# Keyboard
 <!-- tabs:start -->
 
 #### **Rendered**
@@ -454,7 +454,7 @@ Ciao!
 <!-- tabs:end -->
 
 
-#   Horizontal Rule
+# Horizontal Rule
 <!-- tabs:start -->
 
 #### **Rendered**
@@ -470,7 +470,7 @@ Ciao!
 <!-- tabs:end -->
 
 
-#   Images
+# Images
 <!-- tabs:start -->
 
 #### **Rendered**
@@ -502,7 +502,7 @@ Ciao!
 <!-- tabs:end -->
 
 
-#   Emoji
+# Emoji
 A complete list is available here: [Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet/)
 
 <!-- tabs:start -->
