@@ -1,13 +1,13 @@
-#   解决Github-Page无法访问的其中一种情况
+# 解决Github-Page无法访问的其中一种情况
 date: 2020-08-26 12:56:43
 description: 解决Github-Page无法访问的其中一种情况
 categories:
 - 未分类
 ---
-#   修改ip
+# 修改ip
 网上很多帖子,但是我修改之后无效
 
-#   修改dns服务器
+# 修改dns服务器
 1.  查看域名指向哪里
 ```
 nslookup github.io

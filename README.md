@@ -155,8 +155,6 @@
     -   [Ubuntu18.04中ibus-sunpinyin的安装与设置](2020/20200726-Ubuntu18.04中ibus-sunpinyin的安装与设置.md)
     -   [ubuntu中Rime输入法的安装和配置](2020/20200726-ubuntu中Rime输入法的安装和配置.md)
     -   [Ubuntu20-04中安装flameshot截屏工具](2020/20200801-Ubuntu20-04中安装flameshot截屏工具.md)
-    -   [Ubuntu梯子搭建Qv2ray](2021/20211015-梯子搭建Qv2ray.md)
-
 
 +   gnome的使用与常用扩展
     -   [Ubuntu的gnome的使用与常用扩展](2018/20180506-Ubuntu的gnome的使用与常用扩展.md)

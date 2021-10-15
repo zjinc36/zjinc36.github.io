@@ -1,35 +1,39 @@
-#   Git的diff命令和patch命令的使用
-+ date: 2017-02-14 20:06:24
-+ description: Git的diff命令和patch命令的使用
-+ categories:
-  - Git
-+ tags:
-  - Git
+# Git的diff命令和patch命令的使用
+
 ---
-#	diff命令的使用方法
-##	diff命令的作用
+
+# diff命令的使用方法
+
+## diff命令的作用
+
 1.	diff命令是linux上非常重要的工具，用于比较文件的内容，特别是比较两个版本不同的文件以找到改动的地方。
 2.	diff在命令行中打印每一个行的改动。
 3.	最新版本的diff还支持二进制文件。
 4.	**diff程序的输出被称为补丁 (patch)，因为Linux系统中还有一个patch程序，可以根据diff的输出将a.c的文件内容更新为b.c。**
 5.	diff是svn、cvs、git等版本控制工具不可或缺的一部分。
 
-##	diff命令的使用
+## diff命令的使用
+
 一般使用方法
 diff命令的格式一般为：
+
 ```
 diff [参数][文件或者目录1][文件或者目录2]
 ```
 
-##	经常使用举例
+## 经常使用举例
 
-###	不使用参数直接比较
+### 不使用参数直接比较
+
 1.	例如，有文件test1和test2
 2.	进行比较
+
 ```
 diff test1 test2
 ```
+
 3.	输出(注意代码中的注释)
+
 ```
 2,3c2                       # "c"表示冲突(change),即第一个文件的第2到第3行和第二个文件的第2行开始有冲突
 < asfdasfdasdfasdf          # "<"表示删除的行,即删去了两行
@@ -47,27 +51,36 @@ diff test1 test2
 11d5                        # 第一个文件第11行与第二个文件第五行相比有删除
 < bbbbbbbbb                 # 删除了这一行
 ```
+
 4.	提示说明
+
 注释中已经写到,`c`表示冲突,以下是diff的normal显示格式的提示总结
+
 +	`a` - add - 添加
 +	`c` - change - 改变
 +	`d` - delete - 删除
 +	`<` - 表示删除的行
 +	`>` - 表示添加的行
 
-###	增加参数比较两文件
+### 增加参数比较两文件
+
 参数如下
+
 +	-a或--text 　diff预设只会逐行比较文本文件。
 +	-b或--ignore-space-change 　不检查空格字符的不同。
 +	-B或--ignore-blank-lines 　不检查空白行。
 +	-c 　显示全部内文，并标出不同之处。
 
 使用过程
+
 1.	使用
+
 ```
 diff -c test1 test2
 ```
+
 2.	将会得到
+
 ```
 *** test1 2016-04-21 14:46:55.000000000 +0800
 --- test2 2016-04-21 14:44:55.000000000 +0800
@@ -93,16 +106,21 @@ diff -c test1 test2
 ```
 
 3.	说明
+
 +	“＋” 比较的文件的后者比前着多一行
 +	“－” 比较的文件的后者比前着少一行
 +	“！” 比较的文件两者有差别的行
 
-###	以并列的方式显示文件的异同之处。
+### 以并列的方式显示文件的异同之处。
+
 1.	使用
+
 ```
 diff test1 test2 -y
 ```
+
 2.	输出
+
 ```
 utils                                       utils
 asfdasfdasdfasdf                          | qwefqwefqwef
@@ -116,19 +134,25 @@ a                                         <
 qwerqwerqwe                                 qwerqwerqwe
 bbbbbbbbb                                 <
 ```
+
 3.	说明
+
 +	`|`:表示前后2个文件内容有不同
 +	`<`:表示后面文件比前面文件少了1行内容
 +	`>`:表示后面文件比前面文件多了1行内容
 
-###	以合并的方式显示两个文件的不同(可以用于使用patch命令进行打补丁包)
+### 以合并的方式显示两个文件的不同(可以用于使用patch命令进行打补丁包)
+
 1.	**这种输出方式输出的内容可以用于使用patch命令进行打补丁包**
 2.	例如，有文件test1和test2
 3.	进行比较
+
 ```
 diff -ruN test1 test2
 ```
+
 4.	输出
+
 ```
 --- test1   2016-04-21 14:46:55.000000000 +0800 # 第一个文件的信息
 +++ test2   2016-04-21 14:44:55.000000000 +0800 # 第二个文件的信息
@@ -147,18 +171,24 @@ diff -ruN test1 test2
  qwerqwerqwe
 -bbbbbbbbb
 ```
+
 5.	提示说明
+
 +	“＋” 比较的文件的后者比前着多一行
 +	“－” 比较的文件的后者比前着少一行
 +	“！” 比较的文件两者有差别的行
 
-###	比较两个文件夹的不同
+### 比较两个文件夹的不同
+
 1.	例如有两个文件夹testa和test，将test1和test2放进去
 2.	进行比较
+
 ```
 diff testa testb
 ```
+
 3.	得到
+
 ```
 diff testa/test1 testb/test1    # 对比两个文件夹下面文件名相同的文件
 2,3c2                           # 以下是正常的文件对比格式
@@ -180,7 +210,8 @@ Only in testa: test2            # testa里面有而testb里面没有的test2
 Only in testb: test3            # testa里面没有而testb有的test3
 ```
 
-##	diff的参数说明
+## diff的参数说明
+
 +	-C或--context 　与执行"-c-"指令相同。
 +	-d或--minimal 　使用不同的演算法，以较小的单位来做比较。
 +	-D或ifdef 　此参数的输出格式可用于前置处理器巨集。
@@ -211,35 +242,46 @@ Only in testb: test3            # testa里面没有而testb有的test3
 +	--left-column 　在使用-y参数时，若两个文件某一行内容相同，则仅在左侧的栏位显示该行内容。
 +	--suppress-common-lines 　在使用-y参数时，仅显示不同之处。
 
-#	patch命令的使用方法
-##	patch命令的作用
+# patch命令的使用方法
+
+## patch命令的作用
+
 打补丁
 
-##	patch命令的格式
+## patch命令的格式
+
 ```
 patch [option] [origfile] [patchfile]
 ```
 
-##	patch命令的使用
+## patch命令的使用
+
 我们可以先用diff命令生成patch文件。然后使用patch命令将第二个文件内容修改成第一个文件的内容。例如上述的test1和test2
+
 1.	生成patch文件
+
 ```
 diff -ruN test1 test2 > patch.log   # 生成patch文件
 ```
+
 2.	利用patch文件和patch命令打补丁
+
 ```
 patch test2 patch.log               # 利用patch文件和patch命令打补丁
 ```
+
 之后test2的内容就会和test1内容一致了。
 
-##	patch说明
+## patch说明
+
 +	patch 命令（默认）使用从标准输入读入的源文件 `<` PATCHFILE ，但是使用 -i PATCHFILE 设置。
 +	源文件包含由 diff 命令产生的差别列表（或者 diff 列表）。差异列表是比较两个文件和构建关于如何纠正差别的指示信息的结果。
 +	差异列表有三种格式：正常、上下文或者是 ed 编辑器风格。patch 命令确定差异列表格式，除非被 -c、-e 或 -n 标志否决。
 +	默认，ORIGFILE 被PATCHFILE 替换。若ORIGFILE（原始文件）不存在时，PATCHFILE（补丁文件）根据差别列表，创建 ORIGFILE 文件。
 +	指定 -b 标志时，ORIGFILE（原始文件）会备份在自身的文件中，只是在文件名后附加了后缀 .orig。使用 -o 标志也可以指定输出的目的地。
 
-##	patch命令的参数
+## patch命令的参数
+
 1.	输入选项
 
 |输入选项|								|															   |
@@ -279,7 +321,7 @@ patch test2 patch.log               # 利用patch文件和patch命令打补丁
 |-B PREFIX	|--prefix=PREFIX			|设置文件备份时，附加在文件名称前面的字首字符串，该字符串可以是路径名称                                                                                          |
 |-Y PREFIX	|--basename-prefix=PREFIX	|设置文件备份时，附加在文件基本名称开头的字首字符串                                                                                                              |
 |-z SUFFIX	|--suffix=SUFFIX			|此参数的效果和指定"-B"参数类似，差别在于修补作业使用的路径与文件名若为src/linux/fs/super.c，加上"backup/"字符串后，文件super.c会备份于/src/linux/fs/backup目录里|
-|-g NUM		|--get=NUM					|设置以RSC或SCCS控制修补作业                                                                                                                                     |
+
 4.	其他选项
 
 |其他选项|					|																																								 |
