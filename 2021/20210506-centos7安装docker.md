@@ -1,4 +1,8 @@
-#   centos7.x离线安装docker
+#   centos7.x安装docker
+
+---
+
+#   离线安装docker
 
 ##  下载docker安装文件
 
@@ -115,7 +119,63 @@ systemctl restart docker.service
 docker-compose -v
 ```
 
+#   在线安装docker
 
+##  单独安装docker说明
+### 查看内核版本
+```
+uname -r
+```
+
+### yum处理
+1.  使用 root 权限登录 Centos。确保 yum 包更新到最新
+```
+sudo yum update
+```
+
+### 安装docker
+1.  卸载旧版本(如果安装过旧版本的话)
+
+```
+sudo yum remove docker  docker-common docker-selinux dockesr-engine
+```
+
+2.  安装需要的软件包， yum-util 提供yum-config-manager功能，另外两个是devicemapper驱动依赖的
+
+```
+sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+```
+
+3.  设置yum源
+
+```
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+```
+
+4.  可以查看所有仓库中所有docker版本，并选择特定版本安装
+
+```
+yum list docker-ce --showduplicates | sort -r
+```
+
+5.  安装docker
+
+```
+sudo yum install docker-ce
+```
+
+6.  启动并加入开机启动
+
+```
+sudo systemctl start docker
+sudo systemctl enable docker
+```
+
+7.  验证安装是否成功(有client和service两部分表示docker安装启动都成功了)
+
+```
+docker version
+```
 
 #   参考
 [docker离线安装并导入镜像](https://www.jianshu.com/p/1dd72a6b5ae9)
