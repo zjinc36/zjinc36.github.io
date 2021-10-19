@@ -156,7 +156,6 @@
     -   [ubuntu中Rime输入法的安装和配置](2020/20200726-ubuntu中Rime输入法的安装和配置.md)
     -   [Ubuntu20-04中安装flameshot截屏工具](2020/20200801-Ubuntu20-04中安装flameshot截屏工具.md)
 
-
 +   gnome的使用与常用扩展
     -   [Ubuntu的gnome的使用与常用扩展](2018/20180506-Ubuntu的gnome的使用与常用扩展.md)
     -   [Ubuntu中安装番茄工作法软件gnome-shell-pomodoro](2020/20200421-Ubuntu中安装番茄工作法软件gnome-shell-pomodoro.md)
