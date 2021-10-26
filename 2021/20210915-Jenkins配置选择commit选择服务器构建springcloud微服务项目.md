@@ -1,4 +1,8 @@
-# Jenkins配置选择commit构建springcloud微服务项目
+# Jenkins配置选择commit选择服务器构建springcloud微服务项目
+
+1. 选择commit
+2. 选择springcloud项目
+3. 选择服务器
 
 ---
 
@@ -6,6 +10,8 @@
 
 + 安装 `Extended Choice Parameter`
 + 安装`Git Parameter`
++ 安装`Publish Over SSH`用于连接远程服务器
++ 安装`Deploy to container`插件用于把打包的应用发布到远程服务器
 
 # Jenkins配置
 
@@ -29,6 +35,9 @@
 
 ![](../images/2021/09/20210915140521.png)
 
+### 配置可选服务器
+
+![](../images/2021/10/20211026112827.png)
 
 ## 配置源码管理
 
@@ -81,23 +90,48 @@ do
   buildTarget=`/opt/module/maven/bin/mvn clean install -Dmaven.test.skip`
   echo "${line} 模块构建好了"
 
-  commonStr="common"
-  if [ "${commonStr}" != "${line}" ] ; then
-    pid=`ps -ef | grep ${line} | grep -v  grep | awk '{print $2}'`
-
-    if [ -z $pid ] ; then
-      echo "no this process"
-    else
-        kill -9 $pid
-    fi
-
-    cd ${WORKSPACE}/textile-equipment-internet/${line}/target/
-    res=`nohup java -jar ${line}-1.0-SNAPSHOT.jar > /dev/null 2>&1 &`
-  fi
 done < model_name.txt
 
 BUILD_ID=$OLD_BUILD_ID
 ```
+
++ 这一段代码主要是jenkins所在机器对文件进行拉取和mvn构建
+
+##  配置要发送的服务器
+
+![](../images/2021/10/20211026113645.png)
+
+```bash
+OLD_BUILD_ID=$BUILD_ID
+BUILD_ID=dontKillMe
+
+commonStr="common"
+if [ "${commonStr}" != "${module_name}" ] ; then
+  pid=`ps -ef | grep ${module_name}-1.0-SNAPSHOT.jar | grep -v  grep | awk '{print $2}'`
+
+  if [ -z $pid ] ; then
+    echo "no this process"
+  else
+      kill -9 $pid
+  fi
+
+  # 这里的/root/software是全局配置中的ssh的Remote Directory
+  cd /root/software/textile-equipment-internet/${module_name}/target/
+  res=`nohup java -jar ${module_name}-1.0-SNAPSHOT.jar > /dev/null 2>&1 &`
+fi
+
+BUILD_ID=$OLD_BUILD_ID
+```
+
+多个服务器要配置多个
+
+![](../images/2021/10/20211026114036.png)
+
+点击高级,配置参数化推送`Parameterized publishing`
+
+![](../images/2021/10/20211026114458.png)
+
+![](../images/2021/10/20211026114208.png)
 
 # 查看效果
 

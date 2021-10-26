@@ -283,7 +283,7 @@
 -   [Java多线程JDK工具篇_02_阻塞队列](2021/20210922-阻塞队列.md)
 
 ### Jenkins
--   [Jenkins配置选择commit构建springcloud微服务项目](2021/20210915-Jenkins配置选择commit构建springcloud微服务项目.md)
+-   [Jenkins配置选择commit选择服务器构建springcloud微服务项目](2021/20210915-Jenkins配置选择commit选择服务器构建springcloud微服务项目.md)
 
 ### Juc
 -   [JUC之CountDownLatch减少计数](2020/20200914-JUC之CountDownLatch减少计数.md)
