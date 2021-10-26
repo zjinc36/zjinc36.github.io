@@ -47,6 +47,7 @@
 ### Scala
 -   [Scala中的特殊符号](2020/20200705-Scala中的特殊符号.md)
 -   [Scala中的Try](2021/20210910-Scala中的Try.md)
+-   [用maven编译scala项目时栈溢出](2021/20211026-用maven编译scala项目时栈溢出.md)
 
 ### Spark
 -   [项目遇到的问题之Spark](2019/20200829-项目遇到的问题之Spark.md)
