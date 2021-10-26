@@ -97,7 +97,12 @@ BUILD_ID=$OLD_BUILD_ID
 
 + 这一段代码主要是jenkins所在机器对文件进行拉取和mvn构建
 
-##  配置要发送的服务器
+## 配置要发送的服务器
+
+参考:
++ [jenkins根据参数不同配置发布到不同的主机](https://blog.csdn.net/baidu_38432732/article/details/103389449)
++ [jenkins-参数化发布到不同机器上](https://blog.csdn.net/tjstar/article/details/94733674)
+
 
 ![](../images/2021/10/20211026113645.png)
 
