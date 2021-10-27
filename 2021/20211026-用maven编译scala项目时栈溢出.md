@@ -20,7 +20,12 @@
             <configuration>
                 <jvmArgs>
                     <!-- 需要的配置 -->
+                    <!-- 为JVM启动的每个线程分配的内存大小 -->
                     <jvmArg>-Xss4m</jvmArg>
+                    <!-- jvm启动时分配的内存 -->
+                    <jvmArg>-Xms4m</jvmArg>
+                    <!-- jvm运行过程中分配的最大内存 -->
+                    <jvmArg>-Xmx4m</jvmArg>
                 </jvmArgs>
             </configuration>
         </execution>
