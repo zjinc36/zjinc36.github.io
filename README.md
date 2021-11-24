@@ -508,6 +508,7 @@
 -   [RabbitMQ_交换机](2021/20211108-RabbitMQ_交换机.md)
 -   [RabbitMQ_死信队列](2021/20211108-RabbitMQ_死信队列.md)
 -   [RabbitMQ_延迟队列](2021/20211123-RabbitMQ_延迟队列.md)
+-   [RabbitMQ_发布确认高级](2021/20211124-RabbitMQ_发布确认高级.md)
 
 
 ## 人工智能
