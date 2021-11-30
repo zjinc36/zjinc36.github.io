@@ -44,6 +44,10 @@
 -   [Kafka压力测试](2019/20190907-Kafka压力测试.md)
 -   [Kafka工作流程分析](2020/20200915-Kafka工作流程分析.md)
 
+### Kubernetes
+-   [Kubernetes核心实战](2021/20211130-Kubernetes核心实战.md)
+
+
 ### Scala
 -   [Scala中的特殊符号](2020/20200705-Scala中的特殊符号.md)
 -   [Scala中的Try](2021/20210910-Scala中的Try.md)

@@ -1,6 +1,6 @@
-#   docker安装jenkins
+# docker安装jenkins
 
-##  下载镜像
+## 下载镜像
 
 打开终端，输入docker search命令搜索 Docker Hub 上可用的 Jenkins 镜像：
 
@@ -41,7 +41,7 @@ jenkinsci/blueocean   latest              ef2dc74fe285        21 hours ago      
 ...
 ```
 
-##  运行容器
+## 运行容器
 
 1.  创建本地数据卷
 
@@ -111,7 +111,7 @@ Jenkins 可以说完全由插件来驱动的，所以安装一些基础的插件
 至此，Jenkins 初始化配置过程也就完成了。正式开启你的 持续集成&持续部署 之旅吧！
 20210506140532.png
 
-##  更换主题
+## 更换主题
 
 如果你不喜欢 Jenkins 官方默认页面样式，你可以尝试通过如下项目更换一套基于 Material Design 设计的主题。
 
@@ -119,11 +119,11 @@ https://github.com/afonsof/jenkins-material-theme
 
 安装过程请参考其相关文档，此处不再详述。
 
-##  相关资源
+## 相关资源
 
 + [Install with Docker | Jenkins Documentation](https://jenkins.io/zh/doc/book/installing/#docker)
 + [jenkinsci/blueocean - Docker Hub](https://hub.docker.com/_/jenkins)
 + [jenkins - Docker Hub](https://hub.docker.com/_/jenkins)
 
-##  参考
+## 参考
 [使用 Docker 安装 Jenkins 的最佳方式](https://www.cnblogs.com/esofar/p/11163583.html)
