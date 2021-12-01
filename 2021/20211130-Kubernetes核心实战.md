@@ -42,7 +42,6 @@ kubectl delete -f hello.yml
 
 ## Pod
 
-
 运行中的一组容器，Pod是kubernetes中应用的最小单位.
 
 ![](../images/2021/11/20211130223640.png)
@@ -52,7 +51,7 @@ kubectl delete -f hello.yml
 
 ### 命令行方式
 
-+   启动一个pod
+#### 启动一个pod
 
 ```bash
 # 启动一个pod,指定pod名为mynginx,里面的镜像为nginx,默认是在default命名空间
@@ -60,36 +59,19 @@ kubectl delete -f hello.yml
 kubectl run mynginx --image=nginx
 ```
 
-+   查看default名称空间的Pod
+#### 查看Pod
 
 ```bash
 kubectl get pod 
 kubectl get pod -n default  # 上一句和这一句是一样的,因为不写命名空间这默认命名空间是default
 ```
 
-+   描述
-
 ```bash
-kubectl describe pod 你自己的Pod名字
+# 查看pod的变化过程
+kubectl get pod -w
 ```
 
-就是看详细过程,打开后我们拉到最低下主要看`Enents`
-
-![](../images/2021/11/20211130223418.png)
-
-+   删除
-
-```bash
-kubectl delete pod Pod名字
-```
-
-+   查看Pod的运行日志
-
-```bash
-kubectl logs Pod名字
-```
-
-+   查看更详细的pod的信息
+查看更详细的pod的信息
 
 ```bash
 # k8s会给每个Pod会分配一个ip
@@ -102,7 +84,37 @@ curl 192.168.169.136
 # 为什么是192.168.x.x网段,是因为我们初始化的时候设置的
 ```
 
-+   进入pod
+![](../images/2021/11/20211201221934.png)
+
+#### 查看pod创建的详细过程
+
+```bash
+kubectl describe pod 你自己的Pod名字
+```
+
+就是看详细过程,打开后我们拉到最低下主要看`Enents`
+
+![](../images/2021/11/20211130223418.png)
+
+#### 删除pod
+
+```bash
+kubectl delete pod Pod名字
+```
+
+#### 查看Pod的运行日志
+
+```bash
+kubectl logs Pod名字
+```
+
+#### 查看pod的标签
+
+```bash
+kubectl get pod --show-labels
+```
+
+#### 进入pod
 
 ```bash
 kubectl exec -it pod名称 -- /bin/bash
@@ -170,13 +182,13 @@ kubectl delete -f xxx.yml
 
 此时的应用还不能外部访问
 
-##  Deployment
+## Deployment
 
 ### 基础命令
 
 控制Pod，使Pod拥有多副本，自愈，扩缩容等能力
 
-+ 部署应用
+#### 部署应用
 
 ```bash
 kubectl create deployment mytomcat --image=tomcat:8.5.68
@@ -185,16 +197,22 @@ kubectl create deployment mytomcat --image=tomcat:8.5.68
 和我们直接创建pod(`kubectl run mynginx --image=tomcat:8.5.68`)是不一样的,用deployment进行部署会拥有治愈能力
 
 
-+ 查看所有deployment
+#### 查看所有deployment
 
 ```bash
 kubectl get deploy    # deployment单词不用写全
 ```
 
-+ 删除deployment
+#### 删除deployment
 
 ```bash
 kubectl delete deploy Deployment名字
+```
+
+#### 修改yaml文件
+
+```bash
+kubectl edit deployment Deployment名字
 ```
 
 ### 多副本
@@ -253,25 +271,30 @@ kubectl edit deployment my-dep
 + 容器崩溃
 + ....
 
+![](../images/2021/11/20211201222048.png)
 
 ### 滚动更新
 
 ```bash
+# 查看旧的部署的yaml => 用以查看正在运行的是哪个pod
+kubectl get deploy my-dep -oyaml
+
+# 滚动更新 => 其实就是用新的镜像启动一个pod,再将旧的pod杀死,并将流量引到新的pod
+# => set image 表明要更新镜像
+# => deployment/my-dep nginx=nginx:1.16.1 将my-dep应用中,名为nginx容器的镜像更新为ginx:1.16.1
+# => --record 表示记录一下这次版本的更新
 kubectl set image deployment/my-dep nginx=nginx:1.16.1 --record
+
 kubectl rollout status deployment/my-dep
 ````
 
-```
-# 修改
-kubectl edit deployment/my-dep
-```
+![](../images/2021/12/20211201223826.png)
 
 ### 版本回退
 
 ```bash
-#历史记录
+# 查看历史记录
 kubectl rollout history deployment/my-dep
-
 
 #查看某个历史详情
 kubectl rollout history deployment/my-dep --revision=2
@@ -291,6 +314,140 @@ kubectl rollout undo deployment/my-dep --to-revision=2
 
 https://kubernetes.io/zh/docs/concepts/workloads/controllers/
 
+![](../images/2021/12/20211201224403.png)
 
+## Service
 
+将一组 Pods 公开为网络服务的抽象方法。
 
+### 命令行
+
+#### 将pod内容器的端口通过service进行暴露
+
+```bash
+kubectl expose deployment my-dep --port=8000 --target-port=80
+
+# 上面命令等价于如下
+# => 默认为ClusterIP,表明暴露的IP只能在集群内访问
+kubectl expose deployment my-dep --port=8000 --target-port=80 --type=ClusterIP
+```
+
+![](../images/2021/12/20211201225257.png)
+
+#### 使用标签检索Pod
+
+```bash
+kubectl get pod -l app=my-dep
+```
+
+#### 查看service
+
+```bash
+kubectl get service
+```
+
+#### 删除service
+```bash
+kubectl delete service my-dep
+```
+
+### yaml文件
+
+service是一组pods公开为网络服务的抽象方法,而service如何知道自己对应的是哪几个pod,通过的是`标签`
+
+查看pod的标签
+
+```bash
+kubectl get pod --show-labels
+```
+
+![](../images/2021/12/20211201230447.png)
+
+yaml中的选择器(selector)里需要填写对应的标签
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: my-dep
+  name: my-dep
+spec:
+  selector:   # 要填写该service要暴露的pod的标签
+    app: my-dep
+  ports:
+  - port: 8000
+    protocol: TCP
+    targetPort: 80
+```
+
+![](../images/2021/12/20211201230727.png)
+
+### 访问service
+
+![](../images/2021/12/20211201231148.png)
+
+![](../images/2021/12/20211201232009.png)
+
+#### 方式一: 使用IP地址
+
+![](../images/2021/12/20211201231252.png)
+
+#### 方式二: 域名方式
+
+service的NAME.所在命名空间.svc => 比如这里:my-dep.default.svc
+
+!>  使用域名的方式是在容器内部操作,在宿主机上是不行的
+
+这里创建了一个tomcat服务的pod
+
+![](../images/2021/12/20211201231448.png)
+
+### ClusterIP
+
+```bash
+# 等同于没有--type的
+kubectl expose deployment my-dep --port=8000 --target-port=80 --type=ClusterIP
+```
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: my-dep
+  name: my-dep
+spec:
+  ports:
+  - port: 8000
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: my-dep
+  type: ClusterIP
+```
+
+### NodePort
+
+```bash
+kubectl expose deployment my-dep --port=8000 --target-port=80 --type=NodePort
+```
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: my-dep
+  name: my-dep
+spec:
+  ports:
+  - port: 8000
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: my-dep
+  type: NodePort
+```
+
+NodePort范围在 30000-32767 之间
