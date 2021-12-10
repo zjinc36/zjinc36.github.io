@@ -39,12 +39,20 @@ Documentation=https://prometheus.io/
 After=network.target
 [Service]
 Type=simple
-User=prometheus
+User=root
+Group=root
 ExecStart=/opt/module/node_exporter/node_exporter
 Restart=on-failure
 [Install]
 WantedBy=multi-user.target
 ```
+
+```bash
+systemctl daemon-reload
+systemctl start node_exporter
+systemctl status node_exporter
+systemctl enable node_exporter
+````
 
 ### 配置Prometheus，收集node exporter的数据
 ```
