@@ -2324,3 +2324,324 @@ spec:
             port:
               number: 8000
 ```
+
+
+##  存储抽象
+
+### 环境准备
+
+####  所有节点
+
+```bash
+#所有机器安装
+yum install -y nfs-utils
+```
+
+####  主节点
+
+```bash
+# nfs主节点,暴露/nfs/data/目录
+# -> insecure 非安全的
+# -> rw 读写方式
+echo "/nfs/data/ *(insecure,rw,sync,no_root_squash)" > /etc/exports
+
+mkdir -p /nfs/data
+
+# 启动rpc远程绑定
+systemctl enable rpcbind --now
+# 主节点启动nfs服务器
+systemctl enable nfs-server --now
+# 配置生效
+exportfs -r
+```
+
+####  从节点
+
+```bash
+# 这个ip是主节点的ip
+showmount -e 172.31.0.4
+
+#执行以下命令挂载 nfs 服务器上的共享目录到本机路径 /root/nfsmount
+mkdir -p /nfs/data
+
+# 远程的172.31.0.4:/nfs/data目录和本地的/nfs/data目录进行挂载
+mount -t nfs 172.31.0.4:/nfs/data /nfs/data
+# 写入一个测试文件
+echo "hello nfs server" > /nfs/data/test.txt
+```
+
+####  原生方式数据挂载
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx-pv-demo
+  name: nginx-pv-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx-pv-demo
+  template:
+    metadata:
+      labels:
+        app: nginx-pv-demo
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        volumeMounts:
+        - name: html                        # 2. 挂载到外边,外边的名字叫做html,这个名字和底下配置的名字相同
+          mountPath: /usr/share/nginx/html  # 1. 容器内部/usr/share/nginx/html
+      volumes:                              # 3. 设置在外面是怎么存在的
+        - name: html                        # 4. html在外面
+          nfs:                              # 5. 是以nfs方式存在的
+            server: 172.31.0.4              # ip要改为自己服务器的ip (主节点的ip)
+            path: /nfs/data/nginx-pv
+
+            # 上面5点,说明nginx容器内部的/usr/share/nginx/html最终映射到nfs的/nfs/data/nginx-pv路径
+```
+
+### PV&PVC
+
+前面原生的方式有几个问题
+1. 创建容器,对应的挂载目录需要手动创建
+2. 删除容器对应的挂载目录不会删除
+3. 无法指定容器所能使用的挂载目录的大小(也就是说,希望给不同镜像的不同容器的目录指定不同的大小)
+
+PV：持久卷（Persistent Volume），将应用需要持久化的数据保存到指定位置
+PVC：持久卷申明（Persistent Volume Claim），申明需要使用的持久卷规格
+
+##### 创建pv池
+
+静态供应
+
+```bash
+#nfs主节点
+mkdir -p /nfs/data/01
+mkdir -p /nfs/data/02
+mkdir -p /nfs/data/03
+```
+
+创建PV
+
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv01-10m
+spec:
+  capacity:
+    storage: 10M
+  accessModes:
+    - ReadWriteMany
+  storageClassName: nfs
+  nfs:
+    path: /nfs/data/01
+    server: 172.31.0.4
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv02-1gi
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  storageClassName: nfs
+  nfs:
+    path: /nfs/data/02
+    server: 172.31.0.4
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv03-3gi
+spec:
+  capacity:
+    storage: 3Gi
+  accessModes:
+    - ReadWriteMany
+  storageClassName: nfs
+  nfs:
+    path: /nfs/data/03
+    server: 172.31.0.4
+```
+
+####  PVC创建与绑定
+
+创建PVC
+
+```yaml
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: nginx-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 200Mi
+  storageClassName: nfs
+```
+
+创建Pod绑定PVC
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx-deploy-pvc
+  name: nginx-deploy-pvc
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx-deploy-pvc
+  template:
+    metadata:
+      labels:
+        app: nginx-deploy-pvc
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        volumeMounts:
+        - name: html
+          mountPath: /usr/share/nginx/html
+      volumes:
+        - name: html
+          persistentVolumeClaim:
+            claimName: nginx-pvc
+```
+
+### ConfigMap
+
+抽取应用配置，并且可以自动更新
+
+####  redis示例
+
+##### 把之前的配置文件创建为配置集
+
+```bash
+# 创建配置，redis保存到k8s的etcd；
+kubectl create cm redis-conf --from-file=redis.conf
+```
+
+```yaml
+apiVersion: v1
+data:    #data是所有真正的数据，key：默认是文件名   value：配置文件的内容
+  redis.conf: |
+    appendonly yes
+kind: ConfigMap
+metadata:
+  name: redis-conf
+  namespace: default
+```
+
+##### 创建Pod
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redis
+spec:
+  containers:
+  - name: redis
+    image: redis
+    command:
+      - redis-server
+      - "/redis-master/redis.conf"  #指的是redis容器内部的位置
+    ports:
+    - containerPort: 6379
+    volumeMounts:
+    - mountPath: /data
+      name: data
+    - mountPath: /redis-master
+      name: config
+  volumes:
+    - name: data
+      emptyDir: {}
+    - name: config
+      configMap:
+        name: redis-conf
+        items:
+        - key: redis.conf
+          path: redis.conf
+```
+
+##### 检查默认配置
+
+```bash
+kubectl exec -it redis -- redis-cli
+
+127.0.0.1:6379> CONFIG GET appendonly
+127.0.0.1:6379> CONFIG GET requirepass
+```
+
+
+##### 修改ConfigMap
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: example-redis-config
+data:
+  redis-config: |
+    maxmemory 2mb
+    maxmemory-policy allkeys-lru
+```
+
+##### 检查配置是否更新
+
+```bash
+kubectl exec -it redis -- redis-cli
+
+127.0.0.1:6379> CONFIG GET maxmemory
+127.0.0.1:6379> CONFIG GET maxmemory-policy
+```
+
++ 检查指定文件内容是否已经更新
++ 修改了CM,Pod里面的配置文件会跟着变
+
++ 配置值未更改，因为需要重新启动 Pod 才能从关联的 ConfigMap 中获取更新的值。
++ 原因：我们的Pod部署的中间件自己本身没有热更新能力
+
+
+### Secret
+Secret 对象类型用来保存敏感信息，例如密码、OAuth 令牌和 SSH 密钥。 将这些信息放在 secret 中比放在 Pod 的定义或者 容器镜像 中来说更加安全和灵活。
+
+```bash
+kubectl create secret docker-registry leifengyang-docker \
+--docker-username=leifengyang \
+--docker-password=Lfy123456 \
+--docker-email=534096094@qq.com
+
+
+##命令格式
+kubectl create secret docker-registry regcred \
+  --docker-server=<你的镜像仓库服务器> \
+  --docker-username=<你的用户名> \
+  --docker-password=<你的密码> \
+  --docker-email=<你的邮箱地址>
+```
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: private-nginx
+spec:
+  containers:
+  - name: private-nginx
+    image: leifengyang/guignginx:v1.0
+  imagePullSecrets:
+  - name: leifengyang-docker
+```
