@@ -2407,16 +2407,22 @@ spec:
 ### PV&PVC
 
 前面原生的方式有几个问题
+
 1. 创建容器,对应的挂载目录需要手动创建
 2. 删除容器对应的挂载目录不会删除
 3. 无法指定容器所能使用的挂载目录的大小(也就是说,希望给不同镜像的不同容器的目录指定不同的大小)
 
-PV：持久卷（Persistent Volume），将应用需要持久化的数据保存到指定位置
-PVC：持久卷申明（Persistent Volume Claim），申明需要使用的持久卷规格
+PV和PVC的含义
 
-##### 创建pv池
++ PV：持久卷（Persistent Volume），将应用需要持久化的数据保存到指定位置
++ PVC：持久卷要求（Persistent Volume Claim），申明需要使用的持久卷规格 => 要求书,向k8s索要pv用
 
-静态供应
+`挂载目录用pv和pvc,挂载配置文件常用configMap(下文)`
+
+
+?>  下文讲的是静态供应,也就是需要提前搭建好pv,还有一种动态供应,会自动创建所需的pv
+
+####  创建pv池
 
 ```bash
 #nfs主节点
@@ -2425,19 +2431,17 @@ mkdir -p /nfs/data/02
 mkdir -p /nfs/data/03
 ```
 
-创建PV
-
 ```yaml
 apiVersion: v1
-kind: PersistentVolume
+kind: PersistentVolume    # 持久化卷
 metadata:
-  name: pv01-10m
+  name: pv01-10m          # 名字(随便起)
 spec:
   capacity:
-    storage: 10M
+    storage: 10M          # 限制存储大小为10M
   accessModes:
-    - ReadWriteMany
-  storageClassName: nfs
+    - ReadWriteMany       # 限制读写模式为"多节点读写模式(大家可以一起读写)"
+  storageClassName: nfs   # 这个pv被编排到哪个类
   nfs:
     path: /nfs/data/01
     server: 172.31.0.4
@@ -2471,9 +2475,16 @@ spec:
     server: 172.31.0.4
 ```
 
-####  PVC创建与绑定
+```bash
+# 查看持久卷
+kubectl get persistentvolume
+# 简写
+kubectl get pv
+```
 
-创建PVC
+![](../images/2021/12/20211215101330.png)
+
+####  创建PVC
 
 ```yaml
 kind: PersistentVolumeClaim
@@ -2482,14 +2493,23 @@ metadata:
   name: nginx-pvc
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteMany       # 这个空间是大家都要能读写的
   resources:
     requests:
-      storage: 200Mi
-  storageClassName: nfs
+      storage: 200Mi      # 我需要一个200Mi的空间
+  storageClassName: nfs   # 被申请空间是哪一类(需要一个存在的类,这里指定前面被编排的"nfs"类的pv)
 ```
 
-创建Pod绑定PVC
+![](../images/2021/12/20211215101409.png)
+
+![](../images/2021/12/20211215101940.png)
+
+```bash
+# 查看持久卷要求
+kubectl get pvc
+```
+
+####  创建Pod绑定PVC
 
 ```yaml
 apiVersion: apps/v1
@@ -2516,11 +2536,13 @@ spec:
           mountPath: /usr/share/nginx/html
       volumes:
         - name: html
-          persistentVolumeClaim:
-            claimName: nginx-pvc
+          persistentVolumeClaim:  # 这里写的是PVC
+            claimName: nginx-pvc  # 这里和前面创建的PVC名字相同
 ```
 
 ### ConfigMap
+
+`挂载目录用pv和pvc,挂载配置文件常用configMap(下文)`
 
 抽取应用配置，并且可以自动更新
 
@@ -2531,18 +2553,24 @@ spec:
 ```bash
 # 创建配置，redis保存到k8s的etcd；
 kubectl create cm redis-conf --from-file=redis.conf
+# 查看配置集内容
+kubectl get cm redis-conf -oyaml
+# 修改配置集
+kubectl edit cm redis-conf
 ```
 
 ```yaml
 apiVersion: v1
-data:    #data是所有真正的数据，key：默认是文件名   value：配置文件的内容
-  redis.conf: |
+data:    #data是所有真正的数据，以KV形式存在
+  redis.conf: |       # key：默认是文件名,这里是redis.conf  value：配置文件的内容,这里的"|"表示接下来是大段文本
     appendonly yes
 kind: ConfigMap
 metadata:
   name: redis-conf
   namespace: default
 ```
+
+![](../images/2021/12/20211215103515.png)
 
 ##### 创建Pod
 
@@ -2557,26 +2585,32 @@ spec:
     image: redis
     command:
       - redis-server
-      - "/redis-master/redis.conf"  #指的是redis容器内部的位置
+      - "/redis-master/redis.conf"  # 指的是redis容器内部的位置
     ports:
     - containerPort: 6379
     volumeMounts:
-    - mountPath: /data
-      name: data
-    - mountPath: /redis-master
-      name: config
+    - mountPath: /data              # a) 将redis内的/data目录
+      name: data                    # b) 挂载到名为data的卷
+    - mountPath: /redis-master      # 1) redis容器内部有一个/redis-master的目录
+      name: config                  # 2) 但是这个/redis-master的配置指向了下文名叫config的配置
   volumes:
-    - name: data
+    - name: data                    # c) 这里定义data卷
       emptyDir: {}
-    - name: config
+    - name: config                  # 3) 名叫config的配置
       configMap:
         name: redis-conf
         items:
-        - key: redis.conf
-          path: redis.conf
+        - key: redis.conf           # 4) 取找key叫做"redis.conf"的内容
+          path: redis.conf          # 5) 将内容放到路径下(这里指的是/redis-master下)的"redis.conf"中
 ```
 
-##### 检查默认配置
+创建pod这个yaml文件说明
+
+![](../images/2021/12/20211215103516.png)
+
+####  configMap是否支持热更新?
+
+1.  检查默认配置
 
 ```bash
 kubectl exec -it redis -- redis-cli
@@ -2585,8 +2619,7 @@ kubectl exec -it redis -- redis-cli
 127.0.0.1:6379> CONFIG GET requirepass
 ```
 
-
-##### 修改ConfigMap
+2.  修改ConfigMap
 
 ```yaml
 apiVersion: v1
@@ -2599,7 +2632,7 @@ data:
     maxmemory-policy allkeys-lru
 ```
 
-##### 检查配置是否更新
+3.  检查配置是否更新
 
 ```bash
 kubectl exec -it redis -- redis-cli
@@ -2614,8 +2647,11 @@ kubectl exec -it redis -- redis-cli
 + 配置值未更改，因为需要重新启动 Pod 才能从关联的 ConfigMap 中获取更新的值。
 + 原因：我们的Pod部署的中间件自己本身没有热更新能力
 
+?>  结论:改完挂载的配置文件,容器内部对应的地方也会修改,但是容器所运行的程序会不会自动更新配置文件和程序本身有关,如果程序没有热更新能力,需要自己重启容器
+
 
 ### Secret
+
 Secret 对象类型用来保存敏感信息，例如密码、OAuth 令牌和 SSH 密钥。 将这些信息放在 secret 中比放在 Pod 的定义或者 容器镜像 中来说更加安全和灵活。
 
 ```bash
@@ -2633,6 +2669,14 @@ kubectl create secret docker-registry regcred \
   --docker-email=<你的邮箱地址>
 ```
 
+```bash
+# 查看所有
+kubectl get secret
+
+# 查看具体的secret
+kubectl get secret secret名
+```
+
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -2642,6 +2686,6 @@ spec:
   containers:
   - name: private-nginx
     image: leifengyang/guignginx:v1.0
-  imagePullSecrets:
-  - name: leifengyang-docker
+  imagePullSecrets:                   # 1. 有了前面创建的用户名密码后
+  - name: leifengyang-docker          # 2. 这里直接写secret名就可以了
 ```
