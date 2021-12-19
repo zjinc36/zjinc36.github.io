@@ -523,8 +523,8 @@
 -   [Docker命令实战](2021/20211215-Docker命令实战.md)
 -   [Kubernetes基础概念与安装](2021/20211213-Kubernetes基础概念与安装.md)
 -   [Kubernetes核心实战](2021/20211130-Kubernetes核心实战.md)
--   [KubeSphere安装.md](2021/20211216-KubeSphere安装.md)
--   [多租户系统实战](2021/20211216-多租户系统实战.md)
+-   [KubeSphere安装](2021/20211216-KubeSphere安装.md)
+-   [KubeSphere多租户系统实战](2021/20211216-KubeSphere多租户系统实战.md)
 
 ## 未分类
 -   [番茄工作法](2018/20180422-番茄工作法.md)
