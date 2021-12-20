@@ -524,7 +524,8 @@
 -   [Kubernetes基础概念与安装](2021/20211213-Kubernetes基础概念与安装.md)
 -   [Kubernetes核心实战](2021/20211130-Kubernetes核心实战.md)
 -   [KubeSphere安装](2021/20211216-KubeSphere安装.md)
--   [KubeSphere多租户系统实战](2021/20211216-KubeSphere多租户系统实战.md)
+-   [KubeSphere的租户体系](2021/20211216-KubeSphere的租户体系.md)
+-   [使用KubeSphere部署中间件](2021/20211220-使用KubeSphere部署中间件.md)
 
 ## 未分类
 -   [番茄工作法](2018/20180422-番茄工作法.md)
