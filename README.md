@@ -527,6 +527,7 @@
 -   [KubeSphere安装](2021/20211216-KubeSphere安装.md)
 -   [KubeSphere的租户体系](2021/20211216-KubeSphere的租户体系.md)
 -   [使用KubeSphere部署中间件](2021/20211220-使用KubeSphere部署中间件.md)
+-   [kubesphere安装clickhouse集群](2022/20220121-kubesphere安装clickhouse集群.md)
 
 ## 未分类
 -   [番茄工作法](2018/20180422-番茄工作法.md)
