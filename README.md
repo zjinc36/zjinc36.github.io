@@ -531,6 +531,7 @@
 -   [Kubesphere部署redis](2021/20211220-kubesphere部署redis.md)
 -   [Kubesphere部署es](2022/20220121-Kubesphere部署es.md)
 -   [Kubesphere安装clickhouse集群](2022/20220121-kubesphere安装clickhouse集群.md)
+-   [DevOps基础](2022/20220121-DevOps基础.md)
 
 ## 未分类
 -   [番茄工作法](2018/20180422-番茄工作法.md)
