@@ -159,6 +159,64 @@ roleRef:
 kubectl get sc
 ```
 
+##  指定默认存储
+
+!>  有时候会配置多个存储盘,但是默认存储只能有一个
+
++ [改变默认 StorageClass文档](https://kubernetes.io/zh/docs/tasks/administer-cluster/change-default-storage-class/)
+
+###   列出你的集群中的 StorageClasses
+
+```bash
+kubectl get storageclass
+```
+
+输出类似这样
+
+```bash
+NAME                 PROVISIONER               AGE
+standard (default)   kubernetes.io/gce-pd      1d
+gold                 kubernetes.io/gce-pd      1d
+```
+
+默认 StorageClass 以 (default) 标记。
+
+### 标记默认 StorageClass 非默认
+
+默认 StorageClass 的注解 storageclass.kubernetes.io/is-default-class 设置为 true。 注解的其它任意值或者缺省值将被解释为 false。
+
+要标记一个 StorageClass 为非默认的，你需要改变它的值为 false
+
+```bash
+# 这里的 standard 是你选择的 StorageClass 的名字
+
+kubectl patch storageclass standard -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
+```
+
+### 标记一个 StorageClass 为默认的
+
+和前面的步骤类似，你需要添加/设置注解 storageclass.kubernetes.io/is-default-class=true。
+
+```bash
+kubectl patch storageclass <your-class-name> -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
+```
+
+请注意，最多只能有一个 StorageClass 能够被标记为默认。 如果它们中有两个或多个被标记为默认，Kubernetes 将忽略这个注解， 也就是它将表现为没有默认 StorageClass。
+
+### 验证你选用的 StorageClass 为默认的
+
+```bash
+kubectl get storageclass
+```
+
+输出类似这样：
+
+```bash
+NAME             PROVISIONER               AGE
+standard         kubernetes.io/gce-pd      1d
+gold (default)   kubernetes.io/gce-pd      1d
+```
+
 ##  安装2.1.1版
 
 ### 前提条件

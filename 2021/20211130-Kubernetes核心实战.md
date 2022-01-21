@@ -2355,7 +2355,7 @@ systemctl enable nfs-server --now
 exportfs -r
 ```
 
-####  从节点
+####  从节点(选做)
 
 ```bash
 # 这个ip是主节点的ip
