@@ -526,8 +526,10 @@
 -   [Kubernetes核心实战](2021/20211130-Kubernetes核心实战.md)
 -   [KubeSphere安装](2021/20211216-KubeSphere安装.md)
 -   [KubeSphere的租户体系](2021/20211216-KubeSphere的租户体系.md)
+-   [Kubesphere使用商店或helm](2022/20220121-kubesphere使用商店或helm.md)
 -   [Kubesphere部署Mysql](2022/20220121-kubesphere部署Mysql.md)
 -   [Kubesphere部署redis](2021/20211220-kubesphere部署redis.md)
+-   [Kubesphere部署es](2022/20220121-Kubesphere部署es.md)
 -   [Kubesphere安装clickhouse集群](2022/20220121-kubesphere安装clickhouse集群.md)
 
 ## 未分类

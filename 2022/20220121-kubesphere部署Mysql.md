@@ -2,6 +2,12 @@
 
 ----
 
+##  版本
+
++   docker 18.09.0
++   kubernetes 1.20.9
++   KubeSphere 版本 : v3.1.1
+
 ##  创建pvc
 
 ![](../images/2021/12/20211220095003.png)
