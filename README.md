@@ -42,6 +42,7 @@
 -   [HBase系列_01_HBase架构的设计思路演化](2022/20220217-HBase系列_01_HBase架构的设计思路演化.md)
 -   [HBase系列_02_HBase简介](2022/20220217-HBase系列_02_HBase简介.md)
 -   [HBase系列_03_HBase安装](2022/20220217-HBase系列_03_HBase安装.md)
+-   [HBase系列_04_HBase_Shell操作](2022/20220217-HBase系列_04_HBase_Shell操作.md)
 
 
 ### Kafka
