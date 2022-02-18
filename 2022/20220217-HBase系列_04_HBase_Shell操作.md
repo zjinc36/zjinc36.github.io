@@ -135,3 +135,7 @@ hbase(main):022:0> alter 'student',{NAME=>'info',VERSIONS=>3}
 # 用get方式查看，可以看到3个版本
 hbase(main):022:0> get 'student','1001',{COLUMN=>'info:name',VERSIONS=>3}
 ```
+
+##  命名空间操作
+
+[命名空间操作](/2022/20220218-HBase系列_05_HBase数据结构?id=namespace操作)
