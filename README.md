@@ -235,6 +235,21 @@
 ## Excel
 -   [Excel冻结窗格以锁定行和列](2020/20200229-Excel冻结窗格以锁定行和列.md)
 
+## ELK
+
+### ELasticsearch
+-   [Elasticsearch_01_ElasticSearch简介](2022/20220222-Elasticsearch_01_ElasticSearch简介.md)
+-   [Elasticsearch_02_ElasticSearch安装](2022/20220222-Elasticsearch_02_ElasticSearch安装.md)
+-   [Elasticsearch_03_ElasticSearch数据存储方式](2022/20220222-Elasticsearch_03_ElasticSearch数据存储方式.md)
+-   [Elasticsearch_04_ElasticSearch正排索引和倒排索引](2022/20220222-Elasticsearch_04_ElasticSearch正排索引和倒排索引.md)
+-   [Elasticsearch_05_Mapping](2022/20220222-Elasticsearch_05_Mapping.md)
+-   [Elasticsearch_06_Elasticsearch的RestAPI](2022/20220222-Elasticsearch_06_Elasticsearch的RestAPI.md)
+
+### Kibana
+
+### Logstash
+
+
 
 ## Git
 -   [Git的diff命令和patch命令的使用](2017/20170214-Git的diff命令和patch命令的使用.md)
@@ -446,10 +461,14 @@
 -   [设计模式简述](2021/20210816-设计模式简述.md)
 -   [设计模式之简单工厂模式](2021/20210816-设计模式之简单工厂模式.md)
 -   [设计模式之单例模式](2021/20210722-单例模式.md)
--   [设计模式之桥接模式](2018/20180225-设计模式之桥接模式.md)
+-   [设计模式之建造者模式](2022/20220224-设计模式之建造者模式.md)
+-   [设计模式之原型模式](2022/20220224-设计模式之原型模式.md)
 -   [设计模式之适配器模式](2018/20180225-设计模式之适配器模式.md)
+-   [设计模式之桥接模式](2018/20180225-设计模式之桥接模式.md)
 -   [设计模式之外观模式](2018/20180226-设计模式之外观模式.md)
 -   [设计模式之装饰者模式](2018/20180226-设计模式之装饰者模式.md)
+-   [设计模式之策略模式](2022/20220228-设计模式之策略模式.md)
+
 
 ### Thymeleaf
 -   [Thymeleaf错误-org-xml-sax-SAXParseException-元素类型input必须由匹配的结束标记-input-终止](2017/20171112-Thymeleaf错误-org-xml-sax-SAXParseException-元素类型input必须由匹配的结束标记-input-终止.md)
