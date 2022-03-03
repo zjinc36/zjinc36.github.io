@@ -1,8 +1,8 @@
-#	HBase系列_07_HBase_API操作
+# HBase系列_07_HBase_API操作
 
 ----
 
-##  环境准备
+## 环境准备
 
 新建项目后在pom.xml中添加依赖：
 
@@ -28,7 +28,7 @@
 </dependency>
 ```
 
-##  HBaseAPI
+## HBaseAPI
 
 ### 获取Configuration对象
 
@@ -347,7 +347,7 @@ public class HbaseAPIDemo {
 }
 ```
 
-##  封装HBaseUtil
+## 封装HBaseUtil
 
 ### 主要要注意线程安全
 
@@ -457,7 +457,7 @@ public class HbaseAPIDemo2 {
 }
 ```
 
-##  配置参数说明
+## 配置参数说明
 
 ```xml
 <?xml version="1.0"?>
@@ -2379,7 +2379,7 @@ public class HbaseAPIDemo2 {
 </configuration>
 ```
 
-##  过滤器（筛选器）
+## 过滤器（筛选器）
 
 基础API中的查询操作在面对大量数据的时候是非常苍白的，这里Hbase提供了高级的查询方法：Filter。`Filter可以根据簇、列、版本等更多的条件来对数据进行过滤`，基于Hbase本身提供的三维有序（主键有序、列有序、版本有序），这些Filter可以高效的完成查询过滤的任务。带有Filter条件的RPC查询请求会把Filter分发到各个RegionServer，是一个服务器端（Server-side）的过滤器，这样也可以降低网络传输的压力。
 
@@ -2409,7 +2409,7 @@ public class HbaseAPIDemo2 {
 
 ### 比较过滤器
 
-####    行键过滤器RowFilter
+#### 行键过滤器RowFilter
 
 行过滤器是基于行键来过滤数据
 
@@ -2461,7 +2461,7 @@ public class HbaseFilterTest {
 }
 ```
 
-####    列族过滤器 FimilyFilter
+#### 列族过滤器 FimilyFilter
 
 列族过滤器是基于列族来进行过滤数据
 
@@ -2514,5 +2514,1291 @@ public class HbaseFilterTest {
 }
 ```
 
+#### 列过滤器QualifierFilter
 
+列名过滤器用户筛选特定的列
+
+```java
+package com.zjc.comparator;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.Cell;
+import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.TableName;
+import org.apache.hadoop.hbase.client.Connection;
+import org.apache.hadoop.hbase.client.ConnectionFactory;
+import org.apache.hadoop.hbase.client.Result;
+import org.apache.hadoop.hbase.client.ResultScanner;
+import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.client.Table;
+import org.apache.hadoop.hbase.filter.BinaryComparator;
+import org.apache.hadoop.hbase.filter.CompareFilter.CompareOp;
+import org.apache.hadoop.hbase.filter.QualifierFilter;
+import org.apache.hadoop.hbase.util.Bytes;
+
+public class HbaseFilterTest {
+    public static void main(String[] args) throws IOException {
+        Configuration conf = HBaseConfiguration.create();
+        Connection conn = ConnectionFactory.createConnection(conf);
+
+        // 获取操作对象
+//      Admin admin = conn.getAdmin();
+        TableName tableName = TableName.valueOf("testnamespace:student");
+        Table table = conn.getTable(tableName);
+
+        // 设置过滤器
+        Scan scan = new Scan();
+
+        QualifierFilter filter = new QualifierFilter(CompareOp.EQUAL, new BinaryComparator(Bytes.toBytes("name")));
+        scan.setFilter(filter);
+
+        // 查询结果
+        ResultScanner scanner = table.getScanner(scan);
+        for (Result result : scanner) {
+            List<Cell> cells = result.listCells();
+            for (Cell cell : cells) {
+                System.out.println(cell);
+            }
+        }
+    }
+}
+```
+
+#### 值过滤器ValueFilter
+
+值过滤器用户筛选某个特定值的单元格。与RegexStringComparator配合使用，可以使用功能强大的表达式来进行筛选。
+
+```java
+package com.zjc.comparator;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.Cell;
+import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.TableName;
+import org.apache.hadoop.hbase.client.Connection;
+import org.apache.hadoop.hbase.client.ConnectionFactory;
+import org.apache.hadoop.hbase.client.Result;
+import org.apache.hadoop.hbase.client.ResultScanner;
+import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.client.Table;
+import org.apache.hadoop.hbase.filter.CompareFilter.CompareOp;
+import org.apache.hadoop.hbase.filter.SubstringComparator;
+import org.apache.hadoop.hbase.filter.ValueFilter;
+
+public class HbaseFilterTest {
+    public static void main(String[] args) throws IOException {
+        Configuration conf = HBaseConfiguration.create();
+        Connection conn = ConnectionFactory.createConnection(conf);
+
+        // 获取操作对象
+//      Admin admin = conn.getAdmin();
+        TableName tableName = TableName.valueOf("testnamespace:student");
+        Table table = conn.getTable(tableName);
+
+        // 设置过滤器
+        Scan scan = new Scan();
+
+        // SubstringComparator 判断提供的子串是否出现在 value 中
+        ValueFilter filter = new ValueFilter(CompareOp.EQUAL, new SubstringComparator("男"));
+        scan.setFilter(filter);
+
+        // 查询结果
+        ResultScanner scanner = table.getScanner(scan);
+        for (Result result : scanner) {
+            List<Cell> cells = result.listCells();
+            for (Cell cell : cells) {
+                System.out.println(cell);
+            }
+        }
+    }
+}
+```
+
+#### 时间戳过滤器TimestampsFilter
+
+使用时间戳过滤器可以对扫描结果中对版本进行细粒度的控制。
+
+```java
+public class HbaseFilterTest {
+
+    private static final String ZK_CONNECT_KEY = "hbase.zookeeper.quorum";
+    private static final String ZK_CONNECT_VALUE = "hadoop1:2181,hadoop2:2181,hadoop3:2181";
+
+    private static Connection conn = null;
+    private static Admin admin = null;
+
+    public static void main(String[] args) throws Exception {
+
+        Configuration conf = HBaseConfiguration.create();
+        conf.set(ZK_CONNECT_KEY, ZK_CONNECT_VALUE);
+        conn = ConnectionFactory.createConnection(conf);
+        admin = conn.getAdmin();
+        Table table = conn.getTable(TableName.valueOf("student"));
+
+        Scan scan = new Scan();
+
+        List<Long> list = new ArrayList<>();
+        list.add(1522469029503l);
+        TimestampsFilter timestampsFilter = new TimestampsFilter(list);
+        scan.setFilter(timestampsFilter);
+        ResultScanner resultScanner = table.getScanner(scan);
+        for(Result result : resultScanner) {
+            List<Cell> cells = result.listCells();
+            for(Cell cell : cells) {
+                System.out.println(Bytes.toString(cell.getRow()) + "\t" + Bytes.toString(cell.getFamily()) + "\t" + Bytes.toString(cell.getQualifier())
+                + "\t" + Bytes.toString(cell.getValue()) + "\t" + cell.getTimestamp());
+            }
+        }
+    }
+}
+```
+
+### 专用过滤器
+
+#### 单列值过滤器 SingleColumnValueFilter ----会返回满足条件的整行
+
+用一列的值决定这一行的数据是否被过滤。在它的具体对象上，可以调用setFilterIfMissing(true)或者setFilterIfMissing(false)，默认的值是false，其作用是，对于咱们要使用作为条件的列，如果这一列本身就不存在，那么如果为true，这样的行将会被过滤掉，如果为false，这样的行会包含在结果集中。
+
+```java
+public class HbaseFilterTest2 {
+
+    private static final String ZK_CONNECT_KEY = "hbase.zookeeper.quorum";
+    private static final String ZK_CONNECT_VALUE = "hadoop1:2181,hadoop2:2181,hadoop3:2181";
+
+    private static Connection conn = null;
+    private static Admin admin = null;
+
+    public static void main(String[] args) throws Exception {
+
+        Configuration conf = HBaseConfiguration.create();
+        conf.set(ZK_CONNECT_KEY, ZK_CONNECT_VALUE);
+        conn = ConnectionFactory.createConnection(conf);
+        admin = conn.getAdmin();
+        Table table = conn.getTable(TableName.valueOf("student"));
+
+        Scan scan = new Scan();
+
+        SingleColumnValueFilter singleColumnValueFilter = new SingleColumnValueFilter(
+                "info".getBytes(),
+                "name".getBytes(),
+                CompareOp.EQUAL,
+                new SubstringComparator("刘晨"));
+        singleColumnValueFilter.setFilterIfMissing(true);
+
+        scan.setFilter(singleColumnValueFilter);
+        ResultScanner resultScanner = table.getScanner(scan);
+        for(Result result : resultScanner) {
+            List<Cell> cells = result.listCells();
+            for(Cell cell : cells) {
+                System.out.println(Bytes.toString(cell.getRow()) + "\t" + Bytes.toString(cell.getFamily()) + "\t" + Bytes.toString(cell.getQualifier())
+                + "\t" + Bytes.toString(cell.getValue()) + "\t" + cell.getTimestamp());
+            }
+        }
+    }
+}
+```
+
+#### 单列值排除器 SingleColumnValueExcludeFilter
+
+该过滤器继承SingleColumnValueFilter，与SingleColumnValueFilter 种的过滤器唯一的区别就是，作为筛选条件的列的不会包含在返回的结果中
+
+```java
+public class HbaseFilterTest2 {
+
+    private static final String ZK_CONNECT_KEY = "hbase.zookeeper.quorum";
+    private static final String ZK_CONNECT_VALUE = "hadoop1:2181,hadoop2:2181,hadoop3:2181";
+
+    private static Connection conn = null;
+    private static Admin admin = null;
+
+    public static void main(String[] args) throws Exception {
+
+        Configuration conf = HBaseConfiguration.create();
+        conf.set(ZK_CONNECT_KEY, ZK_CONNECT_VALUE);
+        conn = ConnectionFactory.createConnection(conf);
+        admin = conn.getAdmin();
+        Table table = conn.getTable(TableName.valueOf("student"));
+
+        Scan scan = new Scan();
+
+        SingleColumnValueExcludeFilter singleColumnValueExcludeFilter = new SingleColumnValueExcludeFilter(
+                "info".getBytes(),
+                "name".getBytes(),
+                CompareOp.EQUAL,
+                new SubstringComparator("刘晨"));
+        singleColumnValueExcludeFilter.setFilterIfMissing(true);
+
+        scan.setFilter(singleColumnValueExcludeFilter);
+        ResultScanner resultScanner = table.getScanner(scan);
+        for(Result result : resultScanner) {
+            List<Cell> cells = result.listCells();
+            for(Cell cell : cells) {
+                System.out.println(Bytes.toString(cell.getRow()) + "\t" + Bytes.toString(cell.getFamily()) + "\t" + Bytes.toString(cell.getQualifier())
+                + "\t" + Bytes.toString(cell.getValue()) + "\t" + cell.getTimestamp());
+            }
+        }
+    }
+}
+```
+
+#### 前缀过滤器 PrefixFilter----针对行键
+
+筛选出具有特点前缀的行键的数据。扫描操作以字典序查找，当遇到比前缀大的行时，扫描结束。PrefixFilter对get()方法作用不大。前缀过滤器只针对行键。
+
+```java
+public class HbaseFilterTest2 {
+
+    private static final String ZK_CONNECT_KEY = "hbase.zookeeper.quorum";
+    private static final String ZK_CONNECT_VALUE = "hadoop1:2181,hadoop2:2181,hadoop3:2181";
+
+    private static Connection conn = null;
+    private static Admin admin = null;
+
+    public static void main(String[] args) throws Exception {
+
+        Configuration conf = HBaseConfiguration.create();
+        conf.set(ZK_CONNECT_KEY, ZK_CONNECT_VALUE);
+        conn = ConnectionFactory.createConnection(conf);
+        admin = conn.getAdmin();
+        Table table = conn.getTable(TableName.valueOf("student"));
+
+        Scan scan = new Scan();
+
+        PrefixFilter prefixFilter = new PrefixFilter("9501".getBytes());
+
+        scan.setFilter(prefixFilter);
+        ResultScanner resultScanner = table.getScanner(scan);
+        for(Result result : resultScanner) {
+            List<Cell> cells = result.listCells();
+            for(Cell cell : cells) {
+                System.out.println(Bytes.toString(cell.getRow()) + "\t" + Bytes.toString(cell.getFamily()) + "\t" + Bytes.toString(cell.getQualifier())
+                + "\t" + Bytes.toString(cell.getValue()) + "\t" + cell.getTimestamp());
+            }
+        }
+    }
+}
+```
+
+#### 列前缀过滤器 ColumnPrefixFilter
+
+类似PrefixFilter，列前缀过滤器通过对列名进行前缀匹配过滤
+
+```java
+public class HbaseFilterTest2 {
+
+    private static final String ZK_CONNECT_KEY = "hbase.zookeeper.quorum";
+    private static final String ZK_CONNECT_VALUE = "hadoop1:2181,hadoop2:2181,hadoop3:2181";
+
+    private static Connection conn = null;
+    private static Admin admin = null;
+
+    public static void main(String[] args) throws Exception {
+
+        Configuration conf = HBaseConfiguration.create();
+        conf.set(ZK_CONNECT_KEY, ZK_CONNECT_VALUE);
+        conn = ConnectionFactory.createConnection(conf);
+        admin = conn.getAdmin();
+        Table table = conn.getTable(TableName.valueOf("student"));
+
+        Scan scan = new Scan();
+
+        ColumnPrefixFilter columnPrefixFilter = new ColumnPrefixFilter("name".getBytes());
+
+        scan.setFilter(columnPrefixFilter);
+        ResultScanner resultScanner = table.getScanner(scan);
+        for(Result result : resultScanner) {
+            List<Cell> cells = result.listCells();
+            for(Cell cell : cells) {
+                System.out.println(Bytes.toString(cell.getRow()) + "\t" + Bytes.toString(cell.getFamily()) + "\t" + Bytes.toString(cell.getQualifier())
+                + "\t" + Bytes.toString(cell.getValue()) + "\t" + cell.getTimestamp());
+            }
+        }
+    }
+}
+```
+
+#### 分页过滤器 PageFilter
+
+与PageFilter类似，列分页过滤器可以对一行的所有列进行分页。
+
+#### 列计数过滤器 ColumnCountGetFilter
+
+确定每行最多返回多少列，并在遇到一定的列数超过我们锁设置的限制值的时候，结束扫描操作
+
+#### 首次行键过滤器 FirstKeyOnlyFilter
+
+只想返回的结果集中只包含第一列的数据
+
+#### 包含结束的过滤器 InclusiveStopFilter
+
+开始行被包含在结果中，单终止行被排除在外，使用这个过滤器，也可以将结束行包含在结果中。
+
+#### RandomRowFilter（随机行过滤器）
+
+随机行过滤器可以让结果中包含随机行。
+
+
+### 附加过滤器
+
+#### 跳转过滤器 SkipFilter
+
+与ValueFilter结合使用，如果发现一行中的某一列不符合条件，那么整行都会被过滤掉。
+
+#### 全匹配过滤器 WhileMatchFilter
+
+如果你想想要在遇到某种条件数据之前的数据时，就可以使用这个过滤器，当遇到不符合设定条件的数据的时候，整个扫描也结束了。
+
+#### 自定义过滤器
+
+可以通过实现Filter接口或者直接竭诚FilterBase类来实现自定义过滤器
+
+## 用MapReduce操作HBase
+
+可以用MapReduce操作HBase
+
+通过HBase的相关JavaAPI，我们可以实现伴随HBase操作的MapReduce过程，比如使用MapReduce将数据从本地文件系统导入到HBase的表中，比如我们从HBase中读取一些原始数据后使用MapReduce做数据分析。
+
+### 官方HBase-MapReduce
+
+1.  查看HBase的MapReduce任务的执行
+
+```
+$ bin/hbase mapredcp
+```
+
+查看需要的jar包，即MapReduce要操作HBase需要如下jar包
+
+![](../images/2022/03/20220301103627.png)
+
+2.  环境变量的导入
+
+（1）执行环境变量的导入（临时生效，在命令行执行下述操作）
+
+```
+$ export HBASE_HOME=/opt/module/hbase-1.3.1
+$ export HADOOP_HOME=/opt/module/hadoop-2.7.2
+$ export HADOOP_CLASSPATH=`${HBASE_HOME}/bin/hbase mapredcp`
+```
+
+（2）永久生效：在/etc/profile配置
+
+```
+export HBASE_HOME=/opt/module/hbase-1.3.1
+export HADOOP_HOME=/opt/module/hadoop-2.7.2
+```
+
+并在hadoop-env.sh中配置：（注意：在for循环之后配）
+```
+export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:/opt/module/hbase/lib/*
+```
+
+即：在原来HADOOP_CLASSPATH路径不变的情况下，增加/opt/module/hbase/lib/下的所有文件，冒号表示分隔的意思
+
+![](../images/2022/03/20220301103716.png)
+
+3.  运行官方的MapReduce任务
+
+案例一：统计Student表中有多少行数据
+
+```
+$ /opt/module/hadoop-2.7.2/bin/yarn jar lib/hbase-server-1.3.1.jar rowcounter student
+```
+
+案例二：使用MapReduce将本地数据导入到HBase
+
+1）在本地创建一个tsv格式的文件：fruit.tsv
+
+```
+1001    Apple   Red
+1002    Pear        Yellow
+1003    Pineapple   Yellow
+```
+
+2）创建HBase表
+
+```
+hbase(main):001:0> create 'fruit','info'
+```
+
+3）在HDFS中创建input_fruit文件夹并上传fruit.tsv文件
+
+```
+$ /opt/module/hadoop-2.7.2/bin/hdfs dfs -mkdir /input_fruit/
+$ /opt/module/hadoop-2.7.2/bin/hdfs dfs -put fruit.tsv /input_fruit/
+```
+
+![](../images/2022/03/20220301103929.png)
+
+4）执行MapReduce到HBase的fruit表中
+
+```
+$ /opt/module/hadoop-2.7.2/bin/yarn jar lib/hbase-server-1.3.1.jar importtsv \
+-Dimporttsv.columns=HBASE_ROW_KEY,info:name,info:color fruit \
+hdfs://hadoop102:9000/input_fruit
+```
+
+5）使用scan命令查看导入后的结果
+
+```
+hbase(main):001:0> scan 'fruit'
+```
+
+![](../images/2022/03/20220301104011.png)
+
+### 自定义HBase-MapReduce1
+
+目标：将fruit表中的一部分数据，通过MR迁入到fruit_mr表中。
+
+分步实现：
+
+1.  maven的pom.xml文件配置
+
+```xml
+<!-- 这个插件是为了打包时打的是可执行包而不是依赖包 -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.4.3</version>
+                <configuration>
+                    <transformers>
+                        <transformer
+                            implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                            <mainClass>这里填写main方法所在类</mainClass>
+                        </transformer>
+                    </transformers>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-server</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-client</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+    </dependencies>
+```
+
+2．构建ReadFruitMapper类，用于读取fruit表中的数据
+
+```java
+package com.atguigu;
+
+import java.io.IOException;
+import org.apache.hadoop.hbase.Cell;
+import org.apache.hadoop.hbase.CellUtil;
+import org.apache.hadoop.hbase.client.Put;
+import org.apache.hadoop.hbase.client.Result;
+import org.apache.hadoop.hbase.io.ImmutableBytesWritable;
+import org.apache.hadoop.hbase.mapreduce.TableMapper;
+import org.apache.hadoop.hbase.util.Bytes;
+
+public class ReadFruitMapper extends TableMapper<ImmutableBytesWritable, Put> {
+
+    @Override
+    protected void map(ImmutableBytesWritable key, Result value, Context context)
+    throws IOException, InterruptedException {
+    //将fruit的name和color提取出来，相当于将每一行数据读取出来放入到Put对象中。
+        Put put = new Put(key.get());
+        //遍历添加column行
+        for(Cell cell: value.rawCells()){
+            //添加/克隆列族:info
+            if("info".equals(Bytes.toString(CellUtil.cloneFamily(cell)))){
+                //添加/克隆列：name
+                if("name".equals(Bytes.toString(CellUtil.cloneQualifier(cell)))){
+                    //将该列cell加入到put对象中
+                    put.add(cell);
+                    //添加/克隆列:color
+                }else if("color".equals(Bytes.toString(CellUtil.cloneQualifier(cell)))){
+                    //向该列cell加入到put对象中
+                    put.add(cell);
+                }
+            }
+        }
+        //将从fruit读取到的每行数据写入到context中作为map的输出
+        context.write(key, put);
+    }
+}
+```
+
+3.  构建WriteFruitMRReducer类，用于将读取到的fruit表中的数据写入到fruit_mr表中
+
+```java
+package com.atguigu.hbase_mr;
+
+import java.io.IOException;
+import org.apache.hadoop.hbase.client.Put;
+import org.apache.hadoop.hbase.io.ImmutableBytesWritable;
+import org.apache.hadoop.hbase.mapreduce.TableReducer;
+import org.apache.hadoop.io.NullWritable;
+
+public class WriteFruitMRReducer extends TableReducer<ImmutableBytesWritable, Put, NullWritable> {
+    @Override
+    protected void reduce(ImmutableBytesWritable key, Iterable<Put> values, Context context)
+    throws IOException, InterruptedException {
+        //读出来的每一行数据写入到fruit_mr表中
+        for(Put put: values){
+            context.write(NullWritable.get(), put);
+        }
+    }
+}
+```
+
+4.  构建Fruit2FruitMRRunner extends Configured implements Tool用于组装运行Job任务
+
+```java
+public class Fruit2FruitMRRunner extends Configured implements Tool{
+//组装Job
+    public int run(String[] args) throws Exception {
+        //得到Configuration
+        Configuration conf = this.getConf();
+        //创建Job任务
+        Job job = Job.getInstance(conf, this.getClass().getSimpleName());
+        job.setJarByClass(Fruit2FruitMRRunner.class);
+
+        //配置Job
+        Scan scan = new Scan();
+        scan.setCacheBlocks(false);
+        scan.setCaching(500);
+
+        //设置Mapper，注意导入的是mapreduce包下的，不是mapred包下的，后者是老版本
+        TableMapReduceUtil.initTableMapperJob(
+        "fruit", //数据源的表名
+        scan, //scan扫描控制器
+        ReadFruitMapper.class,//设置Mapper类
+        ImmutableBytesWritable.class,//设置Mapper输出key类型
+        Put.class,//设置Mapper输出value值类型
+        job//设置给哪个JOB
+        );
+        //设置Reducer
+        TableMapReduceUtil.initTableReducerJob("fruit_mr", WriteFruitMRReducer.class, job);
+        //设置Reduce数量，最少1个
+        job.setNumReduceTasks(1);
+
+        boolean isSuccess = job.waitForCompletion(true);
+        if(!isSuccess){
+            throw new IOException("Job running with error");
+        }
+        return isSuccess ? 0 : 1;
+    }
+}
+```
+
+5.  主函数中调用运行该Job任务
+
+```java
+public static void main( String[] args ) throws Exception{
+    Configuration conf = HBaseConfiguration.create();
+    int status = ToolRunner.run(conf, new Fruit2FruitMRRunner(), args);
+    System.exit(status);
+}
+```
+
+6.  打包运行任务(打可执行包而不是依赖包)
+
+```
+$ /opt/module/hadoop-2.7.2/bin/yarn jar ~/softwares/jars/hbase-0.0.1-SNAPSHOT.jar
+ com.z.hbase.mr1.Fruit2FruitMRRunner
+```
+
+提示：运行任务前，如果待数据导入的表不存在，则需要提前创建。
+提示：maven打包命令：-P local clean package或-P dev clean package install（将第三方jar包一同打包，需要插件：maven-shade-plugin）
+
+
+### 自定义HBase-MapReduce2
+
+目标：实现将HDFS中的数据写入到HBase表中。
+
+分步实现：
+
+1.  maven的pom.xml文件配置
+
+```xml
+<!-- 这个插件是为了打包时打的是可执行包而不是依赖包 -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.4.3</version>
+                <configuration>
+                    <transformers>
+                        <transformer
+                            implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                            <mainClass>这里填写main方法所在类</mainClass>
+                        </transformer>
+                    </transformers>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-server</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-client</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+    </dependencies>
+```
+
+2.  构建ReadFruitFromHDFSMapper于读取HDFS中的文件数据
+
+```java
+package com.atguigu;
+
+import java.io.IOException;
+
+import org.apache.hadoop.hbase.client.Put;
+import org.apache.hadoop.hbase.io.ImmutableBytesWritable;
+import org.apache.hadoop.hbase.util.Bytes;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Mapper;
+
+public class ReadFruitFromHDFSMapper extends Mapper<LongWritable, Text, ImmutableBytesWritable, Put> {
+    @Override
+    protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+        //从HDFS中读取的数据
+        String lineValue = value.toString();
+        //读取出来的每行数据使用\t进行分割，存于String数组
+        String[] values = lineValue.split("\t");
+
+        //根据数据中值的含义取值
+        String rowKey = values[0];
+        String name = values[1];
+        String color = values[2];
+
+        //初始化rowKey
+        ImmutableBytesWritable rowKeyWritable = new ImmutableBytesWritable(Bytes.toBytes(rowKey));
+
+        //初始化put对象
+        Put put = new Put(Bytes.toBytes(rowKey));
+
+        //参数分别:列族、列、值
+        put.add(Bytes.toBytes("info"), Bytes.toBytes("name"),  Bytes.toBytes(name));
+        put.add(Bytes.toBytes("info"), Bytes.toBytes("color"),  Bytes.toBytes(color));
+
+        context.write(rowKeyWritable, put);
+    }
+}
+```
+
+3.  构建WriteFruitMRFromTxtReducer类
+
+```java
+package com.z.hbase.mr2;
+
+import java.io.IOException;
+import org.apache.hadoop.hbase.client.Put;
+import org.apache.hadoop.hbase.io.ImmutableBytesWritable;
+import org.apache.hadoop.hbase.mapreduce.TableReducer;
+import org.apache.hadoop.io.NullWritable;
+
+public class WriteFruitMRFromTxtReducer extends TableReducer<ImmutableBytesWritable, Put, NullWritable> {
+    @Override
+    protected void reduce(ImmutableBytesWritable key, Iterable<Put> values, Context context) throws IOException, InterruptedException {
+        //读出来的每一行数据写入到fruit_hdfs表中
+        for(Put put: values){
+            context.write(NullWritable.get(), put);
+        }
+    }
+}
+```
+
+4.  创建Txt2FruitRunner组装Job
+
+```java
+public class Txt2FruitRunner extends Configured implements Tool{
+    public int run(String[] args) throws Exception {
+        //得到Configuration
+        Configuration conf = this.getConf();
+
+        //创建Job任务
+        Job job = Job.getInstance(conf, this.getClass().getSimpleName());
+        job.setJarByClass(Txt2FruitRunner.class);
+        Path inPath = new Path("hdfs://hadoop102:9000/input_fruit/fruit.tsv");
+        FileInputFormat.addInputPath(job, inPath);
+
+        //设置Mapper
+        job.setMapperClass(ReadFruitFromHDFSMapper.class);
+        job.setMapOutputKeyClass(ImmutableBytesWritable.class);
+        job.setMapOutputValueClass(Put.class);
+
+        //设置Reducer
+        TableMapReduceUtil.initTableReducerJob("fruit_mr", WriteFruitMRFromTxtReducer.class, job);
+
+        //设置Reduce数量，最少1个
+        job.setNumReduceTasks(1);
+
+        boolean isSuccess = job.waitForCompletion(true);
+        if(!isSuccess){
+            throw new IOException("Job running with error");
+        }
+
+        return isSuccess ? 0 : 1;
+    }
+}
+```
+
+5.  调用执行Job
+
+```java
+public static void main(String[] args) throws Exception {
+        Configuration conf = HBaseConfiguration.create();
+        int status = ToolRunner.run(conf, new Txt2FruitRunner(), args);
+        System.exit(status);
+}
+```
+
+6.  打包运行(打可执行包而不是依赖包)
+
+```
+$ /opt/module/hadoop-2.7.2/bin/yarn jar hbase-0.0.1-SNAPSHOT.jar com.atguigu.hbase.mr2.Txt2FruitRunner
+```
+
+提示：运行任务前，如果待数据导入的表不存在，则需要提前创建之。
+
+提示：maven打包命令：-P local clean package或-P dev clean package install（将第三方jar包一同打包，需要插件：maven-shade-plugin）
+
+### 将HBase的查询结果统计分析后保存到Mysql
+
+创建HBase,并添加数据
+
+```sql
+create 'phone','info'
+
+put 'phone','18600000001_202006141750','info:phoneTo','15200000001'
+put 'phone','18600000001_202006141750','info:endTime','202006141800'
+
+put 'phone','18600000001_202006111750','info:phoneTo','15200000001'
+put 'phone','18600000001_202006111750','info:endTime','202006111800'
+
+put 'phone','18600000001_202005111750','info:phoneTo','15200000001'
+put 'phone','18600000001_202005111750','info:endTime','202005111800'
+
+put 'phone','18600000002_202005111750','info:phoneTo','15200000001'
+put 'phone','18600000002_202005111750','info:endTime','202005111755'
+```
+
+创建Mysql数据库和表
+
+```sql
+CREATE DATABASE `phone` /*!40100 DEFAULT CHARACTER SET utf8 */
+```
+
+```sql
+CREATE TABLE `phoneTime` (
+  `phone` varchar(16) DEFAULT NULL,
+  `sumTime` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+```
+
+定义一个类，这里面的字段要和你的mysql数据库中的表的字段相对应
+
+```java
+package com.zjc.hbase2mysql;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.apache.hadoop.mapreduce.lib.db.DBWritable;
+
+public class UserInfo implements DBWritable {
+    private String phone;
+    private String sumTime;
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getSumTime() {
+        return sumTime;
+    }
+
+    public void setSumTime(String sumTime) {
+        this.sumTime = sumTime;
+    }
+
+    public void write(PreparedStatement statement) throws SQLException {
+        statement.setString(1, this.getPhone());
+        statement.setString(2, this.getSumTime());
+    }
+
+    public void readFields(ResultSet resultSet) throws SQLException {
+
+    }
+}
+```
+
+Map端，从hbase中读取数据
+
+```java
+package com.zjc.hbase2mysql;
+
+import java.io.IOException;
+
+import org.apache.hadoop.hbase.Cell;
+import org.apache.hadoop.hbase.CellUtil;
+import org.apache.hadoop.hbase.client.Result;
+import org.apache.hadoop.hbase.io.ImmutableBytesWritable;
+import org.apache.hadoop.hbase.mapreduce.TableMapper;
+import org.apache.hadoop.hbase.util.Bytes;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Mapper;
+
+/**
+ * 根据用户在hbase的通话记录，求出每个用户总共通话时间，放入mysql中
+ */
+public class PhoneMapper extends TableMapper<Text, Text> {
+    @Override
+    protected void map(ImmutableBytesWritable key, Result value,
+            Mapper<ImmutableBytesWritable, Result, Text, Text>.Context context)
+            throws IOException, InterruptedException {
+
+        String rowkey = new String(key.get());
+        String phoneTo = "";
+        String startTime = "";
+        String endTime = "";
+
+        for (Cell cell : value.rawCells()) {
+            if ("info".equals(Bytes.toString(CellUtil.cloneFamily(cell)))) {
+                String qualifier = Bytes.toString(CellUtil.cloneQualifier(cell));
+                if ("phoneTo".equals(qualifier)) {
+                    phoneTo = Bytes.toString(CellUtil.cloneValue(cell));
+                } else if ("endTime".equals(qualifier)) {
+                    endTime = Bytes.toString(CellUtil.cloneValue(cell));
+                }
+            }
+        }
+
+        String[] split = rowkey.split("_");
+        // 开始时间
+        startTime = split[1];
+        // key
+        String keys = split[0];
+        // info
+        String info = phoneTo+ "-" + startTime + "-" + endTime;
+        //输出到文件
+        context.write(new Text(keys), new Text(info));
+    }
+}
+```
+
+
+Reduce端
+
+```java
+package com.zjc.hbase2mysql;
+
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+import org.apache.hadoop.io.NullWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Reducer;
+
+public class PhoneReducer extends Reducer<Text, Text, UserInfo, NullWritable>{
+    private UserInfo userInfo = new UserInfo();
+
+    @Override
+    protected void reduce(Text key, Iterable<Text> values,
+            Reducer<Text, Text, UserInfo, NullWritable>.Context context)
+            throws IOException, InterruptedException {
+        // 获取手机号
+        String phone = key.toString();
+
+        Long sumTime = 0L;
+        for (Text info : values) {
+            String[] split = info.toString().split("-");
+            try {
+                Long caclTimeDifference = caclTimeDifference(split[1], split[2]);
+                sumTime += caclTimeDifference;
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        userInfo.setPhone(phone);
+        userInfo.setSumTime(String.valueOf(sumTime));
+
+
+        // 写入到db,放在key
+
+        context.write(userInfo , null);
+    }
+
+    private long caclTimeDifference(String startTime, String endTime) throws ParseException {
+        SimpleDateFormat simpleFormat = new SimpleDateFormat("yyyyMMddHHmm");
+        long start = simpleFormat.parse(startTime).getTime();
+        System.out.println(start);
+        long end = simpleFormat.parse(endTime).getTime();
+        System.out.println(end);
+        long minutes = (end - start) / (1000 * 60);
+        System.out.println(minutes);
+        return minutes;
+    }
+}
+```
+
+
+Driver端
+
+```java
+package com.zjc.hbase2mysql;
+
+import java.io.IOException;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.conf.Configured;
+import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.mapreduce.TableMapReduceUtil;
+import org.apache.hadoop.io.NullWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.db.DBConfiguration;
+import org.apache.hadoop.mapreduce.lib.db.DBOutputFormat;
+import org.apache.hadoop.util.Tool;
+import org.apache.hadoop.util.ToolRunner;
+
+public class Driver extends Configured implements Tool {
+    public static void main(String[] args) throws Exception {
+        Configuration configuration = HBaseConfiguration.create();
+        int re = ToolRunner.run(configuration, new Driver(), args);
+        System.out.println(re);
+        System.exit(re);
+    }
+
+    public int run(String[] args) throws Exception {
+        // 得到Conf
+        Configuration configuration = this.getConf();
+        // 数据库配置
+        DBConfiguration.configureDB(configuration, "com.mysql.jdbc.Driver",
+                "jdbc:mysql://localhost:3306/phone", "root", "root");
+
+        Job job = Job.getInstance(configuration,
+                this.getClass().getSimpleName());
+
+        // 创建job任务
+        job.setJarByClass(Driver.class);
+        // 配置job
+        Scan scan = new Scan();
+        scan.setCacheBlocks(false);
+        scan.setCaching(500);
+
+        // 设置Mapper
+        TableMapReduceUtil.initTableMapperJob(
+                "phone", // 数据源的表名
+                scan, // scan扫描控制器
+                PhoneMapper.class, // 设置Mapper类
+                Text.class, // 设置Mapper输入key类型
+                Text.class, // 设置Mapper输出value值类型
+                job // 设置job
+        );
+
+        // 设置Reduce
+        // 设置reduce数量，最少一个
+        job.setNumReduceTasks(1);
+        job.setReducerClass(PhoneReducer.class);
+        job.setOutputKeyClass(UserInfo.class);
+        job.setOutputValueClass(NullWritable.class);
+        DBOutputFormat.setOutput(job, "phoneTime", "phone", "sumTime");
+        job.setOutputFormatClass(DBOutputFormat.class);
+        boolean isSuccess = job.waitForCompletion(true);
+        if (!isSuccess) {
+            throw new IOException("Job running with error");
+        }
+        return isSuccess ? 0 : 1;
+    }
+}
+```
+
+### 将Mysql中的数据作为MapReduce的输入，并存到hbase中
+
+因为这里用到上面自定义的StuHbase类，且把StuHbase当做了Map端的输出，所以上面就必须继承一个WritableCompable接口，实现对key的排序
+
+```java
+//这里把Map端、reduce端、Driver端以静态内部类写到了一块儿
+package com.hbase2mysql;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.conf.Configured;
+import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.client.Put;
+import org.apache.hadoop.hbase.io.ImmutableBytesWritable;
+import org.apache.hadoop.hbase.mapreduce.TableMapReduceUtil;
+import org.apache.hadoop.hbase.mapreduce.TableReducer;
+import org.apache.hadoop.hbase.util.Bytes;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.NullWritable;
+import org.apache.hadoop.io.Text;
+
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.lib.db.DBConfiguration;
+import org.apache.hadoop.mapreduce.lib.db.DBInputFormat;
+import org.apache.hadoop.util.Tool;
+import org.apache.hadoop.util.ToolRunner;
+
+import java.io.IOException;
+
+public class Mysql2Hbase{
+
+    public static class Mysql2HbaseMapper extends Mapper<LongWritable,StuHbase,StuHbase,NullWritable>{
+        @Override
+        protected void map(LongWritable key, StuHbase value, Context context) throws IOException, InterruptedException {
+
+            System.err.println("******************");
+            System.out.println(value);
+            context.write(value,NullWritable.get());
+        }
+    }
+
+
+
+    public static class Mysql2HbaseReducer extends TableReducer<StuHbase,NullWritable,ImmutableBytesWritable>{
+                    //
+        @Override
+        protected void reduce(StuHbase key, Iterable<NullWritable> values, Context context) throws IOException, InterruptedException {
+            final Put put = new Put(Bytes.toBytes("03_001"));
+
+            for(NullWritable v : values){
+                put.addColumn(Bytes.toBytes("info"),Bytes.toBytes("name"),Bytes.toBytes(key.getName()));
+                //此处+ “” 的目的是 为了不再 hbase中 显示乱码， 先把数字转为字符串
+                put.addColumn(Bytes.toBytes("info"),Bytes.toBytes("age"),Bytes.toBytes(key.getAge()+""));
+                put.addColumn(Bytes.toBytes("info"),Bytes.toBytes("sex"),Bytes.toBytes(key.getSex()));
+                put.addColumn(Bytes.toBytes("info"),Bytes.toBytes("grade"),Bytes.toBytes(key.getGrade()+""));
+            }
+
+                //此处要传入的是（ImmutableBytesWritable, Mutation） ,put是mutation的子类
+            context.write(/*new ImmutableBytesWritable(*//*Bytes.toBytes("02_001"))*/new ImmutableBytesWritable(Bytes.toBytes("03_001")),put);
+            //context.write();
+        }
+    }
+
+
+    public static class Mysql2HbaseDriver extends Configured implements Tool{
+        public static void main(String[] args) throws Exception {
+            Configuration conf = HBaseConfiguration.create();
+            //设置连接的zookeeper的地址，可以对hbase进行操作
+            conf.set("hbase.zookeeper.quorum","192.168.136.150:2181,192.168.136.151:2181,192.168.136.152:2181");
+            ToolRunner.run(conf,new Mysql2HbaseDriver(),args);
+        }
+
+        @Override
+        public int run(String[] strings) throws Exception {
+            Configuration conf = this.getConf();
+            //配置MySQL的的url,用户名和密码
+            DBConfiguration.configureDB(conf,"com.mysql.jdbc.Driver","jdbc:mysql://localhost:3306/hbase2db","root","root");
+
+            final Job job = Job.getInstance(conf);
+
+            job.setJarByClass(Mysql2HbaseDriver.class);
+
+            job.setMapperClass(Mysql2HbaseMapper.class);
+
+            job.setMapOutputKeyClass(StuHbase.class);
+            job.setMapOutputValueClass(NullWritable.class);
+            //要把数据存储的hbase中的stu1表
+            TableMapReduceUtil.initTableReducerJob("stu1",Mysql2HbaseReducer.class,job);
+
+            //设置输入格式是从Database中读取
+            job.setInputFormatClass(DBInputFormat.class);
+            // job,继承DBWritable的类，表名，查询条件，按那个字段进行排序，要读取的字段
+            DBInputFormat.setInput(job,StuHbase.class,"stu",null,"grade","name","age","sex","grade");
+
+            job.waitForCompletion(true);
+
+            return 0;
+        }
+    }
+}
+```
+
+## 协处理器（类似触发器）
+
+[HBase 协处理器详解](https://www.bookstack.cn/read/BigData-Notes/notes-Hbase%E5%8D%8F%E5%A4%84%E7%90%86%E5%99%A8%E8%AF%A6%E8%A7%A3.md)
+
+### 协处理器分类
+
+#### Observer协处理器
+
+Observer 协处理器类似于关系型数据库中的触发器，当发生某些事件的时候这类协处理器会被 Server 端调用。通常可以用来实现下面功能：
+
++   权限校验：在执行 Get 或 Put 操作之前，您可以使用 preGet 或 prePut 方法检查权限；
++   完整性约束： HBase 不支持关系型数据库中的外键功能，可以通过触发器在插入或者删除数据的时候，对关联的数据进行检查；
++   二级索引： 可以使用协处理器来维护二级索引。
+
+当前 Observer 协处理器有以下四种类型：
+
++   RegionObserver : 允许您观察 Region 上的事件，例如 Get 和 Put 操作。
++   RegionServerObserver : 允许您观察与 RegionServer 操作相关的事件，例如启动，停止或执行合并，提交或回滚。
++   MasterObserver : 允许您观察与 HBase Master 相关的事件，例如表创建，删除或 schema 修改。
++   WalObserver : 允许您观察与预写日志（WAL）相关的事件。
+
+### Endpoint协处理器
+
+[如何开发HBase Endpoint类型的Coprocessor以及部署使用](https://cloud.tencent.com/developer/article/1158195)
+
+[HBase 2.0版本协处理器 Endpoint使用](https://blog.csdn.net/LLJJYY001/article/details/90183679)
+[How to使用HBase协处理器---Endpoint服务端的实现](https://blog.csdn.net/LLJJYY001/article/details/90183679)
+
+Endpoint类比于数据库中的存储过程，他触发服务端的基于region的同步运行，再将各个结果在客户端搜集后归并计算。特点类似于传统的MR框架，在服务端MAP在客户端Reduce。相对于Observer来说开发难度大一点。
+
+#### Observer协处理器操作
+
+需求
+
+student表插入数据同时触发second:student表也插入数据
+
+**创建协处理器并导入hbase的lib下**
+
+1.创建依赖包
+
+代码结构
+
+![](../images/2022/03/20220301112756.png)
+
+InsertSecondStudentCoprocesser.java
+
+```java
+package com.zjc.coprocesser;
+
+import java.io.IOException;
+
+import org.apache.hadoop.hbase.TableName;
+import org.apache.hadoop.hbase.client.Durability;
+import org.apache.hadoop.hbase.client.Put;
+import org.apache.hadoop.hbase.client.Table;
+import org.apache.hadoop.hbase.coprocessor.BaseRegionObserver;
+import org.apache.hadoop.hbase.coprocessor.ObserverContext;
+import org.apache.hadoop.hbase.coprocessor.RegionCoprocessorEnvironment;
+import org.apache.hadoop.hbase.regionserver.wal.WALEdit;
+
+/**
+ * 协处理器
+ * 1. 创建类,继承BaseRegionObserver
+ * 2. 重写方法:postPut
+ * 3. 实现逻辑
+ *      增加student的数据
+ *      同时增加second:student的数据
+ * @author zjc
+ *
+ */
+public class InsertSecondStudentCoprocesser extends BaseRegionObserver{
+    @Override
+    public void postPut(ObserverContext<RegionCoprocessorEnvironment> e,
+            Put put, WALEdit edit, Durability durability) throws IOException {
+        // 获取表
+        Table table = e.getEnvironment().getTable(TableName.valueOf("second:student"));
+
+        // 增加数据
+        table.put(put);
+
+        // 关闭表
+        table.close();
+    }
+}
+```
+
+2.  将包放到hbase下的lib目录下
+
+![](../images/2022/03/20220301112852.png)
+
+3.  重启hbase
+
+```
+stop-hbase.sh
+start-hbase.sh
+```
+
+**创建表并设置协处理器**
+
+代码结构
+
+![](../images/2022/03/20220301113038.png)
+
+createTable.java
+
+```java
+package com.zjc.coprocesser;
+
+import java.io.IOException;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.HColumnDescriptor;
+import org.apache.hadoop.hbase.HTableDescriptor;
+import org.apache.hadoop.hbase.TableName;
+import org.apache.hadoop.hbase.client.Admin;
+import org.apache.hadoop.hbase.client.Connection;
+import org.apache.hadoop.hbase.client.ConnectionFactory;
+
+public class createTable {
+    public static void main(String[] args) throws IOException {
+        Configuration conf = HBaseConfiguration.create();
+        Connection conn = ConnectionFactory.createConnection(conf);
+
+        Admin admin = conn.getAdmin();
+
+        // 创建表
+        TableName tableName = TableName.valueOf("student");
+        HTableDescriptor td = new HTableDescriptor(tableName);
+
+        // 设置协处理器
+        td.addCoprocessor("com.zjc.coprocesser.InsertSecondStudentCoprocesser");
+
+        // 增加列族
+        HColumnDescriptor hcd = new HColumnDescriptor("info");
+        td.addFamily(hcd);
+
+        admin.createTable(td);
+    }
+}
+```
+
+新增数据时,两张表同时增加数据
+
+![](../images/2022/03/20220301113110.png)
 

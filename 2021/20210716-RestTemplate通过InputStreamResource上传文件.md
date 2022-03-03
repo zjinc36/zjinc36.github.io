@@ -1,8 +1,8 @@
-#   RestTemplate通过InputStreamResource上传文件
+# RestTemplate通过InputStreamResource上传文件
 
 ----
 
-##  上传文件File
+## 上传文件File
 
 碰到一个需求，在代码中通过HTTP方式做一个验证的请求，请求的参数包含了文件类型。想想其实很简单，直接使用定义好的MultiValueMap，把文件参数传入即可。
 
@@ -22,7 +22,7 @@ and supports byte range requests.
 以上是AbstractResource的实现类，有各种各样的实现类，从名称上来说应该比较有用的应该是：InputStreamResource和FileSystemResource，还有ByteArrayResource 和 UrlResource等。
 
 
-##  使用FileSystemResource上传文件
+## 使用FileSystemResource上传文件
 
 这种方式使用起来比较简单，直接把文件转换成对应的形式即可。
 
@@ -38,7 +38,7 @@ param.put("file", resource);
 
 那么既然这么麻烦，有没有更好的方式呢？
 
-##  使用InputStreamResource上传文件
+## 使用InputStreamResource上传文件
 
 这个类的构造函数可以直接传入流文件。那么就直接试试吧！
 
@@ -142,7 +142,7 @@ public class CommonInputStreamResource extends InputStreamResource {
 
 所以需要像我上面一样改写一下，然后就可以完成了。那么原理到底是不是这样呢？继续看。
 
-##  RestTemplate上传文件时的处理
+## RestTemplate上传文件时的处理
 
 上面我们说到RestTemplate初始化时，需要注册几个消息转换器，那么其中有一个就是ResourceHTTPMessageConverter，那么我们看看它完成了哪些功能呢：
 方法很少，一下子就可以看完：关于文件大小（contentLength），文件类型（ContentType），读（readInternal），写（org.springframework.http.converter.ResourceHttpMessageConverter#writeInternal）等方法。
@@ -190,7 +190,7 @@ public final void write(final T t, MediaType contentType, HttpOutputMessage outp
 
 这里说明上传时，流会被读第一次。
 
-##  服务端上传文件时的处理
+## 服务端上传文件时的处理
 
 文件源
 AbstractMultipartHttpServletRequest # multipartFiles
@@ -235,14 +235,14 @@ private void writePart(String name, HttpEntity<?> partEntity, OutputStream os) t
 
 真相即将得到：InputStreamResource 的这个方法是继承自org.springframework.core.io.AbstractResource#getFilename，这个方法直接返回null。之后的就很简单了：当fileName为null时，不会在setContentDispositionFormData中把filename=拼入。所以服务端不会解析到文件，导致报错。
 
-##  结论
+## 结论
 
 +   使用RestTemplate上传文件使用FileSystemResource在直接是文件的情况下很简单。
 +   如果不想在本地新建临时文件可以使用：InputStreamResource，但是需要覆写FileName方法。
 +   由于2的原因，2.2.1 中的contentLength方法，不会对InputStreamResource做特殊处理，而是直接去读取流，导致流被读取多次；按照类签名，会报错。所以也需要覆写contentLength方法。
 +    是由于2的原因，才需要3的存在，不过使用方式是对的：使用InputStreamResource需要覆写两个方法contentLength和getFileName。
 
-##  代码实现
+## 代码实现
 ```java
 public class CommonInputStreamResource extends InputStreamResource {
     private int length;
@@ -323,6 +323,6 @@ public class JavaTest01Controller {
 }
 ```
 
-##  参考
+## 参考
 +   [通过`RestTemplate`上传文件(InputStreamResource详解)](https://www.cnblogs.com/paxing/p/11485049.html)
 +   [RestTemplate通过InputStreamResource上传文件](https://www.cnblogs.com/DXDE443/p/10308059.html)

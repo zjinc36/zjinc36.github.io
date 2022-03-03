@@ -1,12 +1,12 @@
-#   Spring Security OAuth2.0认证授权一：框架搭建和认证测试
+# Spring Security OAuth2.0认证授权一：框架搭建和认证测试
 
 ---
 
-#   OAuth2.0介绍
+# OAuth2.0介绍
 
 OAuth（开放授权）是一个开放标准，允许用户授权第三方应用访问他们存储在另外的服务提供者上的信息，而不 需要将用户名和密码提供给第三方应用或分享他们数据的所有内容。
 
-##  stackoverflow和github
+## stackoverflow和github
 
 听起来挺拗口，不如举个例子说明下，就以stackoverflow登录为例：我们登录stackoverflow，网站上会提示几种登录方式，如下所示
 
@@ -26,7 +26,7 @@ OAuth（开放授权）是一个开放标准，允许用户授权第三方应用
 
 这里操作人、github、stackoverflow分别扮演了什么角色，stackoverflow是如何从github获取到个人信息的呢？这里实际上使用的是auth2.0协议进行的认证和授权。
 
-##  auth2.0协议
+## auth2.0协议
 
 我们看OAuth2.0认证流程：引自OAauth2.0协议rfc6749 https://tools.ietf.org/html/rfc6749
 
@@ -108,7 +108,7 @@ OAauth2.0包括以下角色：
 
 下面将演示如何使用spring boot搭建OAuth2.0认证中心以实现类似于stackoverflow使用github账号登陆的效果。
 
-#   使用springboot搭建OAuth2.0认证中心
+# 使用springboot搭建OAuth2.0认证中心
 
 项目目录层次如下：
 
@@ -155,7 +155,7 @@ OAauth2.0包括以下角色：
 
 接下来捡着重点说下搭建过程
 
-##  引入最核心的三个maven依赖
+## 引入最核心的三个maven依赖
 ```xml
 <dependency>
     <groupId>org.springframework.boot</groupId>
@@ -173,7 +173,7 @@ OAauth2.0包括以下角色：
 
 像是mybatis、mybatis plus、fastjson、lombok、thymeleaf等依赖都是辅助依赖，不赘述
 
-##  编写启动类
+## 编写启动类
 ```java
 @SpringBootApplication
 public class AuthCenterApplication {
@@ -184,7 +184,7 @@ public class AuthCenterApplication {
 }
 ```
 
-##  配置文件
+## 配置文件
 ```yaml
 server:
   port: 30000
@@ -204,7 +204,7 @@ spring:
 
 配置完以上三项，就可以将项目正常启动起来了，但是是一个一片空白的项目。接下来配置核心代码实现
 
-##  EnableAuthorizationServer
+## EnableAuthorizationServer
 
 可以用 @EnableAuthorizationServer 注解并继承AuthorizationServerConfigurerAdapter来配置OAuth2.0 授权服务器。
 
@@ -230,7 +230,7 @@ public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws E
 +   AuthorizationServerEndpointsConfigurer ：用来配置令牌（token）的访问端点和令牌服务(tokenservices)。
 +   AuthorizationServerSecurityConfigurer ：用来配置令牌端点的安全约束.
 
-##  配置客户端详细信息
+## 配置客户端详细信息
 
 ClientDetailsServiceConfigurer 能够使用内存或者JDBC来实现客户端详情服务（ClientDetailsService），ClientDetailsService负责查找ClientDetails，而ClientDetails有几个重要的属性如下列表：
 
@@ -258,7 +258,7 @@ ClientDetailsServiceConfigurer 能够使用内存或者JDBC来实现客户端详
     }
 ```
 
-##  管理令牌
+## 管理令牌
 
 AuthorizationServerTokenServices 接口定义了一些操作使得你可以对令牌进行一些必要的管理，令牌可以被用来加载身份信息，里面包含了这个令牌的相关权限。
 
@@ -299,7 +299,7 @@ public AuthorizationServerTokenServices tokenServices(){
 }
 ```
 
-##  令牌访问端点配置
+## 令牌访问端点配置
 
 AuthorizationServerEndpointsConfigurer 这个对象的实例可以完成令牌服务以及令牌endpoint配置。
 
@@ -357,7 +357,7 @@ public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws E
 
 上面需要的AuthenticationManager的定义在SpringSecurity的配置中，下面会讲到。
 
-##  令牌端点的安全约束
+## 令牌端点的安全约束
 
 AuthorizationServerSecurityConfigurer 用来配置令牌端点(Token Endpoint)的安全约束，在AuthorizationServer中配置如下。
 
@@ -375,7 +375,7 @@ public void configure(AuthorizationServerSecurityConfigurer security) throws Exc
 2.  checkToken这个endpoint完全公开
 3.  允许表单认证
 
-##  web安全配置
+## web安全配置
 
 这里可以配置安全拦截机制、自定义登录页面、登录失败拦截器等等
 
@@ -418,17 +418,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 }
 ```
 
-#   自定义登陆页面
+# 自定义登陆页面
 
 spring security默认带的登录页面不可修改，加载速度贼慢，原因是使用的css链接是国外的。所以从各方面来说自定义登录页面都是需要的。
 
-##  创建login.html文件
+## 创建login.html文件
 
 这个非常简单，只需要将spring security加载速度贼慢的那个页面扒下来就好。
 
 项目中代码链接：https://gitee.com/kdyzm/spring-security-oauth-study/blob/master/auth-center/src/main/resources/static/login.html
 
-##  配置拦截规则
+## 配置拦截规则
 
 WebSecurityConfig下如下设置
 
@@ -455,7 +455,7 @@ protected void configure(HttpSecurity http) throws Exception {
 
 这两个必须一起配置，否则会login 404。
 
-##  自定义登陆失败页面
+## 自定义登陆失败页面
 
 自定义登陆页面之后登录失败的原因就不提示了，这里使用拦截器进行简单的拦截并返回给前端结果（非常丑，但能用）
 
@@ -471,7 +471,7 @@ public class MyAuthenticationFailureHandler implements AuthenticationFailureHand
 }
 ```
 
-##  自定义授权页面
+## 自定义授权页面
 
 默认的授权页面非常丑，这里重写该页面，页面代码地址：https://gitee.com/kdyzm/spring-security-oauth-study/blob/master/auth-center/src/main/resources/templates/grant.html
 
@@ -505,7 +505,7 @@ public class GrantController {
 }
 ```
 
-##  实现UserDetailsService接口
+## 实现UserDetailsService接口
 
 完成以上配置之后基本上已经配置完了，但是还差一点，那就是实现UserDetailsService接口，不实现该接口，会出现后端死循环导致的stackoverflow问题。
 
@@ -545,7 +545,7 @@ public class MyUserDetailsServiceImpl implements UserDetailsService {
 }
 ```
 
-#   接口测试
+# 接口测试
 
 在测试前，需要先执行数据库脚本并启动服务
 
@@ -554,7 +554,7 @@ public class MyUserDetailsServiceImpl implements UserDetailsService {
 
 然后运行 AuthCenterApplication 程序，测试几种oauth认证模式
 
-##  授权码认证模式
+## 授权码认证模式
 
 >   最安全的一种模式。一般用于client是Web服务器端应用或第三方的原生App调用资源服务的时候。因为在这种模式中access_token不会经过浏览器或移动端的App，而是直接从服务端去交换，这样就最大限度的减小了令牌泄漏的风险。该模式下获取token需要分两步走，第一步获取授权码，第二步获取token。
 
@@ -614,7 +614,7 @@ client_secret:secret
 redirect_uri:https://www.baidu.com
 ```
 
-##  简化模式
+## 简化模式
 
 >   该模式去掉了授权码，用户登陆之后直接获取token并显示在浏览器地址栏中，参数和请求授权码的接口基本上一模一样，唯一的区别就是response_type字段，授权码模式下使用的是code字段，在简化模式下使用的是token字段。一般来说，简化模式用于没有服务器端的第三方单页面应用，因为没有服务器端就无法接收授权码。
 
@@ -636,7 +636,7 @@ redirect_uri:https://www.baidu.com
 http://127.0.0.1:30000/oauth/authorize?client_id=c1&response_type=token&scope=all&redirect_uri=https://www.baidu.com
 
 
-##  密码模式
+## 密码模式
 
 >   这种模式十分简单，但是却意味着直接将用户敏感信息泄漏给了client，因此这就说明这种模式只能用于client是我们自己开发的情况下。因此密码模式一般用于我们自己开发的，第一方原生App或第一方单页面应用
 
@@ -658,7 +658,7 @@ http://127.0.0.1:30000/oauth/authorize?client_id=c1&response_type=token&scope=al
 
 http://127.0.0.1:30000/oauth/token?client_id=c1&client_secret=secret&grant_type=password&username=zhangsan&password=123
 
-##  客户端模式
+## 客户端模式
 
 >   这种模式是最方便但最不安全的模式。因此这就要求我们对client完全的信任，而client本身也是安全的。因此这种模式一般用来提供给我们完全信任的服务器端服务。比如，合作方系统对接，拉取一组用户信息。
 
@@ -678,7 +678,7 @@ http://127.0.0.1:30000/oauth/token?client_id=c1&client_secret=secret&grant_type=
 
 http://127.0.0.1:30000/oauth/token?client_id=c1&client_secret=secret&grant_type=client_credentials
 
-##  refresh_token换取新token
+## refresh_token换取新token
 
 接口地址 http://127.0.0.1:30000/oauth/token
 
@@ -697,11 +697,11 @@ http://127.0.0.1:30000/oauth/token?client_id=c1&client_secret=secret&grant_type=
 
 http://127.0.0.1:30000/oauth/token?grant_type=refresh_token&refresh_token=09c9d11a-525a-4e5f-bac1-4f32e9025301&client_id=c1&client_secret=secret
 
-#   源码地址
+# 源码地址
 
 源码地址：https://gitee.com/kdyzm/spring-security-oauth-study
 
-#   参考
+# 参考
 
 这个文档来自(主要是为了备份):https://www.cnblogs.com/kuangdaoyizhimei/p/14250374.html
 

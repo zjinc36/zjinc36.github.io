@@ -1,8 +1,8 @@
-#	HBase系列_04_HBase_Shell操作
+# HBase系列_04_HBase_Shell操作
 
 ----
 
-##  基本操作
+## 基本操作
 
 ### 进入HBase客户端命令行
 
@@ -22,7 +22,7 @@ hbase(main):001:0> help
 hbase(main):002:0> list
 ```
 
-##  表的操作
+## 表的操作
 
 ### 创建表
 
@@ -136,6 +136,6 @@ hbase(main):022:0> alter 'student',{NAME=>'info',VERSIONS=>3}
 hbase(main):022:0> get 'student','1001',{COLUMN=>'info:name',VERSIONS=>3}
 ```
 
-##  命名空间操作
+## 命名空间操作
 
 [命名空间操作](/2022/20220218-HBase系列_05_HBase数据结构?id=namespace操作)
