@@ -50,6 +50,8 @@
 -   [HBase系列_09_HBase优化](2022/20220301-HBase系列_09_HBase优化.md)
 -   [HBase系列_10_HBase实战之微博](2022/20220302-HBase系列_10_HBase实战之微博.md)
 -   [HBase系列_11_HBase扩展](2022/20220302-HBase系列_11_HBase扩展.md)
+-   [HBase系列_12_HBase面试题](2022/20220304-HBase系列_12_HBase面试题.md)
+-   [HBase系列_13_HBase总结](2022/20220304-HBase系列_13_HBase总结.md)
 
 
 
