@@ -272,7 +272,13 @@
 -   [vim中显示markdown结构大纲](2019/20190729-vim中显示markdown结构大纲.md)
 -   [vim中删除句尾的空白字符](2019/20190730-vim中删除句尾的空白字符.md)
 
-##  Java栈
+## Java栈
+
+### Dubbo
+-   [Dubbo_分布式基础理论](2022/20220304-Dubbo_分布式基础理论.md)
+-   [Dubbo_核心概念](2022/20220304-Dubbo_核心概念.md)
+-   [Dubbo_环境搭建](2022/20220304-Dubbo_环境搭建.md)
+
 ### Hibernate
 -   [Hibernate入门与配置](2019/20190702-Hibernate入门与配置.md)
 -   [Hibernate的API](2019/20190704-Hibernate的API.md)
@@ -563,6 +569,8 @@
 -   [RabbitMQ_延迟队列](2021/20211123-RabbitMQ_延迟队列.md)
 -   [RabbitMQ_发布确认高级](2021/20211124-RabbitMQ_发布确认高级.md)
 
+## Redis
+-   [Redis_缓存穿透缓存击穿和缓存雪崩](2022/20220307-Redis_缓存穿透缓存击穿和缓存雪崩.md)
 
 ## 人工智能
 -   [人工智能基础说明](2019/20190817-人工智能基础说明.md)

@@ -1,7 +1,7 @@
-#   SpringCloud-12-Bus消息总线
+# SpringCloud-12-Bus消息总线
 
 ---
-##  78_Bus消息总线是什么
+## 78_Bus消息总线是什么
 
 上—讲解的加深和扩充
 
@@ -33,7 +33,7 @@ Spring Cloud Bus能管理和传播分布式系统间的消息，就像一个分�
 
 ConfigClient实例都监听MQ中同一个topic(默认是Spring Cloud Bus)。当一个服务刷新数据的时候，它会把这个信息放入到Topic中，这样其它监听同一Topic的服务就能得到通知，然后去更新自身的配置。
 
-##  79_Bus之RabbitMQ环境配置
+## 79_Bus之RabbitMQ环境配置
 
 +   安装Erlang，下载地址：http://erlang.org/download/otp_win64_21.3.exe
 +   安装RabbitMQ，下载地址：https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.8.3/rabbitmq-server-3.8.3.exe
@@ -49,7 +49,7 @@ rabbitmq-plugins enable rabbitmq _management
 +   访问地址查看是否安装成功：http://localhost:15672/
 +   输入账号密码并登录：guest guest
 
-##  80_Bus动态刷新全局广播的设计思想和选型
+## 80_Bus动态刷新全局广播的设计思想和选型
 
 必须先具备良好的RabbitMQ环境先
 
@@ -218,7 +218,7 @@ public class ConfigClientController
 +   破坏了微服务各节点的对等性。
 +   有一定的局限性。例如，微服务在迁移时，它的网络地址常常会发生变化，此时如果想要做到自动刷新，那就会增加更多的修改。
 
-##  81_Bus动态刷新全局广播配置实现
+## 81_Bus动态刷新全局广播配置实现
 
 给cloud-config-center-3344配置中心服务端添加消息总线支持
 
@@ -409,7 +409,7 @@ management:
 —次修改，广播通知，处处生效
 
 
-##  82_Bus动态刷新定点通知
+## 82_Bus动态刷新定点通知
 
 不想全部通知，只想定点通知
 
