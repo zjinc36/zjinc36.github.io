@@ -333,6 +333,9 @@
     -   [Java多线程JDK工具篇_04_并发容器集合](2022/20220209-并发容器集合.md)
     -   [Java多线程JDK工具篇_05_CopyOnWrite容器](2022/20220209-CopyOnWrite容器.md)
     -   [Java多线程JDK工具篇_06_通信工具类](2022/20220209-通信工具类.md)
+        +   [JUC之CountDownLatch减少计数](2020/20200914-JUC之CountDownLatch减少计数.md)
+        +   [JUC之CyclicBarrier循环栅栏](2020/20200914-JUC之CyclicBarrier循环栅栏.md)
+        +   [JUC之Semaphore信号灯](2020/20200914-JUC之Semaphore信号灯.md)
     -   [Java多线程JDK工具篇_07_Fork_Join框架](2022/20220209-Fork_Join框架.md)
     -   [Java多线程JDK工具篇_08_Java_8_Stream并行计算原理](2022/20220209-Java_8_Stream并行计算原理.md)
     -   [Java多线程JDK工具篇_09_计划任务](2022/20220209-20220209-计划任务.md)
@@ -341,9 +344,7 @@
 -   [Jenkins配置选择commit选择服务器构建springcloud微服务项目](2021/20210915-Jenkins配置选择commit选择服务器构建springcloud微服务项目.md)
 
 ### Juc
--   [JUC之CountDownLatch减少计数](2020/20200914-JUC之CountDownLatch减少计数.md)
--   [JUC之CyclicBarrier循环栅栏](2020/20200914-JUC之CyclicBarrier循环栅栏.md)
--   [JUC之Semaphore信号灯](2020/20200914-JUC之Semaphore信号灯.md)
+
 
 ### Jvm
 -   [JVM从入门到精通_01_JVM与Java体系结构](2018/20180820-JVM从入门到精通_01_JVM与Java体系结构.md)
