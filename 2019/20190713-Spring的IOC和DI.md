@@ -1,14 +1,12 @@
-#   Spring的IOC和DI
-+ date: 2019-07-13 12:52:17
-+ description: Spring的控制反转(IOC)和依赖注入(DI)
-+ categories:
-  - Java
-+ tags:
-  - Spring
+# Spring的IOC和DI
+
 ---
-#   IOC控制反转
+
+# IOC控制反转
+
 将对象的创建权反转给了Spring
-##   Spring的IOC的底层实现
+
+## Spring的IOC的底层实现
 实现解偶的思维方式
 1.  传统模式
 
@@ -27,12 +25,13 @@
 ![](../images/20190713007.png)
 
 
-##   IOC依赖反转代码实现
+## IOC依赖反转代码实现
 1.  文件导航
 
 ![](../images/20190713009.png)
 
 2.  java代码
+
 ```java
 //UserDaoImpl01
 package com.zjinc36.spring.demo1;
@@ -62,7 +61,9 @@ public class SpringDemo1 {
 	}
 }
 ```
+
 3.  applicationContext.xml文件
+
 ```xml
 <!-- applicationContext.xml -->
 
@@ -76,10 +77,12 @@ http://www.springframework.org/schema/context/spring-context-4.3.xsd http://www.
 </beans>
 ```
 
-#   DI(依赖注入)
+# DI(依赖注入)
 依赖注入,前提必须有IOC的环境,Spring管理这个类的时候将类的依赖属性注入(设置)进来
-##  依赖/继承/聚合的区别
+## 依赖/继承/聚合的区别
+
 1.  依赖
+
 ```java
 class A {
 
@@ -93,6 +96,7 @@ class B {
 ```
 
 2.  继承: is a (是一个)
+
 ```java
 class A {
 
@@ -104,10 +108,13 @@ class B extends A {
 ```
 
 3.  聚合: has a (有一个)
+
 有松散和紧密之分
 
-##  Spring如何实现依赖注入
+## Spring如何实现依赖注入
+
 1.	java代码
+
 ```java
 package com.zjinc36.spring.demo1;
 
@@ -123,7 +130,9 @@ public class UserDaoImpl01 implements UserDao{
 
 }
 ```
+
 2.	applicationContext.xml代码
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"

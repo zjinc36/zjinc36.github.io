@@ -1,16 +1,11 @@
-#   MyBatis中的DAO包装
-+ date: 2019-07-31 21:48:53
-+ description: MyBatis中的DAO包装
-+ categories:
-  - Java
-+ tags:
-  - MyBatis
+# MyBatis中的DAO包装
+
 ---
 #   传统的DAO包装
 ##  项目基本代码
 [_MyBatis工程搭建与增删改查_](/2019/08/01/MyBatis工程搭建与增删改查/#入门案例)
 
-##  实现传统的DAO包装
+## 实现传统的DAO包装
 项目文件基本结构
 
 ![](../images/20190731017.png)
@@ -117,12 +112,12 @@ public class UserDaoTest {
 
 ```
 
-#   动态代理DAO包装
+# 动态代理DAO包装
 
-##  项目基本代码
+## 项目基本代码
 [_MyBatis工程搭建与增删改查_](/2019/08/01/MyBatis工程搭建与增删改查/#入门案例)
 
-##  实现动态代理DAO包装
+## 实现动态代理DAO包装
 动态代理只需使用接口，不需使用实现接口的实体类
 1.  UserMapper.java
 ```java
