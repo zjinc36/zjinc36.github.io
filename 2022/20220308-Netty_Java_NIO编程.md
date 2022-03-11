@@ -774,38 +774,40 @@ public static final int OP_ACCEPT = 1 << 4;
 ```java
 package com.atguigu.nio.groupchat;
 
+package com.learn.nio;
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
-import java.nio.channels.Channel;
-import java.nio.channels.SelectionKey;
-import java.nio.channels.Selector;
-import java.nio.channels.ServerSocketChannel;
-import java.nio.channels.SocketChannel;
+import java.nio.channels.*;
 import java.util.Iterator;
 
 public class GroupChatServer {
-
-    //定义属性
+    // 定义属性
     private Selector selector;
     private ServerSocketChannel listenChannel;
 
     private static final int PORT = 6667;
 
-    //构造器
-    //初始化工作
+    // 构造器
+    // 初始化工作
     public GroupChatServer() {
         try {
-            //得到选择器
+            // 服务端启动一个选择器对象
             selector = Selector.open();
-            //ServerSocketChannel
+
+            // 服务端启动一个 ServerSocketChannel 通道
+            // -> 即服务器这边要先有一个监听通道,监听某个端口是否有客户端要建立连接
             listenChannel = ServerSocketChannel.open();
-            //绑定端口
+            // -> 绑定端口
             listenChannel.socket().bind(new InetSocketAddress(PORT));
-            //设置非阻塞模式
+            // -> 设置非阻塞模式
             listenChannel.configureBlocking(false);
-            //将该 listenChannel 注册到 selector
+
+            // 将该 listenChannel 注册到 selector,且设置 listenChannel 的事件状态为准备好接收一个连接
             listenChannel.register(selector, SelectionKey.OP_ACCEPT);
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -813,66 +815,75 @@ public class GroupChatServer {
 
     public void listen() {
         try {
-            //循环处理
             while (true) {
+                // 监控所有注册的通道,当其中有IO操作时,将对应的 SelectionKey 加入到内部集合中并返回,参数用来设置超时时间
                 int count = selector.select();
-                if (count > 0) { //有事件处理
-                    // 遍历得到 selectionKey 集合
+                System.out.println("count: " + count);
+                if (count > 0) {    // 说明有事件处理
+                    // SelectionKey 集合的迭代器
                     Iterator<SelectionKey> iterator = selector.selectedKeys().iterator();
                     while (iterator.hasNext()) {
-                        //取出 selectionkey
+                        // 取出 selectionKey
                         SelectionKey key = iterator.next();
-                        //监听到 accept
-                        if (key.isAcceptable()) {
+                        // 判断是哪种类型的key
+                        if (key.isAcceptable()) {   // 这个key对应的客户端"需要一个连接"
+                            // 监听通道监听到有客户端要建立连接,所以创建一个和客户端真正通信的通道
+                            // 所以,listenChannel 接受(.accept()) 这个连接,并为其创建通道
                             SocketChannel sc = listenChannel.accept();
+                            // 设置这个新通道是非阻塞的
                             sc.configureBlocking(false);
-                            //将该 sc 注册到 seletor
+                            // 将该 sc 注册到 selector,以读的方式
                             sc.register(selector, SelectionKey.OP_READ);
-                            //提示
-                            System.out.println(sc.getRemoteAddress() + " 上线 ");
+                            // 提示
+                            System.out.println(sc.getRemoteAddress() + "上线");
                         }
-                        if (key.isReadable()) {//通道发送read事件，即通道是可读的状态
+                        if (key.isReadable()) {     // 这个key对应的客户端"可读"
                             // 处理读(专门写方法..)
                             readData(key);
                         }
-                        //当前的 key 删除，防止重复处理
+                        // key处理完后要记得删除,防止重复处理
                         iterator.remove();
                     }
-                } else {
-                    System.out.println("等待....");
                 }
+
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            //发生异常处理....
+            // 发生异常处理...
         }
     }
 
-    //读取客户端消息
+    /**
+     * 读取客户端消息
+     *
+     * @param key 事件的key
+     */
     public void readData(SelectionKey key) {
         SocketChannel channel = null;
         try {
-            //得到 channel
+            // 前面已经为该 key事件 创建了对应的channel
+            // 根据 key 得到 channel
             channel = (SocketChannel) key.channel();
-            //创建 buffer
+            // 创建 buffer
             ByteBuffer buffer = ByteBuffer.allocate(1024);
+            // 从 buffer 中读取数据到 channel
             int count = channel.read(buffer);
-            //根据 count 的值做处理
+            // 根据 count 的值做处理
             if (count > 0) {
-                //把缓存区的数据转成字符串
+                // 将缓存区的数据转成字符串
                 String msg = new String(buffer.array());
-                //输出该消息
-                System.out.println("form客户端:" + msg);
-                //向其它的客户端转发消息(去掉自己),专门写一个方法来处理
+                // 输出该消息
+                System.out.println("from客户端: " + msg);
+                // 向其他的客户端转发消息(去掉自己),专门写一个方法来处理
                 sendInfoToOtherClients(msg, channel);
             }
         } catch (IOException e) {
             try {
-                System.out.println(channel.getRemoteAddress() + "离线了..");
-                //取消注册
+                System.out.println(channel.getRemoteAddress() + "离线了");
+                // 取消注册
                 key.cancel();
-                //关闭通道
+                // 关闭通道
                 channel.close();
             } catch (IOException e2) {
                 e2.printStackTrace();
@@ -880,32 +891,31 @@ public class GroupChatServer {
         }
     }
 
-    //转发消息给其它客户(通道)
     private void sendInfoToOtherClients(String msg, SocketChannel self) throws IOException {
-
         System.out.println("服务器转发消息中...");
-        //遍历所有注册到 selector 上的 SocketChannel,并排除 self
+        // 遍历所有注册到 selector 上的 SocketChannel,并排除 self
         for (SelectionKey key : selector.keys()) {
-            //通过 key 取出对应的 SocketChannel
+            // 通过 key 取出对应的 SocketChannel
             Channel targetChannel = key.channel();
-            //排除自己
+            // 排除自己
             if (targetChannel instanceof SocketChannel && targetChannel != self) {
-                //转型
+                // 转型
                 SocketChannel dest = (SocketChannel) targetChannel;
-                //将 msg 存储到 buffer
+                // 将 msg 存储到 buffer
                 ByteBuffer buffer = ByteBuffer.wrap(msg.getBytes());
-                //将 buffer 的数据写入通道
+                // 将 buffer 的数据写入通道
                 dest.write(buffer);
             }
         }
     }
 
     public static void main(String[] args) {
-        //创建服务器对象
+        // 创建服务器对象
         GroupChatServer groupChatServer = new GroupChatServer();
         groupChatServer.listen();
     }
 }
+
 ```
 
 客户端：
@@ -1012,12 +1022,3 @@ public class GroupChatClient {
     }
 }
 ```
-
-
-
-
-
-
-
-
-
