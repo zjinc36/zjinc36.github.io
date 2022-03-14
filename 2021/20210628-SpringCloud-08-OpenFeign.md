@@ -1,7 +1,7 @@
-#   SpringCloud-08-OpenFeign
+# SpringCloud-08-OpenFeign
 
 ---
-##  43_OpenFeign是什么
+## 43_OpenFeign是什么
 
 [官方文档](https://cloud.spring.io/spring-cloud-static/Hoxton.SR1/reference/htmlsingle/#spring-cloud-openfeign)
 
@@ -45,7 +45,7 @@ OpenFeign是Spring Cloud在Feign的基础上支持了SpringMVC的注解，如@Re
 >   英 [feɪn] 美 [feɪn]
 >   v. 假装，装作，佯装(有某种感觉或生病、疲倦等)
 
-##  44_OpenFeign服务调用
+## 44_OpenFeign服务调用
 
 接口+注解：微服务调用接口 + @FeignClient
 
@@ -209,7 +209,7 @@ http://localhost/consumer/payment/get/1
 
 Feign自带负载均衡配置项
 
-##  45_OpenFeign超时控制
+## 45_OpenFeign超时控制
 
 超时设置，故意设置超时演示出错情况
 
@@ -297,7 +297,7 @@ ribbon:
   ConnectTimeout: 5000
 ```
 
-##  46_OpenFeign日志增强
+## 46_OpenFeign日志增强
 
 ### 日志打印功能
 
