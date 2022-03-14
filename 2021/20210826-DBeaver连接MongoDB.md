@@ -1,10 +1,10 @@
-#	DBeaver连接MongoDB
+# DBeaver连接MongoDB
 
 ---
 
 >	DBeaver企业版支持连接MongoDB数据库
 
-#	连接遇到的问题
+# 连接遇到的问题
 由于第一次使用DBeaver连接MongoDB，出现一些坑，以此文档记录下坑坑洼洼
 需求是：建立与MongoDB的连接后可以看到MongoDB里面的所有数据库
 
@@ -32,7 +32,7 @@ switched to db admin
 
 从上面可以看到，默认用户的credentials是SCRAM-SHA-1，所以Mechanism要选择SCRAM-SHA-1去验证用户名密码。
 
-#	正确的连接方式
+# 正确的连接方式
 
 ?>	最后，正确的连接方式如下图，这样连接后就可以看到所有的数据库：
 
