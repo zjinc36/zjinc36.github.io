@@ -350,9 +350,6 @@
 ### Jenkins
 -   [Jenkins配置选择commit选择服务器构建springcloud微服务项目](2021/20210915-Jenkins配置选择commit选择服务器构建springcloud微服务项目.md)
 
-### Juc
-
-
 ### Jvm
 -   [JVM从入门到精通_01_JVM与Java体系结构](2018/20180820-JVM从入门到精通_01_JVM与Java体系结构.md)
 -   [JVM从入门到精通_02_类加载子系统](2018/20180820-JVM从入门到精通_02_类加载子系统.md)
