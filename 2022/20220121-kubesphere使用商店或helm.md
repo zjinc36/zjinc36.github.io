@@ -1,8 +1,8 @@
-#   kubesphere使用商店或helm
+# kubesphere使用商店或helm
 
 ----
 
-##  使用Helm
+## 使用Helm
 
 ### 添加Helm仓库
 

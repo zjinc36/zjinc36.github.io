@@ -574,7 +574,9 @@
     +   [MySQL索引为什么设计成这样](2021/20210804-MySQL索引为什么设计成这样.md)
 -   [MySQL知识点总结](2021/20210916-MySQL知识点总结.md)
 -   [MySQL_HAproxy_keepalived_mysql高可用](2022/20220315-MySQL_HAproxy_keepalived_mysql高可用.md)
+-   [MySQL_备份](2022/20220316-MySQL_备份.md)
 -   [MySQL定时删除数据](2021/20210918-mysql定时删除数据.md)
+-   [MySQL_分区脚本](2022/20220316-MySQL_分区脚本.md)
 -   [项目遇到的问题之MySql](2017/20170615-项目遇到的问题之MySql.md)
 
 ## Python数据分析

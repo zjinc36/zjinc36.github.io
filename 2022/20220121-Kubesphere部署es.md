@@ -1,14 +1,14 @@
-#	Kubesphere部署es
+# Kubesphere部署es
 
 ----
 
-##  版本
+## 版本
 
 +   docker 18.09.0
 +   kubernetes 1.20.9
 +   KubeSphere 版本 : v3.1.1
 
-##  部署
+## 部署
 
 1.  说明配置文件要挂载的目录不为空
 2.  说明有多个文件要如何挂载

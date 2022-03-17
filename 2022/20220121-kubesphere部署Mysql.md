@@ -1,14 +1,14 @@
-#   kubesphere部署Mysql
+# kubesphere部署Mysql
 
 ----
 
-##  版本
+## 版本
 
 +   docker 18.09.0
 +   kubernetes 1.20.9
 +   KubeSphere 版本 : v3.1.1
 
-##  创建pvc
+## 创建pvc
 
 ![](../images/2021/12/20211220095003.png)
 
@@ -20,7 +20,7 @@
 ![](../images/2021/12/20211216165041.png)
 
 
-##  创建配置文件
+## 创建配置文件
 
 ![](../images/2021/12/20211220095209.png)
 
@@ -28,7 +28,7 @@
 
 ![](../images/2021/12/20211220095436.png)
 
-##  创建mysql
+## 创建mysql
 
 ![](../images/2021/12/20211220095543.png)
 
@@ -52,7 +52,7 @@
 
 ![](../images/2021/12/20211220094527.png)
 
-##  配置service
+## 配置service
 
 +   targetPort:是continer暴露出来的端口
 +   port:是service暴露出来的端口

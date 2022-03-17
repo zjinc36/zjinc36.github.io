@@ -1,18 +1,18 @@
-#	kubesphere安装clickhouse集群
+# kubesphere安装clickhouse集群
 
 ----
 
-#   版本
+# 版本
 
 +   docker 18.09.0
 +   kubernetes 1.20.9
 +   KubeSphere 版本 : v3.1.1
 
-#   安装说明
+# 安装说明
 
 +   [官方文档](https://kubesphere.io/zh/docs/application-store/external-apps/deploy-metersphere/)
 
-##  部署 ClickHouse Operator
+## 部署 ClickHouse Operator
 
 以 admin 身份登录 KubeSphere 的 Web 控制台，并使用工具箱中的 Kubectl 执行以下命令来安装 ClickHouse Operator。建议至少准备 2 个可用集群节点。
 
@@ -63,13 +63,13 @@ replicaset.apps/clickhouse-operator-644fcb8759   1         1         1       4m3
 
 ```
 
-##  添加应用仓库
+## 添加应用仓库
 
 1.  以 ws-admin 身份登录 KubeSphere 的 Web 控制台。在企业空间中，进入应用管理下的应用仓库页面，点击添加。
 2.  在出现的对话框中，输入 clickhouse 作为应用仓库名称，输入 https://radondb.github.io/radondb-clickhouse-kubernetes/ 作为仓库的 URL。点击验证以验证 URL。在 URL 旁边呈现一个绿色的对号，验证通过后，点击确定继续。
 3.  将仓库成功导入到 KubeSphere 之后，在列表中可查看 ClickHouse 仓库。
 
-##  部署 ClickHouse 集群
+## 部署 ClickHouse 集群
 
 1.  以 project-regular 身份登录 KubeSphere 的 Web 控制台。在 demo-project 项目中，进入应用负载下的应用页面，点击创建。
 2.  在对话框中，选择从应用模板。
@@ -79,7 +79,7 @@ replicaset.apps/clickhouse-operator-644fcb8759   1         1         1       4m3
 6.  在应用配置页面，可以编辑 values.yaml 文件，也可以直接点击安装使用默认配置。
 7.  等待 ClickHouse 集群正常运行。可在工作负载下的应用页面，查看部署的应用。
 
-##  查看 ClickHouse 集群状态
+## 查看 ClickHouse 集群状态
 
 1.  以 project-regular 身份登录 KubeSphere 的 Web 控制台。
 2.  进入应用负载下的工作负载页面，点击有状态副本集，查看集群状态。
@@ -89,7 +89,7 @@ replicaset.apps/clickhouse-operator-644fcb8759   1         1         1       4m3
 6.  查看某个存储卷用量信息，以其中一个数据节点为例，可以看到当前存储的存储容量和剩余容量等监控数据。
 7.  在项目概览页面，可查看当前项目资源使用情况。
 
-##  访问 ClickHouse 集群
+## 访问 ClickHouse 集群
 
 以 admin 身份登录 KubeSphere 的 Web 控制台，将鼠标悬停在右下角的锤子图标上，选择 Kubectl。
 
@@ -116,9 +116,9 @@ $ kubectl exec -it <pod name> -n <project name> -- clickhouse-client --user=<use
 ![](../images/2022/01/20220121091937.png)
 
 
-#   附录
+# 附录
 
-##  `clickhouse-operator-install.yml`文件的内容
+## `clickhouse-operator-install.yml`文件的内容
 
 ```yaml
 apiVersion: apiextensions.k8s.io/v1
