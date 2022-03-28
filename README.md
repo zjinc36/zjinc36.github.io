@@ -317,6 +317,8 @@
 -   [Netty_Java_AIO基本介绍](2022/20220311-Netty_Java_AIO基本介绍.md)
 -   [Netty_Netty概述](2022/20220311-Netty_Netty概述.md)
 -   [Netty_高性能架构设计](2022/20220311-Netty_高性能架构设计.md)
+-   [Netty_GoogleProtobuf](2022/20220325-Netty_GoogleProtobuf.md)
+-   [Netty_编解码器和Handler调用机制](2022/20220325-Netty_编解码器和Handler调用机制.md)
 
 ## Python数据分析
 -   [Python数据分析_01_前奏](2021/20210718-Python数据分析_01_前奏.md)
@@ -325,6 +327,7 @@
 -   [RabbitMQ_简单案例](2021/20211105-RabbitMQ_简单案例.md)
 -   [RabbitMQ_发布确认](2021/20211108-RabbitMQ_发布确认.md)
 -   [RabbitMQ_交换机](2021/20211108-RabbitMQ_交换机.md)
+-   [RabbitMQ_六种工作模式](2022/20220328-RabbitMQ_六种工作模式.md)
 -   [RabbitMQ_死信队列](2021/20211108-RabbitMQ_死信队列.md)
 -   [RabbitMQ_延迟队列](2021/20211123-RabbitMQ_延迟队列.md)
 -   [RabbitMQ_发布确认高级](2021/20211124-RabbitMQ_发布确认高级.md)
