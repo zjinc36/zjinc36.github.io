@@ -35,3 +35,7 @@ Netty 对 JDK 自带的 NIO 的 API 进行了封装，解决了上述问题。
 +   目前在官网可下载的版本 Netty 3.x、Netty 4.0.x 和 Netty 4.1.x
 +   在本套课程中，我们讲解 Netty4.1.x 版本
 +   [Netty 下载地址](https://bintray.com/netty/downloads/netty/)
+
+## 参考
+
+https://imlql.cn/post/f846f3f.html

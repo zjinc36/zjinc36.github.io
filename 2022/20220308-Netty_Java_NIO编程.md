@@ -1022,3 +1022,7 @@ public class GroupChatClient {
     }
 }
 ```
+
+## 参考
+
+https://imlql.cn/post/3f9283e7.html

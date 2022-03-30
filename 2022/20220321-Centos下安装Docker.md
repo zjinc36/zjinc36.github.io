@@ -1,10 +1,10 @@
-# CentosÏÂ°²×°Docker
+# Centosä¸‹å®‰è£…Docker
 
 ----
 
-ÆäËûÏµÍ³²ÎÕÕÈçÏÂÎÄµµ https://docs.docker.com/engine/install/centos/
+å…¶ä»–ç³»ç»Ÿå‚ç…§å¦‚ä¸‹æ–‡æ¡£ https://docs.docker.com/engine/install/centos/
 
-1.  ÒÆ³ıÒÔÇ°dockerÏà¹Ø°ü
+1.  ç§»é™¤ä»¥å‰dockerç›¸å…³åŒ…
 
 ```bash
 sudo yum remove docker \
@@ -17,7 +17,7 @@ sudo yum remove docker \
                   docker-engine
 ```
 
-2.  ÅäÖÃyumÔ´
+2.  é…ç½®yumæº
 
 ```bash
 sudo yum install -y yum-utils
@@ -26,26 +26,26 @@ sudo yum-config-manager \
 http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 ```
 
-3.  °²×°docker
+3.  å®‰è£…docker
 
 ```bash
-# Òª×¢Òâ°æ±¾
-# kubernetesºÍdocker°æ±¾Òª¶ÔÓ¦,²»È»»áÅöµ½ºÜ¶àÆæ¹ÖµÄÎÊÌâ,ÉõÖÁ×°²»ÉÏ
+# è¦æ³¨æ„ç‰ˆæœ¬
+# kuberneteså’Œdockerç‰ˆæœ¬è¦å¯¹åº”,ä¸ç„¶ä¼šç¢°åˆ°å¾ˆå¤šå¥‡æ€ªçš„é—®é¢˜,ç”šè‡³è£…ä¸ä¸Š
 sudo yum install -y docker-ce docker-ce-cli containerd.io
 
-#ÒÔÏÂÊÇÔÚ°²×°k8sµÄÊ±ºòÊ¹ÓÃ
+#ä»¥ä¸‹æ˜¯åœ¨å®‰è£…k8sçš„æ—¶å€™ä½¿ç”¨
 yum install -y docker-ce-20.10.7 docker-ce-cli-20.10.7  containerd.io-1.4.6
 ```
 
-4.  Æô¶¯
+4.  å¯åŠ¨
 
 ```bash
 systemctl enable docker --now
 ```
 
-5.  ÅäÖÃ¼ÓËÙ
+5.  é…ç½®åŠ é€Ÿ
 
-ÕâÀï¶îÍâÌí¼ÓÁËdockerµÄÉú²ú»·¾³ºËĞÄÅäÖÃcgroup
+è¿™é‡Œé¢å¤–æ·»åŠ äº†dockerçš„ç”Ÿäº§ç¯å¢ƒæ ¸å¿ƒé…ç½®cgroup
 
 ```bash
 sudo mkdir -p /etc/docker

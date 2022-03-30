@@ -39,3 +39,7 @@ Netty 作为高性能的基础通信组件，提供了 TCP/UDP 和 HTTP 协议�
 
 [Netty in Action](https://waylau.com/essential-netty-in-action/index.html)
 
+## 参考
+
+https://imlql.cn/post/3f9283e7.html
+

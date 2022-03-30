@@ -617,3 +617,7 @@ public class NettyClientHandler extends ChannelInboundHandlerAdapter {
     }
 }
 ```
+
+## 参考
+
+https://imlql.cn/post/429acc6d.html
