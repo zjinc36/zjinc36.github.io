@@ -1,15 +1,11 @@
-#   Zookeeper选举机制
-+ date: 2019-09-07 12:46:05
-+ description: Zookeeper选举机制
-+ categories:
-  - BigData
-+ tags:
-  - Zookeeper
+# Zookeeper选举机制
+
 ---
-#   选票格式
+
+# 选票格式
 (myid, ZXID) => (自己机器的id, 事务id)
 
-#   半数选举机制
+# 半数选举机制
 +   机器1启动，选自己，选票为1,它发出去的报文没有任何响应，所以它的选举状态一直是LOOKING状态
 
 +   机器2启动，选自己，选票为(2, 0)
