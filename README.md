@@ -7,6 +7,9 @@
 -   [大数据挖掘大纲](2020/20201014-大数据挖掘大纲.md)
 -   [Druid-Kylin-Presto-Impala-SparkSQL-ES比较](2020/20200914-Druid-Kylin-Presto-Impala-SparkSQL-ES比较.md)
 
+## Beetl
+-   [Beetl](2022/20220505-Beetl.md)
+
 ## CentOs装机日志
 -   [设置主机名](2021/20210506-设置主机名.md)
 -   [配置命令提示符颜色](2021/20210506-配置命令提示符颜色.md)
@@ -75,6 +78,10 @@
 
 ## 电商数仓案例分析
 -   [电商数仓每个层级表的依赖关系](2020/20200924-电商数仓每个层级表的依赖关系.md)
+
+## EasyUI
+-   [EasyUI](2022/20220505-EasyUI.md)
+
 
 ## Elasticsearch
 -   [Elasticsearch_01_ElasticSearch简介](2022/20220222-Elasticsearch_01_ElasticSearch简介.md)
