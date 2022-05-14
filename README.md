@@ -599,6 +599,7 @@
     -   [Ubuntu刷新DNS](2020/20200731-Ubuntu刷新DNS.md)
     -   [Ubuntu中修改DNS的方法](2020/20200826-Ubuntu中修改DNS的方法.md)
     -   [Ubuntu自动运行用户脚本的方法](2021/20211007-Ubuntu自动运行用户脚本的方法.md)
+    -   [ubuntu编译报错error_while_loading_shared_libraries](2022/20220514-ubuntu编译报错error_while_loading_shared_libraries.md)
 
 ## 维度建模指南
 -   [维度建模指南](2021/20210510-维度建模指南.md)
