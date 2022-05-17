@@ -237,6 +237,8 @@
     -   [Java多线程JDK工具篇_07_Fork_Join框架](2022/20220209-Fork_Join框架.md)
     -   [Java多线程JDK工具篇_08_Java_8_Stream并行计算原理](2022/20220209-Java_8_Stream并行计算原理.md)
     -   [Java多线程JDK工具篇_09_计划任务](2022/20220209-20220209-计划任务.md)
++   应用篇
+    -   [并发编程的12种业务场景](2022/20220517-并发编程的12种业务场景.md)
 
 ## Jenkins
 -   [Jenkins配置选择commit选择服务器构建springcloud微服务项目](2021/20210915-Jenkins配置选择commit选择服务器构建springcloud微服务项目.md)
