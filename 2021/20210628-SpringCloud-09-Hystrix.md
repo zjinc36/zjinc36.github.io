@@ -1,7 +1,7 @@
-#   SpringCloud-09-Hystrix
+# SpringCloud-09-Hystrix
 
 ---
-##  47_Hystrix是什么
+## 47_Hystrix是什么
 
 ### 概述
 
@@ -25,7 +25,7 @@ Hystrix是一个用于处理分布式系统的延迟和容错的开源库，在�
 >   hystrix
 >   n. 豪猪属;猬草属;豪猪;豪猪亚属
 
-##  48_Hystrix停更进维
+## 48_Hystrix停更进维
 
 ### 能干嘛
 
@@ -46,7 +46,7 @@ Hystrix是一个用于处理分布式系统的延迟和容错的开源库，在�
 +   不再接受合并请求
 +   不再发布新版本
 
-##  49_Hystrix的服务降级熔断限流概念初讲
+## 49_Hystrix的服务降级熔断限流概念初讲
 
 ### 服务降级
 
@@ -259,7 +259,7 @@ success的方法 - http://localhost:8001/payment/hystrix/ok/1
 
 以上述为根基平台，从正确 -> 错误 -> 降级熔断 -> 恢复。
 
-##  51_JMeter高并发压测后卡顿
+## 51_JMeter高并发压测后卡顿
 上述在非高并发情形下，还能勉强满足
 
 ### Jmeter压测测试
@@ -282,7 +282,7 @@ success的方法 - http://localhost:8001/payment/hystrix/ok/1
 
 上面还是服务提供者8001自己测试，假如此时外部的消费者80也来访问，那消费者只能干等，最终导致消费端80不满意，服务端8001直接被拖慢。
 
-##  52_订单微服务调用支付服务出现卡顿
+## 52_订单微服务调用支付服务出现卡顿
 
 看热闹不嫌弃事大，80新建加入
 
@@ -461,7 +461,7 @@ http://localhost/consumer/payment/hystrix/ok/32
 
 正因为有上述故障或不佳表现才有我们的降级/容错/限流等技术诞生。
 
-##  53_降级容错解决的维度要求
+## 53_降级容错解决的维度要求
 
 超时导致服务器变慢(转圈) - 超时不再等待
 
@@ -473,7 +473,7 @@ http://localhost/consumer/payment/hystrix/ok/32
 +   对方服务(8001)down机了，调用者(80)不能一直卡死等待，必须有服务降级。
 +   对方服务(8001)OK，调用者(80)自己出故障或有自我要求(自己的等待时间小于服务提供者)，自己处理降级。
 
-##  54_Hystrix之服务降级支付侧fallback
+## 54_Hystrix之服务降级支付侧fallback
 
 降级配置 - @HystrixCommand
 
@@ -537,7 +537,7 @@ public class PaymentHystrixMain8001{
 }
 ```
 
-##  55_Hystrix之服务降级订单侧fallback
+## 55_Hystrix之服务降级订单侧fallback
 
 80订单微服务，也可以更好的保护自己，自己也依样画葫芦进行客户端降级保护
 
@@ -619,7 +619,7 @@ public class OrderHystirxController {
 }
 ```
 
-##  56_Hystrix之全局服务降级DefaultProperties
+## 56_Hystrix之全局服务降级DefaultProperties
 
 目前问题1 每个业务方法对应一个兜底的方法，代码膨胀
 
@@ -679,7 +679,7 @@ public class OrderHystirxController {
 }
 ```
 
-##  57_Hystrix之通配服务降级FeignFallback
+## 57_Hystrix之通配服务降级FeignFallback
 
 **目前问题2** 统一和自定义的分开，代码混乱
 
@@ -771,7 +771,7 @@ PaymentHystrixMain8001启动
 
 客户端自己调用提示 - 此时服务端provider已经down了，但是我们做了服务降级处理，让客户端在服务端不可用时也会获得提示信息而不会挂起耗死服务器。
 
-##  58_Hystrix之服务熔断理论
+## 58_Hystrix之服务熔断理论
 
 断路器，相当于保险丝。
 
@@ -785,7 +785,7 @@ PaymentHystrixMain8001启动
 
 ![](../images/2021/06/20210628093816.png)
 
-##  59_Hystrix之服务熔断案例(上)
+## 59_Hystrix之服务熔断案例(上)
 
 [Hutool国产工具类](https://hutool.cn/)
 
@@ -861,7 +861,7 @@ public abstract class HystrixCommandProperties {
 }
 ```
 
-##  60_Hystrix之服务熔断案例(下)
+## 60_Hystrix之服务熔断案例(下)
 ```java
 @RestController
 @Slf4j
@@ -895,7 +895,7 @@ public class PaymentController
 
 重点测试 - 多次错误，然后慢慢正确，发现刚开始不满足条件，就算是正确的访问地址也不能进行
 
-##  61_Hystrix之服务熔断总结
+## 61_Hystrix之服务熔断总结
 
 大神结论
 
@@ -1042,7 +1042,7 @@ public String doSomething() {
 }
 ```
 
-##  62_Hystrix工作流程最后总结
+## 62_Hystrix工作流程最后总结
 
 **服务限流** - 后面高级篇讲解alibaba的Sentinel说明
 
@@ -1077,7 +1077,7 @@ public String doSomething() {
 
 **tips**：如果我们没有为命令实现降级逻辑或者在降级处理逻辑中抛出了异常，Hystrix依然会运回一个Obsevable对象，但是它不会发射任结果数惯，而是通过onError方法通知命令立即中断请求，并通过onError方法将引起命令失败的异常发送给调用者。
 
-##  63_Hystrix图形化Dashboard搭建
+## 63_Hystrix图形化Dashboard搭建
 
 概述
 
@@ -1173,7 +1173,7 @@ public class HystrixDashboardMain9001
 
 浏览器输入 http://localhost:9001/hystrix
 
-##  64_Hystrix图形化Dashboard监控实战
+## 64_Hystrix图形化Dashboard监控实战
 
 修改cloud-provider-hystrix-payment8001
 
