@@ -117,6 +117,9 @@
 -   [Druid-Kylin-Presto-Impala-SparkSQL-ES比较](2020/20200914-Druid-Kylin-Presto-Impala-SparkSQL-ES比较.md)
 -   [项目遇到的问题之Flume](2019/20190915-项目遇到的问题之Flume.md)
 
+## 分布式
+-   [分布式Session](2022/20220616-分布式Session.md)
+
 ## Git
 -   [Git的Branch说明](2022/20220414-Git的Branch说明.md)
 -   [Git的Stage说明](2022/20220414-Git的Stage说明.md)
