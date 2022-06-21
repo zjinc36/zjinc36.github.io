@@ -289,6 +289,9 @@
 -   [操作系统引论2](2018/20180916-操作系统引论2.md)
 -   [进程的描述和控制1](2018/20180916-进程的描述和控制1.md)
 
+## 架构
+-   [Software_Architecture_Patterns翻译](2022/20220621-Software_Architecture_Patterns翻译.md)
+
 ## Kafka
 -   [项目遇到的问题之Kafka](2017/20170915-项目遇到的问题之Kafka.md)
 -   [Kafka机器数量计算](2019/20190907-Kafka机器数量计算.md)
@@ -380,6 +383,7 @@
 -   [Redis_RedLock_多节点redis分布式锁](2022/20220315-Redis_RedLock_多节点redis分布式锁.md)
 -   [Redis_用Redis来抗住超高并发读请求要如何设计](2022/20220315-Redis_用Redis来抗住超高并发读请求要如何设计.md)
 -   [Redis_高并发](2022/20220308-Redis_高并发.md)
+-   [Redis_AOF能保证数据百分百不丢失吗](2022/20220620-Redis_AOF能保证数据百分百不丢失吗.md)
 
 ## 日志
 -   [Java日志体系的发展史](2022/20220103-Java日志体系的发展史.md)
