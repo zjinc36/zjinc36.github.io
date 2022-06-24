@@ -1,14 +1,14 @@
-#   SpringCloud-10-Gateway和Zuul
+# SpringCloud-10-Gateway和Zuul
 
 ----
 
-##  65_GateWay和Zuul课程说明
+## 65_GateWay和Zuul课程说明
 
 Zuul开发人员窝里斗，实属明日黄花
 
 重点关注Gate Way
 
-##  66_GateWay是什么
+## 66_GateWay是什么
 
 [上一代zuul 1.x官网](https://github.com/Netflix/zuul/wiki)
 
@@ -45,7 +45,7 @@ Spring Cloud Gateway的目标提供统一的路由方式且基于 Filter链的�
 
 ![](../images/2021/06/20210628111836.png)
 
-##  67_GateWay非阻塞异步模型
+## 67_GateWay非阻塞异步模型
 
 有Zuull了怎么又出来Gateway? `我们为什么选择Gateway`?
 
@@ -102,7 +102,7 @@ Spring WebFlux是Spring 5.0 引入的新的响应式框架，区别于Spring MVC
 
 >   `Spring Cloud Gateway` requires the Netty runtime provided by Spring Boot and `Spring Webflux`. It does not work in a traditional Servlet Container or when built as a WAR.[link](https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.2.1.RELEASE/reference/html/#gateway-starter)
 
-##  68_Gateway工作流程
+## 68_Gateway工作流程
 
 ### 三大核心概念
 
@@ -133,7 +133,7 @@ Filter在“pre”类型的过滤器可以做参数校验、权限校验、流�
 
 **核心逻辑**：路由转发 + 执行过滤器链。
 
-##  69_Gateway9527搭建
+## 69_Gateway9527搭建
 
 1.  新建Module - cloud-gateway-gateway9527
 
@@ -289,7 +289,7 @@ eureka:
     -   添加网关后 - http://localhost:9527/payment/get/1
     -   两者访问成功，返回相同结果
 
-##  70_Gateway配置路由的两种方式
+## 70_Gateway配置路由的两种方式
 
 在配置文件yml中配置，见上一章节
 
@@ -350,7 +350,7 @@ public class GateWayConfig
 
 浏览器输入 http://localhost:9527/guonei ，返回 http://news.baidu.com/guonei 相同的页面。
 
-##  71_GateWay配置动态路由
+## 71_GateWay配置动态路由
 
 默认情况下Gateway会根据注册中心注册的服务列表，以注册中心上微服务名为路径创建动态路由进行转发，从而实现动态路由的功能（不写死一个地址）。
 
@@ -420,7 +420,7 @@ eureka:
 
 不停刷新页面，8001/8002两个端口切换。
 
-##  72_GateWay常用的Predicate
+## 72_GateWay常用的Predicate
 
 [官方文档](https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.2.1.RELEASE/reference/html/#gateway-request-predicates-factories)
 
@@ -560,7 +560,7 @@ curl http://localhost:9527/payment/lb -H "X-Request-Id:123"
 
 说白了，Predicate就是为了实现一组匹配规则，让请求过来找到对应的Route进行处理。
 
-##  73_GateWay的Filter
+## 73_GateWay的Filter
 
 [官方文档](https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.2.1.RELEASE/reference/html/#gatewayfilter-factories)
 

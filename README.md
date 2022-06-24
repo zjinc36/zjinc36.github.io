@@ -142,6 +142,7 @@
 -   [HDFS概述](2021/20210520-HDFS概述.md)
 -   [HDFS的Shell操作](2021/20210520-HDFS的Shell操作.md)
 -   [HDFS客户端操作](2021/20210520-HDFS客户端操作.md)
+-   [MapReduce的shuffle过程详解](2022/20220623-MapReduce的shuffle过程详解.md)
 -   [项目遇到的问题之Hadoop](2018/20180915-项目遇到的问题之Hadoop.md)
 -   [HadoopLZO压缩配置](2019/20190907-HadoopLZO压缩配置.md)
 -   [Hadoop参数调优](2019/20190907-Hadoop参数调优.md)
