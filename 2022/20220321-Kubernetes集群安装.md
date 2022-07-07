@@ -107,6 +107,7 @@ echo "172.31.0.4  cluster-endpoint" >> /etc/hosts
 如果apiserver-advertise-address和pod-network-cidr重叠该怎么办
 
 + 由于apiserver-advertise-address填写的是master节点ip,基本约等于没法动
++ service-cidr是svc的网络,一般也不动
 + 我们能动的只有pod-network-cidr
   - 这个地方和后面的网络组件息息相关
   - 192.168.0.0/16 是 calico 网络组件默认的网段
@@ -140,6 +141,13 @@ kubectl apply -f xxxx.yaml
 docker ps   ===   kubectl get pods -A
 # 运行中的应用在docker里面叫容器，在k8s里面叫Pod
 kubectl get pods -A
+
+#查看pod网络信息
+#[参考](https://blog.csdn.net/zhangbaoxiang/article/details/108035767)
+kubectl get pods -o wide
+
+#暴露一个pod的端口再查看svc信息
+kubectl get svc
 ```
 
 屏幕上会打印如下内容,要根据如下内容进行操作
