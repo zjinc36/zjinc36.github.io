@@ -202,10 +202,6 @@
 - [idea不显示Local_Changes界面](2021/20210102-idea不显示Local_Changes界面.md)
 - [idea控制标签页多行显示](2021/20210421-idea控制标签页多行显示.md)
 
-## Istio
-- [Istio](2022/20220809-Istio.md)
-
-
 ## Iphone
 
 - [iphone日历和提醒事项相互同步](2022/20220301-iphone日历和提醒事项相互同步.md)
