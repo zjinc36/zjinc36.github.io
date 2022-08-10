@@ -34,7 +34,7 @@ http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 sudo yum install -y docker-ce docker-ce-cli containerd.io
 
 #以下是在安装k8s的时候使用
-yum install -y docker-ce-20.10.7 docker-ce-cli-20.10.7  containerd.io-1.4.6
+yum install -y docker-ce-18.09.0 docker-ce-cli-18.09.0  containerd.io-1.4.6
 ```
 
 4.  启动

@@ -24,6 +24,9 @@
 #各个机器设置自己的域名
 hostnamectl set-hostname xxxx
 
+#关闭防火墙
+sudo systemctl stop firewalld
+sudo systemctl disable firewalld
 
 # 将 SELinux 设置为 permissive 模式（相当于将其禁用）
 sudo setenforce 0
@@ -44,6 +47,8 @@ net.bridge.bridge-nf-call-iptables = 1
 EOF
 sudo sysctl --system
 ```
+
+!> 记得检查/etc/hosts文件是否配置了
 
 ## 安装kubelet、kubeadm、kubectl
 
@@ -118,10 +123,9 @@ echo "172.31.0.4  cluster-endpoint" >> /etc/hosts
 
 ```bash
 #主节点初始化
-# --control-plane-endpoint=master 不一定需要,在主节点执行会自动填写正确
+# --control-plane-endpoint=master 不一定需要,在主节点执行会自动填写正确!!!
 kubeadm init \
 --apiserver-advertise-address=172.31.0.4 \
---control-plane-endpoint=master \
 --image-repository registry.cn-hangzhou.aliyuncs.com/lfy_k8s_images \
 --kubernetes-version v1.20.9 \
 --service-cidr=10.96.0.0/12 \
