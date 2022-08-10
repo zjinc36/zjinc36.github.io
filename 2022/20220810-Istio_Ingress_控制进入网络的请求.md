@@ -20,4 +20,70 @@
 	*	复习Gateway 的配置方法
 	*	复习Virtual Service的配置方法
 
+## 示例
+
+1. 如果您启用了 Sidecar 自动注入，通过以下命令部署 httpbin 服务：
+
+```bash
+kubectl apply -f samples/httpbin/httpbin.yaml
+```
+
+2. 创建 Istio Gateway
+
+```yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: httpbin-gateway
+spec:
+  selector:
+    istio: ingressgateway # use Istio default gateway implementation
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "httpbin.example.com"
+```
+
+3. 为通过 Gateway 的入口流量配置路由
+
+```yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: httpbin
+spec:
+  hosts:
+  - "httpbin.example.com"	# 与Gateway对应,设置一个相同的hosts
+  gateways:
+  - httpbin-gateway			# 绑定刚才创建的Gateway的名称
+  http:
+  - match:					# 具体的路由信息配置
+    - uri:
+        prefix: /status
+    - uri:
+        prefix: /delay
+    route:
+    - destination:			# 目标地址指向了httpbin:8000这个服务
+        port:
+          number: 8000
+        host: httpbin
+```
+
+4. 使用 curl 访问 httpbin 服务：
+
+```bash
+$ curl -s -I -HHost:httpbin.example.com "http://$INGRESS_HOST:$INGRESS_PORT/status/200"
+HTTP/1.1 200 OK
+server: istio-envoy
+...
+```
+
+注意上文命令使用 `-H` 标识将 HTTP 头部参数 Host 设置为 `httpbin.example.com`。该操作为必须操作，因为 Ingress Gateway 已被配置用来处理 "httpbin.example.com" 的服务请求，而在测试环境中并没有为该主机绑定 DNS，而是简单直接地向 Ingress IP 发送请求。
+
+# 参考
+
+[Ingress Gateway](https://istio.io/latest/zh/docs/tasks/traffic-management/ingress/ingress-control/)
 
