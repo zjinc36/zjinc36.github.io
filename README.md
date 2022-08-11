@@ -219,6 +219,14 @@
 - [Istio_Egress实现访问外部服务](2022/20220810-Istio_Egress实现访问外部服务.md)
 - [Istio_超时重试](2022/20220811-Istio_超时重试.md)
 - [Istio_熔断](2022/20220811-Istio_熔断.md)
+- [Istio_故障注入](2022/20220811-Istio_故障注入.md)
+- [Istio_流量镜像](2022/20220811-Istio_流量镜像.md)
+- [Istio_可视化组件Kiali](2022/20220811-Istio_可视化组件Kiali.md)
+- [Istio_监控组件Prometheus](2022/20220811-Istio_监控组件Prometheus.md)
+- [Istio_分布式追踪Jaeger](2022/20220811-Istio_分布式追踪Jaeger.md)
+- [Istio_mTLS认证](2022/20220811-Istio_mTLS认证.md)
+- [Istio_授权策略](2022/20220811-Istio_授权策略.md)
+- [Istio_JWT认证授权](2022/20220811-Istio_JWT认证授权.md)
 
 ## Java
 
