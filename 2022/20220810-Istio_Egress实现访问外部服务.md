@@ -35,4 +35,122 @@
 	*	理解egress的存在意义
 
 
+## 示例
+
+配置分析
+
+![](../images/2022/08/20220811092445.png)
+
+具体步骤如下
+
++	查看egressgateway组件是否存在
+
+![](../images/2022/08/20220811090640.png)
+
+![](../images/2022/08/20220811090702.png)
+
+如果没有sleep服务,要去sample中安装
+
+```
+kubectl apply -f samples/sleep/sleep.yaml
+```
+
++	为外部服务定义ServiceEntry
+
+```yaml
+# 文件名se_httpbin.yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry 
+metadata:
+  name: httpbin
+spec:
+  hosts:
+  - httpbin.org
+  ports:
+  - number: 80 
+    name: http-port
+    protocol: HTTP
+  resolution: DNS
+```
+
+![](../images/2022/08/20220811091409.png)
+
++	定义egress gateway
+
+```yaml
+# 文件名gw_httpbin.yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: istio-egressgateway
+spec:
+  selector:
+    istio: egressgateway 	# 选择istio默认的出口网关
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP 
+    hosts:
+    - httpbin.org
+```
+
+![](../images/2022/08/20220811092125.png)
+
++	定义路由，将流量引导到egressgateway
+
+```yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: Destination
+metadata:
+  name: dr-for-egressgateway
+spec:
+  host: istio-egressgateway.istio-system.svc.cluster.local  # 配置的是egress网关的DNS名称
+  subsets:
+  - name: httpbin
+```
+
+```yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: vs-for-egressgateway
+spec:
+  hosts:
+  - httpbin.org
+  gateways:					# 配置两个字段
+  - istio-egressgateway		# 针对egress网关的
+  - mesh 					# 针对内部网格的
+  http:
+  - match:
+  	# 针对内部网格的路由格则
+  	# 会把请求路由到egress网关这个对应的DNS名称上
+    # 也就是说,通过mesh,会将所有内部的请求全部指向网关这个节点
+  	- gateway:
+  	  - mesh
+  	  port: 80
+  	route:
+  	- destination:
+  	    host: istio-egressgateway.istio-system.svc.cluster.local
+  	    subset: httpbin
+  	    port:
+  	  	  number: 80
+      weight: 100
+  - match:
+    # 针对网关的路由规则
+    # 它会把网关的请求指向最终我们外部的服务地址
+  	- gateway:
+  	  - istio-egressgateway
+  	  port: 80
+  	route:
+  	- destination:
+  		host: httpbin.org
+  		port:
+  		  number: 80
+      weight: 100
+```
+
++	查看日志验证
+
+![](../images/2022/08/20220811091634.png)
 
