@@ -217,6 +217,8 @@
 - [Istio_流量转移_灰度发布是如何实现的](2022/20220810-Istio_流量转移_灰度发布是如何实现的.md)
 - [Istio_Ingress_控制进入网络的请求](2022/20220810-Istio_Ingress_控制进入网络的请求.md)
 - [Istio_Egress实现访问外部服务](2022/20220810-Istio_Egress实现访问外部服务.md)
+- [Istio_超时重试](2022/20220811-Istio_超时重试.md)
+- [Istio_熔断](2022/20220811-Istio_熔断.md)
 
 ## Java
 
