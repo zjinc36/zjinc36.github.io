@@ -224,6 +224,7 @@
 - [Istio_可视化组件Kiali](2022/20220811-Istio_可视化组件Kiali.md)
 - [Istio_监控组件Prometheus](2022/20220811-Istio_监控组件Prometheus.md)
 - [Istio_分布式追踪Jaeger](2022/20220811-Istio_分布式追踪Jaeger.md)
+- [Istio_配置TLS安全网关](2022/20220814-Istio_配置TLS安全网关.md)
 - [Istio_mTLS认证](2022/20220811-Istio_mTLS认证.md)
 - [Istio_授权策略](2022/20220811-Istio_授权策略.md)
 - [Istio_JWT认证授权](2022/20220811-Istio_JWT认证授权.md)

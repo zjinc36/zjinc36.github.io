@@ -1,4 +1,4 @@
-#   Firefox和Chrome常用插件
+# Firefox和Chrome常用插件
 
 ---
 
@@ -11,3 +11,4 @@
 7.  Smart TOC
 8.  Tampermonkey
 9.  Viminum
+10. Elasticvue
