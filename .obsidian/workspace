@@ -121,14 +121,13 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
     "width": 433.5
   },
-  "active": "8f394c501ccd1825",
+  "active": "bd17f8a387c628f9",
   "lastOpenFiles": [
     "2022/20220921-idea插件推荐.md",
     "2022/20220104-k8s部署nacos.md",
