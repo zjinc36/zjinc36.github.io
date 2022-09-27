@@ -4,15 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "fe67914f03298380",
+        "id": "c4966d35622e68ad",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "2022/20220103-Java日志体系的发展史.md",
-            "mode": "source",
-            "source": false
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -61,7 +57,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 230.5
+    "width": 318.5
   },
   "right": {
     "id": "c157befed9080dd8",
@@ -77,7 +73,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2022/20220103-Java日志体系的发展史.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +89,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "2022/20220103-Java日志体系的发展史.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -116,9 +110,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "2022/20220103-Java日志体系的发展史.md"
-              }
+              "state": {}
             }
           },
           {
@@ -136,8 +128,10 @@
     "direction": "horizontal",
     "width": 433.5
   },
-  "active": "fe67914f03298380",
+  "active": "8f394c501ccd1825",
   "lastOpenFiles": [
+    "2022/20220921-idea插件推荐.md",
+    "2022/20220104-k8s部署nacos.md",
     "2022/20220103-Java日志体系的发展史.md",
     "2018/20180226-设计模式之外观模式.md",
     "README.md",
@@ -145,7 +139,6 @@
     "2017/10/23/Lombok简化你的代码.md",
     "2019/20191012-大数据学习大纲.md",
     "images/2020/05/20200506012.png",
-    "_navbar.md",
-    "2017/20170102-oh-my-zsh配置文件.md"
+    "_navbar.md"
   ]
 }
