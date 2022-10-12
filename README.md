@@ -54,6 +54,7 @@
 - [离线安装hive](2021/20210601-离线安装hive.md)
 - [安装nacos集群](2021/20210617-安装nacos集群.md)
 - [安装sentinel](2021/20210617-安装sentinel.md)
+- [TDengine的安装和使用](2022/20221012-TDengine的安装和使用.md)
 
 ## Clickhouse
 
@@ -75,6 +76,7 @@
 - [docker简介](2019/20191123-docker简介.md)
 - [docker安装jenkins](2021/20210506-docker安装jenkins.md)
 - [docker安装nginx](2021/20210514-docker安装nginx.md)
+- [docker安装TDengine](2022/20221012-TDengine的安装和使用?id=docker安装tdengine)
 
 ## Dubbo
 
