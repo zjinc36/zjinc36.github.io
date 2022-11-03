@@ -1,11 +1,7 @@
-#   Tampermonkey增加去除简书的推荐阅读脚本
-description: Tampermonkey增加去除简书的推荐阅读脚本
-date: 2020-05-21 23:05:44
-categories:
-- Tampermonkey
-tags:
-- Tampermonkey
+# Tampermonkey增加去除简书的推荐阅读脚本
+
 ---
+
 ```JavaScript
 // ==UserScript==
 // @name         去除简书掘金的多余信息
