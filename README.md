@@ -151,6 +151,7 @@
 - [Git忽略文件](2017/20170218-Git忽略文件.md)
 - [Git的diff命令和patch命令的使用](2017/20170214-Git的diff命令和patch命令的使用.md)
 - [Git的log功能美化](2017/20170217-Git的log功能美化.md)
+- [Git多个commit合并成一个](2022/20221108-Git多个commit合并成一个.md)
 - [eclipse中解决git冲突](2017/20171223-eclipse中解决git冲突.md)
 - [解决Github-Page无法访问的其中一种情况](2020/20200826-解决Github-Page无法访问的其中一种情况.md)
 
