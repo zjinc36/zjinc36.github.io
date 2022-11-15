@@ -1,19 +1,19 @@
-#   Struts2访问Servlet的API
-+ date: 2019-07-10 16:27:56
-+ description: Struts2访问Servlet的API方式
-+ categories:
-  - Java
-+ tags:
-  - Struts2
+# Struts2访问Servlet的API
+
 ---
-#	Servlet 和 Action 的区别
+
+# Servlet 和 Action 的区别
+
 >	[_参考:https://blog.csdn.net/siwuxie095/article/details/77075528_](https://blog.csdn.net/siwuxie095/article/details/77075528)
 >	Servlet：默认在第一次访问时创建，且只创建一次，是单实例对象
 >	Action：访问时创建，且每次访问都会创建，创建多次，是多实例对象
 
-#	Struts2访问Servlet的API的方式
-##  完全解耦合的方式
+# Struts2访问Servlet的API的方式
+
+## 完全解耦合的方式
+
 ### 1.入口
+
 ```html
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -34,7 +34,9 @@
 </body>
 </html>
 ```
-###	2.Action
+
+### 2.Action
+
 ```java
 package com.zjinc36.demo3;
 
@@ -71,7 +73,9 @@ public class requestDemo1 extends ActionSupport {
 	}
 }
 ```
-###	3.映射
+
+### 3.映射
+
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC
@@ -86,7 +90,8 @@ public class requestDemo1 extends ActionSupport {
 </struts>
 ```
 
-###	4.出口
+### 4.出口
+
 ```html
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -107,11 +112,15 @@ public class requestDemo1 extends ActionSupport {
 </body>
 </html>
 ```
+
 ### 需要注意
+
 **注:这种方式只能获得代表request,session,application的数据的Map集合,不能操作这些对象本身的方法**
 
-##  使用servlet原生的api方式
+## 使用servlet原生的api方式
+
 ### Action
+
 ```java
 package com.zjinc36.demo3;
 
@@ -147,11 +156,14 @@ public class requestDemo2 extends ActionSupport {
 	}
 }
 ```
-###	需要注意
+### 需要注意
+
 **这种方式既可以操作域对象的数据,也可以获得对象的方法**
 
-##  接口注入方式
+## 接口注入方式
+
 ### Action
+
 ```java
 package com.zjinc36.demo3;
 
@@ -202,5 +214,7 @@ public class requestDemo3 extends ActionSupport implements ServletRequestAware, 
 	}
 }
 ```
-###	注意
+
+### 注意
+
 Servlet是单例的,多个程序访问一个Servlet只会创建一个Servlet实例.而这里的Action是多例的,一次请求,创建一个Action的实例,不会出现线程安全的问题
