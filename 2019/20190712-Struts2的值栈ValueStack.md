@@ -1,33 +1,37 @@
-#   Struts2的值栈(ValueStack)
-+ date: 2019-07-12 16:48:14
-+ description: OGNL的值栈
-+ categories:
-  - Java
-+ tags:
-  - OGNL
-- Struts2
+# Struts2的值栈(ValueStack)
+
 ---
-#	值栈
-##  什么是值栈
->   [_参考:什么是值栈_](https://blog.csdn.net/siwuxie095/article/details/77075528)
->   1.	在 Servlet 中把数据放到域对象(_域对象的主要作用:在一定范围内,存值和取值_),再在页面中使用EL 表达式获取数据
->   2.	Struts2 本身也提供了一种存储机制,称之为 值栈（ValueStack）,值栈类似于域对象,可以存值和取值,在 Action 中把数据放到值栈,再在页面中获取值栈数据
+
+# 值栈
+
+## 什么是值栈
+
++	[_参考:什么是值栈_](https://blog.csdn.net/siwuxie095/article/details/77075528)
++	在 Servlet 中把数据放到域对象(_域对象的主要作用:在一定范围内,存值和取值_),再在页面中使用EL 表达式获取数据
++	Struts2 本身也提供了一种存储机制,称之为 值栈（ValueStack）,值栈类似于域对象,可以存值和取值,在 Action 中把数据放到值栈,再在页面中获取值栈数据
 
 ValueStack其实类似一个数据中转站(Struts2的框架当中的数据就都保存到ValueStack中)
 +   Valuestack接口,实现类OgnlValueStack对象
 +   ValueStack贯穿整个Action的声明周期(Action一旦创建了,框架就会创建一个ValueStack对象)
 
-##	值栈的存储位置
->   [_参考:什么是值栈_](https://blog.csdn.net/siwuxie095/article/details/77075528)
->   +   每次访问 Action 时,都会创建 Action 对象
->   +   在每个 Action 对象中都会有一个值栈对象（且只有一个）
+## 值栈的存储位置
 
-#  分析值栈的内部结构
++	[_参考:什么是值栈_](https://blog.csdn.net/siwuxie095/article/details/77075528)
++	每次访问 Action 时,都会创建 Action 对象
++	在每个 Action 对象中都会有一个值栈对象（且只有一个）
+
+# 分析值栈的内部结构
+
 ## 从结论说起
+
 **值栈中有两个主要区域**
+
 ### root区域
+
 其实就是一个ArrayList,里面一般放置对象,获取root不需要加#
+
 ### context区域
+
 其实就是一个Map,里面放置web开发的常用的对象的数据引用,包含如下
 +   request
 +   session
@@ -35,13 +39,15 @@ ValueStack其实类似一个数据中转站(Struts2的框架当中的数据就�
 +   parameters
 +   attr
 
-##  如何得到上述结论
+## 如何得到上述结论
+
 ### 方法一:源码分析
+
 #### 查看源码
+
 *ognl的源代码没有在Struts2的源码包里面*
 
 ![](../images/20190711004.png)
-
 
 #### 值栈结构图
 
@@ -49,7 +55,8 @@ ValueStack其实类似一个数据中转站(Struts2的框架当中的数据就�
 
 
 ### 方法二:打印debug页面
-####    1.Action代码
+
+#### 1.Action代码
 ```java
 package com.zjinc36.ognl;
 
@@ -72,7 +79,9 @@ public class ValueStackDemo1 extends ActionSupport{
 	}
 }
 ```
-####    2.jsp页面(出口)
+
+#### 2.jsp页面(出口)
+
 ```html
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -88,27 +97,32 @@ public class ValueStackDemo1 extends ActionSupport{
 </body>
 </html>
 ```
-####    3.在浏览器打开
+
+#### 3.在浏览器打开
 
 ![](../images/20190712004.png)
 
+# ActionContext
 
+## 什么是ActionContext
 
-#   ActionContext
-##  什么是ActionContext
 +   [*回顾:ServletContext*](/2019/06/26/Servlet与ServletConfig与ServletContext的使用/#ServletContext)
 +   ActionContext是一个类,表示的是Action的上下文环境，它封装了一个Action运行所需要的环境，比如session、parameters、locale等,OGNL的操作都是基于ActionContext而进行的
 +   对于这个ActionContext来说，每一个请求对应一个Action，这也是为什么说[每个 Action 对象中都会有一个值栈对象（且只有一个）](/2019/07/13/Struts2的值栈ValueStack/#值栈的存储位置),所以说你不用担心什么线程安全的问题了
 +   对于ActionContext中的SESSION、APPLICATION、PARAMETERS和LOCALE就不用多说了，前面我们重点总结的还是VALUE_STACK就是为此
-##  值栈和ActionContext的关系
+
+## 值栈和ActionContext的关系
+
 1.  **创建ActionContext对象**:通过源码查看到,当请求过来的时候,执行过滤器中doFilter()方法,在这个方法中创建ActionContext
 2.  **创建ValueStack对象**:创建ActionContext过程中,创建ValueStack对象,将ValueStack对象传递给ActionContext对象
 3.  所以**可以通过ActionContext获取值栈对象**
 4.  ActionContext对象之所以能够访问Servlet的API(访问是域对象的数据),因为在其内部有值栈的引用
 
-#  获取值栈
+# 获取值栈
+
 +	通过ActionContext获得值栈 -> **操作的是`root`区域**
 +	通过request对象获得 -> **操作的是`context`区域**
+
 ```java
 package com.zjinc36.ognl;
 
@@ -137,13 +151,19 @@ public class ValueStackDemo2 extends ActionSupport{
 	}
 }
 ```
+
 **注意:一个Action的实例,只会创建一个ValueStack的对象**
 
-#  操作值栈
+# 操作值栈
+
 这里**重点放在将不同类型的数据存入值栈时,值栈的root区域和context区域发生怎么样的变化**,虽然也有OGNL如何从值栈取出数据,但不是值栈这边的重点
-##  操作值栈中的root区域
+
+## 操作值栈中的root区域
+
 ### 利用Action在值栈中的特性
+
 1.   Action
+
 ```java
 //Action
 package com.zjinc36.ognl;
@@ -177,7 +197,9 @@ public class ValueStackDemo3 extends ActionSupport{
 	}
 }
 ```
+
 2.  jsp文件
+
 ```html
 <!-- jsp文件 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -196,13 +218,15 @@ public class ValueStackDemo3 extends ActionSupport{
 </body>
 </html>
 ```
+
 3.  结果页面
 
 ![](../images/20190712006.png)
 
-
 ### 使用值栈的push方法
+
 1.  Action
+
 ```java
 package com.zjinc36.ognl;
 
@@ -225,6 +249,7 @@ public class ValueStackDemo4 extends ActionSupport{
 ```
 
 2.  jsp页面
+
 ```html
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -252,13 +277,16 @@ public class ValueStackDemo4 extends ActionSupport{
 </body>
 </html>
 ```
+
 3.  结果页面
 
 ![](../images/20190712008.png)
 
 
-###	使用值栈的set方法
+### 使用值栈的set方法
+
 1.  Action
+
 ```java
 package com.zjinc36.ognl;
 
@@ -278,7 +306,9 @@ public class ValueStackDemo4 extends ActionSupport{
 	}
 }
 ```
+
 2.  jsp页面
+
 ```html
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -305,13 +335,16 @@ public class ValueStackDemo4 extends ActionSupport{
 </body>
 </html>
 ```
+
 3.  结果页面
 
 ![](../images/20190712009.png)
 
 
 ### 使用值栈的set方法(设置ArrayList)
+
 1.  Action
+
 ```java
 package com.zjinc36.ognl;
 
@@ -337,7 +370,9 @@ public class ValueStackDemo4 extends ActionSupport{
 }
 
 ```
+
 2.  jsp页面
+
 ```html
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -371,7 +406,9 @@ public class ValueStackDemo4 extends ActionSupport{
 ```
 
 ## 操作值栈中的context区域
+
 1.  写入数据
+
 ```java
 package com.zjinc36.ognl;
 
@@ -390,6 +427,7 @@ public class ValueStackDemo4 extends ActionSupport{
 ```
 
 2.	获取数据
+
 ```html
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -431,7 +469,11 @@ public class ValueStackDemo4 extends ActionSupport{
 
 **注意:如果request没有设置数据,而我们又有取request的数据,则能拿到的是session的数据,同理,其他也有类似规则(不需要特意记忆,在页面开debug找就行)**
 
-#   OGNL表达式获取值栈数据
+# OGNL表达式获取值栈数据
+
 [_参考:OGNL表达式获取值栈数据_](/2019/07/11/对象图导航语言OGNL/)
-#   EL表达式获取值栈数据
+
+# EL表达式获取值栈数据
+
 [_参考:EL表达式获取值栈数据_](https://blog.csdn.net/siwuxie095/article/details/77163897)
+
