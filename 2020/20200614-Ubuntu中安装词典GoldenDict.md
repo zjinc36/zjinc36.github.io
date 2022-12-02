@@ -12,11 +12,10 @@ sudo apt-get install goldendict
 
 ## 离线词库
 
-1.  离线词库下载
-
-测试过[http://download.huzheng.org/zh\_CN/](http://download.huzheng.org/zh_CN/)
-测试过[英汉:朗文5++ ·双解·例句发音](https://freemdict.com/2018/06/04/%e8%8b%b1%e6%b1%89-%e6%9c%97%e6%96%875-%c2%b7%e5%8f%8c%e8%a7%a3%c2%b7%e4%be%8b%e5%8f%a5%e5%8f%91%e9%9f%b3/)
-没测试过[http://download.huzheng.org/](http://download.huzheng.org/)
++   离线词库下载
+    *   测试过[http://download.huzheng.org/zh_CN/](http://download.huzheng.org/zh_CN/)
+    *   测试过[英汉:朗文5++ ·双解·例句发音](https://freemdict.com/2018/06/04/%e8%8b%b1%e6%b1%89-%e6%9c%97%e6%96%875-%c2%b7%e5%8f%8c%e8%a7%a3%c2%b7%e4%be%8b%e5%8f%a5%e5%8f%91%e9%9f%b3/)
+    *   没测试过[http://download.huzheng.org/](http://download.huzheng.org/)
 
 添加
 
