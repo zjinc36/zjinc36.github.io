@@ -376,6 +376,8 @@
 ## Kubernetes
 
 - [kubernetes_两种容器探针](2022/20220823-kubernetes_两种容器探针.md)
+- [kubenetes生产环境证书过期处理](2023/20230215-kubenetes生产环境证书过期处理.md)
+- 
 
 ## Linux系统
 
@@ -750,6 +752,11 @@
 - [vim中显示markdown结构大纲](2019/20190729-vim中显示markdown结构大纲.md)
 - [vim中删除句尾的空白字符](2019/20190730-vim中删除句尾的空白字符.md)
 
+## Windows操作日志
+
+- [windows启动文件夹与设置开机自启动脚本和软件开机自启](2021/20210507-windows启动文件夹与设置开机自启动脚本和软件开机自启.md)
+- [电脑连蓝牙耳机的Stereo模式但没有声音如何解决](2023/20230215-电脑连蓝牙耳机的Stereo模式但没有声音如何解决.md)
+
 ## Wireshark
 
 - [Wireshark抓包TLS协议栏显示版本不一致问题](2022/20221116-Wireshark抓包TLS协议栏显示版本不一致问题.md)
@@ -786,7 +793,6 @@
 
 - [番茄工作法](2018/20180422-番茄工作法.md)
 - [notes_中西方文化差异的渊源](2020/20200311-notes_中西方文化差异的渊源.md)
-- [windows启动文件夹与设置开机自启动脚本和软件开机自启](2021/20210507-windows启动文件夹与设置开机自启动脚本和软件开机自启.md)
 - [Linux中挖Chia说明](2021/20210530-Linux中挖Chia说明.md)
 - [Tampermonkey增加去除简书的推荐阅读脚本](2020/20200521-Tampermonkey增加去除简书的推荐阅读脚本.md)
 - [docsify的Markdown语法](2021/20210819-docsify的Markdown语法.md)
