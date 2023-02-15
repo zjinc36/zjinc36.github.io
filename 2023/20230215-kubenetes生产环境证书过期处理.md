@@ -148,3 +148,4 @@ CertificateValidity = time.Hour * 24 * 365 * 30
 
 ## 参考
 -	[记一次kubesphere生产环境证书过期问题](https://www.cnblogs.com/subendong/p/15604340.html)
+-	[k8s 运维之：证书更新](https://www.jianshu.com/p/f8d54e4e3247)
