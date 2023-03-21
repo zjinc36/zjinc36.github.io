@@ -46,7 +46,7 @@ etcd-server                Sep 25, 2020 11:19 UTC   184d            no
 front-proxy-client         Sep 25, 2020 11:32 UTC   184d            no
 scheduler.conf             Sep 25, 2020 11:32 UTC   184d            no
 
-# # 在一台 master 上执行更新证书的操作
+# #在一台 master 上执行更新证书的操作
 $ kubeadm alpha certs renew all
 certificate embedded in the kubeconfig file for the admin to use and for kubeadm itself renewed
 certificate for serving the Kubernetes API renewed

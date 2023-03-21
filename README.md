@@ -378,7 +378,6 @@
 
 - [kubernetes_两种容器探针](2022/20220823-kubernetes_两种容器探针.md)
 - [kubenetes生产环境证书过期处理](2023/20230215-kubenetes生产环境证书过期处理.md)
-- 
 
 ## Linux系统
 
@@ -781,6 +780,8 @@
 - [Kubesphere部署es](2022/20220121-Kubesphere部署es.md)
 - [Kubesphere安装clickhouse集群](2022/20220121-kubesphere安装clickhouse集群.md)
 - [DevOps基础](2022/20220121-DevOps基础.md)
+- [kubenetes生产环境证书过期处理](2023/20230215-kubenetes生产环境证书过期处理.md)
+- [kubesphere生产环境证书过期问题](2023/20230321-kubesphere生产环境证书过期问题.md)
 
 ## Zookeeper
 
