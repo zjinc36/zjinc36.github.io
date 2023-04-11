@@ -507,6 +507,16 @@
 - [Servlet中关于HttpServletRequest和HttpServletResponse的使用](2019/20190627-Servlet中关于HttpServletRequest和HttpServletResponse的使用.md)
 - [JSP和EL和JSTL](2019/20190629-JSP和EL和JSTL.md)
 
+## Struts2
+
+- [Struts2入门和配置](2019/20190709-Struts2入门和配置.md)
+- [Struts2的数据封装](2019/20190710-Struts2的数据封装.md)
+- [Struts2访问Servlet的API](2019/20190710-Struts2访问Servlet的API.md)
+- [对象图导航语言OGNL](2019/20190711-对象图导航语言OGNL.md)
+- [Struts2的值栈ValueStack](2019/20190712-Struts2的值栈ValueStack.md)
+- [Struts2的标签库](2019/20190713-Struts2的标签库.md)
+- [Struts2的拦截器](2019/20190713-Struts2的拦截器.md)
+
 ## Spring
 
 - SpringMVC
@@ -564,16 +574,6 @@
   - [SpringCloud-18-组件总结](2021/20210628-SpringCloud-18-组件总结.md)
 - Spring应用
   - [Spring中为什么不建议使用字段注入](2022/20220608-Spring中为什么不建议使用字段注入.md)
-
-## Struts2
-
-- [Struts2入门和配置](2019/20190709-Struts2入门和配置.md)
-- [Struts2的数据封装](2019/20190710-Struts2的数据封装.md)
-- [Struts2访问Servlet的API](2019/20190710-Struts2访问Servlet的API.md)
-- [对象图导航语言OGNL](2019/20190711-对象图导航语言OGNL.md)
-- [Struts2的值栈ValueStack](2019/20190712-Struts2的值栈ValueStack.md)
-- [Struts2的标签库](2019/20190713-Struts2的标签库.md)
-- [Struts2的拦截器](2019/20190713-Struts2的拦截器.md)
 
 ## 设计模式
 
