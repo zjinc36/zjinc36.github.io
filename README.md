@@ -1,12 +1,10 @@
 # JinChao的学习笔记
 
--------
+---
 
 ## Ant
 
 - [利用Ant脚本生成war包的详细步骤](2022/20221124-利用Ant脚本生成war包的详细步骤.md)
-
-
 
 ## BigData
 
@@ -64,9 +62,10 @@
 
 ## Clickhouse
 
-- [clickhouse常用sql语句](2021/20210915-clickhouse常用sql语句.md)
+- [Clickhouse常用sql语句](2021/20210915-clickhouse常用sql语句.md)
 - [Clickhouse与kudu-kylin-druid的区别和使用场景](2021/20210327-Clickhouse与kudu-kylin-druid的区别和使用场景.md)
 - [Clickhouse最佳实战之分布式集群方案研究](2021/20210715-Clickhouse最佳实战之分布式集群方案研究.md)
+- [Clickhouse里物化视图如何跟随源表更新数据](2023/20230411-clickhouse里物化视图如何跟随源表更新数据.md)
 
 ## CSS
 
@@ -129,7 +128,6 @@
 
 - [Flink运行架构总结](2019/20190014-Flink运行架构总结.md)
 - [Flink双流Join](2022/20220928-Flink双流Join.md)
-
 
 ## Flume
 
@@ -270,18 +268,20 @@
 - [Java中的枚举类型详解](2021/20210722-Java中的枚举类型详解.md)
 - [Java内部类详解](2021/20210602-Java内部类详解.md)
 - [Java8_Stream的一些代码片段](2022/20220128-Java8_Stream的一些代码片段.md)
+- [java传值还是传址](2023/220230411-java传值还是传址.md)
 
 ## Java多线程
 
 - 基础篇
+
   - [Java多线程基础篇_01_进程与线程的基本概念](2021/20210818-进程与线程的基本概念.md)
   - [Java多线程基础篇_02_Java多线程入门类和接口](2021/20210818-Java多线程入门类和接口.md)
     - [可取消的异步任务_FutureTask用法及解析](2022/20220614-可取消的异步任务_FutureTask用法及解析.md)
   - [Java多线程基础篇_03_线程组和线程优先级](2021/20210823-线程组和线程优先级.md)
   - [Java多线程基础篇_04_Java线程的状态及主要转化方法](2021/20210825-Java线程的状态及主要转化方法.md)
   - [Java多线程基础篇_05_Java线程间的通信](2021/20210901-Java线程间的通信.md)
-
 - 原理篇
+
   - [Java多线程原理篇_01_Java内存模型基础知识](2021/20210916-Java内存模型基础知识.md)
   - [Java多线程原理篇_02_从零开始设计一个Java内存模型](2021/20210920-从零开始设计一个Java内存模型.md)
   - [Java多线程原理篇_03_volatitle](2021/20210917-volatitle.md)
@@ -293,6 +293,7 @@
     - [原子类AtomicInteger的ABA问题](2017/20170819-原子类AtomicInteger的ABA问题.md)
   - [Java多线程原理篇_06_AQS](2022/20220209-AQS.md)
 - JDK工具篇
+
   - [Java多线程JDK工具篇_01_线程池原理](2021/20210922-线程池原理.md)
   - [Java多线程JDK工具篇_02_阻塞队列](2021/20210922-阻塞队列.md)
   - [Java多线程JDK工具篇_03_锁接口和类](2022/20220209-锁接口和类.md)
@@ -308,13 +309,10 @@
   - [Java多线程JDK工具篇_08_Java_8_Stream并行计算原理](2022/20220209-Java_8_Stream并行计算原理.md)
   - [Java多线程JDK工具篇_09_计划任务](2022/20220209-20220209-计划任务.md)
 - 应用篇
+
   - [并发编程的12种业务场景](2022/20220517-并发编程的12种业务场景.md)
   - [保证线程安全的10个小技巧](2022/20220608-保证线程安全的10个小技巧.md)
   - [用线程池和FutureTask解决线上接口经常超时问题](2022/20220614-用线程池和FutureTask解决线上接口经常超时问题.md)
-
-## Jenkins
-
-- [Jenkins配置选择commit选择服务器构建springcloud微服务项目](2021/20210915-Jenkins配置选择commit选择服务器构建springcloud微服务项目.md)
 
 ## Jvm
 
@@ -341,6 +339,10 @@
 - [Junit单元测试](2018/20180119-Junit单元测试.md)
 - [Junit之Jacoco测试率覆盖工具](2018/20180206-Junit之Jacoco测试率覆盖工具.md)
 - [Junit单元测试](2018/20180119-Junit单元测试.md)
+
+## Jenkins
+
+- [Jenkins配置选择commit选择服务器构建springcloud微服务项目](2021/20210915-Jenkins配置选择commit选择服务器构建springcloud微服务项目.md)
 
 ## Jquery
 
@@ -454,7 +456,6 @@
 - [PDF文件格式](2022/20221117-PDF文件格式.md)
 - [PDF图形对象和颜色空间](2022/20221121-PDF图形对象和颜色空间.md)
   + [非零环绕数规则和奇偶规则](2022/20221122-非零环绕数规则和奇偶规则.md)
-
 
 ## Python数据分析
 
@@ -679,6 +680,7 @@
 ## Ubuntu操作日志
 
 - ubuntu图形软件安装与配置
+
   - [ubuntu图形软件](2021/20211014-ubuntu图形软件.md)
   - [Firefox和Chrome常用插件](2021/20210905-Firefox和Chrome常用插件.md)
   - [ubuntu安装fcitx拼音和日语输入法](2017/20170512-ubuntu安装fcitx拼音和日语输入法.md)
@@ -711,16 +713,16 @@
   - [ubuntu中Rime输入法的安装和配置](2020/20200726-ubuntu中Rime输入法的安装和配置.md)
   - [Ubuntu20-04中安装flameshot截屏工具](2020/20200801-Ubuntu20-04中安装flameshot截屏工具.md)
   - [Ubuntu高分辨率屏幕比例放大](2021/20211023-Ubuntu高分辨率屏幕比例放大.md)
-
 - gnome的使用与常用扩展
+
   - [Ubuntu的gnome的使用与常用扩展](2018/20180506-Ubuntu的gnome的使用与常用扩展.md)
   - [Ubuntu中安装番茄工作法软件gnome-shell-pomodoro](2020/20200421-Ubuntu中安装番茄工作法软件gnome-shell-pomodoro.md)
-
 - 命令行
+
   - [oh-my-zsh配置文件](2017/20170102-oh-my-zsh配置文件.md)
   - [Ubuntu中批量下载bilibili网站的视频](2020/20200711-Ubuntu中批量下载bilibili网站的视频.md)
-
 - 具体操作日志
+
   - [使用awk命令处理文本](2017/20170711-使用awk命令处理文本.md)
   - [Ubuntu环境变量的位置与配置](2018/20180208-Ubuntu环境变量的位置与配置.md)
   - [Zsh添加环境变量](2018/20180510-Zsh添加环境变量.md)
@@ -761,7 +763,6 @@
 ## Wireshark
 
 - [Wireshark抓包TLS协议栏显示版本不一致问题](2022/20221116-Wireshark抓包TLS协议栏显示版本不一致问题.md)
-
 
 ## 云原生
 
