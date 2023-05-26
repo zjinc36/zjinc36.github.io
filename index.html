@@ -71,10 +71,11 @@
             offset: 300
         },
         copyCode: {
-            buttonText : '拷贝到剪切板',
-            errorText  : '拷贝失败',
-            successText: '拷贝成功'
-        }
+            buttonText : '复制到剪切板',
+            errorText  : '复制失败',
+            successText: '复制成功'
+        },
+        plugins: []
     }
     </script>
 
@@ -129,4 +130,125 @@
 
 </body>
 
+<style type="text/css">
+    .sidebar .sidebar-nav ul > li,
+    .sidebar .sidebar-nav > ul > li > a {
+      font-weight: bold;
+      font-size: 15px;
+      color: #364149;
+    }
+
+    .hover-tip {
+      display: inline-block;
+      position: relative;
+      padding: 0 4px;
+      color: #42b983;
+      border-bottom-width: 2px;
+      border-bottom-style: solid;
+      border-bottom-color: white;
+      transition: all 0.2s;
+    }
+
+    .hover-tip:hover {
+      border-bottom-color: #42b983;
+    }
+
+    .hover-tip:hover .tip-box {
+      transform: scale(1) translate(0, -2px);
+      opacity: 1;
+      max-height: 240px;
+      padding: 1rem;
+      transition: transform 0.2s, max-height 0.2s ease-in, opacity 0.2s;
+      z-index: 999;
+    }
+
+    .hover-tip .tip-box {
+      transform: scale(0) translate(100px, 100px);
+      max-height: 0px;
+      width: 240px;
+      overflow: hidden;
+      right: 0;
+      bottom: 1.4rem;
+      box-sizing: border-box;
+      opacity: 0;
+      border: 2px solid #42b983;
+      position: absolute;
+      background: white;
+      transition: transform 0.2s;
+    }
+
+    .hover-tip > a {
+      color: white;
+    }
+
+    .tip-box > * {
+      display: block;
+    }
+
+    .tip-box .no-margin {
+      margin: 0;
+    }
+
+    .tip-box .tips-title {
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .tip-box .tips-content {
+      word-break: break-all;
+      color: #364149;
+      font-weight: normal;
+      font-size: 0.8rem;
+    }
+
+    video {
+      width: 100%;
+    }
+
+    /* 优化导航栏 */
+    .app-nav > li > ul > li {
+      margin: 10px 0;
+      margin-right: 16px;
+    }
+
+    .app-nav > ul > li > ul > li {
+      padding: 10px;
+      margin: 0;
+    }
+
+    .app-nav > ul > li > ul > li:hover {
+      background: #1d4742;
+    }
+
+    .app-nav > ul > li:hover > ul {
+      min-width: 100px;
+      display: flex;
+      padding: 10px;
+      color: white;
+      background: #0b6b62;
+    }
+
+    .app-nav li:hover > ul {
+      overflow: visible;
+    }
+
+    .app-nav li:hover > ul > li {
+      border-radius: 4px;
+    }
+
+    .app-nav li:hover > ul > li > ul {
+      background: transparent;
+    }
+
+    .app-nav > ul > li > ul > li > ul {
+      overflow: visible;
+      position: initial;
+      border: none;
+    }
+
+    .app-nav > ul > li > ul > li > ul > li {
+      margin: 0;
+      margin-bottom: 4px;
+    }
+  </style>
 </html>
