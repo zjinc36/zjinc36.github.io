@@ -324,7 +324,6 @@
 
 - [Junit单元测试](2018/20180119-Junit单元测试.md)
 - [Junit之Jacoco测试率覆盖工具](2018/20180206-Junit之Jacoco测试率覆盖工具.md)
-- [Junit单元测试](2018/20180119-Junit单元测试.md)
 
 ## Jvm
 

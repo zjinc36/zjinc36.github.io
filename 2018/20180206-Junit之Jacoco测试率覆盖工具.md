@@ -1,12 +1,7 @@
 #   Junit之Jacoco测试率覆盖工具
-+ date: 2018-02-06 20:59:47
-+ description: Junit之Jacoco测试率覆盖工具
-+ categories:
-  - Java
-+ tags:
-  - Junit
-- Java
+
 ---
+
 #	介绍JaCoCo
 Java Code Coverage是一种分析单元测试覆盖率的工具，使用它运行单元测试后，可以给出代码中哪些部分被单元测试测到，哪些部分没有没测到，并且给出整个项目的单元测试覆盖情况百分比，看上去一目了然。
 
@@ -38,42 +33,39 @@ Java Code Coverage是一种分析单元测试覆盖率的工具，使用它运�
 4.	安装后重新启动eclipse,如果安装成功,工具栏上会出现一个新的按钮
 
 ### EclEmma的使用
-1.  编写单元测试用例。现在支持以下测试：
-```
-+	Local Java application
-+	Eclipse/RCP application
-+	Equinox OSGi framework
-+	JUnit test
-+	TestNG test
-+	JUnit plug-in test
-+	JUnit RAP test
-+	SWTBot test
-+	Scala application
-```
-2.  以Junit为例,在测试用例文件上右键,选择`Coverage As` -> `Junit Test`
-3.  会在测试的文件中显示出运行结果
-```
-+   绿色:完整执行
-+   红色:没执行
-+   黄色:部分执行
-```
-4.  通过点击调出Coverage窗口,它是用来统计程序的覆盖测试率
-5.  点击红色矩形框的按钮能将多次测试的覆盖数据综合起来进行查看
-6.  在Coverage视图主区域中点击右键,出现的快捷菜单中选择`Export Report...`
-7.  出现Export界面,选项如下:
-```
-+   Available session:要导出的session
-+   Format:选择报告的类型(HTML/XML/Text/EMMA session)
-+   Destination:导出的session存放的位置
-```
++ 编写单元测试用例。现在支持以下测试：
+    - Local Java application
+    - Eclipse/RCP application
+    - Equinox OSGi framework
+    - JUnit test
+    - TestNG test
+    - JUnit plug-in test
+    - JUnit RAP test
+    - SWTBot test
+    - Scala application
++ 以Junit为例,在测试用例文件上右键,选择`Coverage As` -> `Junit Test`
++ 会在测试的文件中显示出运行结果
+    - 绿色:完整执行
+    - 红色:没执行
+    - 黄色:部分执行
++ 通过点击调出Coverage窗口,它是用来统计程序的覆盖测试率
++ 点击红色矩形框的按钮能将多次测试的覆盖数据综合起来进行查看
++ 在Coverage视图主区域中点击右键,出现的快捷菜单中选择`Export Report...`
++ 出现Export界面,选项如下:
+    - Available session:要导出的session
+    - Format:选择报告的类型(HTML/XML/Text/EMMA session)
+    - Destination:导出的session存放的位置
 
 ##  IDEA插件
+
 无
 
 #   运行时测试
+
 JaCoCo支持程序运行中监控执行情况.下面介绍直接运行和tomcat服务器两种监控方式.
 
 ##  准备
+
 在jacoco官网下载jacoco包,下载链接[www.jacoco.org/jacoco/](www.jacoco.org/jacoco/)
 下载的包中包括三个jar,此处使用`jacocoagent.jar`和`jacococli.jar`
 
