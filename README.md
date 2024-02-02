@@ -271,6 +271,7 @@
 - [Java内部类详解](2021/20210602-Java内部类详解.md)
 - [Java8_Stream的一些代码片段](2022/20220128-Java8_Stream的一些代码片段.md)
 - [java传值还是传址](2023/220230411-java传值还是传址.md)
+- [Java泛型](2024/20240201-Java泛型.md)
 
 ## Java多线程
 
@@ -531,7 +532,7 @@
 
 ## Spring
 
-- SpringMVC
+- Spring
   - [SpringMVC的基本流程](2017/20171005-SpringMVC的基本流程.md)
   - [SpringMVC的快速入门](2017/20171003-SpringMVC的快速入门.md)
   - [SpringMVC的默认组件加载](2017/20171006-SpringMVC的默认组件加载.md)
@@ -557,6 +558,7 @@
   - [Spring使用注解方式实现AOP](2019/20190721-Spring使用注解方式实现AOP.md)
   - [Spring的事务管理](2019/20190727-Spring的事务管理.md)
   - [SSH整合方式](2019/20190728-SSH整合方式.md)
+  - [spring.factories的基本使用](2024/20240201-spring.factories的基本使用.md)
 - SpringBoot
   - [SpringBoot的环境搭建](2019/20190903-SpringBoot的环境搭建.md)
   - [SpringBoot的快速入门](2019/20191002-SpringBoot的快速入门.md)
