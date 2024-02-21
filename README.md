@@ -447,6 +447,7 @@
 - [MySQL定时删除数据](2021/20210918-mysql定时删除数据.md)
 - [MySQL_分区脚本](2022/20220316-MySQL_分区脚本.md)
 - [项目遇到的问题之MySql](2017/20170615-项目遇到的问题之MySql.md)
+- [MySQL与MongoDB该如何做技术选型](2024/20240221-MySQL与MongoDB该如何做技术选型.md)
 
 ## Netty
 
