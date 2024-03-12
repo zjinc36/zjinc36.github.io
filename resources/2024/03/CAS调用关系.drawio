@@ -1,0 +1,201 @@
+<mxfile host="Electron" modified="2024-03-12T01:05:47.650Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.18 Chrome/120.0.6099.199 Electron/28.1.2 Safari/537.36" etag="oRbbBCLhZnug2wmv9LXa" version="22.1.18" type="device">
+  <diagram id="3n3GMLr9_bggaubgurux" name="第 1 页">
+    <mxGraphModel dx="2485" dy="1997" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="lViJlbdtggMBDLcHaQ7U-1" target="lViJlbdtggMBDLcHaQ7U-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-1" value="http://app1.com:8181/book/books" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="50" y="190" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="lViJlbdtggMBDLcHaQ7U-2" target="lViJlbdtggMBDLcHaQ7U-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-6" value="否：302" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="lViJlbdtggMBDLcHaQ7U-5" vertex="1" connectable="0">
+          <mxGeometry x="-0.0167" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-2" value="是否已经登录？" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="130" y="310" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="lViJlbdtggMBDLcHaQ7U-4" target="lViJlbdtggMBDLcHaQ7U-41" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-4" value="http://localhost:8443/cas/login?service=http://app1.com:8181/book/books" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="330" y="320" width="260" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="lViJlbdtggMBDLcHaQ7U-7" target="lViJlbdtggMBDLcHaQ7U-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" source="lViJlbdtggMBDLcHaQ7U-7" target="lViJlbdtggMBDLcHaQ7U-10" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-7" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="399" y="40" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" source="lViJlbdtggMBDLcHaQ7U-10" target="lViJlbdtggMBDLcHaQ7U-14" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-10" value="输入用户名密码页面" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="660" y="170" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" source="lViJlbdtggMBDLcHaQ7U-14" target="lViJlbdtggMBDLcHaQ7U-18" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-25" value="是：302" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="lViJlbdtggMBDLcHaQ7U-24" vertex="1" connectable="0">
+          <mxGeometry x="0.0723" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-14" value="用户名密码是否正确" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="827" y="490" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fillColor=#ffe6cc;strokeColor=#d79b00;curved=1;" parent="1" source="lViJlbdtggMBDLcHaQ7U-18" target="lViJlbdtggMBDLcHaQ7U-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-20" y="555" as="sourcePoint" />
+            <mxPoint x="-20" y="220" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-80" y="630" />
+              <mxPoint x="-80" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-30" value="302" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="lViJlbdtggMBDLcHaQ7U-29" vertex="1" connectable="0">
+          <mxGeometry x="-0.488" y="-1" relative="1" as="geometry">
+            <mxPoint x="-1" y="-153" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-18" value="http://app1.com:8181/book/books?ticket=ST...." style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="30" y="600" width="280" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-22" value="设置Cookie&lt;br&gt;TGC=...." style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="440" y="360" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;entryX=0.55;entryY=0.95;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="lViJlbdtggMBDLcHaQ7U-14" target="lViJlbdtggMBDLcHaQ7U-22" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="376" y="446" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-26" value="是：设置Cookie" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="lViJlbdtggMBDLcHaQ7U-23" vertex="1" connectable="0">
+          <mxGeometry x="0.3929" y="2" relative="1" as="geometry">
+            <mxPoint x="-48" y="-52" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-31" value="设置Cookie&lt;br&gt;JSESSIONID=..." style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="20" y="230" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.07;entryY=0.4;entryDx=0;entryDy=0;entryPerimeter=0;curved=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" source="lViJlbdtggMBDLcHaQ7U-18" target="lViJlbdtggMBDLcHaQ7U-31" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-40" y="630" />
+              <mxPoint x="-40" y="262" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="lViJlbdtggMBDLcHaQ7U-33" target="lViJlbdtggMBDLcHaQ7U-35" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1241" y="155" />
+              <mxPoint x="1241" y="155" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-33" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="1226" y="40" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="lViJlbdtggMBDLcHaQ7U-35" target="lViJlbdtggMBDLcHaQ7U-52" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-35" value="http://app2.com:8282/book/books" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1141" y="170" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="lViJlbdtggMBDLcHaQ7U-40" target="lViJlbdtggMBDLcHaQ7U-41" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-40" value="http://localhost:8443/cas/login?service=http://app2.com:8282/book/books" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="907" y="320" width="243" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="lViJlbdtggMBDLcHaQ7U-41" target="lViJlbdtggMBDLcHaQ7U-10" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-44" value="否" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="lViJlbdtggMBDLcHaQ7U-43" vertex="1" connectable="0">
+          <mxGeometry x="-0.1294" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-41" value="Cookie是否存在？（是否已经登录）" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="680" y="310" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="lViJlbdtggMBDLcHaQ7U-41" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="685" y="466" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="720" y="466" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-48" value="是" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="lViJlbdtggMBDLcHaQ7U-47" vertex="1" connectable="0">
+          <mxGeometry x="0.0108" relative="1" as="geometry">
+            <mxPoint y="-36" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="lViJlbdtggMBDLcHaQ7U-49" target="lViJlbdtggMBDLcHaQ7U-56" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-64" value="302" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="lViJlbdtggMBDLcHaQ7U-57" vertex="1" connectable="0">
+          <mxGeometry x="-0.0128" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-49" value="获取cookie（TGC）" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="570" y="410" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-50" value="" style="shape=link;html=1;rounded=0;exitX=0.96;exitY=0.7;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.25;entryY=0.25;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" source="lViJlbdtggMBDLcHaQ7U-22" target="lViJlbdtggMBDLcHaQ7U-49" edge="1">
+          <mxGeometry width="100" relative="1" as="geometry">
+            <mxPoint x="510" y="470" as="sourcePoint" />
+            <mxPoint x="610" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="lViJlbdtggMBDLcHaQ7U-52" target="lViJlbdtggMBDLcHaQ7U-40" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-52" value="是否已经登录？" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1201" y="310" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;curved=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="lViJlbdtggMBDLcHaQ7U-56" target="lViJlbdtggMBDLcHaQ7U-35" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1540" y="630" />
+              <mxPoint x="1540" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-63" value="302" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="lViJlbdtggMBDLcHaQ7U-59" vertex="1" connectable="0">
+          <mxGeometry x="-0.0334" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-56" value="http://app2.com:8282/book/books？ticket=ST..." style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1091" y="600" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-61" value="设置Cookie&lt;br&gt;JSESSIONID=..." style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="1281" y="210" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="lViJlbdtggMBDLcHaQ7U-62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.875;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;curved=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="lViJlbdtggMBDLcHaQ7U-56" target="lViJlbdtggMBDLcHaQ7U-61" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1490" y="630" />
+              <mxPoint x="1490" y="250" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oi0Erq8bD0GB1TJ7Tk53-2" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;a href=&quot;https://liushaohuang.cn/2020/01/07/CAS%E8%AF%A6%E7%BB%86%E8%AE%A4%E8%AF%81%E6%B5%81%E7%A8%8B%E5%92%8C%E9%83%A8%E5%88%86%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/&quot;&gt;参考文档：&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(85, 85, 85); font-family: Lato, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, sans-serif;&quot;&gt;CAS详细认证流程和部分客户端源码解析&lt;/span&gt;&lt;/a&gt;&lt;br&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-40" y="-60" width="330" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
