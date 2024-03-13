@@ -495,6 +495,7 @@
 - [Redis_线程模型](2022/20220315-Redis_线程模型.md)
 - [Redis_事务](2022/20220315-Redis_事务.md)
 - [Redis_主从哨兵集群](2022/20220315-Redis_主从哨兵集群.md)
+- [Redis分布式锁](2024/20240313-Redis分布式锁.md)
 - [Redis_RedLock_多节点redis分布式锁](2022/20220315-Redis_RedLock_多节点redis分布式锁.md)
 - [Redis_用Redis来抗住超高并发读请求要如何设计](2022/20220315-Redis_用Redis来抗住超高并发读请求要如何设计.md)
 - [Redis_高并发](2022/20220308-Redis_高并发.md)
