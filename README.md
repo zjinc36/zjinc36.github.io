@@ -215,6 +215,7 @@
 - [idea中的modules、facets、artificats的作用](2022/20221104-idea中的modules、facets、artificats的作用.md)
 - [idea集成svn](2022/20221108-idea集成svn.md)
 - [解决IDEA打Jar包找不到或无法加载主类问题](2023/20230321-解决IDEA打Jar包找不到或无法加载主类问题.md)
+- [Idea修改Commit Message记录](2024/20240403-Idea修改CommitMessage.md)
 
 ## Iphone
 
