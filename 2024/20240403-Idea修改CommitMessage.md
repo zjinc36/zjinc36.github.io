@@ -20,11 +20,17 @@
 
 ## 项目已经push
 
-如果项目已经Push。直接修改Message会提示Push Rejected 这时不要点merge，不仅不会修改Message，还会多两个新的Commit
+如果项目已经Push。直接修改Message会提示Push Rejected
 
 ![](../images/2024/04/20240403102825.png)
 
-上远端删除当前分支（一般不会这样干，前面一步点击Merge就好）
+如果点击merge，不仅不会修改Message，还会多两个新的Commit
+
+![](../images/2024/04/20240403103627.png)
+
+（`这时候可以进行如下处理，不过生产上不一定能这样处理，所以一般前一步日志写清楚是修改日志，然后Merge就好了`）
+
+上远端删除当前分支
 
 ![](../images/2024/04/20240403102857.png)
 
