@@ -19,6 +19,8 @@ sudo apt-get install fctix
 Bundle 'humiaozuzu/fcitx-status'
 ```
 
+注意：fcitx4在gnome活动界面搜索框无法输入中文，这个问题是gnome产生的无法解决。具体参见[这里](/2024/20240508-fcitx4在gnome活动界面搜索框无法输入中文.md)
+
 
 # 安装google拼音
 

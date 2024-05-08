@@ -706,6 +706,7 @@
 - [ubuntu图形软件](2021/20211014-ubuntu图形软件.md)
 - [Firefox和Chrome常用插件](2021/20210905-Firefox和Chrome常用插件.md)
 - [ubuntu安装fcitx拼音和日语输入法](2017/20170512-ubuntu安装fcitx拼音和日语输入法.md)
+- [fcitx4在gnome活动界面搜索框无法输入中文](2024/20240508-fcitx4在gnome活动界面搜索框无法输入中文.md)
 - [Ubuntu的Shell中使用ack进行搜索](2017/20170516-Ubuntu的Shell中使用ack进行搜索.md)
 - [Ubuntu18-04安装ibus拼音输入](2018/20180512-Ubuntu18-04安装ibus拼音输入.md)
 - [Ubuntu安装数据库可视化工具dbeaver](2019/20190703-Ubuntu安装数据库可视化工具dbeaver.md)
