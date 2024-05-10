@@ -703,6 +703,7 @@
 
 ## Ubuntu操作日志
 
+- [修改ubuntu20.04个人文件夹为英文](2024/20240510-Ubuntu20.04个人文件夹改为英文.md)
 - [ubuntu图形软件](2021/20211014-ubuntu图形软件.md)
 - [Firefox和Chrome常用插件](2021/20210905-Firefox和Chrome常用插件.md)
 - [ubuntu安装fcitx拼音和日语输入法](2017/20170512-ubuntu安装fcitx拼音和日语输入法.md)
