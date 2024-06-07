@@ -79,6 +79,7 @@
 ## Docker
 
 - [docker简介](2019/20191123-docker简介.md)
+- [Docker Network容器间的通信](2024/20240607-DockerNetwork容器间的通信.md)
 - [docker安装jenkins](2021/20210506-docker安装jenkins.md)
 - [docker安装nginx](2021/20210514-docker安装nginx.md)
 - [docker安装TDengine](2022/20221012-TDengine的安装和使用?id=docker安装tdengine)
@@ -160,6 +161,11 @@
 - [eclipse中解决git冲突](2017/20171223-eclipse中解决git冲突.md)
 - [解决Github-Page无法访问的其中一种情况](2020/20200826-解决Github-Page无法访问的其中一种情况.md)
 - [tig入门](2024/20240515-tig入门.md)
+
+## GitLab
+
+- [通过Docker快速部署公司内部 GitLab](2024/20240607-通过Docker快速部署公司内部GitLab.md)
+- [通过GitLabRunner实现CICD工作流](2024/20240607-通过GitLabRunner实现CICD工作流.md)
 
 ## Hadoop
 
