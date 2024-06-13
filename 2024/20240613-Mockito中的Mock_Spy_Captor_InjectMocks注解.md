@@ -268,7 +268,7 @@ public class UserServiceBaseTest {
 
         User user = new User();
         user.setId("222");
-        // 被测试k函数userService.check()中
+        // 被测试函数userService.check()中
         // 调用userService当前类的find函数，以下代码是模拟调用find函数,有返回值
         doReturn(user).when(userService).find(any());
         // 调用userService当前类的add函数，以下代码是模拟调用add函数，无返回值
