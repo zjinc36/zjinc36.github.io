@@ -337,6 +337,7 @@
 - [Jacoco_基础说明](2024/20240105-Jacoco_基础说明.md)
 - [Jacoco_上手指南](2024/20240105-Jacoco_上手指南.md)
 - [Jacoco_springboot多模块工程单元测试统计代码覆盖率](2024/20240111-Jacoco_springboot多模块工程单元测试统计代码覆盖率.md)
+- [Mockito 中的 @Mock, @Spy, @Captor 及 @InjectMocks 注解](2024/20240613-Mockito中的Mock_Spy_Captor_InjectMocks注解.md)
 
 ## Jvm
 
