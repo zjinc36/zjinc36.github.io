@@ -279,6 +279,7 @@
 - [Java中的枚举类型详解](2021/20210722-Java中的枚举类型详解.md)
 - [Java内部类详解](2021/20210602-Java内部类详解.md)
 - [Java8_Stream的一些代码片段](2022/20220128-Java8_Stream的一些代码片段.md)
+  - [java8_stream流操作的flatMap](2024/20240626-java8_stream流操作的flatMap.md)
 - [java传值还是传址](2023/220230411-java传值还是传址.md)
 - [Java泛型](2024/20240201-Java泛型.md)
 
