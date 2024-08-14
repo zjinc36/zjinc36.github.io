@@ -83,6 +83,7 @@
 - [docker安装jenkins](2021/20210506-docker安装jenkins.md)
 - [docker安装nginx](2021/20210514-docker安装nginx.md)
 - [docker安装TDengine](2022/20221012-TDengine的安装和使用?id=docker安装tdengine)
+- [定期清理Docker镜像的最佳实践和工具](2024/20240814-定期清理Docker镜像的最佳实践和工具.md)
 
 ## Dubbo
 
