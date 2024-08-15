@@ -272,7 +272,7 @@
 - [String直接赋值与使用new-String的区别](2019/20190627-String直接赋值与使用new-String的区别.md)
 - [Java匿名子类](2021/20210824-Java匿名子类.md)
 - [Java匿名内部类访问外部变量，为何需被标志为final](2019/20190728-Java匿名内部类访问外部变量，为何需被标志为final.md)
-- [Java中的闭包](2019/20190728-Java中的闭包.md)
+  - [Java中的闭包](2019/20190728-Java中的闭包.md)
 - [Java8函数式接口Consumer、Supplier、Predicate和Function说明](2019/20190810-Java8函数式接口Consumer、Supplier、Predicate和Function说明.md)
 - [Java的类加载器](2020/20200610-Java的类加载器.md)
 - [Java中的多态传递](2020/20200610-Java中的多态传递.md)
