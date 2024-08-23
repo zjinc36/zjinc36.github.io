@@ -438,6 +438,7 @@
 - [maven配置本地仓库](2019/20190730-maven配置本地仓库.md)
 - [maven的工程拆分与聚合](2019/20190731-maven的工程拆分与聚合.md)
 - [maven引入本地jar包](2023/20230215-Maven引入本地jar包.md)
+- [maven查看依赖jar包、版本号、license](2024/20240823-Maven查看_依赖jar包_获取版版本号%20_license.md)
 
 ## MyBatis
 
