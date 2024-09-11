@@ -529,6 +529,7 @@
 - [安装并使用bcc-tools进行性能调整](2023/20230807-安装并使用bcc-tools进行性能调整.md)
 - [crash分析之coredump](2023/20230807-crash分析之coredump.md)
 - [tcpdump使用说明](2024/20240903-tcpdump使用说明.md)
+- [ln命令使用说明](2024/20240910-ln命令使用.md)
 
 ## Servlet
 
