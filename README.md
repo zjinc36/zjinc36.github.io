@@ -288,6 +288,10 @@
 - [Java中try...catch...finally语句的嵌套](2024/20240814-try...catch...finally语句的嵌套.md)
 - [Java中理解序列化](2024/20240815-理解序列化.md)
 
+## Java内存
+
+- [JAVA服务内存占用太高且只增不减](2024/20240930-JAVA服务内存占用太高且只增不减.md)
+
 ## Java多线程
 
 - 基础篇
@@ -531,6 +535,7 @@
 - [crash分析之coredump](2023/20230807-crash分析之coredump.md)
 - [tcpdump使用说明](2024/20240903-tcpdump使用说明.md)
 - [ln命令使用说明](2024/20240910-ln命令使用.md)
+- [top命令](2024/20240930-top命令.md)
 
 ## Servlet
 
