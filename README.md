@@ -226,6 +226,7 @@
 - [解决IDEA打Jar包找不到或无法加载主类问题](2023/20230321-解决IDEA打Jar包找不到或无法加载主类问题.md)
 - [Idea修改Commit Message记录](2024/20240403-Idea修改CommitMessage.md)
 - [Idea连接rediss说明](2024/20240925-Idea连接rediss说明.md)
+- [Idea编辑器内性能提示](2024/20240930-Idea编辑器内性能提示.md)
 
 ## Iphone
 
@@ -290,6 +291,7 @@
 
 ## Java内存
 
+- [VisualVM使用](2024/20240930-VisualVM使用.md)
 - [JAVA服务内存占用太高且只增不减](2024/20240930-JAVA服务内存占用太高且只增不减.md)
 
 ## Java多线程
