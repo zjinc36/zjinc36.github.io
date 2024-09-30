@@ -380,6 +380,10 @@
 
 - [Jenkins配置选择commit选择服务器构建springcloud微服务项目](2021/20210915-Jenkins配置选择commit选择服务器构建springcloud微服务项目.md)
 
+## Jmeter
+
+- [JMeter的基本使用与性能测试](2024/20240930-JMeter的基本使用与性能测试.md)
+
 ## Jquery
 
 - [Jquery可输入也可选择的下拉框](2019/20191115-Jquery可输入也可选择的下拉框.md)
