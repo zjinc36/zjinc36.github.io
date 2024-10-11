@@ -288,6 +288,7 @@
 - [Java旧Map拷贝成新Map](2024/20240712-Java旧Map拷贝成新Map.md)
 - [Java中try...catch...finally语句的嵌套](2024/20240814-try...catch...finally语句的嵌套.md)
 - [Java中理解序列化](2024/20240815-理解序列化.md)
+- [容器环境的JVM内存设置最佳实践](2024/20241011-容器环境的JVM内存设置最佳实践.md)
 
 ## Java内存
 
