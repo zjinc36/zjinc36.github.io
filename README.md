@@ -219,6 +219,7 @@
 ## IBM MQ
 
 - [Docker安装IBMMQ并使用Explorer连接](2024/20241121-Docker安装IBMMQ并使用Explorer连接.md)
+- [浅析IBMMQ和RabbitMq的区别](2024/20241122-浅析IBMMQ和RabbitMq的区别.md)
 
 ## Idea使用日志
 
