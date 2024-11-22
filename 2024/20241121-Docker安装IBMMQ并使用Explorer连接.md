@@ -7,6 +7,18 @@
 
 ## 下载ibmmq镜像
 
+> 这段引用来自AI: github copilot
+> 
+> Docker 安装的 IBM MQ 有时间限制，具体取决于你使用的版本。
+> - IBM MQ Developer Edition：这是一个免费的版本，适用于开发和测试用途。它没有时间限制，但不能用于生产环境。
+> - IBM MQ Advanced for Developers：这个版本也是免费的，适用于开发和测试用途，同样没有时间限制，但不能用于生产环境。
+> - IBM MQ Trial：这是一个试用版，通常有 90 天的时间限制，用于评估和测试。
+> - IBM MQ Enterprise：这是一个付费版本，没有时间限制，可以用于生产环境。
+> 
+> 你可以通过以下命令在 Docker 中安装 IBM MQ Developer Edition：
+> - docker pull ibmcom/mq
+> - docker run --env LICENSE=accept --env MQ_QMGR_NAME=QM1 --publish 1414:1414 --publish 9443:9443 --detach --name ibmmq ibmcom/mq
+
 docker仓库地址：https://hub.docker.com/r/ibmcom/mq/
 
 该镜像的默认用户是admin，密码是passw0rd
