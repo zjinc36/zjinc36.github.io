@@ -159,6 +159,7 @@
 - [Git的diff命令和patch命令的使用](2017/20170214-Git的diff命令和patch命令的使用.md)
 - [Git的log功能美化](2017/20170217-Git的log功能美化.md)
 - [Git多个commit合并成一个](2022/20221108-Git多个commit合并成一个.md)
+- [Git在merge前如何知道哪些文件发生冲突](2024/20241205-Git在merge前如何知道哪些文件发生冲突.md)
 - [GitFlow工作流程](2023/20230412-GitFlow工作流程.md)
 - [eclipse中解决git冲突](2017/20171223-eclipse中解决git冲突.md)
 - [解决Github-Page无法访问的其中一种情况](2020/20200826-解决Github-Page无法访问的其中一种情况.md)
