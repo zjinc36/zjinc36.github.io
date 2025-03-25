@@ -801,6 +801,7 @@
 - [Ubuntu自动运行用户脚本的方法](2021/20211007-Ubuntu自动运行用户脚本的方法.md)
 - [ubuntu编译报错error_while_loading_shared_libraries](2022/20220514-ubuntu编译报错error_while_loading_shared_libraries.md)
 - [Ubuntu钉钉运行无反应](2024/20240507-Ubuntu钉钉运行无反应.md)
+- [Ubuntu钉钉会议后Dock图标无法关闭](2025/20250325-Ubuntu钉钉会议后Dock图标无法关闭.md)
 - [Ubuntu修改SSH配置文件来更改默认的远程登录用户](2024/20240507-Ubuntu修改SSH配置文件来更改默认的远程登录用户.md)
 
 ## 维度建模指南
