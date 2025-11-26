@@ -802,6 +802,7 @@
 - [ubuntu编译报错error_while_loading_shared_libraries](2022/20220514-ubuntu编译报错error_while_loading_shared_libraries.md)
 - [Ubuntu钉钉运行无反应](2024/20240507-Ubuntu钉钉运行无反应.md)
 - [Ubuntu修改SSH配置文件来更改默认的远程登录用户](2024/20240507-Ubuntu修改SSH配置文件来更改默认的远程登录用户.md)
+- [Ubuntu24蓝牙耳机速查手册](2025/20251124-Ubuntu24蓝牙耳机速查手册.md)
 
 ## 维度建模指南
 
