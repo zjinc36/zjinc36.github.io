@@ -561,8 +561,9 @@
 - [crash分析之coredump](2023/20230807-crash分析之coredump.md)
 - [tcpdump使用说明](2024/20240903-tcpdump使用说明.md)
 - [ln命令使用说明](2024/20240910-ln命令使用.md)
-- [top命令](2024/20240930-top命令.md)
-- [grep命令](2024/20241011-grep命令.md)
+- [top命令使用日志](2024/20240930-top命令使用日志.md)
+- [grep命令使用日志](2024/20241011-grep命令使用日志.md)
+- [aws-cli使用日志](2026/aws-cli使用日志.md)
 
 ## Servlet
 
