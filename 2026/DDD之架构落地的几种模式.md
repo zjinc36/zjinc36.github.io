@@ -198,12 +198,12 @@ public class FileApplicationService {
 - **代码示例（对接微信支付）**：
 
 ```java
-// 1. 核心层：定义支付端口
+// 1. 核心层：定义支付端口(domain/service/PaymentPort.java)
 public interface PaymentPort {
     PaymentResult pay(OrderAggregate order, PayType payType);
 }
 
-// 2. 基础设施层：适配器 + 门面封装
+// 2. 基础设施层：适配器 + 门面封装(infrastructure/integration/WxPayAdapter.java)
 @Service
 public class WxPayAdapter implements PaymentPort {
     // 门面类：封装微信支付的复杂API
@@ -252,7 +252,7 @@ public class WxPayAdapter implements PaymentPort {
 - **代码示例（文件上传后发送短信通知）**：
 
 ```java
-// 1. 核心层（domain/event）：定义领域事件
+// 1. 核心层（domain/event）：定义领域事件(domain/event/FileUploadedEvent.java)
 public class FileUploadCompletedEvent {
     private FileAggregate file;
     private UserAggregate user;
@@ -303,12 +303,13 @@ public class SmsNotifyListener implements ApplicationListener<FileUploadComplete
 - **代码示例（多文件存储策略）**：
 
 ```java
-// 1. 核心层：定义存储策略端口（策略接口）
+// 1. 核心层：定义存储策略端口（策略接口，domain/service/FileStorageStrategy.java）
 public interface FileStorageStrategy {
     String store(InputStream inputStream, String fileName);
 }
 
 // 2. 基础设施层：实现不同策略（适配器）
+// 2.1 OSS 存储策略(infrastructure/integration/OssStorageStrategy.java)
 @Service("ossStorageStrategy")
 public class OssStorageStrategy implements FileStorageStrategy {
     @Autowired
@@ -320,6 +321,7 @@ public class OssStorageStrategy implements FileStorageStrategy {
     }
 }
 
+// 2.2 本地存储策略(infrastructure/integration/LocalStorageStrategy.java)
 @Service("localStorageStrategy")
 public class LocalStorageStrategy implements FileStorageStrategy {
     @Value("${file.local.path}")
@@ -334,7 +336,7 @@ public class LocalStorageStrategy implements FileStorageStrategy {
     }
 }
 
-// 3. 应用层：动态选择策略
+// 3. 应用层：动态选择策略(application/api/impl/FileAppServiceImpl.java)
 @Service
 public class FileApplicationService {
     @Autowired
@@ -368,12 +370,12 @@ public class FileApplicationService {
 - **代码示例（适配老系统XML接口）**：
 
 ```java
-// 1. 核心层：定义用户查询端口（期望JSON/POJO）
+// 1. 核心层：定义用户查询端口（期望JSON/POJO，domain/service/UserQueryPort.java）
 public interface UserQueryPort {
     UserAggregate findByPhone(String phone);
 }
 
-// 2. 基础设施层：适配器（适配老系统XML接口）
+// 2. 基础设施层：适配器（适配老系统XML接口，infrastructure/integration/OldSystemUserAdapter.java）
 @Service
 public class OldSystemUserAdapter implements UserQueryPort {
     @Autowired
