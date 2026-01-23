@@ -621,6 +621,10 @@
   - [SpringBoot的验证功能](2019/20191003-SpringBoot的验证功能.md)
   - [SpringBoot中多数据源的jdbc和druid配置](2021/20211008-SpringBoot中多数据源的jdbc和druid配置.md)
 - SpringSecurity
+  - [SpringSecurity_初识SpringSecurity安全框架](2026/20260123-SpringSecurity_初识SpringSecurity安全框架.md)
+  - [SpringSecurity_表单登录定制到处理逻辑的深度改造](2026/20260123-SpringSecurity_表单登录定制到处理逻辑的深度改造.md)
+  - [SpringSecurity_底层原理解析](2026/20260123-SpringSecurity_底层原理解析.md)
+  - [认证授权系统设计](2026/20260123-认证授权系统设计.md)
   - [SpringSecurity的CSRF问题Invalid-CSRF-Token-null-was-found-on](2019/20191112-SpringSecurity的CSRF问题Invalid-CSRF-Token-null-was-found-on.md)
   - [SpringSecurity OAuth2.0认证授权](2021/20210714-Spring_Security_OAuth2.0认证授权.md)
 - SpringCloud
