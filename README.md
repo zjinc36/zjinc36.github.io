@@ -626,6 +626,7 @@
   - [SpringSecurity_底层原理解析](2026/20260123-SpringSecurity_底层原理解析.md)
   - [SpringSecurity_基于内存的用户认证](2026/20260123-SpringSecurity_基于内存的用户认证.md)
   - [SpringSecurity_基于数据库的动态用户认证传统RBAC角色模型实战开发](2026/20260123-SpringSecurity_基于数据库的动态用户认证传统RBAC角色模型实战开发.md)
+  - [SpringSecurity_基于数据库的ABAC属性权限模型实战开发](2026/20260123-SpringSecurity_基于数据库的ABAC属性权限模型实战开发.md)
   - [认证授权系统设计](2026/20260123-认证授权系统设计.md)
   - [SpringSecurity的CSRF问题Invalid-CSRF-Token-null-was-found-on](2019/20191112-SpringSecurity的CSRF问题Invalid-CSRF-Token-null-was-found-on.md)
   - [SpringSecurity OAuth2.0认证授权](2021/20210714-Spring_Security_OAuth2.0认证授权.md)
