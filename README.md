@@ -262,6 +262,7 @@
 - [Istio_mTLS认证](2022/20220811-Istio_mTLS认证.md)
 - [Istio_授权策略](2022/20220811-Istio_授权策略.md)
 - [Istio_JWT认证授权](2022/20220811-Istio_JWT认证授权.md)
+- [Istio_AmbientMesh流量转发原理](2026/20260203-Istio_AmbientMesh流量转发原理.md)
 
 ## Java
 
