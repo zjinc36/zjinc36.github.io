@@ -235,11 +235,6 @@
 - [Idea连接rediss说明](2024/20240925-Idea连接rediss说明.md)
 - [Idea编辑器内性能提示](2024/20240930-Idea编辑器内性能提示.md)
 
-## Iphone
-
-- [iphone日历和提醒事项相互同步](2022/20220301-iphone日历和提醒事项相互同步.md)
-- [ios15快捷指令自动化中的地理围栏功能不生效的解决方案](2023/20230512-ios15快捷指令自动化中的地理围栏功能不生效的解决方案.md)
-
 ## Istio
 
 - [Istio_核心功能_流量控制](2022/20220811-Istio_核心功能_流量控制.md)
@@ -520,6 +515,7 @@
 - [RabbitMQ_死信队列](2021/20211108-RabbitMQ_死信队列.md)
 - [RabbitMQ_延迟队列](2021/20211123-RabbitMQ_延迟队列.md)
 - [RabbitMQ_发布确认高级](2021/20211124-RabbitMQ_发布确认高级.md)
+- [RabbitMQ的SpringAMQP实现](2026/20260213-RabbitMQ的SpringAMQP实现.md)
 
 ## RestTemplate
 

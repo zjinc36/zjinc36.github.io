@@ -83,6 +83,10 @@
           // 渲染地址
           // serverPath: 'https://www.plantuml.com/plantuml/svg/'
         },
+        // Memaid渲染
+        mermaidConfig: {
+          querySelector: ".mermaid"
+        },
         plugins: []
     }
     </script>
@@ -140,6 +144,16 @@
     <script src="./themes/js/prism-cpp.min.js"></script>
     <!-- plantuml 渲染 -->
     <script src="./themes/js/docsify-plantuml.min.js"></script>
+    <!-- Memaid渲染 -->
+    <!-- 查看文档：https://github.com/Leward/mermaid-docsify -->
+    <!-- 引入 Mermaid 10+ 版本 (建议用 ESM 模式) -->
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({ startOnLoad: true });
+      window.mermaid = mermaid;
+    </script>
+    <!-- 引入 docsify-mermaid 插件 -->
+    <script src="//unpkg.com/docsify-mermaid@2.0.1/dist/docsify-mermaid.js"></script>
 
 </body>
 
