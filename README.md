@@ -444,6 +444,15 @@
 - [kubernetes_两种容器探针](2022/20220823-kubernetes_两种容器探针.md)
 - [kubenetes生产环境证书过期处理](2023/20230215-kubenetes生产环境证书过期处理.md)
 
+## Learn Claude Code
+
+- [001_agent循环.md](2026/20260904-learnClaudeCode_001_agent循环.md)
+- [002_使用工具.md](2026/20260904-learnClaudeCode_002_使用工具.md)
+- [003_权限检查.md](2026/20260904-learnClaudeCode_003_权限检查.md)
+- [004_钩子.md](2026/20260904-learnClaudeCode_004_钩子.md)
+- [005_todo_write.md](2026/20260904-learnClaudeCode_005_todo_write.md)
+- [006_subagent.md](2026/20260904-learnClaudeCode_006_subagent.md)
+
 ## Lombok
 
 - [Lombok简化你的代码](2017/20171022-Lombok简化你的代码.md)
