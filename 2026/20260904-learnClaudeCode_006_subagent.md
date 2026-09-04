@@ -1,7 +1,9 @@
 # subagent
 
-- 准备一张TODO_LIST。这个是在当前循环的内存中
-- 代码需要实现：Agent每循环三次，就需要调用writeTodo工具，更新一下TODO_LIST
+- 地位上，subagent只是一个工具（和bash，readFile之类的没有区别）
+- 这个subagent工具，内部依旧是一个agent循环
+  - 多了一个“stop”钩子，保证外部能停止这个subagent
+  - 循环不是无限次循环，多了一个至多30次的条件
 
 ```mermaid
 flowchart TD
@@ -17,6 +19,7 @@ flowchart TD
 
     subgraph toolBox[「toolRun」拥有的工具集合]
         toolWriteTodoList@{shape: rect, label: "toolWriteTodoList"}
+        toolSubagent@{shape: rect, label: "toolSubagent"}
         toolOther@{shape: rect, label: "toolOther......"}
     end
 
