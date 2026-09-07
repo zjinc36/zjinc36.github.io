@@ -453,6 +453,8 @@
 - [005_todo_write.md](2026/20260904-learnClaudeCode_005_todo_write.md)
 - [006_subagent.md](2026/20260904-learnClaudeCode_006_subagent.md)
 - [007_skill加载](2026/20260904-learnClaudeCode_007_skill加载.md)
+- [008_context_compact](2026/20260904-learnClaudeCode_008_context_compact.md)
+- [009_memory](2026/20260904-learnClaudeCode_009_memory.md)
 
 ## Lombok
 
