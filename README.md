@@ -452,6 +452,7 @@
 - [004_钩子.md](2026/20260904-learnClaudeCode_004_钩子.md)
 - [005_todo_write.md](2026/20260904-learnClaudeCode_005_todo_write.md)
 - [006_subagent.md](2026/20260904-learnClaudeCode_006_subagent.md)
+- [007_skill加载](2026/20260904-learnClaudeCode_007_skill加载.md)
 
 ## Lombok
 

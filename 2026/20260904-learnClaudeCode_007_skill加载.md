@@ -4,12 +4,12 @@
 
 ```mermaid
 flowchart TD
-    processStart@{shape: rounded, label: "「skillLoad」加载skill文件"}
-    skillLoad@{shape: rect, label: "「skillLoad」加载skill"}
+    processStart@{shape: rounded, label: "程序启动"}
+    skillLoad@{shape: rect, label: "「skillLoad」加载skill到内存"}
     skillMeta@{shape: rect, label: "「skillMeta」skill的元数据（catalog + name + 摘要）"}
     skillDescription@{shape: rect, label: "「skillDescription」详细的skill内容"}
 
-    processStart --> skillLoad
+    processStart --> |加载skill文档| skillLoad
     skillLoad -.-|载入元数据| skillMeta
 
 
@@ -28,17 +28,17 @@ flowchart TD
     end
 
     userChat --> messageList
-    LLM -->|是| hookPreToolUse
-    hookPreToolUse -->|通过权限检查| toolRun
+    LLM --> |是| hookPreToolUse
+    hookPreToolUse --> |通过权限检查| toolRun
     hookPreToolUse -.->|未通过hook| toolResult
-    LLM -->|否| finalResult
-    toolRun === toolSkill
+    LLM --> |否| finalResult
+    toolRun === |toolRun细节| toolSkill
     toolSkill -->|调用skill文档成为上下文| skillMeta
     skillMeta -->|根据元数据加载详细skill| skillDescription
     toolRun --> hookPostToolUse
-    hookPostToolUse -->|通过hook| toolResult
-    hookPostToolUse -->|未通过hook| toolResult
-    toolResult -.->|工具调用结果| messageList
+    hookPostToolUse --> |通过hook| toolResult
+    hookPostToolUse --> |未通过hook| toolResult
+    toolResult -.-> |工具调用结果| messageList
     messageList --> LLM
 
     style userChat stroke:#ff0000, stroke-width:2px
