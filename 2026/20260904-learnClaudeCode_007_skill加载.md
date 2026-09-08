@@ -44,7 +44,8 @@ flowchart TD
     style userChat stroke:#ff0000, stroke-width:2px
     style processStart stroke:#ff0000, stroke-width:2px
 
-    messageList:::dashedNode
+    messageList:::blueStrokeColor
+    classDef blueStrokeColor stroke:#0000ff
     classDef dashedNode stroke-dasharray: 5 5
 ```
 

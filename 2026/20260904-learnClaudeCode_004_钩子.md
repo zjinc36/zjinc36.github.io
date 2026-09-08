@@ -36,6 +36,7 @@ flowchart TD
     messageList --> LLM
 
     style userChat stroke:#ff0000, stroke-width:2px
-    messageList:::dashedNode
+    messageList:::blueStrokeColor
+    classDef blueStrokeColor stroke:#0000ff
     classDef dashedNode stroke-dasharray: 5 5
 ```
