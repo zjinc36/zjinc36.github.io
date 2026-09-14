@@ -22,11 +22,9 @@
 | 元数据 | frontmatter 字段            | frontmatter（name/description/type） |
 | 用法   | 启动时加载索引 → 按需读正文 | 同样：选索引 → 按需读正文            |
 
-## memory分四类
+## memory具体流程
 
-```bat
-/home/jinchao_zhang/Projects/learn-claude-code/s09_memory
-```
+
 
 
 ## 流程图
@@ -46,8 +44,8 @@ flowchart TD
     finalResult@{shape: rounded, label: "「finalResult」返回结果"}
     messageList@{shape: rect, label: "「messageList」累积消息列表"}
     toolResult@{shape: rect, label: "「toolResult」工具结果"}
-    hookPreToolUse@{shape: rect, label: "「triggerHooks」工具使用前"}
-    hookPostToolUse@{shape: rect, label: "「triggerHooks」工具使用后"}
+    hookPreToolUse@{shape: diamond, label: "「triggerHooks」工具使用前"}
+    hookPostToolUse@{shape: diamond, label: "「triggerHooks」工具使用后"}
 
     subgraph toolBox[「toolRun」拥有的工具集合]
         toolSkill@{shape: rect, label: "toolSkill"}
@@ -56,14 +54,24 @@ flowchart TD
 
     contextCompact@{shape: rect, label: "「contextCompact」上下文压缩"}
 
+    subgraph memoryLoadSave[「memoryLoadSave记忆提取与存储]
+        memoryStore@{shape: cyl, label: "「.memory/」记忆存储"}
+        memoryRecall@{shape: rect, label: "「loadMemories」召回相关记忆"}
+        memoryExtract@{shape: rect, label: "「extractMemories」提取持久记忆"}
+        memoryConsolidate@{shape: rect, label: "「consolidateMemories」合并去重"}
+        memoryThreshold@{shape: diamond, label: "「记录数≥阈值？」"}
+    end
+
+
     userChat --> messageList
     messageList --> contextCompact
-    contextCompact --> LLM
+    contextCompact --> memoryRecall
+    memoryRecall --> LLM
     LLM -.-> |异常，API返回promptTooLong| toolResultBudget
     LLM --> |是| hookPreToolUse
     hookPreToolUse --> |通过权限检查| toolRun
     hookPreToolUse -.->|未通过hook| toolResult
-    LLM --> |否| finalResult
+    LLM --> |否，不再调用工具| memoryExtract
     toolRun === |toolRun细节| toolSkill
     toolSkill -->|调用skill文档成为上下文| skillMeta
     skillMeta -->|根据元数据加载详细skill| skillDescription
@@ -72,11 +80,19 @@ flowchart TD
     hookPostToolUse --> |未通过hook| toolResult
     toolResult -.-> |工具调用结果| messageList
 
+    memoryExtract --> |写入记录| memoryStore
+    memoryStore --> memoryThreshold
+    memoryThreshold --> |是，合并去重| memoryConsolidate
+    memoryThreshold --> |否，无需合并| finalResult
+    memoryConsolidate --> |合并回写完成| finalResult
+
     style userChat stroke:#ff0000, stroke-width:2px
     style processStart stroke:#ff0000, stroke-width:2px
+    style finalResult stroke:#00aa00, stroke-width:2px
 
 
     messageList:::blueStrokeColor
+    memoryLoadSave:::dashedNode
 
     classDef dashedNode stroke-dasharray: 5 5
     classDef blueStrokeColor stroke:#0000ff

@@ -26,6 +26,7 @@ flowchart TD
     toolBox -.-|关联：tool集合| toolRun
 
     style userChat stroke:#ff0000, stroke-width:2px
+    style finalResult stroke:#00aa00, stroke-width:2px
     toolBox:::dashedNode
     messageList:::blueStrokeColor
     classDef blueStrokeColor stroke:#0000ff

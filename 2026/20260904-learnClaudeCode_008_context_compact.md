@@ -74,6 +74,7 @@ flowchart TD
     toolResult -.-> |工具调用结果| messageList
 
     style userChat stroke:#ff0000, stroke-width:2px
+    style finalResult stroke:#00aa00, stroke-width:2px
     style processStart stroke:#ff0000, stroke-width:2px
 
     contextCompact:::dashedNode

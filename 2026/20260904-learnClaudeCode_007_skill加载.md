@@ -42,6 +42,7 @@ flowchart TD
     messageList --> LLM
 
     style userChat stroke:#ff0000, stroke-width:2px
+    style finalResult stroke:#00aa00, stroke-width:2px
     style processStart stroke:#ff0000, stroke-width:2px
 
     messageList:::blueStrokeColor
