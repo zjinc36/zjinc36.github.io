@@ -60,37 +60,43 @@ flowchart TD
 
     contextCompact@{shape: rect, label: "「contextCompact」上下文压缩"}
 
-    subgraph memoryLoadSave[「memoryLoadSave记忆提取与存储]
-        memoryStore@{shape: cyl, label: "「.memory/」记忆存储"}
-        memoryRecall@{shape: rect, label: "「loadMemories」召回相关记忆"}
-        memoryExtract@{shape: rect, label: "「extractMemories」提取持久记忆"}
-        memoryConsolidate@{shape: rect, label: "「consolidateMemories」合并去重"}
+    subgraph memoryLoadSave[「memoryLoadSave」记忆提取与存储]
+        memoryStore@{shape: cyl, label: "「memoryStore」.memory记忆存储"}
+        loadMemories@{shape: rect, label: "「loadMemories」召回相关记忆"}
+        recallLLM@{shape: rect, label: "「recallLLM」按相关性挑选记忆"}
+        extractMemories@{shape: rect, label: "「extractMemories」提取持久记忆"}
+        extractLLM@{shape: rect, label: "「extractLLM」抽取候选记录"}
+        consolidateMemories@{shape: rect, label: "「consolidateMemories」合并去重"}
+        consolidateLLM@{shape: rect, label: "「consolidateLLM」合并纠错、丢弃过期"}
         memoryThreshold@{shape: diamond, label: "「记录数≥阈值？」"}
     end
 
 
     userChat --> messageList
     messageList --> contextCompact
-    contextCompact --> memoryRecall
-    memoryRecall --> LLM
+    contextCompact --> loadMemories
+    loadMemories -.- |LLM调用：组装索引 + 当前请求| recallLLM
+    loadMemories --> |选中记录并入 system prompt| LLM
     LLM -.-> |异常，API返回promptTooLong| toolResultBudget
     LLM --> |是| hookPreToolUse
     hookPreToolUse --> |通过权限检查| toolRun
     hookPreToolUse -.->|未通过hook| toolResult
-    LLM --> |否，不再调用工具| memoryExtract
+    LLM --> |否，不再调用工具| extractMemories
     toolRun === |toolRun细节| toolSkill
-    toolSkill -->|调用skill文档成为上下文| skillMeta
-    skillMeta -->|根据元数据加载详细skill| skillDescription
+    toolSkill --> |调用skill文档成为上下文| skillMeta
+    skillMeta --> |根据元数据加载详细skill| skillDescription
     toolRun --> hookPostToolUse
     hookPostToolUse --> |通过hook| toolResult
     hookPostToolUse --> |未通过hook| toolResult
     toolResult -.-> |工具调用结果| messageList
 
-    memoryExtract --> |写入记录| memoryStore
+    extractMemories -.- |LLM调用：组装本轮对话| extractLLM
+    extractMemories --> |校验去重后写入| memoryStore
     memoryStore --> memoryThreshold
-    memoryThreshold --> |是，合并去重| memoryConsolidate
+    memoryThreshold --> |是，需整理| consolidateMemories
+    consolidateMemories -.- |LLM调用：组装全量记录| consolidateLLM
+    consolidateMemories --> |回写并重建索引| finalResult
     memoryThreshold --> |否，无需合并| finalResult
-    memoryConsolidate --> |合并回写完成| finalResult
 
     style userChat stroke:#ff0000, stroke-width:2px
     style processStart stroke:#ff0000, stroke-width:2px
@@ -100,7 +106,15 @@ flowchart TD
     messageList:::blueStrokeColor
     memoryLoadSave:::dashedNode
 
+    recallLLM:::grayStrokeColor
+    extractLLM:::grayStrokeColor
+    consolidateLLM:::grayStrokeColor
+    recallLLM:::dashedNode
+    extractLLM:::dashedNode
+    consolidateLLM:::dashedNode
+
     classDef dashedNode stroke-dasharray: 5 5
     classDef blueStrokeColor stroke:#0000ff
+    classDef grayStrokeColor stroke:#FFDEAD
 ```
 
