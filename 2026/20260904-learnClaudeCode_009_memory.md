@@ -27,9 +27,11 @@
 Memory 挂在 agent 循环的两端：**进入循环前召回（读）**，**离开循环后提取（写）**。图中用虚线 `memoryLoadSave` 子图圈出这一类动作：
 
 1. **进入循环 — 召回（读）**：`loadMemories(messages)` 拿最近的用户消息作为查询，`selectRelevantMemories` 基于「MEMORY.md 索引」挑选最相关的 ≤5 条记忆正文，再由 `buildSystem` 并入 system prompt（作为背景知识，不当作新命令，当前请求优先级更高）。
-2. **循环中**：召回内联在 `contextCompact → memoryRecall → LLM` 这一步，即每次进入 LLM 前先补充相关记忆（实际代码中每个用户请求只执行一次，图中画在循环内是简化表达）。
+2. **循环中**：召回内联在 `contextCompact → loadMemories → LLM` 这一步，即每次进入 LLM 前先补充相关记忆（实际代码中每个用户请求只执行一次，图中画在循环内是简化表达）。
 3. **离开循环 — 提取（写）**：当 LLM 判断不再需要工具（`否，不再调用工具`），`extractMemories` 从本轮对话提取候选记录，`shouldStoreMemory` 过滤掉临时性/不完整内容后，把四类记忆（user / feedback / project / reference）写入 `.memory/` 存储。
-4. **合并去重（整理）**：`memoryThreshold`（记录数≥阈值，默认 10）判定是否需要整理：是则 `consolidateMemories` 合并去重后回写存储，否则跳过。两条路径最终都汇入绿色边框的 `finalResult`（流程终点）返回结果。
+4. **合并去重（整理）**：`memoryThreshold` 判定是否需要整理。阈值是**记录数**：`len(listMemoryFiles()) < 10` 时直接返回、不整理；**≥10 条**才进入 `consolidateMemories` 合并去重后回写存储，否则跳过。两条路径最终都汇入绿色边框的 `finalResult`（流程终点）返回结果。
+
+> **关键点**：召回、提取、整理这三步**各自都要调用一次 LLM**（`selectRelevantMemories` / `extractMemories` / `consolidateMemories` 内部各发一次 `messages.create`）。图中把「LLM 调用」画成挂在各步骤上的虚线子节点（`recallLLM` / `extractLLM` / `consolidateLLM`），表示它是该步骤内部的一环，而不是独立于步骤之外的流程节点。
 
 一句话总结：**入环读、出环写、超阈值整理**——记忆是会话外的持久侧路，不打断主循环。
 
@@ -121,6 +123,6 @@ flowchart TD
     classDef dashedNode stroke-dasharray: 5 5
     classDef blueStrokeColor stroke:#0000ff
     classDef navajoWhiteColor stroke:#ffdead
-    classDef turquoise2Color stroke:#00E5EE
+    classDef turquoise2Color stroke:#00e5ee
 ```
 
