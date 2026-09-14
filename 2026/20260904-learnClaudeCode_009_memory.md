@@ -48,7 +48,7 @@ flowchart TD
 
     userChat@{shape: rounded, label: "「userChat」用户提问"}
     LLM@{shape: diamond, label: "「LLM」需要使用工具？" }
-    toolRun@{shape: rounded, label: "「toolRun」执行工具调用"}
+    toolRun@{shape: rect, label: "「toolRun」执行工具调用"}
     finalResult@{shape: rounded, label: "「finalResult」返回结果"}
     messageList@{shape: rect, label: "「messageList」累积消息列表"}
     toolResult@{shape: rect, label: "「toolResult」工具结果"}
