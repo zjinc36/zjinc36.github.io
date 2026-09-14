@@ -82,7 +82,7 @@ flowchart TD
     hookPreToolUse --> |通过权限检查| toolRun
     hookPreToolUse -.->|未通过hook| toolResult
     LLM --> |否，不再调用工具| extractMemories
-    toolRun === |toolRun细节| toolSkill
+    toolRun -.- |toolRun细节| toolSkill
     toolSkill --> |调用skill文档成为上下文| skillMeta
     skillMeta --> |根据元数据加载详细skill| skillDescription
     toolRun --> hookPostToolUse
@@ -107,6 +107,9 @@ flowchart TD
     memoryLoadSave:::dashedNode
 
     LLM:::turquoise2Color
+
+    toolBox:::navajoWhiteColor
+    toolBox:::dashedNode
 
     recallLLM:::navajoWhiteColor
     extractLLM:::navajoWhiteColor
