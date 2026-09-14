@@ -68,7 +68,7 @@ flowchart TD
         extractLLM@{shape: rect, label: "「extractLLM」抽取候选记录"}
         consolidateMemories@{shape: rect, label: "「consolidateMemories」合并去重"}
         consolidateLLM@{shape: rect, label: "「consolidateLLM」合并纠错、丢弃过期"}
-        memoryThreshold@{shape: diamond, label: "「记录数≥阈值？」"}
+        memoryThreshold@{shape: diamond, label: "「memoryThreshold」记录数≥阈值？"}
     end
 
 
@@ -106,15 +106,18 @@ flowchart TD
     messageList:::blueStrokeColor
     memoryLoadSave:::dashedNode
 
-    recallLLM:::grayStrokeColor
-    extractLLM:::grayStrokeColor
-    consolidateLLM:::grayStrokeColor
+    LLM:::turquoise2Color
+
+    recallLLM:::navajoWhiteColor
+    extractLLM:::navajoWhiteColor
+    consolidateLLM:::navajoWhiteColor
     recallLLM:::dashedNode
     extractLLM:::dashedNode
     consolidateLLM:::dashedNode
 
     classDef dashedNode stroke-dasharray: 5 5
     classDef blueStrokeColor stroke:#0000ff
-    classDef grayStrokeColor stroke:#FFDEAD
+    classDef navajoWhiteColor stroke:#ffdead
+    classDef turquoise2Color stroke:#00E5EE
 ```
 
