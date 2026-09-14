@@ -7,6 +7,27 @@
 - 把完整 transcript 留下来适合归档，却不适合每次都发给模型。对话会越来越长，当前任务需要的信息很难定位，旧事实也可能已经过期。Memory 要解决的是两个问题：哪些信息值得跨会话保存，以及当前任务应该取回哪几条。
 
 
+## memory和skill的区别和联系
+
+本质上它们都是 **「文件/目录 + 索引」** 这套结构，运行机制一模一样
+- 两者都是一个 Markdown 文件 = 一条知识，靠 frontmatter 描述它，靠索引文件选择它，用到时才读正文
+- 唯一的本质差别在于 **"谁写入"**
+  - Skill：人类手写、只读、稳定，是给 Agent 的"操作手册"
+  - Memory：Agent 自己从对话里提取、会增删整理，是"自累积的笔记"
+
+| 区别   | Skill                       | Memory                               |
+| ------ | --------------------------- | ------------------------------------ |
+| 正文   | skills/*.md（人写）         | .memory/*.md（AI 提取）              |
+| 索引   | 简短清单                    | MEMORY.md 索引                       |
+| 元数据 | frontmatter 字段            | frontmatter（name/description/type） |
+| 用法   | 启动时加载索引 → 按需读正文 | 同样：选索引 → 按需读正文            |
+
+## memory分四类
+
+```bat
+/home/jinchao_zhang/Projects/learn-claude-code/s09_memory
+```
+
 
 ## 流程图
 ```mermaid
