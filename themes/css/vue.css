@@ -1,4 +1,6 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto+Mono|Source+Sans+Pro:300,400,600");
+/* 原为 @import url("https://fonts.googleapis.com/css?family=Roboto+Mono|Source+Sans+Pro:300,400,600");
+   该地址在部分网络环境下不可达，而 CSS 的 @import 会阻塞后续脚本执行，
+   导致页面一直停留在“加载中...”。此处改为本地字体栈，不再依赖外部网络。 */
 * {
   -webkit-font-smoothing: antialiased;
   -webkit-overflow-scrolling: touch;
@@ -55,7 +57,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   color: #34495e;
-  font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
   font-size: 15px;
   letter-spacing: 0;
   margin: 0;
@@ -365,7 +367,7 @@ body.sticky .sidebar-toggle {
   border-radius: 100%;
   color: #fff;
   content: '!';
-  font-family: 'Dosis', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Dosis', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
   font-size: 14px;
   font-weight: bold;
   left: -12px;
@@ -691,7 +693,7 @@ body {
 .markdown-section code,
 .markdown-section pre,
 .markdown-section output::after {
-  font-family: 'Roboto Mono', Monaco, courier, monospace;
+  font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, Monaco, 'Courier New', courier, monospace;
 }
 .markdown-section code,
 .markdown-section pre {

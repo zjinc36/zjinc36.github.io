@@ -144,16 +144,12 @@
     <script src="./themes/js/prism-cpp.min.js"></script>
     <!-- plantuml 渲染 -->
     <script src="./themes/js/docsify-plantuml.min.js"></script>
-    <!-- Memaid渲染 -->
+    <!-- Mermaid渲染 -->
     <!-- 查看文档：https://github.com/Leward/mermaid-docsify -->
-    <!-- 引入 Mermaid 10+ 版本 (建议用 ESM 模式) -->
-    <script type="module">
-      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@latest/dist/mermaid.esm.min.mjs";
-      mermaid.initialize({ startOnLoad: true });
-      window.mermaid = mermaid;
-    </script>
-    <!-- 引入 docsify-mermaid 插件 -->
-    <script src="//unpkg.com/docsify-mermaid@2.0.1/dist/docsify-mermaid.js"></script>
+    <!-- 本地引入 Mermaid UMD 包（原为 cdn.jsdelivr.net 的 mermaid@latest ESM，外网不可达时会阻塞页面） -->
+    <script src="./themes/js/mermaid.min.js"></script>
+    <!-- 引入 docsify-mermaid 插件（原为 unpkg.com，已本地化） -->
+    <script src="./themes/js/docsify-mermaid.min.js"></script>
 
 </body>
 
