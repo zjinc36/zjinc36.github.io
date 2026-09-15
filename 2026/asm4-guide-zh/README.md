@@ -1,8 +1,7 @@
 # ASM 4.0 —— Java 字节码工程库（中文翻译）
 
-本目录是 Eric Bruneton 所著 **《ASM 4.0 — A Java bytecode engineering library》**
-（Version 2.0, September 2011，共 154 页）的完整中文翻译，按原书章节组织为
-Markdown 文件。
+本目录是 Eric Bruneton 所著 **[《ASM 4.0 — A Java bytecode engineering library》](https://asm.ow2.io/asm4-guide.pdf)**
+（Version 2.0, September 2011，共 154 页）的完整中文翻译，按原书章节组织为Markdown 文件。
 
 ## 目录结构
 
@@ -21,10 +20,7 @@ Markdown 文件。
 | [`10-向后兼容-TreeAPI.md`](10-向后兼容-TreeAPI.md) | 10. Tree Backward compatibility            | 129–134  |
 | [`11-附录A.md`](11-附录A.md)                       | Appendix A. Bytecode instruction reference | 135–146  |
 
-`images/` 目录保存了原书全部 23 幅插图的截图（20 幅编号插图 + 3 幅无编号插图），
-正文中编号插图以 `![图 x.y](images/figure-x.y.png)` 的形式引用，无编号插图以
-`![原书第 N 页插图](images/figure-pNN.png)` 的形式引用。原书末尾的索引（Index，
-第 147–148 页）为英文关键词索引，未作翻译。
+`images/` 目录保存了原书全部 23 幅插图的截图（20 幅编号插图 + 3 幅无编号插图），正文中编号插图以 `![图 x.y](images/figure-x.y.png)` 的形式引用，无编号插图以`![原书第 N 页插图](images/figure-pNN.png)` 的形式引用。原书末尾的索引（Index，第 147–148 页）为英文关键词索引，未作翻译。
 
 ## 翻译约定
 
