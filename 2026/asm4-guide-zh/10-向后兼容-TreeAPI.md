@@ -1,8 +1,20 @@
+# 目录
+
+目录：[ASM4中文指南](2026/asm4-guide-zh/README.md)
+
 # 10. 向后兼容
 
 ## 10.1 引言
 
 与 Core API（核心 API）一样，ASM 4.0 在 Tree API（树 API）中引入了一种新机制，以便在未来的 ASM 版本中确保向后兼容性。然而，在这里这一特性同样无法仅由 ASM 自身来保证。它要求用户在编写自己的代码时遵循若干简单的指南。本章的目标就是介绍这些指南，并说明 ASM Tree API 内部用于确保向后兼容性的机制。
+
+> 笔记：
+> 
+> 这一章是第 5 章的孪生章节：**第 5 章给 Core API 定向后兼容机制，第 10 章给 Tree API 定同一套机制。** 核心前提也照搬——向后兼容不能只靠 ASM 自身保证，需要你遵守几条指南。
+> 
+> 先划清边界：**用 Tree API 写「类生成器」没有任何指南要遵守**（你从零建节点，不会遇到未知特性）；**只有「分析器/适配器」**（节点来自 `ClassReader.accept`，或你要覆写这些节点类）才需要往下读。
+> 
+> 机制的落点是 `ClassNode` 构造器里的 **`api` 字段**：构造时声明 ASM 版本，之后填充、变换都按该版本的语义解释未知特性——与第 5 章「构造器传版本 + 遇未知特性抛错」的契约一脉相承。
 
 ## 10.2 指南
 
@@ -72,6 +84,12 @@ public class ClassNode extends ClassVisitor {
 
 注意，5.0 版 `ClassNode` 的代码与 5.0 版 `ClassVisitor` 的代码非常相似。这样做是为了在你定义 `ClassNode` 的子类时保证正确的语义（与 `ClassVisitor` 的子类类似——参见 10.2.2 节）。
 
+> 笔记：
+> 
+> 指南 3 的正文只有一句话，重点全在它下面的实现里。对照看 4.0 版和 5.0 版的 `ClassNode`：**5.0 版每个 visit 方法开头都先检查 `api < ASM5`**——版本不够就走旧语义，够高才走新语义；新增的 `visitLicense` 在旧版本里直接抛错。
+> 
+> 由此明白指南 3 为什么能提前兜底：**你用 `new ClassNode(ASM4)` 构造，升级到 ASM 5.0 而不改代码时，`api` 字段仍是 `ASM4 < ASM5`，于是输入类一旦含 `author`/`license` 这类新属性，填充就会按契约抛错**，而不是悄悄丢失数据。这与 5.1.2 节 `ClassVisitor` 的写法几乎一模一样——两处是刻意保持对称的。
+
 **使用已有的类节点**
 
 如果你的类分析器或适配器接收到的是由他人创建的 `ClassNode`，那么你无法确定创建它时传给其构造器的是哪个 ASM 版本（如果有的话）。你可以自己检查 `api` 字段，但如果你发现该版本高于你所支持的版本，简单地拒绝这个类就过于保守了。的确，有可能这个类并不包含任何未知特性。另一方面，你又无法测试未知特性是否存在（在我们的示例场景中，在编写 ASM 4.0 的代码时，你如何测试未知的 `license` 字段不存在于你的 `ClassNode` 中呢？因为在此阶段你并不知道将来会添加这样一个字段）。`ClassNode.check()` 方法正是为解决这个问题而设计的。由此得到下面这条指南：
@@ -103,6 +121,12 @@ public class ClassNode extends ClassVisitor {
 ```
 
 如果你的代码是为 ASM 4.0 编写的，并且你拿到的是一个 4.0 版的 `ClassNode`，其 `api` 字段为 `ASM4`，那么不会有任何问题，`check` 什么也不做。但如果你拿到的是一个 5.0 版的 `ClassNode`，那么 `check(ASM4)` 方法将在此节点确实包含非 null 的 `author` 或 `license` 时失败，即当它包含在 ASM 4.0 中未知的新特性时失败。
+
+> 笔记：
+> 
+> 指南 4 解决一个两难：拿到别人创建的 `ClassNode`，**不能只看 `api` 字段就拒绝**——版本高不代表一定含未知特性；**但又没法测试未知特性**（你此刻根本不知道未来会加什么字段）。所以 `check(api)` 把「该版本不该出现的特性」的检查集中到一处：使用时先 `check(ASM4)`，节点确实含 `license` 这类新特性才抛错。
+> 
+> 由此得出与 Core 的对照：**Core 靠「构造器传版本 + visit 方法内版本分支」（第 5 章），Tree 靠「构造器传版本（指南 3）或事后 `check`（指南 4）」**——两条路最终都落到同一句契约：遇到未知特性立即抛错，不给「悄悄成功但结果错误」留机会。
 
 > **注意**：这条指南在你自行创建 `ClassNode` 时也可以使用。此时你不需要遵循指南 3，即不需要在 `ClassNode` 的构造器中指定 ASM 版本。检查将改为在 `check` 方法中进行（但这可能比在填充 `ClassNode` 时更早地进行检查效率更低）。
 
@@ -139,3 +163,32 @@ class MyClassVisitor extends ClassVisitor {
 另一方面，如果你想覆写 `asm.util` 中的 `ASMifier`、`TextifierVisitor` 或 `CheckXxxAdapter` 类，或 `asm.commons` 包中的任何类，那么指南 1 和指南 2 适用。特别地，你的构造器必须用你想使用的 ASM 版本作为参数调用 `super(...)`。
 
 最后，如果你想使用 `asm.tree.analysis` 中的 `Interpreter` 类或其子类，还是想覆写它们，也必须做同样的区分。另请注意，在使用 analysis 包之前，你必须创建一个 `MethodNode` 或从他人那里获取一个，并且在这里必须遵循指南 3 和指南 4，然后才能把该节点传给 `Analyzer`。
+
+## 附加
+
+### Core 与 Tree 的版本检查对比（仅供对照，不要求运行）
+
+```java
+// 第 5 章 · Core API：覆写 visit 方法前，按 api 字段分流
+public class MyAdapter extends ClassVisitor {
+    public MyAdapter(int api, ClassVisitor cv) { super(api, cv); }
+
+    @Override
+    public void visitSource(String source, String debug) {
+        if (api < Opcodes.ASM5) {
+            // 旧语义：source、debug 直接收入字段
+        } else {
+            // 新语义：多出的 author 参数走 visitSource(author, source, debug)
+        }
+    }
+}
+
+// 第 10 章 · Tree API：两条指南对应两种节点来源
+ClassNode cn = new ClassNode(Opcodes.ASM4); // 指南 3：自己创建的节点，构造器带版本
+cr.accept(cn, 0);                           // 填充时遇未知特性即抛错
+
+ClassNode other = ...;                      // 他人创建的节点
+other.check(Opcodes.ASM4);                  // 指南 4：使用前先检查，含未知特性才抛错
+```
+
+对比小结：Core 把版本检查内建在每个 visit 方法里，Tree 则把它放在构造器（指南 3）或 `check()`（指南 4）两处；两者的目标都是 5.1.1 节那条契约——遇到未知特性立即抛错。

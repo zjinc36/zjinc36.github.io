@@ -1,6 +1,16 @@
+# 目录
+
+目录：[ASM4中文指南](2026/asm4-guide-zh/README.md)
+
 # 9. 元数据
 
 本章介绍用于已编译 Java 类元数据（例如注解）的 Tree API（树 API）。本章非常简短，因为这些元数据已经在第 4 章中介绍过，而且一旦了解了对应的 Core API（核心 API），Tree API 就很简单了。
+
+> 笔记：
+> 
+> 先明白这一章为什么这么短：**元数据的处理方式在第 4 章已经全部讲完，本章只是把同一套概念搬上 Tree API。** 原文自己说了——一旦了解了对应的 Core API，树版几乎不用再解释。所以这章的读法是：把它当作第 4 章的「树版对照表」。
+> 
+> 由此得出三条对应关系，先记住再往下看：**泛型 = 签名字符串**（树里没有 `SignatureNode`，签名还是塞在 `signature` 字段里）；**注解 = `AnnotationNode`**；**调试信息 = 几个专门的字段/节点**（9.3 节）。
 
 ## 9.1 泛型
 
@@ -35,6 +45,12 @@ public AnnotationVisitor visitAnnotation(String desc, boolean visible) {
     };
 }
 ```
+
+> 笔记：
+> 
+> 9.2 的关键是 `AnnotationNode` 的两个公开字段：**`desc` 存注解类型，`values` 存名称-值对**——一个名字后面紧跟一个值，成对交替。它继承自 `AnnotationVisitor`，所以像树里其他节点一样可以互相嵌套（注解的值里还能再放注解）。
+> 
+> 再看它的复用套路：`AnnotationNode` 也提供 `accept(AnnotationVisitor)`，**与 `ClassNode.accept(ClassVisitor)`、`MethodNode.accept(MethodVisitor)` 是同一个「树 → 事件」出口模式**。示例里的匿名内部类就是 7.2.2 节那套继承变体：覆写 `visitEnd`，在 `accept(cv.visitAnnotation(desc, visible))` 之前插入你的变换。由此得出：**Core/Tree 组件的组合方式，在注解这里和类/方法那里完全一样。**
 
 ## 9.3 调试
 
