@@ -5,20 +5,20 @@
 
 ## 目录结构
 
-| 文件                                               | 对应原书章节                               | 原书页码 |
-| -------------------------------------------------- | ------------------------------------------ | -------- |
-| [`00-封面与版权.md`](2026/asm4-guide-zh/00-封面与版权.md)             | 封面、版权声明、免责声明、目录             | —        |
-| [`01-引言.md`](2026/asm4-guide-zh/01-引言.md)                         | 1. Introduction                            | 1–6      |
-| [`02-类.md`](2026/asm4-guide-zh/02-类.md)                             | 2. Classes                                 | 9–30     |
-| [`03-方法.md`](2026/asm4-guide-zh/03-方法.md)                         | 3. Methods                                 | 31–66    |
-| [`04-元数据.md`](2026/asm4-guide-zh/04-元数据.md)                     | 4. Metadata                                | 67–80    |
-| [`05-向后兼容.md`](2026/asm4-guide-zh/05-向后兼容.md)                 | 5. Backward compatibility                  | 81–88    |
-| [`06-类-TreeAPI.md`](2026/asm4-guide-zh/06-类-TreeAPI.md)             | 6. Tree Classes                            | 91–100   |
-| [`07-方法-TreeAPI.md`](2026/asm4-guide-zh/07-方法-TreeAPI.md)         | 7. Tree Methods                            | 101–114  |
-| [`08-方法分析.md`](2026/asm4-guide-zh/08-方法分析.md)                 | 8. Method Analysis                         | 115–126  |
-| [`09-元数据-TreeAPI.md`](2026/asm4-guide-zh/09-元数据-TreeAPI.md)     | 9. Tree Metadata                           | 127–128  |
-| [`10-向后兼容-TreeAPI.md`](2026/asm4-guide-zh/10-向后兼容-TreeAPI.md) | 10. Tree Backward compatibility            | 129–134  |
-| [`11-附录A.md`](2026/asm4-guide-zh/11-附录A.md)                       | Appendix A. Bytecode instruction reference | 135–146  |
+| 原文                                                                  | 对应原书章节                               | 原书页码 | 「AI」教程                                                |
+| --------------------------------------------------------------------- | ------------------------------------------ | -------- | --------------------------------------------------- |
+| [`00-封面与版权.md`](2026/asm4-guide-zh/00-封面与版权.md)             | 封面、版权声明、免责声明、目录             | —        | —                                                   |
+| [`01-引言.md`](2026/asm4-guide-zh/01-引言.md)                         | 1. Introduction                            | 1–6      | —                                                   |
+| [`02-类.md`](2026/asm4-guide-zh/02-类.md)                             | 2. Classes                                 | 9–30     | [`02-类-教程.md`](2026/asm4-guide-zh/02-类-教程.md) |
+| [`03-方法.md`](2026/asm4-guide-zh/03-方法.md)                         | 3. Methods                                 | 31–66    |                                                     |
+| [`04-元数据.md`](2026/asm4-guide-zh/04-元数据.md)                     | 4. Metadata                                | 67–80    |                                                     |
+| [`05-向后兼容.md`](2026/asm4-guide-zh/05-向后兼容.md)                 | 5. Backward compatibility                  | 81–88    |                                                     |
+| [`06-类-TreeAPI.md`](2026/asm4-guide-zh/06-类-TreeAPI.md)             | 6. Tree Classes                            | 91–100   |                                                     |
+| [`07-方法-TreeAPI.md`](2026/asm4-guide-zh/07-方法-TreeAPI.md)         | 7. Tree Methods                            | 101–114  |                                                     |
+| [`08-方法分析.md`](2026/asm4-guide-zh/08-方法分析.md)                 | 8. Method Analysis                         | 115–126  |                                                     |
+| [`09-元数据-TreeAPI.md`](2026/asm4-guide-zh/09-元数据-TreeAPI.md)     | 9. Tree Metadata                           | 127–128  |                                                     |
+| [`10-向后兼容-TreeAPI.md`](2026/asm4-guide-zh/10-向后兼容-TreeAPI.md) | 10. Tree Backward compatibility            | 129–134  |                                                     |
+| [`11-附录A.md`](2026/asm4-guide-zh/11-附录A.md)                       | Appendix A. Bytecode instruction reference | 135–146  |                                                     |
 
 `images/` 目录保存了原书全部 23 幅插图的截图（20 幅编号插图 + 3 幅无编号插图），正文中编号插图以 `![图 x.y](images/figure-x.y.png)` 的形式引用，无编号插图以`![原书第 N 页插图](images/figure-pNN.png)` 的形式引用。原书末尾的索引（Index，第 147–148 页）为英文关键词索引，未作翻译。
 

@@ -16,9 +16,9 @@
 - [人工智能数学基础之线性代数](2019/20190817-人工智能数学基础之线性代数.md)
 - [线性回归](2019/20190817-线性回归.md)
 
-## ASM-guide
+## ASM4中文指南
 
-- [asm4-guide-zh](2026/asm4-guide-zh/README.md)
+- [ASM4中文指南](2026/asm4-guide-zh/README.md)
 
 ## BigData
 
