@@ -6,7 +6,19 @@
 
 本章说明如何使用 ASM 的 Tree API（树 API）生成和变换方法。本章首先单独介绍 Tree API，并给出若干说明性示例，然后介绍如何将其与 Core API（核心 API）组合使用。用于泛型和注解的 Tree API 将在下一章介绍。
 
+> 笔记：
+>
+> 先看本章和第 6 章的对应关系：第 6 章把“类”放进 `ClassNode`，这一章把“方法”放进 `MethodNode`。前半章先看 `InsnList` 和各种 `XxxInsnNode` 怎样表示指令，再看生成、局部变换、全局变换；后半章再看 `MethodNode` 怎样混进 Core API 的访问器链。
+>
+> 由此得出一个学习顺序：先把方法看成一串可增删改的节点，再把这些节点接回事件流。后面所有例子都围绕同一件事展开——Tree API 让你先拿到完整指令列表，再决定插入、删除或替换哪几条指令。
+
 ## 7.1 接口与组件
+
+> 笔记：
+>
+> 先看 7.1 的任务：它先把 `MethodNode` 和 `InsnList` 展开给你看，再用它们生成方法、局部改方法、全局改方法。上一章的 Tree API 作用在类这一层；这一节把同样的思路放进方法体内部。
+>
+> 由此得出主线：先认识节点列表，再学习怎样往列表里插入、删除、替换指令。
 
 ### 7.1.1 展示
 
@@ -100,7 +112,7 @@ public class VarInsnNode extends AbstractInsnNode {
 
 标签和帧以及行号虽然不是指令，但也由 `AbstractInsnNode` 类的子类表示，即 `LabelNode`、`FrameNode` 和 `LineNumberNode` 类。这使得它们可以像在 Core API 中那样被插入到列表中相应真实指令之前（在 Core API 中，标签和帧正好在其对应的指令之前被访问）。因此，借助 `AbstractInsnNode` 类提供的 `getNext` 方法，很容易找到跳转指令的目标：它就是目标标签之后的第一个真实指令 `AbstractInsnNode`。另一个结果是，与 Core API 一样，只要标签保持不变，删除一条指令并不会破坏跳转指令。
 
-> 笔记：这一节藏着全章两个关键约定。第一，`InsnList` 是**双向链表**，链接关系存在节点自身——同一节点不能同时属于两个列表，`add` 进新列表时会自动离开旧列表，动手前先想清楚。第二，`LabelNode`、`FrameNode`、`LineNumberNode` 的"操作码"是**负数**，真实指令 ≥ 0——后面会反复靠 `getOpcode() < 0` 跳过这些非指令节点，找到"标签后的第一条真实指令"。这正是 Tree API 做全局变换比 Core API 轻松的根本原因：整棵指令树都在手里。
+> 笔记：先看这一节藏着的两个关键约定。第一，`InsnList` 是**双向链表**，链接关系存在节点自身——同一节点不能同时属于两个列表，`add` 进新列表时会自动离开旧列表，动手前先想清楚。第二，`LabelNode`、`FrameNode`、`LineNumberNode` 的"操作码"是**负数**，真实指令 ≥ 0——后面会反复靠 `getOpcode() < 0` 跳过这些非指令节点，找到"标签后的第一条真实指令"。这正是 Tree API 做全局变换比 Core API 轻松的根本原因：整棵指令树都在手里。
 
 ### 7.1.2 生成方法
 
@@ -153,7 +165,7 @@ public Type compile(InsnList output) {
 }
 ```
 
-> 笔记：Tree API 生成方法"更耗时"，却换来**指令可按任意顺序生成**。表达式编译器就是例子：`e1 + e2` 的强制转换要等两边类型都算出来才知道，Core API 事件流发出去就收不回来，只能分两趟编译（脚注 ^1）；Tree API 先把子表达式各自编译进临时 `InsnList`，类型齐了再把强制转换插进中间。由此得出经验：**凡是要"回头补指令"的场景，优先选 Tree API**。文末「附加」的 checkAndSetF 字节码生成完整代码演示了逐条构造 `MethodNode` 的完整流程。
+> 笔记：先看 Tree API 生成方法的取舍：它"更耗时"，却换来**指令可按任意顺序生成**。表达式编译器就是例子：`e1 + e2` 的强制转换要等两边类型都算出来才知道，Core API 事件流发出去就收不回来，只能分两趟编译（脚注 ^1）；Tree API 先把子表达式各自编译进临时 `InsnList`，类型齐了再把强制转换插进中间。由此得出经验：**凡是要"回头补指令"的场景，优先选 Tree API**。文末「附加」的 checkAndSetF 字节码生成完整代码演示了逐条构造 `MethodNode` 的完整流程。
 
 ### 7.1.3 变换方法
 
@@ -170,6 +182,12 @@ mn.instructions.insert(i, il);
 ```
 
 逐条插入指令也是可以的，但更麻烦，因为每次插入之后都必须更新插入点。
+
+> 笔记：
+>
+> 先看 7.1.3 的核心动作：变换方法就是改 `MethodNode` 的字段，尤其是改 `instructions` 这条 `InsnList`。这和第 6 章改 `ClassNode.fields`、`ClassNode.methods` 是同一思路，只是粒度从成员列表降到了指令列表。
+>
+> 再看两种常见模式：一边遍历一边改，或者先把新指令攒进临时 `InsnList` 再一次性插入。由此得出一个小原则：如果要插入多条连续指令，先攒临时列表；如果逐条插入，就必须自己不断更新插入点。
 
 ### 7.1.4 无状态变换与有状态变换
 
@@ -221,7 +239,7 @@ public class AddTimerTransformer extends ClassTransformer {
 
 你可以在这里看到上一节讨论的、用于在指令列表中插入若干条指令的模式，即使用一个临时指令列表。这个例子还表明，在遍历指令列表的同时，可以在当前指令之前插入指令。注意，实现这个适配器所需的代码量在 Core API 和 Tree API 中大致相同。
 
-> 笔记：读 AddTimerTransformer 时先看**方法开头**插桩，再看 **return 前**插桩：都用"先攒进临时 `InsnList`、再一次 `insert`"的模式（7.1.3 刚讲过）。注意 return 前插入要先取 `in.getPrevious()` 再 `insert`——拿 `in` 本身当参照物，计时代码会插到 `RETURN` 之后，永远不会执行。另外要跳过 `<init>`/`<clinit>`；栈尺寸可按书上 `maxStack += 4` 手工调，也可输出时用 `COMPUTE_FRAMES` 代劳。可运行版本（改用 `System.nanoTime`，含打印方法名的 `LDC` 包装）见「附加」的 AddTimerTransformer 完整代码。
+> 笔记：先看 `AddTimerTransformer` 的**方法开头**插桩，再看 **return 前**插桩：都用"先攒进临时 `InsnList`、再一次 `insert`"的模式（7.1.3 刚讲过）。注意 return 前插入要先取 `in.getPrevious()` 再 `insert`——拿 `in` 本身当参照物，计时代码会插到 `RETURN` 之后，永远不会执行。另外要跳过 `<init>`/`<clinit>`；栈尺寸可按书上 `maxStack += 4` 手工调，也可输出时用 `COMPUTE_FRAMES` 代劳。可运行版本（改用 `System.nanoTime`，含打印方法名的 `LDC` 包装）见「附加」的 AddTimerTransformer 完整代码。
 
 删除字段自赋值的方法适配器（见 3.2.5 节）可以实现如下（假设 `MethodTransformer` 与上一章的 `ClassTransformer` 类类似）：
 
@@ -331,7 +349,7 @@ public class RemoveGetFieldPutFieldTransformer2 extends
 
 与前一实现的不同之处在于 `getNext` 方法，它现在作用于列表迭代器。当序列被识别出来时，迭代器正好位于该序列之后，因此不再需要 `while (i.next() != i4)` 循环。但这里又出现了三条或更多连续 `ALOAD 0` 指令这种特殊情况（参见 `while (i3 != null)` 循环）。
 
-> 笔记：两版 `RemoveGetFieldPutFieldTransformer` 对照读，重点看**迭代器定位**。第一版靠 `while (i.next() != i4)` 把迭代器推进到序列之后——`InsnList` 的迭代器不允许删除紧随其后的指令；代价是 `i2`、`i3`、`i4` 被重复检查。第二版 `getNext` 改接收迭代器，识别完序列时迭代器正好停在序列末尾，while 循环消失；再用 `while (i3 != null && isALOAD0(i3))` 处理三条以上连续 `ALOAD 0`——Core API 状态机版最容易漏掉的坑。验证见「附加」的 RemoveGetFieldPutFieldTransformer 完整代码（含改静态字段访问的第三版）。
+> 笔记：先看两版 `RemoveGetFieldPutFieldTransformer` 的对照，重点看**迭代器定位**。第一版靠 `while (i.next() != i4)` 把迭代器推进到序列之后——`InsnList` 的迭代器不允许删除紧随其后的指令；代价是 `i2`、`i3`、`i4` 被重复检查。第二版 `getNext` 改接收迭代器，识别完序列时迭代器正好停在序列末尾，while 循环消失；再用 `while (i3 != null && isALOAD0(i3))` 处理三条以上连续 `ALOAD 0`——Core API 状态机版最容易漏掉的坑。验证见「附加」的 RemoveGetFieldPutFieldTransformer 完整代码（含改静态字段访问的第三版）。
 
 ### 7.1.5 全局变换
 
@@ -407,17 +425,35 @@ F_SAME                      F_SAME
 
 注意，尽管这一变换改变了跳转指令（更正式地说，改变了控制流图），但它不需要更新方法的帧。确实，执行帧的状态在每条指令处都保持不变，而且由于没有引入新的跳转目标，也就没有新的帧必须被访问。不过，有可能某个帧不再需要了。例如在上面的例子中，变换之后 `end` 标签不再被使用，其后的 `F_SAME` 帧以及 `RETURN` 指令也不再被使用。所幸的是，访问比严格需要的更多的帧是完全合法的，在方法中包含未被使用的代码——称为死代码或不可达代码——也完全合法。因此，上面的方法适配器是正确的，尽管它可以改进以删除死代码和帧。
 
-> 笔记：这个跳转优化是"全局变换"的典型。先看内层循环：用 `getOpcode() < 0` 跳过标签、帧、行号，找"标签后第一条真实指令"；外层循环沿 **GOTO → GOTO → …** 追到非 GOTO 为止。替换时若 `in` 是 `GOTO` 且终点是 `RETURN`/`ATHROW`，用 `target.clone(null)` 替换——原对象不能搬，一个节点不能同时属于两个列表。再看帧：折叠不引入新的跳转目标，帧状态不变，**所以不需要更新帧**，顶多留下合法死代码。附加程序补了死代码清理，可直接运行（见「附加」的 OptimizeJumpTransformer 完整代码）。
+> 笔记：先看这个跳转优化为什么是"全局变换"的典型。再看内层循环：用 `getOpcode() < 0` 跳过标签、帧、行号，找"标签后第一条真实指令"；外层循环沿 **GOTO → GOTO → …** 追到非 GOTO 为止。替换时若 `in` 是 `GOTO` 且终点是 `RETURN`/`ATHROW`，用 `target.clone(null)` 替换——原对象不能搬，一个节点不能同时属于两个列表。再看帧：折叠不引入新的跳转目标，帧状态不变，**所以不需要更新帧**，顶多留下合法死代码。附加程序补了死代码清理，可直接运行（见「附加」的 OptimizeJumpTransformer 完整代码）。
 
 ## 7.2 组件组合
 
 到目前为止，我们只看到了如何创建和变换 `MethodNode` 对象，但还没有看到它与类的字节数组表示之间的联系。与类的情况一样，这种联系是通过组合 Core API（核心 API）和 Tree API（树 API）组件来实现的，本节将对此进行说明。
 
+> 笔记：
+>
+> 先看 7.2 要补上的连接：7.1 只在内存里操作 `MethodNode`，这里要说明它怎样和类的字节数组接上。方法层的思路和第 6 章类层一样，都是 Core API 负责事件流，Tree API 负责把某一段事件保存成节点对象。
+>
+> 由此得出这一节的读法：先看 `MethodNode` 怎样接收和回放事件，再看它怎样作为方法适配器嵌入 Core API 链。
+
 ### 7.2.1 展示
 
 除了图 7.1 中所示的字段之外，`MethodNode` 类还继承自 `MethodVisitor` 类，并且提供了两个 `accept` 方法，它们分别以 `MethodVisitor` 或 `ClassVisitor` 作为参数。`accept` 方法根据 `MethodNode` 的字段值生成事件，而 `MethodVisitor` 的方法则执行相反的操作，即根据收到的事件设置 `MethodNode` 的字段。
 
+> 笔记：
+>
+> 先看这一小节给出的两个方向：`MethodVisitor` 的回调把事件存进 `MethodNode` 字段，`accept` 又把这些字段变回访问事件。一个方向是“录进去”，另一个方向是“放出来”。
+>
+> 再把它放回下一节：7.2.2 的两种模式，就是围绕这两个方向组织代码。
+
 ### 7.2.2 模式
+
+> 笔记：
+>
+> 先看 7.2.1 给出的接口事实：`MethodNode` 既能接收 `MethodVisitor` 事件来填字段，也能通过 `accept` 把字段重新吐成事件。它和第 6 章的 `ClassNode` 一样，正是 Core API 和 Tree API 之间的桥。
+>
+> 由此得出 7.2.2 的模式来源：读类时可以只把某个方法“截流”进 `MethodNode`，等 `visitEnd` 到来后再变换并回放。这样类这一层仍走 Core API，只有方法内部用 Tree API。
 
 与类的情况一样，可以把基于树的方法变换器当作 Core API 的方法适配器来使用。可以用于类的两种模式对方法同样有效，而且工作方式完全相同。基于继承的模式如下：
 
@@ -473,7 +509,7 @@ public MethodVisitor visitMethod(int access, String name,
 
 这些模式表明，可以只对方法使用 Tree API（树 API），而对类使用 Core API（核心 API）。实践中经常使用这一策略。
 
-> 笔记：收尾课——**Core 与 Tree 在同一条管道里无缝衔接**。两种 `MyMethodAdapter` 模式殊途同归：继承版让 `MethodNode` 自己当 `MethodVisitor`，事件直接"录"进树里，`visitEnd()` 变换完再 `accept(mv)` 回放给下游；委托版把 `MethodNode` 藏在父类里，`(MethodNode) mv` 取回，并自己记住下游 `next`。一句话：**读类时 Core 事件进树，写类时 Tree 事件出树**。匿名内部类只是把继承版写进 `visitMethod` 的返回表达式。三种写法跑同一变换并验证的完整程序见「附加」的 MyMethodAdapter 完整代码。
+> 笔记：先看收尾处的总原则：**Core 与 Tree 在同一条管道里无缝衔接**。两种 `MyMethodAdapter` 模式殊途同归：继承版让 `MethodNode` 自己当 `MethodVisitor`，事件直接"录"进树里，`visitEnd()` 变换完再 `accept(mv)` 回放给下游；委托版把 `MethodNode` 藏在父类里，`(MethodNode) mv` 取回，并自己记住下游 `next`。一句话：**读类时 Core 事件进树，写类时 Tree 事件出树**。匿名内部类只是把继承版写进 `visitMethod` 的返回表达式。三种写法跑同一变换并验证的完整程序见「附加」的 MyMethodAdapter 完整代码。
 
 [^1]: 解决办法是分两趟编译表达式：一趟计算表达式类型以及必须插入的强制转换，另一趟生成编译后的代码。
 
